@@ -25,7 +25,7 @@ Cypress.Commands.add("login", (userName, password) =>
     loginPage.getPasswordInputBox().type(password).should('have.value', password)
     cy.wait(1000)
     loginPage.getEnterButton().click().should('have.text', 'প্রবেশ করুন')
-    cy.wait(2000)
+    cy.wait(3000)
 })
 
 //-- This is Log Out method --  
@@ -59,6 +59,11 @@ Cypress.Commands.add("calendar", (year, month, day) =>
     requisitionDeclarationPage.getYearMonthDate().contains(day).click()
     cy.wait(1000)
 })
+
+
+
+//Asset Module common Methods
+// ***********************************************
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

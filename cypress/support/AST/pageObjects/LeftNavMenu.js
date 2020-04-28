@@ -1,17 +1,35 @@
 class LeftNavMenu
 {
-    //Store Keeper's MENU 
-    getOdersMenu()  // অর্ডার সমূহ menu
+    //All Menus
+    getDropDownMenu()  // All drop-down menu
     {
-        return cy.get('ast-sidebar-nav :nth-child(1) > .nav-dropdown-toggle')
+        return cy.get('.sidebar ast-sidebar-nav-dropdown a.nav-dropdown-toggle')
     }
-    getReceiveGoodsMenu()  // পণ্য গ্রহণ Sub-menu
+
+    //সেটিংস and Sub-Menus ----------------------------------------------
+    getAPPSubMenu()  //  -> সেটিংস sub-menu
     {
-        return cy.get('a[href="/bcc/web/ast/asset/reception"]')
+        return cy.get('')
     }
-    getMRRMenu()  // এমআরআর Sub-menu
+
+    //চাহিদা পত্র Menu ----------------------------------------------
+    getAPPSubMenu()  //  -> সেটিংস sub-menu
     {
-        return cy.get('a[href="/bcc/web/ast/asset/reception/mrr"]')
+        return cy.get('')
+    }
+
+    //স্টোর কিপিং and Sub-Menus ----------------------------------------------
+    getOpeningStockForStoreSubMenu()  //  স্টোরের পণ্যসমূহ -> ওপেনিং স্টক -> স্টোর কিপিং sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/opening-stock/opening-stock-for-store"]')
+    }
+    getOpeningStockExistingIssueSubMenu()  //  ইস্যুকৃত পণ্যসমূহ -> ওপেনিং স্টক -> স্টোর কিপিং sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/opening-stock/opening-stock-existing-issue"]')
+    }
+    getReceiveGoodsSubMenu()  //  পণ্য গ্রহণ -> অর্ডার সমূহ -> স্টোর কিপিং sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/reception"]')
     }
 }
 export default LeftNavMenu;

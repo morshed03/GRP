@@ -1,5 +1,5 @@
-# AST
-GRP Asset Module Test Automation
+# GRP
+GRP All Module Test Automation
 -------------------------------------
 install package:	npm init -y
 -----------------------------------------------

@@ -26,7 +26,7 @@ describe('PRC Module Regression Test Suite', function()
       cy.visit(Cypress.env('url'))
     })
 
-    // Before all IT Logout
+    // Before all It Logout
     afterEach(function()
     {
       cy.logout()
@@ -84,7 +84,7 @@ describe('PRC Module Regression Test Suite', function()
         cy.wait(6000)
     })
 
-    //চাহিদাপত্র প্রেরণ for পণ্য as a DE
+    //চাহিদাপত্র প্রেরণ for পণ্য as a DE-1
     it('Demand Submission as a DE-1 for Goods TC',function() 
     {
         cy.login(this.prc.userNameDE1, this.prc.passwordDE1)
@@ -150,7 +150,7 @@ describe('PRC Module Regression Test Suite', function()
         cy.wait(5000)
     })
 
-    //চাহিদাপত্র প্রেরণ for সেবা as a DE
+    //চাহিদাপত্র প্রেরণ for সেবা as a DE-2
     it.skip('Demand Submission as a DE-2 for Service TC',function()
     {
         cy.login(this.prc.userNameDE2, this.prc.passwordDE2)
@@ -721,13 +721,8 @@ describe('PRC Module Regression Test Suite', function()
         cy.wait(2000)
         aPPPackagePage.getExpectedDateOfTenderAdvertisementField().click()
         cy.wait(1000)
-        cy.calendar(this.prc.ProcurementYear, this.prc.ProcurementMonth, this.prc.ProcurementDay)
-        /*
-        requisitionDeclarationPage.getCalendarYearView().click()
-        requisitionDeclarationPage.getYearMonthDate().contains(this.prc.ProcurementYear).click()
-        requisitionDeclarationPage.getYearMonthDate().contains(this.prc.ProcurementMonth).click()
-        requisitionDeclarationPage.getYearMonthDate().contains(this.prc.ProcurementDay).click()
-        */
+        cy.calendar(this.prc.ProcurementYear, this.prc.ProcurementMonth, this.prc.ProcurementDay)   //তারিখ
+       
         cy.wait(1000)
         aPPPackagePage.getDaysOfTenderSubmissionField().should('have.attr', 'placeholder', 'দরপত্র জমা দেওয়ার দিন').type('{del}{selectall}{backspace}').type(this.prc.DaysOfTenderSubmission).should('have.value', this.prc.DaysOfTenderSubmission)
         cy.wait(2000)
@@ -822,13 +817,8 @@ describe('PRC Module Regression Test Suite', function()
         cy.wait(2000)
         aPPPackagePage.getExpectedDateOfTenderAdvertisementField().click()
         cy.wait(1000)
-        cy.calendar(this.prc.ProcurementYear, this.prc.ProcurementMonth, this.prc.ProcurementDay)
-        /*
-        requisitionDeclarationPage.getCalendarYearView().click()
-        requisitionDeclarationPage.getYearMonthDate().contains(this.prc.ProcurementYear).click()
-        requisitionDeclarationPage.getYearMonthDate().contains(this.prc.ProcurementMonth).click()
-        requisitionDeclarationPage.getYearMonthDate().contains(this.prc.ProcurementDay).click()
-        */
+        cy.calendar(this.prc.ProcurementYear, this.prc.ProcurementMonth, this.prc.ProcurementDay) //তারিখ
+        
         cy.wait(1000)
         aPPPackagePage.getDaysOfTenderSubmissionField().should('have.attr', 'placeholder', 'দরপত্র জমা দেওয়ার দিন').type('{del}{selectall}{backspace}').type(this.prc.DaysOfTenderSubmission).should('have.value', this.prc.DaysOfTenderSubmission)
         cy.wait(2000)
@@ -1741,7 +1731,7 @@ describe('PRC Module Regression Test Suite', function()
 
     //Material Receive as Store Keeper on AST module
     //Create OPM using APP
-    it('Create OPM Through DCP as a PE TC',function() 
+    it.only('Create OPM Through DCP as a PE TC',function() 
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 
@@ -1771,14 +1761,6 @@ describe('PRC Module Regression Test Suite', function()
         oPMAPPDCPPage.getDateCalendar().click()   //তারিখ
         cy.wait(1000)
         cy.calendar(this.prc.DCPYear, this.prc.DCPMonth, this.prc.DCPDate)
-
-        /*
-        oPMAPPDCPPage.getCalendarYearView().click()
-        oPMAPPDCPPage.getYear().contains(this.prc.DCPYear).click()
-        oPMAPPDCPPage.getMonth().contains(this.prc.DCPMonth).click()
-        oPMAPPDCPPage.getDate().contains(this.prc.DCPDate).click()
-        cy.wait(1000)
-        */
 
         oPMAPPDCPPage.getReferenceNoField().click().should('have.attr', 'placeholder', 'রেফারেন্স নং').type(this.prc.DCPReferenceNo).should('have.value', this.prc.DCPReferenceNo)   //রেফারেন্স নং
         cy.wait(1500)
