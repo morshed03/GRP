@@ -1,0 +1,23 @@
+{
+    "storeKeeperID": "taif0001",
+    "storeKeeperPassword": "123456789",
+  
+    "storeAdminID": "mors0001",
+    "storeAdminPassword": "123456789",
+  
+    "inspectorID": "risa0001",
+    "inspectorPassword": "123456789",
+    "inspectorOffice": "সফটওয়্যার কোয়ালিটি আসিউর‍্যান্স স্পেশালিষ্ট, এসকিউএ টিম",
+    
+    "storeName": "SQA_CoKreates_store",
+    "chalanNo": "Chalan.SQA.Auto.0001",
+    "chalanYear": "২০২০",
+    "chalanMonth": "এপ্রিল",
+    "chalanDay": "২৯",
+  
+    "InspectorType": "কর্মকর্তা",
+    "OfficeUnit": "SQA CoKreates",
+    "Inspector": "রাইসা আমিন 1",
+    "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।"
+  
+}

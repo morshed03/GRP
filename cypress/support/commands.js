@@ -5,17 +5,28 @@
 
 import 'cypress-file-upload';
 
-// Import page objects 
+// Import pages 
+// ***********************************************
+//Common page import
 import LoginPage from '../support/commonPage/LoginPage'
 import DashboardPage from '../support/commonPage/DashboardPage'
+//PRC page import
 import RequisitionDeclarationPage from '../support/PRC/pageObjects/RequisitionDeclarationPage'
+//AST page import
+import ReceiveGoods_StoreKeepingPage from '../support/AST/pageObjects/ReceiveGoods_StoreKeepingPage'
 
-// https://on.cypress.io/custom-commands
-// ***********************************************
+
 //-- This is the create page object --
+// ***********************************************
+//Common create page object 
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage() 
+//PRC create page object
 const requisitionDeclarationPage = new RequisitionDeclarationPage()
+//AST create page object
+const receiveGoodsPage = new ReceiveGoods_StoreKeepingPage()
+
+
 
 // -- This is Login Method --
 Cypress.Commands.add("login", (userName, password) => 
@@ -64,7 +75,17 @@ Cypress.Commands.add("calendar", (year, month, day) =>
 
 //Asset Module common Methods
 // ***********************************************
-
+Cypress.Commands.add("inspection", (element) => 
+{
+    receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired চালান নং on বিবরণ column
+    {
+        const textDescription=$el.find('td.e-rowcell[aria-label]').text()
+        if(textDescription.includes(element))                    
+        {
+            $el.find('td button mat-icon').click()
+        }
+    })
+})
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

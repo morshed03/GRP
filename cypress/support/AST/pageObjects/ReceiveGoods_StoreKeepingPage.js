@@ -1,4 +1,4 @@
-class ReceiveGoodsPage
+class ReceiveGoods_StoreKeepingPage
 {
     getStoreNameTab()  // Store tab 
     {
@@ -8,10 +8,19 @@ class ReceiveGoodsPage
     {
         return cy.get('.card-header mat-label:eq(0)')
     }
-    getCardThirdHeader()  // Page/Card Header 3
+    getSecondCardHeader()  // Page/Card Header 2
+    {
+        return cy.get('.card-header mat-label:eq(1)')
+    }
+    getThirdCardHeader()  // Page/Card Header 3
     {
         return cy.get('.card-header mat-label:eq(2)')
     }
+    getFourthCardHeader()  // Page/Card Header 4
+    {
+        return cy.get('.card-header mat-label:eq(3)')
+    }
+
     getCardRows()  // Card/Table rows
     {
         return cy.get('tbody tr')
@@ -30,4 +39,4 @@ class ReceiveGoodsPage
     }
     
 }
-export default ReceiveGoodsPage;
+export default ReceiveGoods_StoreKeepingPage;

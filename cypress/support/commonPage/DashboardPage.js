@@ -1,5 +1,16 @@
 class DashboardPage
-{
+{   
+    //অফিস/পদ নির্বাচন করুন pop-up locators -----------------------
+    getOfficePopUpHeader()  // Pop-up title
+    {
+        return cy.get('mat-dialog-container div>p')
+    }
+    getOfficeName()  //Office name
+    {
+        return cy.get('mat-dialog-container div>button')
+    }
+
+    //Dashboard page locators --------------------------------------
     getASTAvatar()  //AST avatar
     {
         return cy.get('img[src="assets/img/brand/asset.svg"]')
@@ -12,6 +23,8 @@ class DashboardPage
     {
         return cy.get('img[src="assets/img/brand/inventory.svg"]')
     }
+
+    //Log Out Locators ---------------------------------------------
     getUserAvatar() // The user avatar from anypage page 
     {
         return cy.get('img.img-avatar')

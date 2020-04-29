@@ -13,9 +13,15 @@ class LeftNavMenu
     }
 
     //চাহিদা পত্র Menu ----------------------------------------------
-    getAPPSubMenu()  //  -> সেটিংস sub-menu
+    getAPPSubMenu()  //  ->  sub-menu
     {
         return cy.get('')
+    }
+
+    //অনুমোদন অপেক্ষমান and Sun-Menus ----------------------------------------------
+    getInspectedSubMenu()  // পরিদর্শনকৃত -> অনুমোদন অপেক্ষমান sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/inspection/inspected"]')
     }
 
     //স্টোর কিপিং and Sub-Menus ----------------------------------------------
@@ -31,5 +37,20 @@ class LeftNavMenu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/reception"]')
     }
+    getAssetTaggingSubMenu()  //অ্যাসেট ট্যাগিং -> স্টোর কিপিং sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/asset-tagging"]')
+    }
+
+    //ইন্সপেকশন and Sub-Menus ----------------------------------------------
+    getInspectionUnassignedSubMenu()  //  পরিদর্শক নির্ধারণ -> ইন্সপেকশন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/inspection/unassigned"]')
+    }
+    getInspectionAssignedSubMenu()  // নির্ধারিত পরিদর্শন -> ইন্সপেকশন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/inspection/assigned"]')
+    }
+    
 }
 export default LeftNavMenu;

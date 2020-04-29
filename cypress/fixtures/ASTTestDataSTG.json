@@ -1,10 +1,26 @@
 {
   "storeKeeperID": "taif0001",
   "storeKeeperPassword": "1234567",
+
+  "storeAdminID": "mors0002",
+  "storeAdminPassword": "1234567",
+
+  "inspectorID": "rais0002",
+  "inspectorPassword": "1234567",
+  "inspectorOffice": "সফটওয়্যার কোয়ালিটি আসিউর‍্যান্স স্পেশালিষ্ট, এসকিউএ টিম",
   
   "storeName": "SQA Test Store",
-  "chalanNo": "Chalan.SQA.Auto.0010",
+  "chalanNo": "Chalan.SQA.Auto.0011",
   "chalanYear": "২০২০",
   "chalanMonth": "এপ্রিল",
-  "chalanDay": "২৮"
+  "chalanDay": "২৯",
+
+  "InspectorType": "কর্মকর্তা",
+  "OfficeUnit": "এসকিউএ টিম",
+  "Inspector": "রাইসা আমিন",
+  "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
+
+  "assetTagNo": "2020/04/29/22/56/23/22813",
+  "assetLifeTime": "48"
+
 }
