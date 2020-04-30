@@ -41,6 +41,14 @@ class LeftNavMenu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/asset-tagging"]')
     }
+    getDirectInSubMenu()  //সরাসরি গ্রহণ -> স্টোর কিপিং sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/direct-in"]')
+    }
+    getDirectOutSubMenu()  //সরাসরি প্রদান -> স্টোর কিপিং sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/direct-out"]')
+    }
 
     //ইন্সপেকশন and Sub-Menus ----------------------------------------------
     getInspectionUnassignedSubMenu()  //  পরিদর্শক নির্ধারণ -> ইন্সপেকশন sub-menu

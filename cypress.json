@@ -6,6 +6,6 @@
     "reporter": "mochawesome",
     
     "env": {
-        "url": "http://staging.grp.gov.bd/"
-        }
+        "url": "http://sqa.grp.gov.bd/"
+    }
 }

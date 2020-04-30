@@ -10,14 +10,27 @@
     "inspectorOffice": "সফটওয়্যার কোয়ালিটি আসিউর‍্যান্স স্পেশালিষ্ট, এসকিউএ টিম",
     
     "storeName": "SQA_CoKreates_store",
-    "chalanNo": "Chalan.SQA.Auto.0001",
+    "chalanNo": "Chalan.SQA.Auto.0002",
     "chalanYear": "২০২০",
     "chalanMonth": "এপ্রিল",
-    "chalanDay": "২৯",
+    "chalanDay": "৩০",
   
     "InspectorType": "কর্মকর্তা",
     "OfficeUnit": "SQA CoKreates",
     "Inspector": "রাইসা আমিন 1",
-    "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।"
+    "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
+
+    "assetTagNo": "2020/04/30/11/00/36/29505",
+    "DIassetTagNo": "2020/04/30/19/17/22/39603",
+    "assetLifeTime": "48",
+
+    "DIReferenceNo": "DI/2020/04/30/12/75134",
+    "DIReceptionType": "ডিরেক্ট ইন",
+    "DIJustification": "এটি এসকিউএ অটোমেশন টেস্ট",
+    "ItemCategory": "এয়ার কন্ডিশনার",
+    "ItemGroup": "এয়ার কন্ডিশন",
+    "ItemName": "এয়ার কন্ডিশন ব্র্যান্ড: ওয়াল্টন, ক্যাপাসিটি: ১ টন",
+    "DIassetBookValue": "50000"
+
   
 }

@@ -16,6 +16,16 @@ class AssetTagging_StoreKeepingPage
     {
         return cy.get('td input:eq(5)')
     }
+
+    //For Direct In 
+    getBookValueInputField()     // প্রথম লিখিত মূল্য input field 
+    {
+        return cy.get('td input:eq(2)')
+    }
+    getLifeTimeInputFieldDI()     // প্রথম Life Time input field 
+    {
+        return cy.get('td input:eq(3)')
+    }
     
 }
 export default AssetTagging_StoreKeepingPage;
