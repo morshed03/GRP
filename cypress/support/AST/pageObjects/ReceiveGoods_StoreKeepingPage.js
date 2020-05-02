@@ -33,9 +33,14 @@ class ReceiveGoods_StoreKeepingPage
     {
         return cy.get('svg.mat-datepicker-toggle-default-icon:eq(0)')
     }
+
     getCardFooterFourthButton()  //Card Footer icon 04
     {
         return cy.get('.card-footer button:eq(3)')
+    }
+    getCardFooterFifthButton()  //Card Footer icon 05
+    {
+        return cy.get('.card-footer button:eq(4)')
     }
     
 }

@@ -1,4 +1,7 @@
 {
+  "officeAdminID": "suji0001",
+  "officeAdminPassword": "1234567",
+
   "storeKeeperID": "taif0001",
   "storeKeeperPassword": "1234567",
 
@@ -20,7 +23,24 @@
   "Inspector": "রাইসা আমিন",
   "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
 
-  "assetTagNo": "2020/04/29/22/56/23/22813",
-  "assetLifeTime": "48"
+  "assetTagNo": "2020/04/23/14/09/48/49480",
+  "DIassetTagNo": "2020/05/01/18/12/38/18866",
+  "assetLifeTime": "48",
+
+  "DIReferenceNo": "DI/2020/05/01/17/43525",
+  "DIReceptionType": "ডিরেক্ট ইন",
+  "DIJustification": "এটি এসকিউএ অটোমেশন টেস্ট",
+  "ItemCategory": "এয়ার কন্ডিশনার",
+  "ItemGroup": "এয়ার কন্ডিশন",
+  "ItemName": "এয়ার কন্ডিশন ব্র্যান্ড: ওয়াল্টন, ক্যাপাসিটি: ১ টন",
+  "DIassetBookValue": "50000",
+
+  "DOOfficePostType": "পদবি",
+  "DOPost": "দল প্রধান (সুজিত কুমার পাল)",
+  "ApprovalRemarks": "পণ্যটির অনুমোদন দেওয়া হলো।",
+  "DOPostPerson": "সুজিত কুমার পাল",
+
+  "requisitionReferenceNo": "REQ/2020/05/01/20/29222",
+  "requisitionPurpose": "প্রশাসনিক"
 
 }

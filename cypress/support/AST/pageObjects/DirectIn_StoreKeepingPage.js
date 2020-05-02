@@ -22,7 +22,11 @@ class DirectIn_StoreKeepingPage
         return cy.get('.card-body input:eq(2)')
     }
 
-    getAddItemPlusButton()  //পণ্য যোগ করুন 
+    getAddItemPlusButtonForFirstStore()  //পণ্য যোগ করুন for First Store
+    {
+        return cy.get('.card-header button mat-icon:eq(0)')
+    }
+    getAddItemPlusButtonForSecondStore()  //পণ্য যোগ করুন for Second Store
     {
         return cy.get('.card-header button mat-icon:eq(1)')
     }

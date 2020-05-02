@@ -13,15 +13,23 @@ class LeftNavMenu
     }
 
     //চাহিদা পত্র Menu ----------------------------------------------
-    getAPPSubMenu()  //  ->  sub-menu
+    getRequisitionMenu()  //  চাহিদা পত্র
     {
-        return cy.get('')
+        return cy.get('ast-sidebar-nav-items a[href*="asset/requisition"]')
     }
 
     //অনুমোদন অপেক্ষমান and Sun-Menus ----------------------------------------------
+    getRequisitionSubMenuOfPendingApproval()  // চাহিদা পত্র -> অনুমোদন অপেক্ষমান sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/requisition/approve"]')
+    }
     getInspectedSubMenu()  // পরিদর্শনকৃত -> অনুমোদন অপেক্ষমান sub-menu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/inspection/inspected"]')
+    }
+    getDirectOutSubMenuOfPendingApproval()  // সরাসরি প্রদান -> অনুমোদন অপেক্ষমান sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/direct-out/direct-out-approve-list"]')
     }
 
     //স্টোর কিপিং and Sub-Menus ----------------------------------------------
@@ -40,6 +48,10 @@ class LeftNavMenu
     getAssetTaggingSubMenu()  //অ্যাসেট ট্যাগিং -> স্টোর কিপিং sub-menu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/asset-tagging"]')
+    }
+    getIssueLisrSubMenu()  //ইস্যু -> স্টোর কিপিং sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/requisition/issue-list"]')
     }
     getDirectInSubMenu()  //সরাসরি গ্রহণ -> স্টোর কিপিং sub-menu
     {

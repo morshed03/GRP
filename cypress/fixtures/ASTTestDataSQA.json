@@ -30,7 +30,9 @@
     "ItemCategory": "এয়ার কন্ডিশনার",
     "ItemGroup": "এয়ার কন্ডিশন",
     "ItemName": "এয়ার কন্ডিশন ব্র্যান্ড: ওয়াল্টন, ক্যাপাসিটি: ১ টন",
-    "DIassetBookValue": "50000"
+    "DIassetBookValue": "50000",
 
-  
+    "DOOfficePostType": "পদবি",
+    "DOPost": "দল প্রধান (সুজিত কুমার পাল)",
+    "ApprovalRemarks": "পণ্যটির অনুমোদন দেওয়া হলো।"
 }

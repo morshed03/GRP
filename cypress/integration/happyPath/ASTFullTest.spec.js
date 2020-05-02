@@ -9,11 +9,14 @@ import InspectionAssigned_InspectionPage from '../../support/AST/pageObjects/Ins
 import Inspected_PendingApprovalPage from '../../support/AST/pageObjects/Inspected_PendingApprovalPage'
 import AssetTagging_StoreKeepingPage from '../../support/AST/pageObjects/AssetTagging_StoreKeepingPage'
 import DirectIn_StoreKeepingPage from '../../support/AST/pageObjects/DirectIn_StoreKeepingPage'
+import DirectOut_StoreKeepingPage from '../../support/AST/pageObjects/DirectOut_StoreKeepingPage'
+import RequisitionPage from '../../support/AST/pageObjects/RequisitionPage'
+import IssueList_StoreKeepingPage from '../../support/AST/pageObjects/IssueList_StoreKeepingPage'
 
 //Import PRC data
 beforeEach(function() 
 {
-    cy.fixture('PRCTestDataSQA').then(function(prc)
+    cy.fixture('PRCTestDataSTG').then(function(prc)
     {
         this.prc = prc
     })
@@ -23,7 +26,7 @@ describe('AST Module Regression Test Suite', function()
 {
     beforeEach(function() 
     {
-      cy.fixture('ASTTestDataSQA').then(function(ast)
+      cy.fixture('ASTTestDataSTG').then(function(ast)
       {
         this.ast = ast
       })
@@ -51,6 +54,9 @@ describe('AST Module Regression Test Suite', function()
     const inspectedPage = new Inspected_PendingApprovalPage()
     const assetTaggingPage = new AssetTagging_StoreKeepingPage()
     const directInPage = new DirectIn_StoreKeepingPage()
+    const directOutPage = new DirectOut_StoreKeepingPage()
+    const requisitionPage = new RequisitionPage()
+    const issueListPage = new IssueList_StoreKeepingPage()
 
     //Material Receive as Store Keeper
     it('Store Keeper: Material Receive. TC',function() 
@@ -277,11 +283,11 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান ডিরেক্ট ইন')
 
-        //directInPage.getAddButtonFirstStore().click()     //For First Store
-        directInPage.getAddButtonSecondStore().click()
+        directInPage.getAddButtonFirstStore().click()     //For First Store
+        //directInPage.getAddButtonSecondStore().click()
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'ডিরেক্ট ইন তৈরি করুন')     //For First Store
-        receiveGoodsPage.getSecondCardHeader().should('include.text', 'ডিরেক্ট ইন তৈরি করুন')
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিরেক্ট ইন তৈরি করুন')     //For First Store
+        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'ডিরেক্ট ইন তৈরি করুন')
 
         directInPage.getReferenceNoField().should('have.attr', 'placeholder', 'রেফারেন্স নং').clear().type(this.ast.DIReferenceNo).should('have.value', this.ast.DIReferenceNo)
         cy.wait(2000)
@@ -290,7 +296,8 @@ describe('AST Module Regression Test Suite', function()
         directInPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.DIJustification).should('have.value', this.ast.DIJustification)
         cy.wait(2000)
 
-        directInPage.getAddItemPlusButton().click()     //পণ্য যোগ করুন 
+        directInPage.getAddItemPlusButtonForFirstStore().click()     //পণ্য যোগ করুন 
+        //directInPage.getAddItemPlusButtonForSecondStore().click()
         cy.wait(3000)
         
         directInPage.getItemCategoryField().should('have.attr', 'aria-label', 'ক্যাটাগরি').click()
@@ -342,11 +349,11 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.DIReferenceNo)  //রেফারেন্স নং
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সরাসরি গ্রহণ')
-        receiveGoodsPage.getSecondCardHeader().should('include.text', 'সরাসরি গ্রহণ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'সরাসরি গ্রহণ')
+        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সরাসরি গ্রহণ')   //When Store is seconde index (SQA)
 
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
-        receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
+        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
         
         inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
@@ -368,12 +375,12 @@ describe('AST Module Regression Test Suite', function()
     it('Inspector: Inspect for Direct In. TC',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        */
+        
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -381,10 +388,6 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(1000)
         leftNavMenu.getInspectionAssignedSubMenu().should('include.text', 'নির্ধারিত পরিদর্শন').click()
         cy.wait(3000)
-
-        //No Store Showing here all are combine, So skip the Store selection code
-        //receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
-        //cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
         cy.inspection(this.ast.DIReferenceNo)  //রেফারেন্স নং
@@ -426,8 +429,8 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.DIReferenceNo)  //রেফারেন্স নং
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
-        receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
+        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
       
         inspectedPage.getCardFooterFifthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
         
@@ -435,7 +438,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Asset Tagging
-    it.only('Store Keeper: Asset Tagging (Direct In Asset). TC',function() 
+    it('Store Keeper: Asset Tagging (Direct In Asset). TC',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -461,8 +464,8 @@ describe('AST Module Regression Test Suite', function()
         })
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'অ্যাসেট ট্যাগ')
-        receiveGoodsPage.getSecondCardHeader().should('include.text', 'অ্যাসেট ট্যাগ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'অ্যাসেট ট্যাগ')
+        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'অ্যাসেট ট্যাগ')   //When Store is seconde index (SQA)
 
         //receiveGoodsPage.getThirdCardHeader().should('include.text', 'পণ্য সমূহ')
 
@@ -482,4 +485,227 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click()
         cy.wait(6000)
     })
+
+    //Direct Out Flow Start ************************************************
+    //Direct Out
+    it('Store Keeper: Direct Out Request and Send for Approval . TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('স্টোর কিপিং').click()
+        cy.wait(1000)
+        leftNavMenu.getDirectOutSubMenu().should('include.text', 'সরাসরি প্রদান').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click() //Select Store
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান অনুরোধসমূহ')
+        directInPage.getAddButtonFirstStore().click()
+        //directInPage.getAddButtonSecondStore().click()      //Re-use from Direct In Page
+        cy.wait(3000)
+
+        directOutPage.getPostOfficeTypeField().should('have.attr', 'aria-label', 'ধরণ').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.DOOfficePostType).click()
+        cy.wait(2000)
+
+        directOutPage.getOfficeUniteField().should('have.attr', 'aria-label', 'শাখা').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.OfficeUnit).click()
+        cy.wait(2000)
+
+        directOutPage.getPostField().should('have.attr', 'aria-label', 'পদবি').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.DOPost).click()
+        cy.wait(2000)
+
+        directOutPage.getTagInputField().should('have.attr', 'placeholder', 'ট্যাগ').click().type(this.ast.DIassetTagNo).should('have.value', this.ast.DIassetTagNo)
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'পণ্য যোগ করুন').click()   //Re-use from Receive Goods Page
+        cy.wait(3000)
+        receiveGoodsPage.getCardFooterFifthButton().should('include.text', 'অনুমোদনের জন্য প্রেরণ').click()   //Re-use from Receive Goods Page
+        cy.wait(6000)
+    })
+
+    //Store Admin Approved the Direct Out
+    it('Store Admin: Approves Direct Out with Proper Comments. TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getDirectOutSubMenuOfPendingApproval().should('include.text', 'সরাসরি প্রদান').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.inspection(this.ast.DOPostPerson)  //Direct Out user Post
+        cy.wait(3000)
+
+        directOutPage.getDirectOutDetailsPageHeader().should('include.text', 'সরাসরি প্রদান বিস্তারিত')
+        directOutPage.getDORemarksInputField().click().type(this.ast.ApprovalRemarks).should('have.value', this.ast.ApprovalRemarks)
+        cy.wait(2000)
+
+        inspectedPage.getCardFooterFifthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
+        
+        cy.wait(6000)  
+    })
+
+    //Asset Requisition and Approval Flow Start **********************************
+    //Requisition (self) 
+    it('Asset user: Add Items for (Self) Requisition. TC',function() 
+    {
+        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getRequisitionMenu().should('include.text', 'চাহিদা পত্র').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'চাহিদা পত্র')
+        directInPage.getAddButtonFirstStore().click()   // Re-use from Direct In Page (চাহিদা পত্র plus button)
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'চাহিদাপত্র তৈরি করুন')
+        requisitionPage.getReferenceNoField().should('have.attr', 'placeholder', 'রেফারেন্স নং').clear().type(this.ast.requisitionReferenceNo).should('have.value', this.ast.requisitionReferenceNo)
+        cy.wait(2000)
+
+        requisitionPage.getJustificationField().should('have.value', 'দাপ্তরিক কাজে ব্যবহারের জন্য')
+        requisitionPage.getPurposeField().should('have.attr', 'aria-label', 'উদ্দেশ্য').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.requisitionPurpose).click()
+        cy.wait(2000)
+
+        requisitionPage.getItemsButton().should('include.text', 'পণ্য সমূহ').click()
+        cy.wait(3000)
+
+        requisitionPage.getItemsCategoryField().should('have.attr', 'aria-label', 'ক্যাটাগরি').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        {
+            const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
+            if(textItemGroup.includes(this.ast.ItemGroup))                    
+            {
+                $el.find('td button mat-icon:eq(1)').first().click()
+            }
+        })
+        cy.wait(3000)
+
+        directInPage.getItemFeaturesHeader().should('include.text', 'বৈশিষ্ট্য')
+
+        directInPage.getItemsDropDownField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemName).first().click()
+        cy.wait(2000)
+        directInPage.getAddFeaturesButton().should('include.text', 'বৈশিষ্ট্য যোগ করুন').click()
+        cy.wait(2000)
+
+        directInPage.getAddItemButton().first().click()
+        cy.wait(2000)
+
+        inspectedPage.getCardFooterFifthButton().should('include.text', 'প্রেরণ').click() //Reuse from ReceiveGoods Page 
+        
+        cy.wait(6000)  
+    })
+    //Self Requisition Approval 
+    it('Store Admin: Requisition Approval of Asset User(Self) Requisition. TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getRequisitionSubMenuOfPendingApproval().should('include.text', 'চাহিদা পত্র').click()
+        cy.wait(3500)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'চাহিদা পত্র')
+        cy.inspection(this.ast.DOPostPerson)    //Select গ্রাহক
+        cy.wait(3000)
+        
+        receiveGoodsPage.getCardHeader().should('include.text', 'চাহিদা পত্র অনুমোদন')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        {
+            const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
+            if(textItemGroup.includes(this.ast.ItemGroup))                    
+            {
+                $el.find('td button mat-icon:eq(0)').first().click()
+            }
+        })
+        cy.wait(5000)
+
+        requisitionPage.getUncheckDefaultItem().click({ force: true })
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo))                    
+            {
+                $el.find('.e-templatecell label .e-icons').click()
+            }
+        })
+        cy.wait(2000)
+
+        requisitionPage.getAddAssetButton().should('include.text', 'সম্পদ যোগ করুন').click()
+        cy.wait(2000)
+        
+        requisitionPage.getRemarkField().click().type(this.ast.ApprovalRemarks).should('have.value', this.ast.ApprovalRemarks)
+        cy.wait(2000)
+        
+        requisitionPage.getCardFooterSixthButton().should('include.text', 'অনুমোদন করুন').click() 
+        cy.wait(2000)
+        
+        requisitionPage.getConfirmPopupHeader().should('include.text', 'নিশ্চিত করুন')
+        requisitionPage.getCardFooterYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(2000)
+
+        requisitionPage.getConfirmPopupHeader().should('include.text', 'অনুরোধ নিশ্চিতকরণ')
+        requisitionPage.getRemarksFieldOnConfirmCard().click().type(this.ast.ApprovalRemarks)
+        cy.wait(2000)
+
+        requisitionPage.getCardFooterYesButton().should('include.text', 'সংরক্ষণ করুন').click()
+        
+        cy.wait(6000)
+    })
+
+    //Self Requisition Item Issue 
+    it('Store Keeper: Issue Requisition Items for Asset User(Self) Requisition. TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('স্টোর কিপিং').click()
+        cy.wait(1000)
+        leftNavMenu.getIssueLisrSubMenu().should('include.text', 'ইস্যু').click()
+        cy.wait(3500)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ইস্যু তালিকা')
+        cy.inspection(this.ast.DOPostPerson)    //Select গ্রাহক
+        cy.wait(3000)
+        
+        receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+        
+        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click() 
+         
+        cy.wait(6000)
+    })
+
 })
