@@ -15,8 +15,8 @@
   "storeName": "SQA Test Store",
   "chalanNo": "Chalan.SQA.Auto.0011",
   "chalanYear": "২০২০",
-  "chalanMonth": "এপ্রিল",
-  "chalanDay": "২৯",
+  "chalanMonth": "মে",
+  "chalanDay": "৩",
 
   "InspectorType": "কর্মকর্তা",
   "OfficeUnit": "এসকিউএ টিম",
@@ -41,6 +41,10 @@
   "DOPostPerson": "সুজিত কুমার পাল",
 
   "requisitionReferenceNo": "REQ/2020/05/01/20/29222",
-  "requisitionPurpose": "প্রশাসনিক"
+  "requisitionPurpose": "প্রশাসনিক",
+
+  "CarrierName": "তায়েফ ইমাম",
+  "ApproverName": "মোরশেদ আলম",
+  "ARPost": "দল প্রধান"
 
 }

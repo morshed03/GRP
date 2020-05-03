@@ -5,7 +5,11 @@ class InspectionAssigned_InspectionPage
     {
         return cy.get('td input:eq(2)')
     }
-    getQCReportButton()  // মন্তব্য field
+    getRemarksFieldFirstStore()  // মন্তব্য field for First Store
+    {
+        return cy.get('td input:eq(1)')
+    }
+    getQCReportButton()  //কিউসি রিপোর্ট আপলোড করুন
     {
         return cy.get('.card-header button')
     }

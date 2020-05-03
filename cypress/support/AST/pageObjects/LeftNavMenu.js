@@ -31,6 +31,10 @@ class LeftNavMenu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/direct-out/direct-out-approve-list"]')
     }
+    getRequestApprovalSubMenu()  // ফেরত অনুরোধ -> অনুমোদন অপেক্ষমান sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/return/request-approval-list"]')
+    }
 
     //স্টোর কিপিং and Sub-Menus ----------------------------------------------
     getOpeningStockForStoreSubMenu()  //  স্টোরের পণ্যসমূহ -> ওপেনিং স্টক -> স্টোর কিপিং sub-menu
@@ -71,6 +75,19 @@ class LeftNavMenu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/inspection/assigned"]')
     }
-    
+
+    //ফেরৎ গ্রহণ and Sub-Menus ----------------------------------------------
+    ReceiveTaggedItemsSubMenu()  // ট্যাগকৃত পণ্যসমূহ গ্রহণ -> ফেরৎ গ্রহণ sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/return/tag-entry"]')
+    }
+    getRequestReturnSubMenu()  // ফেরৎ অনুরোধ -> ফেরৎ গ্রহণ sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/return/request-return-list"]')
+    }
+    getRequestReceiveSubMenu()  // ফেরত গ্রহণ -> ফেরৎ গ্রহণ sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/return/request-receive-list"]')
+    }
 }
 export default LeftNavMenu;
