@@ -2,6 +2,9 @@
   "officeAdminID": "suji0001",
   "officeAdminPassword": "1234567",
 
+  "committeeHeadID": "suji0001",
+  "committeeHeadPassword": "1234567",
+
   "storeKeeperID": "taif0001",
   "storeKeeperPassword": "1234567",
 
@@ -24,6 +27,8 @@
   "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
 
   "assetTagNo": "2020/04/23/14/09/48/49480",
+  "assetTagNo2": "2020/04/26/16/28/35/18275",
+  "assetTagNo3": "2020/04/26/16/28/35/79531",
   "DIassetTagNo": "2020/05/01/18/12/38/18866",
   "assetLifeTime": "48",
 
@@ -45,6 +50,9 @@
 
   "CarrierName": "তায়েফ ইমাম",
   "ApproverName": "মোরশেদ আলম",
-  "ARPost": "দল প্রধান"
+  "ARPost": "দল প্রধান",
+
+  "MaintenanceCost": "2000",
+  "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।"
 
 }

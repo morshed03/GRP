@@ -14,6 +14,7 @@ import RequisitionPage from '../../support/AST/pageObjects/RequisitionPage'
 import IssueList_StoreKeepingPage from '../../support/AST/pageObjects/IssueList_StoreKeepingPage'
 import RequestReturnPage from '../../support/AST/pageObjects/RequestReturnPage'
 import ReceiveTaggedItemsPage from '../../support/AST/pageObjects/ReceiveTaggedItemsPage'
+import Items_MaintenancePage from '../../support/AST/pageObjects/Items_MaintenancePage'
 
 //Import PRC data
 beforeEach(function() 
@@ -61,6 +62,7 @@ describe('AST Module Regression Test Suite', function()
     const issueListPage = new IssueList_StoreKeepingPage()
     const requestReturnPage = new RequestReturnPage()
     const receiveTaggedItemsPage = new ReceiveTaggedItemsPage()
+    const itemsMaintenancePage = new Items_MaintenancePage()
 
     //Material Receive Start Here *************************************
     //Material Receive as Store Keeper
@@ -936,7 +938,7 @@ describe('AST Module Regression Test Suite', function()
 
     //Asset Return (Self Return) Flow Start **********************************
     //Add tag and then add items, click on Send for Inspection 
-    it('Store Keeper : Add Tag and Send for Inspection (Self Return). TC',function() 
+    it('Store Keeper : Enter Assined Item Tag and Send for Inspection (Self Return). TC',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1068,5 +1070,188 @@ describe('AST Module Regression Test Suite', function()
         inspectedPage.getCardFooterFifthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
         
         cy.wait(6000)  
+    })
+
+    //Asset Maintenance (Inspection) Flow Start **********************************
+    //Enter assined item tag number for return, click on Send for Inspection 
+    it('Store Keeper : Enter Assined Item Tag and Send for Maintenance (Inspection). TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ফেরৎ গ্রহণ').click()
+        cy.wait(1000)
+        leftNavMenu.ReceiveTaggedItemsSubMenu().should('include.text', 'ট্যাগকৃত পণ্যসমূহ গ্রহণ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগ দিন')
+
+        receiveTaggedItemsPage.getTagInputField().should('have.attr', 'placeholder', 'ট্যাগ').click().type(this.ast.assetTagNo2).should('have.value', this.ast.assetTagNo2)
+        cy.wait(2000)
+
+        receiveTaggedItemsPage.getCardFooterThirdButton().should('include.text', 'পণ্য যোগ করুন').click()
+        cy.wait(200)
+        
+        receiveGoodsPage.getCardFooterFourthButton().click()    //Send for Inspection button
+        
+        cy.wait(6000)  
+    })
+
+    //Inspector Assign for Asset Maintenance (Inspection)
+    it('Store Admin: Inspector Assign for Asset Maintenance (Inspection). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ইন্সপেকশন').click()
+        cy.wait(1000)
+        leftNavMenu.getInspectionUnassignedSubMenu().should('include.text', 'পরিদর্শক নির্ধারণ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+        cy.inspection(this.ast.ARPost)  // Post পদবি
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
+        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ফেরৎ')   //When Store is seconde index (SQA)
+
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
+        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        
+        inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
+        cy.wait(2000)
+
+        inspectionUnassignedPage.getOfficeUnitField().should('have.attr', 'aria-label', 'শাখা').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.OfficeUnit).click()
+        cy.wait(2000)
+
+        inspectionUnassignedPage.getInspectorField().should('have.attr', 'aria-label', 'পরিদর্শক').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.Inspector).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রেরণ').click() //Reuse from ReceiveGoods Page 
+        cy.wait(6000)  
+    })
+
+    //Inspector Approved Asset Maintenance (Inspection)
+    it('Inspector: Inspect for Asset Maintenance (Inspection). TC',function() 
+    {
+        cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
+        
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
+        cy.wait(3000)
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ইন্সপেকশন').click()
+        cy.wait(1000)
+        leftNavMenu.getInspectionAssignedSubMenu().should('include.text', 'নির্ধারিত পরিদর্শন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.inspection(this.ast.ARPost)  //Post / পদবি
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ইন্সপেকশনের ফলাফল সেট করুন')
+
+        /*
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag for Uncheck
+        {
+            const textTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textTagNo.includes(this.prc.assetTagNo2))                    
+            {
+                $el.find('td ejs-checkbox span').click()
+            }
+        })  */
+        inspectionAssignedPage.getAssetCheckBox().click({ force: true })
+        cy.wait(2000)
+
+        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
+        cy.wait(2000)
+        
+        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
+        cy.wait(6000)  
+    })
+
+    //Store Admin Approved the Inspection for the Maintenance (Inspection)
+    it('Store Admin: Inspection Approval for Asset Maintenance (Inspection). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getInspectedSubMenu().should('include.text', 'পরিদর্শনকৃত').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.inspection(this.ast.ARPost)  // Post / পদবি
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
+        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+      
+        inspectedPage.getCardFooterFifthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
+        cy.wait(3000)
+
+        inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
+        cy.wait(2000)
+
+        inspectedPage.getMaintenanceButton().should('include.text', 'রক্ষণাবেক্ষণ').click()
+        cy.wait(6000)  
+    })
+
+    //Committee Head Enter Remarks and Put next maintenance date for the Maintenance (Inspection)
+    it.only('Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
+    {
+        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.inspection(this.ast.assetTagNo2)  // Item Tag
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
+
+        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.MaintenanceRemarks).should('have.value', this.ast.MaintenanceRemarks)
+        cy.wait(2000)
+
+        itemsMaintenancePage.getCalendarIcon().click()
+        cy.calendar(this.ast.chalanYear, this.ast.chalanMonth, this.ast.chalanDay)
+
+        inspectedPage.getCardFooterFifthButton().should('include.text', 'সংরক্ষণ করুন').click() 
+        cy.wait(6000) 
     })
 })

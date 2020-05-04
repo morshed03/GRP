@@ -18,6 +18,12 @@ class LeftNavMenu
         return cy.get('ast-sidebar-nav-items a[href*="asset/requisition"]')
     }
 
+    //রক্ষণাবেক্ষণ Menu ----------------------------------------------
+    getItemsSubMenuOfMaintenance()  //পণ্য সমূহ -> রক্ষণাবেক্ষণ Sub-Menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/maintenance/assets"]')
+    }
+
     //অনুমোদন অপেক্ষমান and Sun-Menus ----------------------------------------------
     getRequisitionSubMenuOfPendingApproval()  // চাহিদা পত্র -> অনুমোদন অপেক্ষমান sub-menu
     {

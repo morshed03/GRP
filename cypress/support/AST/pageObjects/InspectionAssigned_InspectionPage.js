@@ -13,6 +13,10 @@ class InspectionAssigned_InspectionPage
     {
         return cy.get('.card-header button')
     }
+    getAssetCheckBox()  // Uncheck the checkbox
+    {
+        return cy.get('td ejs-checkbox span:eq(0)')
+    }
     
 }
 export default InspectionAssigned_InspectionPage;
