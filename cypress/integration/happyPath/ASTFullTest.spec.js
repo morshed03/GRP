@@ -1225,7 +1225,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Committee Head Enter Remarks and Put next maintenance date for the Maintenance (Inspection)
-    it.only('Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
+    it('Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -1254,4 +1254,121 @@ describe('AST Module Regression Test Suite', function()
         inspectedPage.getCardFooterFifthButton().should('include.text', 'সংরক্ষণ করুন').click() 
         cy.wait(6000) 
     })
+
+    //Asset Maintenance (Maintenance Request from existing store item) Flow Start *********
+    //Create maintenance request from store's existing item 
+    it('Store Keeper: Create Maintenance Request from Store Existing Item. TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getRequestSubMenuOfMaintenance().should('include.text', 'অনুরোধ করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+
+        cy.inspection(this.ast.assetTagNo2)     //Select the Tag no
+        
+        cy.wait(6000)  
+    })
+    //Committee Head Enter Remarks and Put next maintenance date for the (Maintenance Request from existing store item)
+    it('Committee Head: Enter Remarks and Put Next Maintenance Date for Store Existing Item. TC',function() 
+    {
+        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.inspection(this.ast.assetTagNo2)  // Item Tag
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
+
+        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.MaintenanceRemarks).should('have.value', this.ast.MaintenanceRemarks)
+        cy.wait(2000)
+
+        itemsMaintenancePage.getCalendarIcon().click()
+        cy.calendar(this.ast.chalanYear, this.ast.chalanMonth, this.ast.chalanDay)
+
+        inspectedPage.getCardFooterFifthButton().should('include.text', 'সংরক্ষণ করুন').click() 
+        cy.wait(6000) 
+    })
+
+    //Asset Maintenance (From User Side) Flow Start **********************************
+    //Create maintenance request from আমার অধিকৃত সম্পদসমূহ 
+    it('Store Keeper: Create Maintenance Request from My Assets. TC',function() 
+    {
+        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getMyAssetMenu().should('include.text', 'আমার অধিকৃত সম্পদসমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Asset Tag
+        {
+            const textReferenceNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textReferenceNo.includes(this.prc.assetTagNo3))                    
+            {
+                $el.find('td button mat-icon:eq(0)').click()
+            }
+        })
+        cy.wait(6000)  
+    })
+
+    //Committee Head Enter Remarks and Put next maintenance date for the Maintenance Request from User Side
+    it('Committee Head: Enter Remarks and Put Next Maintenance Date for the Maintenance Request from User Side. TC',function() 
+    {
+        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.inspection(this.ast.assetTagNo3)  // Item Tag
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
+
+        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.MaintenanceRemarks).should('have.value', this.ast.MaintenanceRemarks)
+        cy.wait(2000)
+
+        itemsMaintenancePage.getCalendarIcon().click()
+        cy.calendar(this.ast.chalanYear, this.ast.chalanMonth, this.ast.chalanDay)
+
+        inspectedPage.getCardFooterFifthButton().should('include.text', 'সংরক্ষণ করুন').click() 
+        cy.wait(6000) 
+    })
+
+
+    //Disposal (From Asset Request Returned items) Flow Start ***************************
 })

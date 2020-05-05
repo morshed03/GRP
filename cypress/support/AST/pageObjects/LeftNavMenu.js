@@ -23,6 +23,16 @@ class LeftNavMenu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/maintenance/assets"]')
     }
+    getRequestSubMenuOfMaintenance()  //অনুরোধ করুন -> রক্ষণাবেক্ষণ Sub-Menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/maintenance/request"]')
+    }
+
+    //আমার অধিকৃত সম্পদসমূহ Menu
+    getMyAssetMenu()  //আমার অধিকৃত সম্পদসমূহ Menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/tracking/my-assets"]')
+    }
 
     //অনুমোদন অপেক্ষমান and Sun-Menus ----------------------------------------------
     getRequisitionSubMenuOfPendingApproval()  // চাহিদা পত্র -> অনুমোদন অপেক্ষমান sub-menu
