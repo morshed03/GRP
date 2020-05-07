@@ -17,6 +17,14 @@ class InspectionAssigned_InspectionPage
     {
         return cy.get('td ejs-checkbox span:eq(0)')
     }
+    getAssetSecondCheckBox()  // Uncheck the Second checkbox
+    {
+        return cy.get('td ejs-checkbox span:eq(1)')
+    }
+    getAssetThirdCheckBox()  // Uncheck the Third checkbox
+    {
+        return cy.get('td ejs-checkbox span:eq(2)')
+    }
     
 }
 export default InspectionAssigned_InspectionPage;

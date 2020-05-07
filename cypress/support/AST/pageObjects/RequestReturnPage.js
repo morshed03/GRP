@@ -22,5 +22,11 @@ class RequestReturnPage
     {
         return cy.get('.card-header button:eq(2)')
     }
+
+    //ফেরৎ গ্রহণ Locators
+    getEnterEyeButton()  //Enter eye icon
+    {
+        return cy.get('td button mat-icon')
+    }
 }
 export default RequestReturnPage;

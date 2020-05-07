@@ -86,6 +86,20 @@ Cypress.Commands.add("inspection", (element) =>
         }
     })
 })
+
+//Select the desired items checkbox 
+Cypress.Commands.add("selectItems", (element) => 
+{
+    receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+    {
+        const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+        if(textAssetTagNo.includes(element))                    
+        {
+            $el.find('.e-templatecell label .e-icons').click()
+        }
+    })
+})
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

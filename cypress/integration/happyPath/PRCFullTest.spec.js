@@ -46,7 +46,7 @@ describe('PRC Module Regression Test Suite', function()
     const billPage = new BillPage()
 
     //নতুন ঘোষণা যোগ করুন
-    it('Create Requisition Declaration as a PE TC',function() 
+    it('PE: Create Requisition Declaration. TC',function() 
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 
@@ -85,7 +85,7 @@ describe('PRC Module Regression Test Suite', function()
     })
 
     //চাহিদাপত্র প্রেরণ for পণ্য as a DE-1
-    it('Demand Submission as a DE-1 for Goods TC',function() 
+    it('DE(First): Demand Submission for Goods. TC',function() 
     {
         cy.login(this.prc.userNameDE1, this.prc.passwordDE1)
 
@@ -1731,7 +1731,7 @@ describe('PRC Module Regression Test Suite', function()
 
     //Material Receive as Store Keeper on AST module
     //Create OPM using APP
-    it.only('Create OPM Through DCP as a PE TC',function()
+    it('Create OPM Through DCP as a PE TC',function()
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 

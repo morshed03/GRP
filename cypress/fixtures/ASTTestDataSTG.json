@@ -2,33 +2,40 @@
   "officeAdminID": "suji0001",
   "officeAdminPassword": "1234567",
 
-  "committeeHeadID": "suji0001",
-  "committeeHeadPassword": "1234567",
+  "storeAdminID": "mors0002",
+  "storeAdminPassword": "1234567",
 
   "storeKeeperID": "taif0001",
   "storeKeeperPassword": "1234567",
 
-  "storeAdminID": "mors0002",
-  "storeAdminPassword": "1234567",
-
   "inspectorID": "rais0002",
   "inspectorPassword": "1234567",
   "inspectorOffice": "সফটওয়্যার কোয়ালিটি আসিউর‍্যান্স স্পেশালিষ্ট, এসকিউএ টিম",
+
+  "reportTrackerID": "irft0002",
+  "reportTrackerPassword": "1234567",
+
+  "committeeHeadID": "suji0001",
+  "committeeHeadPassword": "1234567",
+
+  "DisCommitteeMemberID": "mors0002",
+  "DisCommitteeMemberPassword": "1234567",
   
   "storeName": "SQA Test Store",
   "chalanNo": "Chalan.SQA.Auto.0011",
   "chalanYear": "২০২০",
   "chalanMonth": "মে",
-  "chalanDay": "৫",
+  "chalanDay": "৬",
 
   "InspectorType": "কর্মকর্তা",
   "OfficeUnit": "এসকিউএ টিম",
   "Inspector": "রাইসা আমিন",
   "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
+  "InspectorFailRemarks": "পণ্যটির ইন্সপেকশন ব্যর্থ হলো। তাই ডিসপোজাল হবে।",
 
-  "assetTagNo": "2020/04/23/14/09/48/49480",
-  "assetTagNo2": "2020/04/26/16/28/35/18275",
-  "assetTagNo3": "2020/04/26/16/28/35/79531",
+  "assetTagNo": "2020/04/26/16/28/35/10709",
+  "assetTagNo2": "2020/05/03/15/12/22/77533",
+  "assetTagNo3": "2020/05/03/15/12/22/92321",
   "DIassetTagNo": "2020/05/01/18/12/38/18866",
   "assetLifeTime": "48",
 
@@ -53,6 +60,15 @@
   "ARPost": "দল প্রধান",
 
   "MaintenanceCost": "2000",
-  "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।"
+  "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।",
 
+  "disposalJustificat": "Dispose 06 May",
+  "disposalCommitteeName": "অ্যাসেট ডিস্পোজাল কমিটি",
+
+  "disposalRequestType1": "Auction",
+  "disposalRequestType2": "Disposed",
+  "disposalRequestType3": "Other",
+  "disposalCost": "5000",
+  "disposalRemarks": "অ্যাসেটটি নিষ্পত্তি করা হোক।",
+  "disposalDecisionRemarks": "অ্যাসেটটি নিষ্পত্তি করা হলো।"
 }

@@ -6,7 +6,11 @@ class Inspected_PendingApprovalPage
     } 
     getMaintenanceCost()  //রক্ষণাবেক্ষণ খরচ Field
     {
-        return cy.get('.modal-content tbody input')
+        return cy.get('.modal-content tbody input:eq(0)')
+    }
+    getDisposalButton()  //  ডিসপোজ button
+    {
+        return cy.get('.modal-content .card-footer button:eq(0)')
     }
     getMaintenanceButton()  //  রক্ষণাবেক্ষণ button
     {

@@ -27,6 +27,11 @@ class LeftNavMenu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/maintenance/request"]')
     }
+    //ডিসপোজাল & Sub-Menus
+    getDisposalRequestSubMenu()  //ডিসপোজালের জন্য অনুরোধ -> ডিসপোজাল Sub-Menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/disposal/disposal-request"]')
+    }
 
     //আমার অধিকৃত সম্পদসমূহ Menu
     getMyAssetMenu()  //আমার অধিকৃত সম্পদসমূহ Menu
@@ -50,6 +55,10 @@ class LeftNavMenu
     getRequestApprovalSubMenu()  // ফেরত অনুরোধ -> অনুমোদন অপেক্ষমান sub-menu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/return/request-approval-list"]')
+    }
+    getDecisionOnDisposalSubMenu()  //ডিসপোজাল সংক্রান্ত সিদ্ধান্ত -> অনুমোদন অপেক্ষমান sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/disposal/requested-disposal"]')
     }
 
     //স্টোর কিপিং and Sub-Menus ----------------------------------------------
@@ -92,6 +101,12 @@ class LeftNavMenu
         return cy.get('ast-sidebar-nav-items a[href*="asset/inspection/assigned"]')
     }
 
+    //ডিসপোজাল & Sub-Menus
+    getDisposalResultSubMenu()  // ডিসপোজালের ফলাফল -> ডিসপোজাল sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/disposal/decided-disposal"]')
+    }
+
     //ফেরৎ গ্রহণ and Sub-Menus ----------------------------------------------
     ReceiveTaggedItemsSubMenu()  // ট্যাগকৃত পণ্যসমূহ গ্রহণ -> ফেরৎ গ্রহণ sub-menu
     {
@@ -104,6 +119,12 @@ class LeftNavMenu
     getRequestReceiveSubMenu()  // ফেরত গ্রহণ -> ফেরৎ গ্রহণ sub-menu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/return/request-receive-list"]')
+    }
+
+    //রিপোর্টস & Sub-Menus 
+    getDisposedAssetSubMenu()  // ডিসপোজড অ্যাসেট -> রিপোর্টস sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/reports/disposed-asset"]')
     }
 }
 export default LeftNavMenu;
