@@ -42,7 +42,7 @@ Cypress.Commands.add("login", (userName, password) =>
 //-- This is Log Out method --  
 Cypress.Commands.add("logout", () => 
 {
-    dashboardPage.getUserAvatar().click().should('have.class', 'img-avatar')
+    dashboardPage.getUserAvatar().click({force: true}).should('have.class', 'img-avatar')
     dashboardPage.getExitLink().click({force: true})
     cy.wait(3000)
     loginPage.getEnterButton().should('have.text', 'প্রবেশ করুন')

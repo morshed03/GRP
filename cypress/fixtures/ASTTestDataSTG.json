@@ -25,7 +25,7 @@
   "chalanNo": "Chalan.SQA.Auto.0011",
   "chalanYear": "২০২০",
   "chalanMonth": "মে",
-  "chalanDay": "৬",
+  "chalanDay": "৮",
 
   "InspectorType": "কর্মকর্তা",
   "OfficeUnit": "এসকিউএ টিম",
@@ -36,6 +36,9 @@
   "assetTagNo": "2020/04/26/16/28/35/10709",
   "assetTagNo2": "2020/05/03/15/12/22/77533",
   "assetTagNo3": "2020/05/03/15/12/22/92321",
+  "assetTagNo4": "2020/05/03/15/12/22/70088",
+  "assetTagNo5": "2020/05/03/15/12/22/27153",
+  "assetTagNo6": "2020/04/23/14/09/48/49480",
   "DIassetTagNo": "2020/05/01/18/12/38/18866",
   "assetLifeTime": "48",
 
@@ -62,7 +65,7 @@
   "MaintenanceCost": "2000",
   "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।",
 
-  "disposalJustificat": "Dispose 06 May",
+  "disposalJustificat": "Automation Dispose 08 May",
   "disposalCommitteeName": "অ্যাসেট ডিস্পোজাল কমিটি",
 
   "disposalRequestType1": "Auction",

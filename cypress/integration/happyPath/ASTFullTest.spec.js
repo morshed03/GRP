@@ -1077,7 +1077,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)  
     })
 
-    //Asset Maintenance (Inspection) Flow Start **********************************
+    //Asset Maintenance (Inspection) Flow Start *******************************************************************
     //Enter assined item tag number for return, click on Send for Inspection 
     it('Store Keeper : Enter Assined Item Tag and Send for Maintenance (Inspection). TC',function() 
     {
@@ -1260,7 +1260,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000) 
     })
 
-    //Asset Maintenance (Maintenance Request from existing store item) Flow Start *********
+    //Asset Maintenance (Maintenance Request from existing store item) Flow Start ************************************
     //Create maintenance request from store's existing item 
     it('Store Keeper: Create Maintenance Request from Store Existing Item. TC',function() 
     {
@@ -1316,9 +1316,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000) 
     })
 
-    //Asset Maintenance (From User Side) Flow Start **********************************
+    //Asset Maintenance (From User Side) Flow Start *********************************************
     //Create maintenance request from আমার অধিকৃত সম্পদসমূহ 
-    it('Store Keeper: Create Maintenance Request from My Assets. TC',function() 
+    it('AST User: Create Maintenance Request from My Assets. TC',function() 
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
@@ -1738,14 +1738,14 @@ describe('AST Module Regression Test Suite', function()
         leftNavMenu.getDisposalResultSubMenu().should('include.text', 'ডিসপোজালের ফলাফল').click()
         cy.wait(3000)
 
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
         receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের জন্য সম্পদ তালিকা')
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের ফলাফল')
-
-        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
-        cy.wait(2000)
 
         disposalResultPage.getDisposalTypeTab().contains('Auction').click()
         cy.wait(2000)
@@ -1819,6 +1819,711 @@ describe('AST Module Regression Test Suite', function()
                 expect(tagText.includes(this.ast.assetTagNo)).to.be.true
             }
         })
+        cy.wait(3000) 
+    })
+
+    //Disposal (From Asset Self Returned items) Flow Start ***************************
+    //Add tag and then add items, click on Send for Inspection 
+    it('Store Keeper: Enter Assined Item Tag and Send for Disposal (From Asset Self Returned items). TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ফেরৎ গ্রহণ').click()
+        cy.wait(1000)
+        leftNavMenu.ReceiveTaggedItemsSubMenu().should('include.text', 'ট্যাগকৃত পণ্যসমূহ গ্রহণ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগ দিন')
+
+        receiveTaggedItemsPage.getTagInputField().should('have.attr', 'placeholder', 'ট্যাগ').click().type(this.ast.assetTagNo4).should('have.value', this.ast.assetTagNo4)
+        cy.wait(2000)
+
+        receiveTaggedItemsPage.getCardFooterThirdButton().should('include.text', 'পণ্য যোগ করুন').click()
+        cy.wait(200)
+        
+        receiveGoodsPage.getCardFooterFourthButton().click()    //Send for Inspection button
+        
+        cy.wait(6000)  
+    })
+
+    //Inspector Assign for Asset Self Return
+    it('Store Admin: Inspector Assign for Disposal (From Asset Self Returned items). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ইন্সপেকশন').click()
+        cy.wait(1000)
+        leftNavMenu.getInspectionUnassignedSubMenu().should('include.text', 'পরিদর্শক নির্ধারণ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+        cy.inspection(this.ast.ARPost)  // Post পদবি
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
+        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ফেরৎ')   //When Store is seconde index (SQA)
+
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
+        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        
+        inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
+        cy.wait(2000)
+
+        inspectionUnassignedPage.getOfficeUnitField().should('have.attr', 'aria-label', 'শাখা').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.OfficeUnit).click()
+        cy.wait(2000)
+
+        inspectionUnassignedPage.getInspectorField().should('have.attr', 'aria-label', 'পরিদর্শক').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.Inspector).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রেরণ').click() //Reuse from ReceiveGoods Page 
+        cy.wait(6000)  
+    })
+
+    //Inspector rejection Asset Maintenance (Inspection)
+    it('Inspector: Inspect Rejection for Disposal (From Asset Self Returned items). TC',function() 
+    {
+        cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
+        
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
+        cy.wait(3000)
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ইন্সপেকশন').click()
+        cy.wait(1000)
+        leftNavMenu.getInspectionAssignedSubMenu().should('include.text', 'নির্ধারিত পরিদর্শন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.inspection(this.ast.ARPost)  //Post / পদবি
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ইন্সপেকশনের ফলাফল সেট করুন')
+
+        inspectionAssignedPage.getAssetCheckBox().click({ force: true })    //First Item uncheck
+        cy.wait(1000)
+
+        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorFailRemarks).should('have.value', this.ast.InspectorFailRemarks)
+        cy.wait(2000)
+        
+        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
+        cy.wait(6000)
+    })
+
+    //Store Admin Approved the Inspection for the Maintenance (Inspection)
+    it('Store Admin: Reject at the inspected result for Disposal (From Asset Self Returned items). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getInspectedSubMenu().should('include.text', 'পরিদর্শনকৃত').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.inspection(this.ast.ARPost)  // Post / পদবি
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
+        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+      
+        inspectedPage.getCardFooterFifthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
+        cy.wait(3000)
+
+        inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
+        cy.wait(2000)
+
+        inspectedPage.getDisposalButton().should('include.text', 'ডিসপোজ').click()
+        cy.wait(6000)  
+    })
+
+    //Disposal Request (From Asset Self Returned items)
+    it('Store Keeper: Make Disposal Request (From Asset Self Returned items). TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ডিসপোজাল').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalRequestSubMenu().should('include.text', 'ডিসপোজালের জন্য অনুরোধ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের জন্য অনুরোধ')
+
+        disposalRequestPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.disposalJustificat).should('have.value', this.ast.disposalJustificat)
+        cy.wait(2000)
+
+        disposalRequestPage.getDisposalCommitteeNameField().should('have.attr', 'aria-label', 'কমিটির নাম').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
+        cy.wait(2000)
+
+        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
+        cy.wait(2000)
+
+        //Selects Items
+        cy.selectItems(this.ast.assetTagNo4)
+        cy.wait(1000)
+
+        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
+        cy.wait(6000)  
+    })
+
+    //Disposal Committee head (Any member of that committee can permit)
+    it('Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Asset Self Returned items). TC',function() 
+    {
+        cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getDecisionOnDisposalSubMenu().should('include.text', 'ডিসপোজাল সংক্রান্ত সিদ্ধান্ত').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত ডিসপোজাল তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজাল সংক্রান্ত সিদ্ধান্ত')
+        
+        disposalRequestPage.getDisposalTypeField1().click({ force: true })
+        disposalRequestPage.getDropDownItem().contains(this.ast.disposalRequestType2).click()
+        cy.wait(1000)
+        disposalRequestPage.getDisposalCost1().click().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
+        cy.wait(1000)
+        disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(1000)
+
+        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click()
+        
         cy.wait(6000) 
+    })
+
+    //Approved Disposal Result (Any member of that committee can permit)
+    it('Store Admin: Approved Disposal Result (From Asset Self Returned items). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ডিসপোজাল').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalResultSubMenu().should('include.text', 'ডিসপোজালের ফলাফল').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের জন্য সম্পদ তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের ফলাফল')
+        
+        disposalResultPage.getDisposalTypeTab().contains('Disposed').click()
+        cy.wait(2000)
+        disposalResultPage.getDisposedAddButton().click()
+        cy.wait(2000)
+      
+        disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
+        cy.wait(2000)
+        
+        disposalResultPage.getFifthSendButton().should('include.text', 'প্রেরণ').click()
+        cy.wait(6000) 
+    })
+    //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
+    it('Store Admin: Verify the Disposed Asset on the Report for (From Asset Self Returned items). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রিপোর্টস').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposedAssetSubMenu().should('include.text', 'ডিসপোজড অ্যাসেট').click()
+        cy.wait(3000)
+
+        reportsPage.getPageHeaderText().should('include.text', 'ডিসপোজড অ্যাসেট')
+
+        reportsPage.getItemCategoryField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
+        cy.wait(2000)
+
+        reportsPage.getItemGroupField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemGroup).click()
+        cy.wait(2000)
+
+        reportsPage.getStoreField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        reportsPage.getSearchButton().should('include.text', 'সব দেখুন').click()
+        cy.wait(4000)
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo)).to.be.true
+            }
+        })
+        cy.wait(3000) 
+    })
+
+    //Disposal (From আমার অধিকৃত সম্পদসমূহ) Flow Start ***************************
+    //Create maintenance request from আমার অধিকৃত সম্পদসমূহ 
+    it('AST User: Create Maintenance Request from My Assets for Disposal. TC',function() 
+    {
+        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getMyAssetMenu().should('include.text', 'আমার অধিকৃত সম্পদসমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Asset Tag
+        {
+            const textTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textTagNo.includes(this.ast.assetTagNo5))                    
+            {
+                $el.find('td button mat-icon:eq(0)').click()
+            }
+        })
+        cy.wait(6000)  
+    })
+
+    //Committee Head Enter Remarks and Put it for Disposal
+    it('Committee Head: Enter Remarks and Put it for Disposal from User Side. TC',function() 
+    {
+        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
+
+      //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.inspection(this.ast.assetTagNo5)  // Item Tag
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
+
+        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(2000)
+
+        inspectedPage.getCardFooterFourthButton().should('include.text', 'Decommission').click() 
+        cy.wait(6000) 
+    })
+
+    //Disposal Request (From My Asset items)
+    it('Store Keeper: Make Disposal Request (From My Asset items). TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ডিসপোজাল').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalRequestSubMenu().should('include.text', 'ডিসপোজালের জন্য অনুরোধ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের জন্য অনুরোধ')
+
+        disposalRequestPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.disposalJustificat).should('have.value', this.ast.disposalJustificat)
+        cy.wait(2000)
+
+        disposalRequestPage.getDisposalCommitteeNameField().should('have.attr', 'aria-label', 'কমিটির নাম').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
+        cy.wait(2000)
+
+        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
+        cy.wait(2000)
+
+        //Selects Items
+        cy.selectItems(this.ast.assetTagNo5)
+        cy.wait(1000)
+
+        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
+        cy.wait(6000)  
+    })
+
+    //Disposal Committee head (Any member of that committee can permit)
+    it('Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From My Asset items). TC',function() 
+    {
+        cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getDecisionOnDisposalSubMenu().should('include.text', 'ডিসপোজাল সংক্রান্ত সিদ্ধান্ত').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত ডিসপোজাল তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজাল সংক্রান্ত সিদ্ধান্ত')
+        
+        disposalRequestPage.getDisposalTypeField1().click({ force: true })
+        disposalRequestPage.getDropDownItem().contains(this.ast.disposalRequestType2).click()
+        cy.wait(1000)
+        disposalRequestPage.getDisposalCost1().click().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
+        cy.wait(1000)
+        disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(1000)
+
+        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click()
+        
+        cy.wait(6000) 
+    })
+
+    //Approved Disposal Result 
+    it('Store Admin: Approved Disposal Result (From My Asset items). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ডিসপোজাল').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalResultSubMenu().should('include.text', 'ডিসপোজালের ফলাফল').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের জন্য সম্পদ তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের ফলাফল')
+        
+        disposalResultPage.getDisposalTypeTab().contains('Disposed').click()
+        cy.wait(2000)
+        disposalResultPage.getDisposedAddButton().click()
+        cy.wait(2000)
+      
+        disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
+        cy.wait(2000)
+        
+        disposalResultPage.getFifthSendButton().should('include.text', 'প্রেরণ').click()
+        cy.wait(6000) 
+    })
+    //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
+    it('Store Admin: Verify the Disposed Asset on the Report (From My Asset items). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রিপোর্টস').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposedAssetSubMenu().should('include.text', 'ডিসপোজড অ্যাসেট').click()
+        cy.wait(3000)
+
+        reportsPage.getPageHeaderText().should('include.text', 'ডিসপোজড অ্যাসেট')
+
+        reportsPage.getItemCategoryField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
+        cy.wait(2000)
+
+        reportsPage.getItemGroupField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemGroup).click()
+        cy.wait(2000)
+
+        reportsPage.getStoreField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        reportsPage.getSearchButton().should('include.text', 'সব দেখুন').click()
+        cy.wait(4000)
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo5))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo5)).to.be.true
+            }
+        })
+        cy.wait(3000) 
+    })
+
+    //Disposal (For Existing store items) Flow Start *****************************************************
+    //Create maintenance request from store's existing item for Disposal
+    it('Store Keeper: Create Maintenance Request from Store Existing Item for Disposal. TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getRequestSubMenuOfMaintenance().should('include.text', 'অনুরোধ করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+
+        cy.inspection(this.ast.assetTagNo6)     //Select the Tag no
+        
+        cy.wait(6000)
+    })
+    
+    //Committee Head Enter Remarks and Put it for Disposal
+    it('Committee Head: Enter Remarks and Put it for Disposal from Stores Existing Item. TC',function() 
+    {
+        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.inspection(this.ast.assetTagNo6)  // Item Tag
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
+
+        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(2000)
+
+        inspectedPage.getCardFooterFourthButton().should('include.text', 'Decommission').click() 
+        cy.wait(6000) 
+    })
+
+    //Disposal Request (From stores existing item)
+    it('Store Keeper: Make Disposal Request (From Stores Existing Item). TC',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ডিসপোজাল').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalRequestSubMenu().should('include.text', 'ডিসপোজালের জন্য অনুরোধ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের জন্য অনুরোধ')
+
+        disposalRequestPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.disposalJustificat).should('have.value', this.ast.disposalJustificat)
+        cy.wait(2000)
+
+        disposalRequestPage.getDisposalCommitteeNameField().should('have.attr', 'aria-label', 'কমিটির নাম').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
+        cy.wait(2000)
+
+        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
+        cy.wait(2000)
+
+        //Selects Items
+        cy.selectItems(this.ast.assetTagNo6)
+        cy.wait(1000)
+
+        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
+        cy.wait(6000)  
+    })
+
+    //Disposal Committee head (Any member of that committee can permit)
+    it('Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Stores Existing Item). TC',function() 
+    {
+        cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getDecisionOnDisposalSubMenu().should('include.text', 'ডিসপোজাল সংক্রান্ত সিদ্ধান্ত').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত ডিসপোজাল তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজাল সংক্রান্ত সিদ্ধান্ত')
+        
+        disposalRequestPage.getDisposalTypeField1().click({ force: true })
+        disposalRequestPage.getDropDownItem().contains(this.ast.disposalRequestType2).click()
+        cy.wait(1000)
+        disposalRequestPage.getDisposalCost1().click().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
+        cy.wait(1000)
+        disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(1000)
+
+        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click()
+        
+        cy.wait(6000) 
+    })
+
+    //Approved Disposal Result 
+    it('Store Admin: Approved Disposal Result (From Stores Existing Item). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ডিসপোজাল').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalResultSubMenu().should('include.text', 'ডিসপোজালের ফলাফল').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের জন্য সম্পদ তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের ফলাফল')
+        
+        disposalResultPage.getDisposalTypeTab().contains('Disposed').click()
+        cy.wait(2000)
+        disposalResultPage.getDisposedAddButton().click()
+        cy.wait(2000)
+      
+        disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
+        cy.wait(2000)
+        
+        disposalResultPage.getFifthSendButton().should('include.text', 'প্রেরণ').click()
+        cy.wait(6000) 
+    })
+    //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
+    it('Store Admin: Verify the Disposed Asset on the Report (From Stores Existing Item). TC',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রিপোর্টস').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposedAssetSubMenu().should('include.text', 'ডিসপোজড অ্যাসেট').click()
+        cy.wait(3000)
+
+        reportsPage.getPageHeaderText().should('include.text', 'ডিসপোজড অ্যাসেট')
+
+        reportsPage.getItemCategoryField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
+        cy.wait(2000)
+
+        reportsPage.getItemGroupField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemGroup).click()
+        cy.wait(2000)
+
+        reportsPage.getStoreField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        reportsPage.getSearchButton().should('include.text', 'সব দেখুন').click()
+        cy.wait(4000)
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo6))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo6)).to.be.true
+            }
+        })
+        cy.wait(3000) 
     })
 })

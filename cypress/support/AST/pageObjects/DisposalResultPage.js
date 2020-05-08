@@ -42,7 +42,11 @@ class DisposalResultPage
     {
         return cy.get('.card-body td ejs-textbox input:eq(5)')
     }
-    
+
+    getFifthSendButton()  //প্রেরণ button
+    {
+        return cy.get('.card-footer button:eq(5)')
+    }
     getSendButton()  //প্রেরণ button
     {
         return cy.get('.card-footer button:eq(6)')
