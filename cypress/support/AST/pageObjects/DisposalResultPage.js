@@ -43,13 +43,17 @@ class DisposalResultPage
         return cy.get('.card-body td ejs-textbox input:eq(5)')
     }
 
-    getFifthSendButton()  //প্রেরণ button
+    getSixthSendButton()  //প্রেরণ button 6th
     {
         return cy.get('.card-footer button:eq(5)')
     }
-    getSendButton()  //প্রেরণ button
+    getSendButton()  //প্রেরণ button  7th
     {
         return cy.get('.card-footer button:eq(6)')
+    }
+    getSendButtonFifth()  //প্রেরণ button 5th
+    {
+        return cy.get('.card-footer button:eq(4)')
     }
 }
 export default DisposalResultPage;

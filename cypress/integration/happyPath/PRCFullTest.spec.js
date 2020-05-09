@@ -1731,7 +1731,7 @@ describe('PRC Module Regression Test Suite', function()
 
     //Material Receive as Store Keeper on AST module
     //Create OPM using APP
-    it('Create OPM Through DCP as a PE TC',function()
+    it.only('PE: Create OPM Through DCP. TC',function()
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 

@@ -28,7 +28,7 @@ class LeftNavMenu
         return cy.get('ast-sidebar-nav-items a[href*="asset/maintenance/request"]')
     }
     //ডিসপোজাল & Sub-Menus
-    getDisposalRequestSubMenu()  //ডিসপোজালের জন্য অনুরোধ -> ডিসপোজাল Sub-Menu
+    getDisposalRequestSubMenu()  //নিষ্পত্তিকরণের জন্য অনুরোধ -> ডিসপোজাল Sub-Menu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/disposal/disposal-request"]')
     }
@@ -101,7 +101,7 @@ class LeftNavMenu
         return cy.get('ast-sidebar-nav-items a[href*="asset/inspection/assigned"]')
     }
 
-    //ডিসপোজাল & Sub-Menus
+    //নিষ্পত্তিকরণ & Sub-Menus
     getDisposalResultSubMenu()  // ডিসপোজালের ফলাফল -> ডিসপোজাল sub-menu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/disposal/decided-disposal"]')
@@ -122,9 +122,9 @@ class LeftNavMenu
     }
 
     //রিপোর্টস & Sub-Menus 
-    getDisposedAssetSubMenu()  // ডিসপোজড অ্যাসেট -> রিপোর্টস sub-menu
+    getDisposedAssetSubMenu()  // নিস্পত্তিকৃত সম্পদ -> রিপোর্টস sub-menu
     {
-        return cy.get('ast-sidebar-nav-items a[href*="asset/reports/disposed-asset"]')
+        return cy.get('ast-sidebar-nav-items a[href*="asset/reports/disposed-asset')
     }
 }
 export default LeftNavMenu;

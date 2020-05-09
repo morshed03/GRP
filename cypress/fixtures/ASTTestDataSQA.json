@@ -1,38 +1,81 @@
 {
-    "storeKeeperID": "taif0001",
-    "storeKeeperPassword": "123456789",
+    "officeAdminID": "sujt0001",
+    "officeAdminPassword": "123456789",
   
     "storeAdminID": "mors0001",
     "storeAdminPassword": "123456789",
   
+    "storeKeeperID": "taif0001",
+    "storeKeeperPassword": "123456789",
+  
     "inspectorID": "risa0001",
     "inspectorPassword": "123456789",
     "inspectorOffice": "সফটওয়্যার কোয়ালিটি আসিউর‍্যান্স স্পেশালিষ্ট, এসকিউএ টিম",
+  
+    "reportTrackerID": "irft0001",
+    "reportTrackerPassword": "123456789",
+  
+    "committeeHeadID": "sujt0001",
+    "committeeHeadPassword": "123456789",
+  
+    "DisCommitteeMemberID": "taif0001",
+    "DisCommitteeMemberPassword": "123456789",
     
     "storeName": "SQA_CoKreates_store",
     "chalanNo": "Chalan.SQA.Auto.0002",
     "chalanYear": "২০২০",
-    "chalanMonth": "এপ্রিল",
-    "chalanDay": "৩০",
+    "chalanMonth": "মে",
+    "chalanDay": "৯",
   
     "InspectorType": "কর্মকর্তা",
     "OfficeUnit": "SQA CoKreates",
     "Inspector": "রাইসা আমিন 1",
     "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
-
-    "assetTagNo": "2020/04/30/11/00/36/29505",
-    "DIassetTagNo": "2020/04/30/19/17/22/39603",
+    "InspectorFailRemarks": "পণ্যটির ইন্সপেকশন ব্যর্থ হলো। তাই ডিসপোজাল হবে।",
+  
+    "assetTagNo": "2020/05/09/16/25/13/77871",
+    "assetTagNo2": "2020/05/09/16/25/13/58162",
+    "assetTagNo3": "2020/05/09/16/25/13/29433",
+    "assetTagNo4": "2020/05/09/16/25/13/62414",
+    "assetTagNo5": "2020/05/09/16/25/13/60745",
+    "assetTagNo6": "2020/05/09/16/25/13/16366",
+    "assetTagNo7": "2020/05/09/16/25/13/13737",
+    "assetTagNo8": "2020/05/09/11/57/09/36553",
+    "assetTagNo9": "2020/05/09/16/25/13/63689",
+    "assetTagNo10": "2020/05/09/16/25/13/21410",
+    "DIassetTagNo": "2020/05/09/20/00/16/37911",
     "assetLifeTime": "48",
-
-    "DIReferenceNo": "DI/2020/04/30/12/75134",
-    "DIReceptionType": "ডিরেক্ট ইন",
+  
+    "DIReferenceNo": "DI/2020/05/09/17/75311",
+    "DIReceptionType": "সরাসরি গ্রহণ (অটোমেশন)",
     "DIJustification": "এটি এসকিউএ অটোমেশন টেস্ট",
     "ItemCategory": "এয়ার কন্ডিশনার",
     "ItemGroup": "এয়ার কন্ডিশন",
     "ItemName": "এয়ার কন্ডিশন ব্র্যান্ড: ওয়াল্টন, ক্যাপাসিটি: ১ টন",
     "DIassetBookValue": "50000",
-
+  
     "DOOfficePostType": "পদবি",
     "DOPost": "দল প্রধান (সুজিত কুমার পাল)",
-    "ApprovalRemarks": "পণ্যটির অনুমোদন দেওয়া হলো।"
-}
+    "ApprovalRemarks": "পণ্যটির অনুমোদন দেওয়া হলো।",
+    "DOPostPerson": "সুজিত কুমার পাল",
+  
+    "requisitionReferenceNo": "REQ/2020/05/09/21/32381",
+    "requisitionPurpose": "প্রশাসনিক",
+  
+    "CarrierName": "তায়েফ ইমাম",
+    "ApproverName": "মোরশেদ আলম",
+    "ARPost": "সিনিয়র সচিব",
+  
+    "MaintenanceCost": "2000",
+    "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।",
+  
+    "disposalJustificat": "Automation Dispose 09 May",
+    "disposalCommitteeName": "অ্যাসেট ডিস্পোজাল কমিটি",
+  
+    "disposalRequestType1": "Auction",
+    "disposalRequestType2": "Disposed",
+    "disposalRequestType3": "Other",
+    "disposalCost": "5000",
+    "disposalRemarks": "অ্যাসেটটি নিষ্পত্তি করা হোক।",
+    "disposalDecisionRemarks": "অ্যাসেটটি নিষ্পত্তি করা হলো।"
+  }

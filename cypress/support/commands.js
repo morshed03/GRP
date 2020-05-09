@@ -87,6 +87,19 @@ Cypress.Commands.add("inspection", (element) =>
     })
 })
 
+//For visible items
+Cypress.Commands.add("visibleItems", (element) => 
+{
+    receiveGoodsPage.getCardRowsvisible().each(($el, index, $list) =>     //Select the desired চালান নং on বিবরণ column
+    {
+        const textDescription=$el.find('td.e-rowcell[aria-label]').text()
+        if(textDescription.includes(element))                    
+        {
+            $el.find('td button mat-icon').click()
+        }
+    })
+})
+
 //Select the desired items checkbox 
 Cypress.Commands.add("selectItems", (element) => 
 {
@@ -99,6 +112,8 @@ Cypress.Commands.add("selectItems", (element) =>
         }
     })
 })
+
+//
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

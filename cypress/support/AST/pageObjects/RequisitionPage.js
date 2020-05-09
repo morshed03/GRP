@@ -32,10 +32,51 @@ class RequisitionPage
         return cy.get('.card-body mat-form-field mat-select:eq(4)')
     }
 
+    getQuantityInputBox()  // পরিমাণ *
+    {
+        return cy.get('td ejs-textbox input:eq(0)')
+    }
+
     //চাহিদা পত্র -> অনুমোদন অপেক্ষমান page locators
     getUncheckDefaultItem()  // Uncheck the default item
     {
         return cy.get('.e-templatecell label span:eq(2)')
+    }
+    getUncheckDefaultItem2()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(3)')
+    }
+    getUncheckDefaultItem3()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(4)')
+    }
+    getUncheckDefaultItem4()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(5)')
+    }
+    getUncheckDefaultItem5()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(6)')
+    }
+    getUncheckDefaultItem6()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(7)')
+    }
+    getUncheckDefaultItem7()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(8)')
+    }
+    getUncheckDefaultItem8()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(9)')
+    }
+    getUncheckDefaultItem9()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(10)')
+    }
+    getUncheckDefaultItem10()  // Uncheck the default item
+    {
+        return cy.get('.e-templatecell label span:eq(11)')
     }
 
     getAddAssetButton()  //সম্পদ যোগ করুন button

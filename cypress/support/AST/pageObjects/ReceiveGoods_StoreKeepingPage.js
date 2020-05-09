@@ -25,6 +25,10 @@ class ReceiveGoods_StoreKeepingPage
     {
         return cy.get('tbody tr')
     }
+    getCardRowsvisible()  // Card/Table visible rows
+    {
+        return cy.get('tbody:visible tr')
+    }
     getChalanNoInputField()  // Card/Table rows
     {
         return cy.get('.card-body input:eq(5)')
@@ -32,6 +36,15 @@ class ReceiveGoods_StoreKeepingPage
     getCalendarIcon()  //Calendar Icon
     {
         return cy.get('svg.mat-datepicker-toggle-default-icon:eq(0)')
+    }
+
+    getConfirmPopUpHeader()  //নিশ্চিত করুন
+    {
+        return cy.get('.modal-content .card-header mat-label')
+    }
+    getConfirmPopUpYesButton()  //হ্যাঁ Button
+    {
+        return cy.get('.modal-content .card-footer button:eq(1)')
     }
 
     getCardFooterFourthButton()  //Card Footer icon 04

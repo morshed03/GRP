@@ -6,15 +6,19 @@ class DisposalRequestPage
     }
     getJustificationField()  // ন্যায্যতা field
     {
-        return cy.get('.card-body mat-form-field input:eq(2)')
+        return cy.get('.card-body:visible mat-form-field input:eq(2)')
     }
     getDisposalCommitteeNameField()  // কমিটির নাম field
     {
-        return cy.get('.card-body mat-form-field mat-select')
+        return cy.get('.card-body:visible mat-form-field mat-select')
     }
     getSendButton()  // প্রেরণ buttons
     {
-        return cy.get('.card-footer button:eq(3)')
+        return cy.get('.card .card-footer button:eq(3)')
+    }
+    getSaveButton()  // সংরক্ষণ করুন  buttons
+    {
+        return cy.get('.card .card-footer button:eq(1)')
     }
 
     //ডিসপোজাল সংক্রান্ত সিদ্ধান্ত page locators

@@ -1,14 +1,19 @@
 {
   "userNameHope": "sujt0001",
   "passwordHope": "123456789",
+
   "userNamePE": "amin0005",
   "passwordPE": "123456789",
+
   "userNameDE1": "taif0001",
   "passwordDE1": "123456789",
+
   "userNameDE2": "irft0001",
   "passwordDE2": "123456789",
+
   "userNameDE3": "risa0001",
   "passwordDE3": "123456789",
+  
   "userNameDE4": "nila0001",
   "passwordDE4": "123456789",
 
@@ -97,10 +102,10 @@
   "DCPVendorName": "গ্লোবাল ব্র্যান্ড প্রাইভেট লিমিটেড",
   "DCPYear": "২০২০",
   "DCPMonth": "মে",
-  "DCPDate": "৭",
+  "DCPDate": "৯",
   "OPMAPPReferenceNoWorks": "GRP.Auto.OPM.APP.Work.0015",
   "OPMAPPReferenceNoGoods": "GRP.Auto.OPM.APP.Goods.0015",
-  "DCPReferenceNo": "GRP.Auto.QA.Team.DCP.0015",
+  "DCPReferenceNo": "GRP.Auto.QA.Team.DCP.0016",
   "DCPDescription": "এটি জিআরপি এসকিউএ টিম দ্বারা অটোমেশন পরীক্ষা।",
   "DCPRemarks": "টেস্ট",
 
@@ -110,9 +115,9 @@
   "DCPItemCategoryWorks": "কার্য",
   "DCPItemNameWorks": "পুনঃ নির্মান",
 
-  "DCPItemQuantity": "5",
+  "DCPItemQuantity": "10",
   "DCPItemUnit": "পিস",
-  "DCPItemUnitRate": "20000",
+  "DCPItemUnitRate": "50000",
   "DCPItemCurrency": "টাকা",
   "DCPItemRemarks": "টেস্ট",
   "DCPDiscount": "5",

@@ -12,9 +12,13 @@ class DirectOut_StoreKeepingPage
     {
         return cy.get('.card-body mat-select:eq(2)')
     }
+    getJustificationField()  //ন্যায্যতা
+    {
+        return cy.get('mat-form-field input:eq(0)')
+    }
     getTagInputField()  //ট্যাগ দিন
     {
-        return cy.get('mat-form-field input')
+        return cy.get('mat-form-field input:eq(1)')
     }
 
     //************************************************

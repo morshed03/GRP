@@ -1,9 +1,13 @@
 class ReceiveTaggedItemsPage
 {
     //ট্যাগ দিন page locators
-    getTagInputField()  // ট্যাগ
+    getTagInputFieldForFirstStore()  // ট্যাগ
     {
-        return cy.get('mat-form-field input')
+        return cy.get('mat-form-field input:eq(0)')
+    }
+    getTagInputFieldForSecondStore()  // ট্যাগ
+    {
+        return cy.get('mat-form-field input:eq(1)')
     }
     getCardFooterThirdButton()  //Card Footer icon 03
     {
