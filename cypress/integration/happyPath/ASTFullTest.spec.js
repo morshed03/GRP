@@ -44,13 +44,13 @@ describe('AST Module Regression Test Suite', function()
       */
       cy.visit(Cypress.env('url'))
     })
-/*
+
     // Before all It Logout
     afterEach(function()
     {
       cy.logout()
     })
-*/
+
     //Create page object
     const dashboardPage = new DashboardPage()
     const leftNavMenu = new LeftNavMenu()
@@ -70,9 +70,9 @@ describe('AST Module Regression Test Suite', function()
     const disposalResultPage = new DisposalResultPage()
     const reportsPage = new ReportsPage()
 
-    //Material Receive Start Here *************************************
+    //Material Receive Start Here ****************************************************************************
     //Material Receive as Store Keeper
-    it('Store Keeper: Material Receive. TC',function() 
+    it('TC_1. Store Keeper: Material Receive.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -118,7 +118,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Material Receive
-    it('Store Admin: Inspector Assign for Material Receive. TC',function() 
+    it('TC_2. Store Admin: Inspector Assign for Material Receive.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -166,7 +166,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Approved the Material Receive
-    it('Inspector: Inspect for Material Receive. TC',function() 
+    it('TC_3. Inspector: Inspect for Material Receive.',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -175,6 +175,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
         */
+
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -196,6 +197,7 @@ describe('AST Module Regression Test Suite', function()
         inspectionAssignedPage.getQCReportButton().attachFile(fileName);      //File Upload
         cy.wait(4000)
         */
+
         receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
 
@@ -206,7 +208,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Material Receive
-    it('Store Admin: Inspection Approval for Material Receive. TC',function() 
+    it('TC_4. Store Admin: Inspection Approval for Material Receive.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -242,7 +244,7 @@ describe('AST Module Regression Test Suite', function()
     //ডিসিপি স্ট্যাটাস দেখুন TC will added here
     
     //Asset Tagging
-    it('Store Keeper: Asset Tagging (Material Receive Asset). TC',function() 
+    it('TC_5. Store Keeper: Asset Tagging (Material Receive Asset).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -313,9 +315,9 @@ describe('AST Module Regression Test Suite', function()
 
     //অ্যাসেট ট্যাগিং Status TC will added here
 
-    //Direct In Flow Start Here *******************************************
+    //Direct In Flow Start Here ******************************************************************************
     //সরাসরি গ্রহণ as Store Keeper
-    it('Store Keeper: Direct in request and send for approval. TC',function() 
+    it('TC_6. Store Keeper: Direct in request and send for approval.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -384,7 +386,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Direct In
-    it('Store Admin: Inspector Assign for Direct In. TC',function() 
+    it('TC_7. Store Admin: Inspector Assign for Direct In.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -431,7 +433,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Approved the Direct In
-    it('Inspector: Inspect for Direct In. TC',function() 
+    it('TC_8. Inspector: Inspect for Direct In.',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -440,6 +442,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
         */
+
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -461,6 +464,7 @@ describe('AST Module Regression Test Suite', function()
         inspectionAssignedPage.getQCReportButton().attachFile(fileName);      //File Upload
         cy.wait(4000)
         */
+
         receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
 
@@ -471,7 +475,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Direct In
-    it('Store Admin: Inspection Approval for Direct In. TC',function() 
+    it('TC_9. Store Admin: Inspection Approval for Direct In.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -504,7 +508,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Asset Tagging
-    it('Store Keeper: Asset Tagging (Direct In Asset). TC',function() 
+    it('TC_10. Store Keeper: Asset Tagging (Direct In Asset).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -556,9 +560,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)
     })
 
-    //Direct Out Flow Start Here*********************************************
+    //Direct Out Flow Start Here******************************************************************************
     //Direct Out
-    it('Store Keeper: Direct Out Request and Send for Approval . TC',function() 
+    it('TC_11. Store Keeper: Direct Out Request and Send for Approval.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -606,7 +610,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Direct Out
-    it('Store Admin: Approves Direct Out with Proper Comments. TC',function()
+    it('TC_12. Store Admin: Approves Direct Out with Proper Comments.',function()
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -636,9 +640,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)  
     })
 
-    //Asset Requisition and Approval (self) Flow Start ***********************
+    //Asset Requisition and Approval (self) Flow Start ******************************************************
     //Requisition (self) 
-    it('Asset user: Add Items for (Self) Requisition. TC',function() 
+    it('TC_13. Asset user: Add Items for (Self) Requisition.',function() 
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
@@ -688,7 +692,7 @@ describe('AST Module Regression Test Suite', function()
         directInPage.getAddFeaturesButton().should('include.text', 'বৈশিষ্ট্য যোগ করুন').click()
         cy.wait(2000)
 
-        requisitionPage.getQuantityInputBox().clear().type(this.prc.DCPItemQuantity).should('have.value', this.prc.DCPItemQuantity)
+        requisitionPage.getQuantityInputBox().clear().type(this.ast.requisitionQuantity).should('have.value', this.ast.requisitionQuantity)
         cy.wait(1500)
         directInPage.getAddItemButton().first().click()     //Plus icon for add items
         cy.wait(2000)
@@ -701,7 +705,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)  
     })
     //Self Requisition Approval 
-    it('Store Admin: Requisition Approval of Asset User(Self) Requisition. TC',function() 
+    it('TC_14. Store Admin: Requisition Approval of Asset User(Self) Requisition.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -738,9 +742,9 @@ describe('AST Module Regression Test Suite', function()
         requisitionPage.getUncheckDefaultItem5().click({ force: true })
         requisitionPage.getUncheckDefaultItem6().click({ force: true })
         requisitionPage.getUncheckDefaultItem7().click({ force: true })
-        requisitionPage.getUncheckDefaultItem8().click({ force: true })
-        requisitionPage.getUncheckDefaultItem9().click({ force: true })
-        requisitionPage.getUncheckDefaultItem10().click({ force: true })
+        //requisitionPage.getUncheckDefaultItem8().click({ force: true })
+        //requisitionPage.getUncheckDefaultItem9().click({ force: true })
+        //requisitionPage.getUncheckDefaultItem10().click({ force: true })
         cy.wait(2000)
 
         cy.selectItems(this.ast.assetTagNo)
@@ -757,13 +761,13 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(1000)
         cy.selectItems(this.ast.assetTagNo7)
         cy.wait(1000)
-        cy.selectItems(this.ast.assetTagNo8)
+    /*    cy.selectItems(this.ast.assetTagNo8)
         cy.wait(1000)
         cy.selectItems(this.ast.assetTagNo9)
         cy.wait(1000)
         cy.selectItems(this.ast.assetTagNo10)
         cy.wait(2000)
-
+    */
         requisitionPage.getAddAssetButton().should('include.text', 'সম্পদ যোগ করুন').click()
         cy.wait(2000)
         
@@ -787,7 +791,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Self Requisition Item Issue 
-    it('Store Keeper: Issue Requisition Items for Asset User(Self) Requisition. TC',function() 
+    it('TC_15. Store Keeper: Issue Requisition Items for Asset User(Self) Requisition.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -818,9 +822,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)
     })
 
-    //Asset Return (Request Return) Flow Start ********************************
+    //Asset Return (Request Return) Flow Start **************************************************************
     //Give return request with items
-    it('Store Admin: Give Asset Return Request with Items (Request Return). TC',function() 
+    it('TC_16. Store Admin: Give Asset Return Request with Items (Request Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -881,7 +885,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Approver ( Assigned by store admin ) approved that return request
-    it('Store Admin: Approved the Asset Return (Request Return). TC',function() 
+    it('TC_17. Store Admin: Approved the Asset Return (Request Return)',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -911,7 +915,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Receive that Asset return request, which was requested by the store admin
-    it('Store Keeper: Receive that Asset Return (Request Return) which was Requested by the Store Admin. TC',function() 
+    it('TC_18. Store Keeper: Receive that Asset Return (Request Return) which was Requested by the Store Admin.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -930,8 +934,8 @@ describe('AST Module Regression Test Suite', function()
 
         //receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধসমূহের তালিকা')
 
-        //cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা Here a issue now, so select the last one
-        requestReturnPage.getEnterEyeButton().last().click()
+        cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা 
+        //requestReturnPage.getEnterEyeButton().last().click()
         cy.wait(3000)
 
         //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
@@ -945,7 +949,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Asset Request Return
-    it('Store Admin: Inspector Assign for Asset Return (Request Return). TC',function() 
+    it('TC_19. Store Admin: Inspector Assign for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -992,7 +996,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Approved Asset Request Return
-    it('Inspector: Inspect for Asset Return (Request Return). TC',function() 
+    it('TC_20. Inspector: Inspect for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -1001,6 +1005,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
         */
+
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1027,7 +1032,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Asset Request Return
-    it('Store Admin: Inspection Approval for Asset Return (Request Return). TC',function() 
+    it('TC_21. Store Admin: Inspection Approval for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1057,12 +1062,13 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click() 
         */
+
         cy.wait(6000)  
     })
 
     //Asset Return (Self Return) Flow Start *******************************************************************
     //Add tag and then add items, click on Send for Inspection 
-    it('Store Keeper: Enter Assined Item Tag and Send for Inspection (Self Return). TC',function() 
+    it('TC_22. Store Keeper: Enter Assined Item Tag and Send for Inspection (Self Return).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1101,7 +1107,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Asset Self Return
-    it('Store Admin: Inspector Assign for Asset Return (Self Return). TC',function() 
+    it('TC_23. Store Admin: Inspector Assign for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1148,7 +1154,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Approved Asset Self Return
-    it('Inspector: Inspect for Asset Return (Self Return). TC',function() 
+    it('TC_24. Inspector: Inspect for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -1157,6 +1163,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
         */
+
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1183,7 +1190,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Asset Self Return
-    it('Store Admin: Inspection Approval for Asset Return (Self Return). TC',function() 
+    it('TC_25. Store Admin: Inspection Approval for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1213,12 +1220,13 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click() 
         */
+
         cy.wait(6000)  
     })
 
     //Asset Maintenance (Inspection) Flow Start *******************************************************************
     //Enter assined item tag number for return, click on Send for Inspection 
-    it('Store Keeper: Enter Assined Item Tag and Send for Maintenance (Inspection). TC',function() 
+    it('TC_26. Store Keeper: Enter Assined Item Tag and Send for Maintenance (Inspection). TC',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1257,7 +1265,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Asset Maintenance (Inspection)
-    it('Store Admin: Inspector Assign for Asset Maintenance (Inspection). TC',function() 
+    it('TC_27. Store Admin: Inspector Assign for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1304,7 +1312,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector rejection Asset Maintenance (Inspection)
-    it('Inspector: Inspect Rejection for Asset Maintenance (Inspection). TC',function() 
+    it('TC_28. Inspector: Inspect Rejection for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -1313,6 +1321,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
         */
+
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1336,6 +1345,7 @@ describe('AST Module Regression Test Suite', function()
                 $el.find('td ejs-checkbox span').click()
             }
         })  */
+
         inspectionAssignedPage.getAssetCheckBox().click({ force: true })
         cy.wait(2000)
 
@@ -1351,7 +1361,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Maintenance (Inspection)
-    it('Store Admin: Reject at the inspected result for Asset Maintenance (Inspection). TC',function() 
+    it('TC_29. Store Admin: Reject at the inspected result for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1386,7 +1396,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Maintence Committee Head Enter Remarks and Put next maintenance date for the Maintenance (Inspection)
-    it('Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
+    it('TC_30. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -1425,7 +1435,7 @@ describe('AST Module Regression Test Suite', function()
 
     //Asset Maintenance (Maintenance Request from existing store item) Flow Start ************************************
     //Create maintenance request from store's existing item 
-    it('Store Keeper: Create Maintenance Request from Store Existing Item. TC',function() 
+    it('TC_31. Store Keeper: Create Maintenance Request from Store Existing Item.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1453,7 +1463,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)
     })
     //Committee Head Enter Remarks and Put next maintenance date for the (Maintenance Request from existing store item)
-    it('Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Store Existing Item. TC',function() 
+    it('TC_32. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Store Existing Item.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -1492,7 +1502,7 @@ describe('AST Module Regression Test Suite', function()
 
     //Asset Maintenance (From User Side) Flow Start ************************************************************
     //Create maintenance request from আমার অধিকৃত সম্পদসমূহ 
-    it('AST User: Create Maintenance Request from My Assets. TC',function() 
+    it('TC_33. AST User: Create Maintenance Request from My Assets.',function() 
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
@@ -1522,7 +1532,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Committee Head Enter Remarks and Put next maintenance date for the Maintenance Request from User Side
-    it('Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for the Maintenance Request from User Side. TC',function() 
+    it('TC_34. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for the Maintenance Request from User Side.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -1562,7 +1572,7 @@ describe('AST Module Regression Test Suite', function()
 
     //Disposal (From Asset Request Returned items) Flow Start ************************************************
     //Give return request with items
-    it('Store Admin: Give Asset Request Return for Disposal (From Asset Request Returned items). TC',function() 
+    it('TC_35. Store Admin: Give Asset Request Return for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1628,7 +1638,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Approver (Assigned by store admin) approved that return request
-    it('Store Admin: Approved the Asset Request Return for Disposal (From Asset Request Returned items). TC',function() 
+    it('TC_36. Store Admin: Approved the Asset Request Return for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1659,7 +1669,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Receive that Asset return request, which was requested by the store admin
-    it('Store Keeper : Receive that Asset Request Return for Disposal (From Asset Request Returned items). TC',function() 
+    it('TC_37. Store Keeper : Receive that Asset Request Return for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1678,8 +1688,8 @@ describe('AST Module Regression Test Suite', function()
 
         //receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধসমূহের তালিকা')
 
-        //cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা dynamicaly 
-        requestReturnPage.getEnterEyeButton().last().click()    //Last ফেরতদাতা
+        cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা dynamicaly 
+        //requestReturnPage.getEnterEyeButton().last().click()    //Last ফেরতদাতা
         cy.wait(3000)
 
         //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
@@ -1694,7 +1704,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Asset Request Return
-    it('Store Admin: Inspector Assign for Disposal (From Asset Request Returned items). TC',function() 
+    it('TC_38. Store Admin: Inspector Assign for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1741,7 +1751,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector rejection Asset Maintenance (Inspection)
-    it('Inspector: Inspect Rejection for Disposal (From Asset Request Returned items). TC',function() 
+    it('TC_39. Inspector: Inspect Rejection for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -1785,7 +1795,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Maintenance (Inspection)
-    it('Store Admin: Reject at the inspected result for Disposal (From Asset Request Returned items). TC',function() 
+    it('TC_40. Store Admin: Reject at the inspected result for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1820,7 +1830,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Request (From Asset Request Returned items)
-    it('Store Keeper: Make Disposal Request for Asset Request Returned items. TC',function() 
+    it('TC_41. Store Keeper: Make Disposal Request for Asset Request Returned items.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1866,7 +1876,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Committee head (Any member of that committee can permit)
-    it('Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for Asset Request Returned items. TC',function() 
+    it('TC_42. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for Asset Request Returned items.',function() 
     {
         cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
 
@@ -1919,7 +1929,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Approved Disposal Result (Any member of that committee can permit)
-    it('Store Admin: Approved Disposal Result for Asset Request Returned items. TC',function() 
+    it('TC_43. Store Admin: Approved Disposal Result for Asset Request Returned items.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1980,7 +1990,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Verify the approved Disposal Result on report (নিষ্পত্তিযোগ্য সম্পদ)
-    it('Store Admin: Verify the Disposed Asset on the Report for Asset Request Returned items. TC',function() 
+    it('TC_44. Store Admin: Verify the Disposed Asset on the Report for Asset Request Returned items.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2023,9 +2033,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000) 
     })
 
-    //Disposal (From Asset Self Returned items) Flow Start ***************************************************
+    //Disposal (From Asset Self Returned items) Flow Start *****************************************************************************
     //Add tag and then add items, click on Send for Inspection 
-    it('Store Keeper: Enter Assined Item Tag and Send for Disposal (From Asset Self Returned items). TC',function() 
+    it('TC_45. Store Keeper: Enter Assined Item Tag and Send for Disposal (From Asset Self Returned items). TC',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -2064,7 +2074,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Asset Self Return
-    it('Store Admin: Inspector Assign for Disposal (From Asset Self Returned items). TC',function() 
+    it('TC_46. Store Admin: Inspector Assign for Disposal (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2111,7 +2121,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector rejection Asset Maintenance (Inspection)
-    it('Inspector: Inspect Rejection for Disposal (From Asset Self Returned items). TC',function() 
+    it('TC_47. Inspector: Inspect Rejection for Disposal (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -2120,6 +2130,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
         */
+
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -2149,7 +2160,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Maintenance (Inspection)
-    it('Store Admin: Reject at the inspected result for Disposal (From Asset Self Returned items). TC',function() 
+    it('TC_48. Store Admin: Reject at the inspected result for Disposal (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2184,7 +2195,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Request (From Asset Self Returned items)
-    it('Store Keeper: Make Disposal Request (From Asset Self Returned items). TC',function() 
+    it('TC_49. Store Keeper: Make Disposal Request (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -2226,7 +2237,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Committee head (Any member of that committee can permit)
-    it('Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Asset Self Returned items). TC',function() 
+    it('TC_50. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
 
@@ -2263,7 +2274,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Approved Disposal Result (Any member of that committee can permit)
-    it('Store Admin: Approved Disposal Result (From Asset Self Returned items). TC',function() 
+    it('TC_51. Store Admin: Approved Disposal Result (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2302,7 +2313,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000) 
     })
     //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
-    it('Store Admin: Verify the Disposed Asset on the Report for (From Asset Self Returned items). TC',function() 
+    it('TC_52. Store Admin: Verify the Disposed Asset on the Report for (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2345,9 +2356,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000) 
     })
 
-    //Disposal (From আমার অধিকৃত সম্পদসমূহ) Flow Start ***************************
+    //Disposal (From আমার অধিকৃত সম্পদসমূহ) Flow Start *******************************************************
     //Create maintenance request from আমার অধিকৃত সম্পদসমূহ 
-    it('AST User: Create Maintenance Request from My Assets for Disposal. TC',function() 
+    it('TC_53. AST User: Create Maintenance Request from My Assets for Disposal.',function() 
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
@@ -2377,7 +2388,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Committee Head Enter Remarks and Put it for Disposal
-    it('Maintence Disposal Committee Head: Enter Remarks and Put it for Disposal from User Side. TC',function() 
+    it('TC_54. Maintence Disposal Committee Head: Enter Remarks and Put it for Disposal from User Side.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -2416,7 +2427,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Request (From My Asset items)
-    it('Store Keeper: Make Disposal Request (From My Asset items). TC',function() 
+    it('TC_55. Store Keeper: Make Disposal Request (From My Asset items).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -2458,7 +2469,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Committee head (Any member of that committee can permit)
-    it('Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From My Asset items). TC',function() 
+    it('TC_56. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From My Asset items).',function() 
     {
         cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
 
@@ -2496,7 +2507,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Approved Disposal Result 
-    it('Store Admin: Approved Disposal Result (From My Asset items). TC',function() 
+    it('TC_57. Store Admin: Approved Disposal Result (From My Asset items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2535,7 +2546,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000) 
     })
     //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
-    it('Store Admin: Verify the Disposed Asset on the Report (From My Asset items). TC',function() 
+    it('TC_58. Store Admin: Verify the Disposed Asset on the Report (From My Asset items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2580,7 +2591,7 @@ describe('AST Module Regression Test Suite', function()
 
     //Disposal (For Existing store items) Flow Start *****************************************************
     //Create maintenance request from store's existing item for Disposal
-    it('Store Keeper: Create Maintenance Request from Store Existing Item for Disposal. TC',function() 
+    it('TC_59. Store Keeper: Create Maintenance Request from Store Existing Item for Disposal.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -2609,7 +2620,7 @@ describe('AST Module Regression Test Suite', function()
     })
     
     //Committee Head Enter Remarks and Put it for Disposal
-    it('Maintence Committee Head: Enter Remarks and Put it for Disposal from Stores Existing Item. TC',function() 
+    it('TC_60. Maintence Committee Head: Enter Remarks and Put it for Disposal from Stores Existing Item.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -2648,7 +2659,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Request (From stores existing item)
-    it('Store Keeper: Make Disposal Request (From Stores Existing Item). TC',function() 
+    it('TC_61. Store Keeper: Make Disposal Request (From Stores Existing Item).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -2690,7 +2701,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Committee head (Any member of that committee can permit)
-    it('Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Stores Existing Item). TC',function() 
+    it('TC_62. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Stores Existing Item).',function() 
     {
         cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
 
@@ -2728,7 +2739,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Approved Disposal Result 
-    it('Store Admin: Approved Disposal Result (From Stores Existing Item). TC',function() 
+    it('TC_63. Store Admin: Approved Disposal Result (From Stores Existing Item).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2766,8 +2777,9 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
         cy.wait(6000) 
     })
+
     //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
-    it.only('Store Admin: Verify the Disposed Asset on the Report (From Stores Existing Item). TC',function() 
+    it('TC_64. Store Admin: Verify the Disposed Asset on the Report (From Stores Existing Item).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
