@@ -102,10 +102,10 @@
   "DCPVendorName": "গ্লোবাল ব্র্যান্ড প্রাইভেট লিমিটেড",
   "DCPYear": "২০২০",
   "DCPMonth": "মে",
-  "DCPDate": "১০",
+  "DCPDate": "১২",
   "OPMAPPReferenceNoWorks": "GRP.Auto.OPM.APP.Work.0015",
   "OPMAPPReferenceNoGoods": "GRP.Auto.OPM.APP.Goods.0015",
-  "DCPReferenceNo": "GRP.Auto.QA.Team.DCP.0018",
+  "DCPReferenceNo": "GRP.Auto.QA.Team.DCP.0022",
   "DCPDescription": "এটি জিআরপি এসকিউএ টিম দ্বারা অটোমেশন পরীক্ষা।",
   "DCPRemarks": "টেস্ট",
 
@@ -115,7 +115,7 @@
   "DCPItemCategoryWorks": "কার্য",
   "DCPItemNameWorks": "পুনঃ নির্মান",
 
-  "DCPItemQuantity": "10",
+  "DCPItemQuantity": "11",
   "DCPItemUnit": "পিস",
   "DCPItemUnitRate": "50000",
   "DCPItemCurrency": "টাকা",

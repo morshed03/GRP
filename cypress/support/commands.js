@@ -108,7 +108,7 @@ Cypress.Commands.add("selectItems", (element) =>
         const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
         if(textAssetTagNo.includes(element))                    
         {
-            $el.find('.e-templatecell label .e-icons').click()
+            $el.find('.e-templatecell label span.e-icons').click()
         }
     })
 })

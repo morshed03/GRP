@@ -2,29 +2,29 @@ class RequisitionPage
 {
     getReferenceNoField()  //রেফারেন্স নং
     {
-        return cy.get('.card-body form input:eq(0)')
+        return cy.get('.card-body form input[placeholder="রেফারেন্স নং"]:eq(0)')
     }
     getJustificationField()  //ন্যায্যতা
     {
-        return cy.get('.card-body form input:eq(1)')
+        return cy.get('.card-body form input[placeholder="ন্যায্যতা"]:eq(0)')
     }
     getPurposeField()  //উদ্দেশ্য
     {
-        return cy.get('.card-body form mat-select')
+        return cy.get('.card-body form mat-select[aria-label="উদ্দেশ্য"]')
     }
 
     getEntitlementButton()  // প্রাধিকার   
     {
-        return cy.get('.card-body button:eq(0)')
+        return cy.get('.card-body button.btn-primary:eq(0)')
     }
     getItemsButton()  // পণ্য সমূহ 
     {
-        return cy.get('.card-body button:eq(1)')
+        return cy.get('.card-body button.btn-primary:eq(1)')
     }
 
     getItemsCategoryField()  // ক্যাটাগরি field 
     {
-        return cy.get('.card-body mat-form-field mat-select:eq(4)')
+        return cy.get('.card-body mat-form-field mat-select[aria-label="ক্যাটাগরি"]:eq(0)')
     }
 
     getItemsCategoryField()  // ক্যাটাগরি field 
@@ -34,7 +34,7 @@ class RequisitionPage
 
     getQuantityInputBox()  // পরিমাণ *
     {
-        return cy.get('td ejs-textbox input:eq(0)')
+        return cy.get('td ejs-textbox input[type="number"]:eq(0)')
     }
 
     //চাহিদা পত্র -> অনুমোদন অপেক্ষমান page locators
@@ -76,16 +76,16 @@ class RequisitionPage
     }
     getUncheckDefaultItem10()  // Uncheck the default item
     {
-        return cy.get('.e-templatecell label span:eq(11)')
+        return cy.get('.e-templatecell label span.:eq(11)')
     }
 
     getAddAssetButton()  //সম্পদ যোগ করুন button
     {
-        return cy.get('.card-footer button:eq(3)')
+        return cy.get('.card-footer button.btn-success:eq(0)')
     }
     getRemarkField()  //মন্তব্য
     {
-        return cy.get('td input:eq(0)')
+        return cy.get('td input[type="text"]:eq(0)')
     }
 
     getCardFooterSixthButton()  //Card Footer Button 06
@@ -98,12 +98,12 @@ class RequisitionPage
     }
     getCardFooterYesButton()  // Yes Button
     {
-        return cy.get('.modal-content .card-footer button:eq(1)')
+        return cy.get('.modal-content .card-footer button.btn-primary:eq(0)')
     }
 
     getRemarksFieldOnConfirmCard()  //  মন্তব্য: 
     {
-        return cy.get('.modal-content textarea')
+        return cy.get('.modal-content textarea[id="remarks"]')
     }
 
 }

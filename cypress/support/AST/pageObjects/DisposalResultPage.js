@@ -19,37 +19,38 @@ class DisposalResultPage
 
     getAcquiredValueField1()  //অর্জিত মূল্য
     {
-        return cy.get('.card-body td ejs-textbox input:eq(0)')
+        return cy.get('.card-body td ejs-textbox input[type="number"]:eq(0)')
     }
     getAcquiredValueField2()  //অর্জিত মূল্য
     {
-        return cy.get('.card-body td ejs-textbox input:eq(2)')
+        return cy.get('.card-body td ejs-textbox input[type="number"]:eq(1)')
     }
     getAcquiredValueField3()  //অর্জিত মূল্য
     {
-        return cy.get('.card-body td ejs-textbox input:eq(4)')
+        return cy.get('.card-body td ejs-textbox input[type="number"]:eq(2)')
     }
 
     getDecidedRemark1()  //বিবরণ *
     {
-        return cy.get('.card-body td ejs-textbox input:eq(1)')
+        return cy.get('.card-body td ejs-textbox input[type="text"]:eq(0)')
     }
     getDecidedRemark2()  //বিবরণ *
     {
-        return cy.get('.card-body td ejs-textbox input:eq(3)')
+        return cy.get('.card-body td ejs-textbox input[type="text"]:eq(1)')
     }
     getDecidedRemark3()  //বিবরণ *
     {
-        return cy.get('.card-body td ejs-textbox input:eq(5)')
+        return cy.get('.card-body td ejs-textbox input[type="text"]:eq(2)')
     }
 
-    getSixthSendButton()  //প্রেরণ button 6th
+    getSendButton()  //প্রেরণ from Other tab
     {
-        return cy.get('.card-footer button:eq(5)')
+        //return cy.get('.card:visible .card-footer button.btn-success:eq(1)')
+        return cy.xpath('//button[contains(text(), "প্রেরণ")]')
     }
-    getSendButton()  //প্রেরণ button  7th
+    getSendButtonDisposed()  //প্রেরণ From Dispose tab
     {
-        return cy.get('.card-footer button:eq(6)')
+        return cy.get('.card:visible .card-footer button.btn-success:eq(2)')
     }
     getSendButtonFifth()  //প্রেরণ button 5th
     {

@@ -6,15 +6,15 @@ class ReceiveGoods_StoreKeepingPage
     }
     getCardHeader()  // Page/Card Header 1
     {
-        return cy.get('.card-header mat-label:eq(0)')
+        return cy.get('.card:visible .card-header mat-label:eq(0)')
     }
     getSecondCardHeader()  // Page/Card Header 2
     {
-        return cy.get('.card-header mat-label:eq(1)')
+        return cy.get('.card:visible .card-header mat-label:eq(1)')
     }
     getThirdCardHeader()  // Page/Card Header 3
     {
-        return cy.get('.card-header mat-label:eq(2)')
+        return cy.get('.card:visible .card-header mat-label:eq(2)')
     }
     getFourthCardHeader()  // Page/Card Header 4
     {
@@ -23,7 +23,7 @@ class ReceiveGoods_StoreKeepingPage
 
     getCardRows()  // Card/Table rows
     {
-        return cy.get('tbody tr')
+        return cy.get('tbody:visible tr')
     }
     getCardRowsvisible()  // Card/Table visible rows
     {
@@ -31,7 +31,7 @@ class ReceiveGoods_StoreKeepingPage
     }
     getChalanNoInputField()  // Card/Table rows
     {
-        return cy.get('.card-body input:eq(5)')
+        return cy.get('.card-body input[placeholder="চালান নং"]')
     }
     getCalendarIcon()  //Calendar Icon
     {
@@ -47,9 +47,9 @@ class ReceiveGoods_StoreKeepingPage
         return cy.get('.modal-content .card-footer button:eq(1)')
     }
 
-    getCardFooterFourthButton()  //Card Footer icon 04
+    getCardFooterFourthButton()  //গ্রহণ এবং ইন্সপেকশনের জন্য প্রেরণ করুন
     {
-        return cy.get('.card-footer button:eq(3)')
+        return cy.get('.card-footer button.btn-success:eq(0)')
     }
     getCardFooterFifthButton()  //Card Footer icon 05
     {

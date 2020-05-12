@@ -137,11 +137,9 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.chalanNo)  //চালান নং
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'ম্যাটেরিয়াল রিসেপশন')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'ম্যাটেরিয়াল রিসেপশন')   //When Store is seconde index (SQA)
-
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
-        receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'ম্যাটেরিয়াল রিসেপশন')
+        
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
         
         inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
@@ -212,7 +210,7 @@ describe('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
-      //Select office code here if the user have multiple office 
+        //Select office code here if the user have multiple office 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -229,16 +227,15 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.chalanNo)  //চালান নং
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
-        receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
       
-        inspectedPage.getCardFooterFourthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
+        inspectedPage.getCardFooterFourthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from inspected Page  
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
 
-        cy.wait(6000)  
+        cy.wait(6000)
     })
 
     //ডিসিপি স্ট্যাটাস দেখুন TC will added here
@@ -270,10 +267,9 @@ describe('AST Module Regression Test Suite', function()
         })
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ট্যাগ')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ট্যাগ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ট্যাগ')
 
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'পণ্য সমূহ')
+        receiveGoodsPage.getSecondCardHeader().should('include.text', 'পণ্য সমূহ')
 
         assetTaggingPage.getSetTagsButton().click()
         cy.wait(3000)
@@ -298,13 +294,15 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(1000)
         assetTaggingPage.getTagInputField10().clear().type(this.ast.assetTagNo10).should('have.value', this.ast.assetTagNo10)
         cy.wait(1000)
+        assetTaggingPage.getTagInputField11().clear().type(this.ast.assetTagNo11).should('have.value', this.ast.assetTagNo11)
+        cy.wait(1000)
 
         assetTaggingPage.getLifeTimeInputField().type(this.ast.assetLifeTime).should('have.value', this.ast.assetLifeTime)
         cy.wait(1000)
         assetTaggingPage.getSecondLifeTimeInputField().click()
         cy.wait(2500)
 
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click()
+        assetTaggingPage.getTagSaveButton().should('include.text', 'দাখিল করুন').click()
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -334,11 +332,9 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান সরাসরি গ্রহণ')
 
-        //directInPage.getAddButtonFirstStore().click()     //For First Store
-        directInPage.getAddButtonSecondStore().click()
+        directInPage.getAddButtonFirstStore().click()
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সরাসরি গ্রহণ তৈরি করুন')     //For First Store
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সরাসরি গ্রহণ তৈরি করুন')
+        receiveGoodsPage.getCardHeader().should('include.text', 'সরাসরি গ্রহণ তৈরি করুন')
 
         directInPage.getReferenceNoField().should('have.attr', 'placeholder', 'রেফারেন্স নং').clear().type(this.ast.DIReferenceNo).should('have.value', this.ast.DIReferenceNo)
         cy.wait(2000)
@@ -347,8 +343,7 @@ describe('AST Module Regression Test Suite', function()
         directInPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.DIJustification).should('have.value', this.ast.DIJustification)
         cy.wait(2000)
 
-        //directInPage.getAddItemPlusButtonForFirstStore().click()     //পণ্য যোগ করুন 
-        directInPage.getAddItemPlusButtonForSecondStore().click()
+        directInPage.getAddItemPlusButtonForFirstStore().click()     //পণ্য যোগ করুন 
         cy.wait(3000)
         
         directInPage.getItemCategoryField().should('have.attr', 'aria-label', 'ক্যাটাগরি').click()
@@ -405,11 +400,9 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.DIReferenceNo)  //রেফারেন্স নং
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সরাসরি গ্রহণ')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সরাসরি গ্রহণ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'সরাসরি গ্রহণ')
 
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
-        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
         
         inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
@@ -496,8 +489,7 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.DIReferenceNo)  //রেফারেন্স নং
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
       
         inspectedPage.getCardFooterFourthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
@@ -534,10 +526,9 @@ describe('AST Module Regression Test Suite', function()
         })
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ট্যাগ')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ট্যাগ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ট্যাগ')
 
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'পণ্য সমূহ')
+        receiveGoodsPage.getSecondCardHeader().should('include.text', 'পণ্য সমূহ')
 
         assetTaggingPage.getSetTagsButton().click()     //Set Tag Button
         cy.wait(3000)
@@ -552,7 +543,7 @@ describe('AST Module Regression Test Suite', function()
         //assetTaggingPage.getSecondLifeTimeInputField().click()
         //cy.wait(2500)
 
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click()
+        assetTaggingPage.getTagSaveButton().should('include.text', 'দাখিল করুন').click()   //re-use from Asset Tagging Page
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -578,8 +569,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান অনুরোধসমূহ')
-        //directInPage.getAddButtonFirstStore().click()
-        directInPage.getAddButtonSecondStore().click()      //Re-use from Direct In Page
+        directInPage.getAddButtonFirstStore().click()
+        //directInPage.getAddButtonSecondStore().click()      //Re-use from Direct In Page
         cy.wait(3000)
 
         directOutPage.getPostOfficeTypeField().should('have.attr', 'aria-label', 'ধরণ').click()
@@ -599,9 +590,9 @@ describe('AST Module Regression Test Suite', function()
         directOutPage.getTagInputField().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.DIassetTagNo).should('have.value', this.ast.DIassetTagNo)
         cy.wait(2000)
 
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'পণ্য যোগ করুন').click()   //Re-use from Receive Goods Page
+        directOutPage.getAddItemButton().should('include.text', 'পণ্য যোগ করুন').click()   //Re-use from Receive Goods Page
         cy.wait(3000)
-        receiveGoodsPage.getCardFooterFifthButton().should('include.text', 'অনুমোদনের জন্য প্রেরণ').click()   //Re-use from Receive Goods Page
+        directOutPage.getSendForApprovalButton().should('include.text', 'অনুমোদনের জন্য প্রেরণ').click()   //Re-use from Receive Goods Page
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -614,7 +605,7 @@ describe('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
-      //Select office code here if the user have multiple office 
+        //Select office code here if the user have multiple office 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -632,7 +623,7 @@ describe('AST Module Regression Test Suite', function()
         directOutPage.getDORemarksInputField().click().type(this.ast.ApprovalRemarks).should('have.value', this.ast.ApprovalRemarks)
         cy.wait(2000)
 
-        inspectedPage.getCardFooterFifthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
+        inspectedPage.getCardFooterFourthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
         
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -640,13 +631,40 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)  
     })
 
-    //Asset Requisition and Approval (self) Flow Start ******************************************************
-    //Requisition (self) 
-    it('TC_13. Asset user: Add Items for (Self) Requisition.',function() 
+    //Verify the user get the item successfully
+    it('TC_13. AST User: Verify the User get the Item by Direct Out.',function() 
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
-      //Select office code here if the user have multiple office 
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getMyAssetMenu().should('include.text', 'আমার অধিকৃত সম্পদসমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.DIassetTagNo))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.DIassetTagNo)).to.be.true
+            }
+        })
+        cy.wait(2000)
+    })
+
+    //Asset Requisition and Approval (self) Flow Start ******************************************************
+    //Requisition (self) 
+    it('TC_14. Asset user: Add Items for (Self) Requisition.',function() 
+    {
+        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        //Select office code here if the user have multiple office 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -697,15 +715,15 @@ describe('AST Module Regression Test Suite', function()
         directInPage.getAddItemButton().first().click()     //Plus icon for add items
         cy.wait(2000)
 
-        inspectedPage.getCardFooterFifthButton().should('include.text', 'প্রেরণ').click() //Reuse from ReceiveGoods Page 
+        inspectedPage.getCardFooterFourthButton().should('include.text', 'প্রেরণ').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
         
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
+        cy.wait(6000)
     })
     //Self Requisition Approval 
-    it('TC_14. Store Admin: Requisition Approval of Asset User(Self) Requisition.',function() 
+    it('TC_15. Store Admin: Requisition Approval of Asset User(Self) Requisition.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -720,12 +738,12 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3500)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'চাহিদা পত্র')
-        cy.inspection(this.ast.DOPostPerson)    //Select গ্রাহক
+        cy.inspection(this.ast.requisitionReferenceNo)    //Select রেফারেন্স নং
         cy.wait(3000)
         
         receiveGoodsPage.getCardHeader().should('include.text', 'চাহিদা পত্র অনুমোদন')
 
-        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের Group
         {
             const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
             if(textItemGroup.includes(this.ast.ItemGroup))                    
@@ -736,14 +754,23 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(4000)
 
         requisitionPage.getUncheckDefaultItem().click({ force: true })
+        cy.wait(500)
         requisitionPage.getUncheckDefaultItem2().click({ force: true })
+        cy.wait(500)
         requisitionPage.getUncheckDefaultItem3().click({ force: true })
+        cy.wait(500)
         requisitionPage.getUncheckDefaultItem4().click({ force: true })
+        cy.wait(500)
         requisitionPage.getUncheckDefaultItem5().click({ force: true })
+        cy.wait(500)
         requisitionPage.getUncheckDefaultItem6().click({ force: true })
+        cy.wait(500)
         requisitionPage.getUncheckDefaultItem7().click({ force: true })
-        //requisitionPage.getUncheckDefaultItem8().click({ force: true })
-        //requisitionPage.getUncheckDefaultItem9().click({ force: true })
+        cy.wait(500)
+        requisitionPage.getUncheckDefaultItem8().click({ force: true })
+        cy.wait(500)
+        requisitionPage.getUncheckDefaultItem9().click({ force: true })
+        cy.wait(500)
         //requisitionPage.getUncheckDefaultItem10().click({ force: true })
         cy.wait(2000)
 
@@ -761,20 +788,20 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(1000)
         cy.selectItems(this.ast.assetTagNo7)
         cy.wait(1000)
-    /*    cy.selectItems(this.ast.assetTagNo8)
+        cy.selectItems(this.ast.assetTagNo8)
         cy.wait(1000)
         cy.selectItems(this.ast.assetTagNo9)
         cy.wait(1000)
-        cy.selectItems(this.ast.assetTagNo10)
-        cy.wait(2000)
-    */
+        //cy.selectItems(this.ast.assetTagNo10)
+        //cy.wait(2000)
+    
         requisitionPage.getAddAssetButton().should('include.text', 'সম্পদ যোগ করুন').click()
         cy.wait(2000)
         
         requisitionPage.getRemarkField().click().type(this.ast.ApprovalRemarks).should('have.value', this.ast.ApprovalRemarks)
         cy.wait(2000)
         
-        requisitionPage.getCardFooterSixthButton().should('include.text', 'অনুমোদন করুন').click() 
+        requisitionPage.getAddAssetButton().should('include.text', 'অনুমোদন করুন').click() 
         cy.wait(2000)
         
         requisitionPage.getConfirmPopupHeader().should('include.text', 'নিশ্চিত করুন')
@@ -791,7 +818,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Self Requisition Item Issue 
-    it('TC_15. Store Keeper: Issue Requisition Items for Asset User(Self) Requisition.',function() 
+    it('TC_16. Store Keeper: Issue Requisition Items for Asset User(Self) Requisition.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -809,10 +836,10 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ইস্যু তালিকা')
-        cy.inspection(this.ast.DOPostPerson)    //Select গ্রাহক
+        cy.inspection(this.ast.requisitionReferenceNo)    //Select গ্রাহক
         cy.wait(3000)
         
-        //receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+        receiveGoodsPage.getCardHeader().should('include.text', 'ইস্যু')
         
         receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click()
         cy.wait(2000) 
@@ -822,9 +849,36 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)
     })
 
+    //Verify the user get the item successfully
+    it('TC_17. AST User: Verify the User get the Item by Self Requisition.',function() 
+    {
+        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getMyAssetMenu().should('include.text', 'আমার অধিকৃত সম্পদসমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo)).to.be.true
+            }
+        })
+        cy.wait(2000)
+    })
+
     //Asset Return (Request Return) Flow Start **************************************************************
     //Give return request with items
-    it('TC_16. Store Admin: Give Asset Return Request with Items (Request Return).',function() 
+    it('TC_18. Store Admin: Give Asset Return Request with Items (Request Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -843,11 +897,10 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ফেরতের জন্য অনুরোধের তালিকা')
 
-        //directInPage.getAddButtonFirstStore().click()   //Plus button
-        directInPage.getAddButtonSecondStore().click()
+        directInPage.getAddButtonFirstStore().click()   //Plus button
         cy.wait(2000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'পোস্ট / অফিস ইউনিট নির্বাচন করুন')
+        receiveGoodsPage.getCardHeader().should('include.text', 'পোস্ট / অফিস ইউনিট নির্বাচন করুন')
 
         directOutPage.getPostOfficeTypeField().should('have.attr', 'aria-label', 'ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.DOOfficePostType).click()
@@ -885,7 +938,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Approver ( Assigned by store admin ) approved that return request
-    it('TC_17. Store Admin: Approved the Asset Return (Request Return)',function() 
+    it('TC_19. Store Admin: Approved the Asset Return (Request Return)',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -915,7 +968,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Receive that Asset return request, which was requested by the store admin
-    it('TC_18. Store Keeper: Receive that Asset Return (Request Return) which was Requested by the Store Admin.',function() 
+    it('TC_20. Store Keeper: Receive that Asset Return (Request Return) which was Requested by the Store Admin.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -932,24 +985,23 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধসমূহের তালিকা')
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফেরতকৃত পণ্যের গ্রহণের তালিকা')
 
         cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা 
-        //requestReturnPage.getEnterEyeButton().last().click()
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
 
         requestReturnPage.getReciveButton().should('include.text', 'গ্রহণ').click() //Reuse from ReceiveGoods Page 
         cy.wait(1000)
         
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
+        cy.wait(6000) 
     })
 
     //Inspector Assign for Asset Request Return
-    it('TC_19. Store Admin: Inspector Assign for Asset Return (Request Return).',function() 
+    it('TC_21. Store Admin: Inspector Assign for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -968,11 +1020,9 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ফেরৎ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
 
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
-        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
         
         inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
@@ -996,7 +1046,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Approved Asset Request Return
-    it('TC_20. Inspector: Inspect for Asset Return (Request Return).',function() 
+    it('TC_22. Inspector: Inspect for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -1032,7 +1082,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Asset Request Return
-    it('TC_21. Store Admin: Inspection Approval for Asset Return (Request Return).',function() 
+    it('TC_23. Store Admin: Inspection Approval for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1053,8 +1103,7 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
       
         inspectedPage.getCardFooterFourthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
     /*    cy.wait(1500)
@@ -1066,9 +1115,41 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)  
     })
 
+    //Verify the Item back to the Store after Asset Return (Request Return) 
+    it('TC_24. Store Keeper: Verify the Item back to the Store after Asset Return (Request Return).',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getRequestSubMenuOfMaintenance().should('include.text', 'অনুরোধ করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(5000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo)).to.be.true
+            }
+        })
+        cy.wait(2000)
+    })
+
     //Asset Return (Self Return) Flow Start *******************************************************************
     //Add tag and then add items, click on Send for Inspection 
-    it('TC_22. Store Keeper: Enter Assined Item Tag and Send for Inspection (Self Return).',function() 
+    it('TC_25. Store Keeper: Enter Assined Item Tag and Send for Inspection (Self Return).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1085,29 +1166,26 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
         cy.wait(2000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগ')
+        receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগ')
 
-        //receiveTaggedItemsPage.getTagInputFieldForFirstStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo2).should('have.value', this.ast.assetTagNo2)
-        receiveTaggedItemsPage.getTagInputFieldForSecondStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo2).should('have.value', this.ast.assetTagNo2)    //For Second store
+        receiveTaggedItemsPage.getTagInputFieldForFirstStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo2).should('have.value', this.ast.assetTagNo2)
         cy.wait(2000)
 
         //Tag Search pop-up code will added here
 
-        //receiveTaggedItemsPage.getCardFooterThirdButton().should('include.text', 'পণ্য যোগ করুন').click()
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'পণ্য যোগ করুন').click()      //for second store
+        receiveTaggedItemsPage.getCardFooterThirdButton().should('include.text', 'পণ্য যোগ করুন').click()
         cy.wait(2000)
         
-        //receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //Send for Inspection button
-        receiveGoodsPage.getCardFooterFifthButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //for second store
+        receiveTaggedItemsPage.getSendApproverButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //Send for Inspection button
         cy.wait(1500)
         
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
+        cy.wait(6000)
     })
 
     //Inspector Assign for Asset Self Return
-    it('TC_23. Store Admin: Inspector Assign for Asset Return (Self Return).',function() 
+    it('TC_26. Store Admin: Inspector Assign for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1126,11 +1204,9 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ফেরৎ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
 
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
-        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
         
         inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
@@ -1150,11 +1226,11 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
+        cy.wait(6000)
     })
 
     //Inspector Approved Asset Self Return
-    it('TC_24. Inspector: Inspect for Asset Return (Self Return).',function() 
+    it('TC_27. Inspector: Inspect for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -1190,7 +1266,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Asset Self Return
-    it('TC_25. Store Admin: Inspection Approval for Asset Return (Self Return).',function() 
+    it('TC_28. Store Admin: Inspection Approval for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1211,22 +1287,47 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
       
         inspectedPage.getCardFooterFourthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
-    /*    cy.wait(1500)
-        
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click() 
-        */
+        cy.wait(6000)
+    })
 
-        cy.wait(6000)  
+    //Verify the Item back to the Store after Asset Return (Self Return) 
+    it('TC_29. Store Keeper: Verify the Item back to the Store after Asset Return (Self Return).',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getRequestSubMenuOfMaintenance().should('include.text', 'অনুরোধ করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(5000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo2))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo2)).to.be.true
+            }
+        })
+        cy.wait(2000)
     })
 
     //Asset Maintenance (Inspection) Flow Start *******************************************************************
     //Enter assined item tag number for return, click on Send for Inspection 
-    it('TC_26. Store Keeper: Enter Assined Item Tag and Send for Maintenance (Inspection). TC',function() 
+    it('TC_30. Store Keeper: Enter Assined Item Tag and Send for Maintenance (Inspection). TC',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1243,20 +1344,17 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
         cy.wait(2000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগ')
+        receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগ')
 
-        //receiveTaggedItemsPage.getTagInputFieldForFirstStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo2).should('have.value', this.ast.assetTagNo2)
-        receiveTaggedItemsPage.getTagInputFieldForSecondStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo3).should('have.value', this.ast.assetTagNo3)    //For Second store
+        receiveTaggedItemsPage.getTagInputFieldForFirstStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo3).should('have.value', this.ast.assetTagNo3)
         cy.wait(2000)
 
         //Tag Search pop-up code will added here
 
-        //receiveTaggedItemsPage.getCardFooterThirdButton().should('include.text', 'পণ্য যোগ করুন').click()
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'পণ্য যোগ করুন').click()      //for second store
+        receiveTaggedItemsPage.getCardFooterThirdButton().should('include.text', 'পণ্য যোগ করুন').click()
         cy.wait(2000)
         
-        //receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //Send for Inspection button
-        receiveGoodsPage.getCardFooterFifthButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //for second store
+        receiveTaggedItemsPage.getSendApproverButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //Send for Inspection button
         cy.wait(1500)
         
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -1265,7 +1363,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Asset Maintenance (Inspection)
-    it('TC_27. Store Admin: Inspector Assign for Asset Maintenance (Inspection).',function() 
+    it('TC_31. Store Admin: Inspector Assign for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1284,11 +1382,9 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ফেরৎ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
 
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
-        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
         
         inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
@@ -1312,7 +1408,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector rejection Asset Maintenance (Inspection)
-    it('TC_28. Inspector: Inspect Rejection for Asset Maintenance (Inspection).',function() 
+    it('TC_32. Inspector: Inspect Rejection for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -1352,7 +1448,7 @@ describe('AST Module Regression Test Suite', function()
         inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
         cy.wait(2000)
         
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
+        inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -1361,7 +1457,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Maintenance (Inspection)
-    it('TC_29. Store Admin: Reject at the inspected result for Asset Maintenance (Inspection).',function() 
+    it('TC_33. Store Admin: Reject at the inspected result for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1382,10 +1478,9 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
       
-        inspectedPage.getCardFooterFourthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
+        inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
         cy.wait(3000)
 
         inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
@@ -1396,11 +1491,11 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Maintence Committee Head Enter Remarks and Put next maintenance date for the Maintenance (Inspection)
-    it('TC_30. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
+    it('TC_34. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
-      //Select office code here if the user have multiple office 
+        //Select office code here if the user have multiple office 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1422,10 +1517,10 @@ describe('AST Module Regression Test Suite', function()
         itemsMaintenancePage.getCalendarIcon().click()
         cy.calendar(this.ast.chalanYear, this.ast.chalanMonth, this.ast.chalanDay)
 
-        itemsMaintenancePage.getMaintenanceCostField().click().type(this.ast.MaintenanceCost)
+        itemsMaintenancePage.getMaintenanceCostField().should('have.attr', 'placeholder', 'রক্ষণাবেক্ষণ খরচ').click().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
         cy.wait(2000)
 
-        inspectedPage.getCardFooterFifthButton().should('include.text', 'সংরক্ষণ করুন').click()
+        inspectedPage.getCardFooterFourthButton().should('include.text', 'সংরক্ষণ করুন').click()
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -1433,9 +1528,41 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000) 
     })
 
-    //Asset Maintenance (Maintenance Request from existing store item) Flow Start ************************************
+    //Verify the Item back to the Store after Maintenance (Inspection)
+    it('TC_35. Store Keeper: Verify the Item back to the Store after Maintenance (Inspection).',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getRequestSubMenuOfMaintenance().should('include.text', 'অনুরোধ করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(5000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo3))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo3)).to.be.true
+            }
+        })
+        cy.wait(2000)
+    })
+
+    //Asset Maintenance (Maintenance Request from existing Store item) Flow Start ************************************
     //Create maintenance request from store's existing item 
-    it('TC_31. Store Keeper: Create Maintenance Request from Store Existing Item.',function() 
+    it('TC_36. Store Keeper: Create Maintenance Request from Store Existing Item.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1450,11 +1577,11 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
-        cy.wait(4000)
+        cy.wait(5000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+        receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
 
-        cy.visibleItems(this.ast.assetTagNo)     //Select the Tag no
+        cy.visibleItems(this.ast.assetTagNo10)     //Select the Tag no
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -1463,7 +1590,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)
     })
     //Committee Head Enter Remarks and Put next maintenance date for the (Maintenance Request from existing store item)
-    it('TC_32. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Store Existing Item.',function() 
+    it('TC_37. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Store Existing Item.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -1478,7 +1605,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
-        cy.inspection(this.ast.assetTagNo)  // Item Tag
+        cy.inspection(this.ast.assetTagNo10)  // Item Tag
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
@@ -1492,7 +1619,7 @@ describe('AST Module Regression Test Suite', function()
         itemsMaintenancePage.getMaintenanceCostField().click().type(this.ast.MaintenanceCost)
         cy.wait(2000)
 
-        inspectedPage.getCardFooterFifthButton().should('include.text', 'সংরক্ষণ করুন').click() 
+        inspectedPage.getCardFooterFourthButton().should('include.text', 'সংরক্ষণ করুন').click() 
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -1502,7 +1629,7 @@ describe('AST Module Regression Test Suite', function()
 
     //Asset Maintenance (From User Side) Flow Start ************************************************************
     //Create maintenance request from আমার অধিকৃত সম্পদসমূহ 
-    it('TC_33. AST User: Create Maintenance Request from My Assets.',function() 
+    it('TC_38. AST User: Create Maintenance Request from My Assets.',function() 
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
@@ -1532,7 +1659,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Committee Head Enter Remarks and Put next maintenance date for the Maintenance Request from User Side
-    it('TC_34. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for the Maintenance Request from User Side.',function() 
+    it('TC_39. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for the Maintenance Request from User Side.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -1561,7 +1688,7 @@ describe('AST Module Regression Test Suite', function()
         itemsMaintenancePage.getMaintenanceCostField().click().type(this.ast.MaintenanceCost)
         cy.wait(2000)
 
-        inspectedPage.getCardFooterFifthButton().should('include.text', 'সংরক্ষণ করুন').click()
+        inspectedPage.getCardFooterFourthButton().should('include.text', 'সংরক্ষণ করুন').click()
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -1572,7 +1699,7 @@ describe('AST Module Regression Test Suite', function()
 
     //Disposal (From Asset Request Returned items) Flow Start ************************************************
     //Give return request with items
-    it('TC_35. Store Admin: Give Asset Request Return for Disposal (From Asset Request Returned items).',function() 
+    it('TC_40. Store Admin: Give Asset Request Return for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1591,11 +1718,10 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ফেরতের জন্য অনুরোধের তালিকা')
 
-        //directInPage.getAddButtonFirstStore().click()   //Plus button
-        directInPage.getAddButtonSecondStore().click()
+        directInPage.getAddButtonFirstStore().click()   //Plus button
         cy.wait(2000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'পোস্ট / অফিস ইউনিট নির্বাচন করুন')
+        receiveGoodsPage.getCardHeader().should('include.text', 'পোস্ট / অফিস ইউনিট নির্বাচন করুন')
 
         directOutPage.getPostOfficeTypeField().should('have.attr', 'aria-label', 'ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.DOOfficePostType).click()
@@ -1610,11 +1736,11 @@ describe('AST Module Regression Test Suite', function()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.DOPostPerson).click()
         cy.wait(2000)
 
-        cy.selectItems(this.ast.assetTagNo4)
-        cy.wait(2000)
         cy.selectItems(this.ast.assetTagNo5)
+        cy.wait(2000)
+        cy.selectItems(this.ast.assetTagNo6)
         cy.wait(1500)
-        cy.selectItems(this.ast.DIassetTagNo)
+        cy.selectItems(this.ast.assetTagNo7)
         cy.wait(2000)
         
         requestReturnPage.getCarrierField().should('have.attr', 'aria-label', 'বাহক').click()
@@ -1634,11 +1760,11 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
         
-        cy.wait(6000)  
+        cy.wait(6000)
     })
 
     //Approver (Assigned by store admin) approved that return request
-    it('TC_36. Store Admin: Approved the Asset Request Return for Disposal (From Asset Request Returned items).',function() 
+    it('TC_41. Store Admin: Approved the Asset Request Return for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1665,11 +1791,11 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
         
-        cy.wait(6000)  
+        cy.wait(6000)
     })
 
     //Receive that Asset return request, which was requested by the store admin
-    it('TC_37. Store Keeper : Receive that Asset Request Return for Disposal (From Asset Request Returned items).',function() 
+    it('TC_42. Store Keeper : Receive that Asset Request Return for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1686,13 +1812,12 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধসমূহের তালিকা')
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফেরতকৃত পণ্যের গ্রহণের তালিকা')
 
         cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা dynamicaly 
-        //requestReturnPage.getEnterEyeButton().last().click()    //Last ফেরতদাতা
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
 
         requestReturnPage.getReciveButton().should('include.text', 'গ্রহণ').click() //Reuse from ReceiveGoods Page 
         cy.wait(1000)
@@ -1704,7 +1829,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Asset Request Return
-    it('TC_38. Store Admin: Inspector Assign for Disposal (From Asset Request Returned items).',function() 
+    it('TC_43. Store Admin: Inspector Assign for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1723,11 +1848,9 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ফেরৎ')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
 
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
-        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
         
         inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
@@ -1747,11 +1870,11 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
+        cy.wait(6000) 
     })
 
     //Inspector rejection Asset Maintenance (Inspection)
-    it('TC_39. Inspector: Inspect Rejection for Disposal (From Asset Request Returned items).',function() 
+    it('TC_44. Inspector: Inspect Rejection for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
         /*
@@ -1786,7 +1909,7 @@ describe('AST Module Regression Test Suite', function()
         inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorFailRemarks).should('have.value', this.ast.InspectorFailRemarks)
         cy.wait(2000)
         
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
+        inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -1795,7 +1918,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Store Admin Approved the Inspection for the Maintenance (Inspection)
-    it('TC_40. Store Admin: Reject at the inspected result for Disposal (From Asset Request Returned items).',function() 
+    it('TC_45. Store Admin: Reject at the inspected result for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1816,10 +1939,9 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
       
-        inspectedPage.getCardFooterFourthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
+        inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
         cy.wait(3000)
 
         inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
@@ -1830,7 +1952,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Request (From Asset Request Returned items)
-    it('TC_41. Store Keeper: Make Disposal Request for Asset Request Returned items.',function() 
+    it('TC_46. Store Keeper: Make Disposal Request for Asset Request Returned items.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -1860,11 +1982,11 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         //Selects Items
-        cy.selectItems(this.ast.assetTagNo4)
-        cy.wait(1000)
         cy.selectItems(this.ast.assetTagNo5)
         cy.wait(1000)
-        cy.selectItems(this.ast.DIassetTagNo)
+        cy.selectItems(this.ast.assetTagNo6)
+        cy.wait(1000)
+        cy.selectItems(this.ast.assetTagNo7)
         cy.wait(1000)
 
         disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
@@ -1876,7 +1998,7 @@ describe('AST Module Regression Test Suite', function()
     })
 
     //Disposal Committee head (Any member of that committee can permit)
-    it('TC_42. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for Asset Request Returned items.',function() 
+    it('TC_47. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for Asset Request Returned items.',function() 
     {
         cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
 
@@ -1925,11 +2047,11 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000) 
+        cy.wait(6000)
     })
 
     //Approved Disposal Result (Any member of that committee can permit)
-    it('TC_43. Store Admin: Approved Disposal Result for Asset Request Returned items.',function() 
+    it('TC_48. Store Admin: Approved Disposal Result for Asset Request Returned items.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1950,7 +2072,7 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের ফলাফল')
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের ফলাফল')
 
         disposalResultPage.getDisposalTypeTab().contains('Auction').click()
         cy.wait(2000)
@@ -1986,334 +2108,11 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
 
-        cy.wait(6000) 
+        cy.wait(6000)
     })
 
     //Verify the approved Disposal Result on report (নিষ্পত্তিযোগ্য সম্পদ)
-    it('TC_44. Store Admin: Verify the Disposed Asset on the Report for Asset Request Returned items.',function() 
-    {
-        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('রিপোর্টস').click()
-        cy.wait(1000)
-        leftNavMenu.getDisposedAssetSubMenu().should('include.text', 'নিস্পত্তিকৃত সম্পদ').click()
-        cy.wait(3000)
-
-        reportsPage.getPageHeaderText().should('include.text', 'নিস্পত্তিকৃত সম্পদ')
-
-        reportsPage.getItemCategoryField().click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
-        cy.wait(2000)
-
-        reportsPage.getItemGroupField().click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemGroup).click()
-        cy.wait(2000)
-
-        reportsPage.getStoreField().click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.storeName).click()
-        cy.wait(2000)
-
-        reportsPage.getSearchButton().should('include.text', 'অনুসন্ধান করুন').click()
-        cy.wait(4000)
-
-        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
-        {
-            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
-            if(textAssetTagNo.includes(this.ast.DIassetTagNo))                    
-            {
-                const tagText = $el.find('td.e-rowcell[aria-label]').text()
-                expect(tagText.includes(this.ast.DIassetTagNo)).to.be.true
-            }
-        })
-        cy.wait(3000) 
-    })
-
-    //Disposal (From Asset Self Returned items) Flow Start *****************************************************************************
-    //Add tag and then add items, click on Send for Inspection 
-    it('TC_45. Store Keeper: Enter Assined Item Tag and Send for Disposal (From Asset Self Returned items). TC',function() 
-    {
-        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('ফেরৎ গ্রহণ').click()
-        cy.wait(1000)
-        leftNavMenu.ReceiveTaggedItemsSubMenu().should('include.text', 'ট্যাগকৃত পণ্যসমূহ গ্রহণ').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
-        cy.wait(2000)
-
-        //receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগ')
-
-        //receiveTaggedItemsPage.getTagInputFieldForFirstStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo2).should('have.value', this.ast.assetTagNo2)
-        receiveTaggedItemsPage.getTagInputFieldForSecondStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo6).should('have.value', this.ast.assetTagNo6)    //For Second store
-        cy.wait(2000)
-
-        //Tag Search pop-up code will added here
-
-        //receiveTaggedItemsPage.getCardFooterThirdButton().should('include.text', 'পণ্য যোগ করুন').click()
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'পণ্য যোগ করুন').click()      //for second store
-        cy.wait(2000)
-        
-        //receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //Send for Inspection button
-        receiveGoodsPage.getCardFooterFifthButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //for second store
-        cy.wait(1500)
-        
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)
-    })
-
-    //Inspector Assign for Asset Self Return
-    it('TC_46. Store Admin: Inspector Assign for Disposal (From Asset Self Returned items).',function() 
-    {
-        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
-
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('ইন্সপেকশন').click()
-        cy.wait(1000)
-        leftNavMenu.getInspectionUnassignedSubMenu().should('include.text', 'পরিদর্শক নির্ধারণ').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
-        cy.inspection(this.ast.ARPost)  // Post পদবি
-        cy.wait(3000)
-
-        //receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'সম্পদ ফেরৎ')   //When Store is seconde index (SQA)
-
-        //receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
-        //receiveGoodsPage.getFourthCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')     //When Store is seconde index(SQA)
-        
-        inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
-        cy.wait(2000)
-
-        inspectionUnassignedPage.getOfficeUnitField().should('have.attr', 'aria-label', 'শাখা').click()
-        cy.wait(1000)
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.OfficeUnit).click()
-        cy.wait(2000)
-
-        inspectionUnassignedPage.getInspectorField().should('have.attr', 'aria-label', 'পরিদর্শক').click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.Inspector).click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রেরণ').click() //Reuse from ReceiveGoods Page 
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
-    })
-
-    //Inspector rejection Asset Maintenance (Inspection)
-    it('TC_47. Inspector: Inspect Rejection for Disposal (From Asset Self Returned items).',function() 
-    {
-        cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
-        //Select office if needed
-        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
-        dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
-        cy.wait(3000)
-        */
-
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('ইন্সপেকশন').click()
-        cy.wait(1000)
-        leftNavMenu.getInspectionAssignedSubMenu().should('include.text', 'নির্ধারিত পরিদর্শন').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
-        cy.inspection(this.ast.ARPost)  //Post / পদবি
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'ইন্সপেকশনের ফলাফল সেট করুন')
-
-        inspectionAssignedPage.getAssetCheckBox().click({ force: true })
-        cy.wait(2000)
-
-        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
-        cy.wait(2000)
-        
-        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)
-    })
-
-    //Store Admin Approved the Inspection for the Maintenance (Inspection)
-    it('TC_48. Store Admin: Reject at the inspected result for Disposal (From Asset Self Returned items).',function() 
-    {
-        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
-        cy.wait(1000)
-        leftNavMenu.getInspectedSubMenu().should('include.text', 'পরিদর্শনকৃত').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
-        cy.inspection(this.ast.ARPost)  // Post / পদবি
-        cy.wait(3000)
-
-        //receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
-        //receiveGoodsPage.getSecondCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')   //When Store is seconde index (SQA)
-      
-        inspectedPage.getCardFooterFourthButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
-        cy.wait(3000)
-
-        inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
-        cy.wait(2000)
-
-        inspectedPage.getDisposalButton().should('include.text', 'নিষ্পত্তি').click()
-        cy.wait(6000)
-    })
-
-    //Disposal Request (From Asset Self Returned items)
-    it('TC_49. Store Keeper: Make Disposal Request (From Asset Self Returned items).',function() 
-    {
-        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('নিষ্পত্তিকরণ').click()
-        cy.wait(1000)
-        leftNavMenu.getDisposalRequestSubMenu().should('include.text', 'নিষ্পত্তিকরণের জন্য অনুরোধ').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য অনুরোধ')
-
-        disposalRequestPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.disposalJustificat).should('have.value', this.ast.disposalJustificat)
-        cy.wait(2000)
-
-        disposalRequestPage.getDisposalCommitteeNameField().should('have.attr', 'aria-label', 'কমিটির নাম').click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
-        cy.wait(2000)
-
-        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
-        cy.wait(2000)
-
-        //Selects Items
-        cy.selectItems(this.ast.assetTagNo6)
-        cy.wait(2000)
-
-        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
-    })
-
-    //Disposal Committee head (Any member of that committee can permit)
-    it('TC_50. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Asset Self Returned items).',function() 
-    {
-        cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
-        cy.wait(1000)
-        leftNavMenu.getDecisionOnDisposalSubMenu().should('include.text', 'নিষ্পত্তিকরণ সংক্রান্ত সিদ্ধান্ত').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত নিষ্পত্তিকরণের তালিকা')
-        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণ সংক্রান্ত সিদ্ধান্ত')
-        
-        disposalRequestPage.getDisposalTypeField1().click({ force: true })
-        disposalRequestPage.getDropDownItem().contains(this.ast.disposalRequestType2).click()
-        cy.wait(1000)
-        disposalRequestPage.getDisposalCost1().clear().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
-        cy.wait(1000)
-        disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
-        cy.wait(1000)
-
-        disposalRequestPage.getSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000) 
-    })
-
-    //Approved Disposal Result (Any member of that committee can permit)
-    it('TC_51. Store Admin: Approved Disposal Result (From Asset Self Returned items).',function() 
-    {
-        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('নিষ্পত্তিকরণ').click()
-        cy.wait(1000)
-        leftNavMenu.getDisposalResultSubMenu().should('include.text', 'নিষ্পত্তিকরণের ফলাফল').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য সম্পদ তালিকা')
-        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
-        cy.wait(3000)
-
-        //receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের ফলাফল')
-        
-        disposalResultPage.getDisposalTypeTab().contains('Disposed').click()
-        cy.wait(2000)
-        disposalResultPage.getDisposedAddButton().click()
-        cy.wait(2000)
-      
-        disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
-        cy.wait(2000)
-        
-        disposalResultPage.getSixthSendButton().should('include.text', 'প্রেরণ').click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000) 
-    })
-    //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
-    it('TC_52. Store Admin: Verify the Disposed Asset on the Report for (From Asset Self Returned items).',function() 
+    it('TC_49. Store Admin: Verify the Disposed Asset on the Report for Asset Request Returned items.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2356,78 +2155,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000) 
     })
 
-    //Disposal (From আমার অধিকৃত সম্পদসমূহ) Flow Start *******************************************************
-    //Create maintenance request from আমার অধিকৃত সম্পদসমূহ 
-    it('TC_53. AST User: Create Maintenance Request from My Assets for Disposal.',function() 
-    {
-        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getMyAssetMenu().should('include.text', 'আমার অধিকৃত সম্পদসমূহ').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
-
-        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Asset Tag
-        {
-            const textReferenceNo=$el.find('td.e-rowcell[aria-label]').text()
-            if(textReferenceNo.includes(this.ast.assetTagNo7))                    
-            {
-                $el.find('td button mat-icon:eq(0)').click()
-            }
-        })
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
-    })
-
-    //Disposal Committee Head Enter Remarks and Put it for Disposal
-    it('TC_54. Maintence Disposal Committee Head: Enter Remarks and Put it for Disposal from User Side.',function() 
-    {
-        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
-        cy.wait(1000)
-        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
-        cy.inspection(this.ast.assetTagNo7)  // Item Tag
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
-
-        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
-        cy.wait(2000)
-
-        inspectedPage.getCardFooterFourthButton().should('include.text', 'Decommission').click()
-        cy.wait(2000)
-
-        itemsMaintenancePage.getDisposalModalHeader().should('include.text', 'নিষ্পত্তি করার জন্য খরচের ধারণা দিন')
-        itemsMaintenancePage.getMaintenanceCostFieldOnModal().should('have.attr', 'placeholder', 'রক্ষণাবেক্ষণ খরচ').click().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
-        cy.wait(2000)
-
-        itemsMaintenancePage.getDisposalModalSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000) 
-    })
-
-    //Disposal Request (From My Asset items)
-    it('TC_55. Store Keeper: Make Disposal Request (From My Asset items).',function() 
+    //Disposal (From Asset Self Returned items) Flow Start *****************************************************************************
+    //Add tag and then add items, click on Send for Inspection 
+    it('TC_50. Store Keeper: Enter Assined Item Tag and Send for Disposal (From Asset Self Returned items). TC',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -2436,31 +2166,109 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
-        leftNavMenu.getDropDownMenu().contains('নিষ্পত্তিকরণ').click()
+        leftNavMenu.getDropDownMenu().contains('ফেরৎ গ্রহণ').click()
         cy.wait(1000)
-        leftNavMenu.getDisposalRequestSubMenu().should('include.text', 'নিষ্পত্তিকরণের জন্য অনুরোধ').click()
+        leftNavMenu.ReceiveTaggedItemsSubMenu().should('include.text', 'ট্যাগকৃত পণ্যসমূহ গ্রহণ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগ')
+
+        receiveTaggedItemsPage.getTagInputFieldForFirstStore().should('have.attr', 'placeholder', 'ট্যাগ দিন').click().type(this.ast.assetTagNo8).should('have.value', this.ast.assetTagNo8)
+        cy.wait(2000)
+
+        //Tag Search pop-up code will added here
+
+        receiveTaggedItemsPage.getCardFooterThirdButton().should('include.text', 'পণ্য যোগ করুন').click()
+        cy.wait(2000)
+        
+        receiveTaggedItemsPage.getSendApproverButton().should('include.text', 'পরিদর্শনের জন্য প্রেরণ করুন').click()    //Send for Inspection button
+        cy.wait(1500)
+        
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+
+    //Inspector Assign for Asset Self Return
+    it('TC_51. Store Admin: Inspector Assign for Disposal (From Asset Self Returned items).',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ইন্সপেকশন').click()
+        cy.wait(1000)
+        leftNavMenu.getInspectionUnassignedSubMenu().should('include.text', 'পরিদর্শক নির্ধারণ').click()
         cy.wait(3000)
 
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+        cy.inspection(this.ast.ARPost)  // Post পদবি
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'সম্পদ ফেরৎ')
+
+        receiveGoodsPage.getThirdCardHeader().should('include.text', 'ইন্সপেক্টর এসাইন করুন')
+        
+        inspectionUnassignedPage.getInspectorTypeField().should('have.attr', 'aria-label', 'পরিদর্শকের ধরণ').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.InspectorType).click()
         cy.wait(2000)
 
-        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য অনুরোধ')
-
-        disposalRequestPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.disposalJustificat).should('have.value', this.ast.disposalJustificat)
-        cy.wait(2000)
-
-        disposalRequestPage.getDisposalCommitteeNameField().should('have.attr', 'aria-label', 'কমিটির নাম').click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
-        cy.wait(2000)
-
-        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
-        cy.wait(2000)
-
-        //Selects Items
-        cy.selectItems(this.ast.assetTagNo7)
+        inspectionUnassignedPage.getOfficeUnitField().should('have.attr', 'aria-label', 'শাখা').click()
         cy.wait(1000)
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.OfficeUnit).click()
+        cy.wait(2000)
 
-        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
+        inspectionUnassignedPage.getInspectorField().should('have.attr', 'aria-label', 'পরিদর্শক').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.Inspector).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'প্রেরণ').click() //Reuse from ReceiveGoods Page 
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)  
+    })
+
+    //Inspector rejection Asset Maintenance (Inspection)
+    it('TC_52. Inspector: Inspect Rejection for Disposal (From Asset Self Returned items).',function() 
+    {
+        cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
+        /*
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
+        cy.wait(3000)
+        */
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ইন্সপেকশন').click()
+        cy.wait(1000)
+        leftNavMenu.getInspectionAssignedSubMenu().should('include.text', 'নির্ধারিত পরিদর্শন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.inspection(this.ast.ARPost)  //Post / পদবি
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ইন্সপেকশনের ফলাফল সেট করুন')
+
+        inspectionAssignedPage.getAssetCheckBox().click({ force: true })
+        cy.wait(2000)
+
+        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
+        cy.wait(2000)
+        
+        inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
@@ -2468,10 +2276,10 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(6000)
     })
 
-    //Disposal Committee head (Any member of that committee can permit)
-    it('TC_56. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From My Asset items).',function() 
+    //Store Admin Approved the Inspection for the Maintenance (Inspection)
+    it('TC_53. Store Admin: Reject at the inspected result for Disposal (From Asset Self Returned items).',function() 
     {
-        cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
         //Select office code here if the user have multiple office 
         
@@ -2480,186 +2288,30 @@ describe('AST Module Regression Test Suite', function()
 
         leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
         cy.wait(1000)
-        leftNavMenu.getDecisionOnDisposalSubMenu().should('include.text', 'নিষ্পত্তিকরণ সংক্রান্ত সিদ্ধান্ত').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত নিষ্পত্তিকরণের তালিকা')
-        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণ সংক্রান্ত সিদ্ধান্ত')
-        
-        disposalRequestPage.getDisposalTypeField1().click({ force: true })
-        disposalRequestPage.getDropDownItem().contains(this.ast.disposalRequestType2).click()
-        cy.wait(1000)
-        disposalRequestPage.getDisposalCost1().clear().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
-        cy.wait(1000)
-        disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
-        cy.wait(1000)
-
-        disposalRequestPage.getSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        
-        cy.wait(6000) 
-    })
-
-    //Approved Disposal Result 
-    it('TC_57. Store Admin: Approved Disposal Result (From My Asset items).',function() 
-    {
-        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('নিষ্পত্তিকরণ').click()
-        cy.wait(1000)
-        leftNavMenu.getDisposalResultSubMenu().should('include.text', 'নিষ্পত্তিকরণের ফলাফল').click()
+        leftNavMenu.getInspectedSubMenu().should('include.text', 'পরিদর্শনকৃত').click()
         cy.wait(3000)
 
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
         cy.wait(2000)
 
-        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য সম্পদ তালিকা')
-        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের ফলাফল')
-        
-        disposalResultPage.getDisposalTypeTab().contains('Disposed').click()
-        cy.wait(2000)
-        disposalResultPage.getDisposedAddButton().click()
-        cy.wait(2000)
+        receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
       
-        disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
-        cy.wait(2000)
-        
-        disposalResultPage.getSixthSendButton().should('include.text', 'প্রেরণ').click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000) 
-    })
-    //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
-    it('TC_58. Store Admin: Verify the Disposed Asset on the Report (From My Asset items).',function() 
-    {
-        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
+        inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
         cy.wait(3000)
 
-        leftNavMenu.getDropDownMenu().contains('রিপোর্টস').click()
-        cy.wait(1000)
-        leftNavMenu.getDisposedAssetSubMenu().should('include.text', 'নিস্পত্তিকৃত সম্পদ').click()
-        cy.wait(3000)
-
-        reportsPage.getPageHeaderText().should('include.text', 'নিস্পত্তিকৃত সম্পদ')
-
-        reportsPage.getItemCategoryField().click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
+        inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
         cy.wait(2000)
 
-        reportsPage.getItemGroupField().click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemGroup).click()
-        cy.wait(2000)
-
-        reportsPage.getStoreField().click()
-        inspectionUnassignedPage.getDropDownItem().contains(this.ast.storeName).click()
-        cy.wait(2000)
-
-        reportsPage.getSearchButton().should('include.text', 'অনুসন্ধান করুন').click()
-        cy.wait(4000)
-
-        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
-        {
-            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
-            if(textAssetTagNo.includes(this.ast.assetTagNo7))                    
-            {
-                const tagText = $el.find('td.e-rowcell[aria-label]').text()
-                expect(tagText.includes(this.ast.assetTagNo7)).to.be.true
-            }
-        })
-        cy.wait(3000) 
-    })
-
-    //Disposal (For Existing store items) Flow Start *****************************************************
-    //Create maintenance request from store's existing item for Disposal
-    it('TC_59. Store Keeper: Create Maintenance Request from Store Existing Item for Disposal.',function() 
-    {
-        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
-        cy.wait(1000)
-        leftNavMenu.getRequestSubMenuOfMaintenance().should('include.text', 'অনুরোধ করুন').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
-        cy.wait(4000)
-
-        //receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
-
-        cy.visibleItems(this.ast.assetTagNo8)     //Select the Tag no
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click({force: true})
-        
-        cy.wait(6000)
-    })
-    
-    //Committee Head Enter Remarks and Put it for Disposal
-    it('TC_60. Maintence Committee Head: Enter Remarks and Put it for Disposal from Stores Existing Item.',function() 
-    {
-        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
-
-        //Select office code here if the user have multiple office 
-        
-        dashboardPage.getASTAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
-        cy.wait(1000)
-        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
-        cy.inspection(this.ast.assetTagNo8)  // Item Tag
-        cy.wait(3000)
-
-        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
-
-        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
-        cy.wait(2000)
-
-        inspectedPage.getCardFooterFourthButton().should('include.text', 'Decommission').click()
-        cy.wait(2000)
-
-        itemsMaintenancePage.getDisposalModalHeader().should('include.text', 'নিষ্পত্তি করার জন্য খরচের ধারণা দিন')
-        itemsMaintenancePage.getMaintenanceCostFieldOnModal().should('have.attr', 'placeholder', 'রক্ষণাবেক্ষণ খরচ').click().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
-        cy.wait(2000)
-
-        itemsMaintenancePage.getDisposalModalSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
-        cy.wait(2000)
-
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        inspectedPage.getDisposalButton().should('include.text', 'নিষ্পত্তি').click()
         cy.wait(6000)
     })
 
-    //Disposal Request (From stores existing item)
-    it('TC_61. Store Keeper: Make Disposal Request (From Stores Existing Item).',function() 
+    //Disposal Request (From Asset Self Returned items)
+    it('TC_54. Store Keeper: Make Disposal Request (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -2690,18 +2342,18 @@ describe('AST Module Regression Test Suite', function()
 
         //Selects Items
         cy.selectItems(this.ast.assetTagNo8)
-        cy.wait(1000)
+        cy.wait(2000)
 
         disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click() 
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
         cy.wait(6000)  
     })
 
     //Disposal Committee head (Any member of that committee can permit)
-    it('TC_62. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Stores Existing Item).',function() 
+    it('TC_55. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
 
@@ -2734,12 +2386,11 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        
         cy.wait(6000) 
     })
 
-    //Approved Disposal Result 
-    it('TC_63. Store Admin: Approved Disposal Result (From Stores Existing Item).',function() 
+    //Approved Disposal Result (Any member of that committee can permit)
+    it('TC_56. Store Admin: Approved Disposal Result (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2760,7 +2411,7 @@ describe('AST Module Regression Test Suite', function()
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
-        //receiveGoodsPage.getCardHeader().should('include.text', 'ডিসপোজালের ফলাফল')
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের ফলাফল')
         
         disposalResultPage.getDisposalTypeTab().contains('Disposed').click()
         cy.wait(2000)
@@ -2770,16 +2421,15 @@ describe('AST Module Regression Test Suite', function()
         disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
         cy.wait(2000)
         
-        disposalResultPage.getSixthSendButton().should('include.text', 'প্রেরণ').click()
+        disposalResultPage.getSendButton().should('include.text', 'প্রেরণ').click()
         cy.wait(2000)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
         cy.wait(6000) 
     })
-
     //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
-    it('TC_64. Store Admin: Verify the Disposed Asset on the Report (From Stores Existing Item).',function() 
+    it('TC_57. Store Admin: Verify the Disposed Asset on the Report for (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -2817,6 +2467,472 @@ describe('AST Module Regression Test Suite', function()
             {
                 const tagText = $el.find('td.e-rowcell[aria-label]').text()
                 expect(tagText.includes(this.ast.assetTagNo8)).to.be.true
+            }
+        })
+        cy.wait(3000) 
+    })
+
+    //Disposal (From আমার অধিকৃত সম্পদসমূহ) Flow Start *******************************************************
+    //Create maintenance request from আমার অধিকৃত সম্পদসমূহ 
+    it('TC_58. AST User: Create Maintenance Request from My Assets for Disposal.',function() 
+    {
+        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getMyAssetMenu().should('include.text', 'আমার অধিকৃত সম্পদসমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Asset Tag
+        {
+            const textReferenceNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textReferenceNo.includes(this.ast.assetTagNo9))
+            {
+                $el.find('td button mat-icon:eq(0)').click()
+            }
+        })
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)  
+    })
+
+    //Disposal Committee Head Enter Remarks and Put it for Disposal
+    it('TC_59. Maintence Committee Head: Enter Remarks and Put it for Disposal from User Side.',function() 
+    {
+        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.inspection(this.ast.assetTagNo9)  // Item Tag
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
+
+        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(2000)
+
+        itemsMaintenancePage.getDecommissionButton().should('include.text', 'Decommission').click()
+        cy.wait(2000)
+
+        itemsMaintenancePage.getDisposalModalHeader().should('include.text', 'নিষ্পত্তি করার জন্য খরচের ধারণা দিন')
+        itemsMaintenancePage.getMaintenanceCostFieldOnModal().should('have.attr', 'placeholder', 'রক্ষণাবেক্ষণ খরচ').click().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
+        cy.wait(2000)
+
+        itemsMaintenancePage.getDisposalModalSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000) 
+    })
+
+    //Disposal Request (From My Asset items)
+    it('TC_60. Store Keeper: Make Disposal Request (From My Asset items).',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('নিষ্পত্তিকরণ').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalRequestSubMenu().should('include.text', 'নিষ্পত্তিকরণের জন্য অনুরোধ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য অনুরোধ')
+
+        disposalRequestPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.disposalJustificat).should('have.value', this.ast.disposalJustificat)
+        cy.wait(2000)
+
+        disposalRequestPage.getDisposalCommitteeNameField().should('have.attr', 'aria-label', 'কমিটির নাম').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
+        cy.wait(2000)
+
+        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
+        cy.wait(2000)
+
+        //Selects Items
+        cy.selectItems(this.ast.assetTagNo9)
+        cy.wait(1000)
+
+        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+
+    //Disposal Committee head (Any member of that committee can permit)
+    it('TC_61. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From My Asset items).',function() 
+    {
+        cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getDecisionOnDisposalSubMenu().should('include.text', 'নিষ্পত্তিকরণ সংক্রান্ত সিদ্ধান্ত').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত নিষ্পত্তিকরণের তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণ সংক্রান্ত সিদ্ধান্ত')
+        
+        disposalRequestPage.getDisposalTypeField1().click({ force: true })
+        disposalRequestPage.getDropDownItem().contains(this.ast.disposalRequestType2).click()
+        cy.wait(1000)
+        disposalRequestPage.getDisposalCost1().clear().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
+        cy.wait(1000)
+        disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(1000)
+
+        disposalRequestPage.getSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        
+        cy.wait(6000) 
+    })
+
+    //Approved Disposal Result 
+    it('TC_62. Store Admin: Approved Disposal Result (From My Asset items).',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('নিষ্পত্তিকরণ').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalResultSubMenu().should('include.text', 'নিষ্পত্তিকরণের ফলাফল').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য সম্পদ তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের ফলাফল')
+        
+        disposalResultPage.getDisposalTypeTab().contains('Disposed').click()
+        cy.wait(2000)
+        disposalResultPage.getDisposedAddButton().click()
+        cy.wait(2000)
+      
+        disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
+        cy.wait(2000)
+        
+        disposalResultPage.getSendButton().should('include.text', 'প্রেরণ').click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000) 
+    })
+    //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
+    it('TC_63. Store Admin: Verify the Disposed Asset on the Report (From My Asset items).',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রিপোর্টস').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposedAssetSubMenu().should('include.text', 'নিস্পত্তিকৃত সম্পদ').click()
+        cy.wait(3000)
+
+        reportsPage.getPageHeaderText().should('include.text', 'নিস্পত্তিকৃত সম্পদ')
+
+        reportsPage.getItemCategoryField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
+        cy.wait(2000)
+
+        reportsPage.getItemGroupField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemGroup).click()
+        cy.wait(2000)
+
+        reportsPage.getStoreField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        reportsPage.getSearchButton().should('include.text', 'অনুসন্ধান করুন').click()
+        cy.wait(4000)
+    
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo9))                    
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo9)).to.be.true
+            }
+        })
+        cy.wait(3000) 
+    })
+
+    //Disposal (For Existing store items) Flow Start *****************************************************
+    //Create maintenance request from store's existing item for Disposal
+    it('TC_64. Store Keeper: Create Maintenance Request from Store Existing Item for Disposal.',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getRequestSubMenuOfMaintenance().should('include.text', 'অনুরোধ করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()     //Select Store
+        cy.wait(5000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+
+        cy.visibleItems(this.ast.assetTagNo11)     //Select the Tag no
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click({force: true})
+        
+        cy.wait(6000)
+    })
+    
+    //Committee Head Enter Remarks and Put it for Disposal
+    it('TC_65. Maintence Committee Head: Enter Remarks and Put it for Disposal from Stores Existing Item.',function() 
+    {
+        cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রক্ষণাবেক্ষণ').click()
+        cy.wait(1000)
+        leftNavMenu.getItemsSubMenuOfMaintenance().should('include.text', 'পণ্য সমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.inspection(this.ast.assetTagNo11)  // Item Tag
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফলাফল')
+
+        itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(2000)
+
+        itemsMaintenancePage.getDecommissionButton().should('include.text', 'Decommission').click()
+        cy.wait(2000)
+
+        itemsMaintenancePage.getDisposalModalHeader().should('include.text', 'নিষ্পত্তি করার জন্য খরচের ধারণা দিন')
+        itemsMaintenancePage.getMaintenanceCostFieldOnModal().should('have.attr', 'placeholder', 'রক্ষণাবেক্ষণ খরচ').click().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
+        cy.wait(2000)
+
+        itemsMaintenancePage.getDisposalModalSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+
+    //Disposal Request (From stores existing item)
+    it('TC_66. Store Keeper: Make Disposal Request (From Stores Existing Item).',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('নিষ্পত্তিকরণ').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalRequestSubMenu().should('include.text', 'নিষ্পত্তিকরণের জন্য অনুরোধ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য অনুরোধ')
+
+        disposalRequestPage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').click().type(this.ast.disposalJustificat).should('have.value', this.ast.disposalJustificat)
+        cy.wait(2000)
+
+        disposalRequestPage.getDisposalCommitteeNameField().should('have.attr', 'aria-label', 'কমিটির নাম').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
+        cy.wait(2000)
+
+        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
+        cy.wait(2000)
+
+        //Selects Items
+        cy.selectItems(this.ast.assetTagNo11)
+        cy.wait(1000)
+
+        disposalRequestPage.getSendButton().should('include.text', 'প্রেরণ').click() 
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click() 
+        cy.wait(6000)  
+    })
+
+    //Disposal Committee head (Any member of that committee can permit)
+    it('TC_67. Disposal Committee Member: Decision on Disposal with Disposal Type and Cost for (From Stores Existing Item).',function() 
+    {
+        cy.login(this.ast.DisCommitteeMemberID, this.ast.DisCommitteeMemberPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getDecisionOnDisposalSubMenu().should('include.text', 'নিষ্পত্তিকরণ সংক্রান্ত সিদ্ধান্ত').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত নিষ্পত্তিকরণের তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণ সংক্রান্ত সিদ্ধান্ত')
+        
+        disposalRequestPage.getDisposalTypeField1().click({ force: true })
+        disposalRequestPage.getDropDownItem().contains(this.ast.disposalRequestType2).click()
+        cy.wait(1000)
+        disposalRequestPage.getDisposalCost1().clear().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
+        cy.wait(1000)
+        disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(1000)
+
+        disposalRequestPage.getSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        
+        cy.wait(6000) 
+    })
+
+    //Approved Disposal Result 
+    it('TC_68. Store Admin: Approved Disposal Result (From Stores Existing Item).',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('নিষ্পত্তিকরণ').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposalResultSubMenu().should('include.text', 'নিষ্পত্তিকরণের ফলাফল').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য সম্পদ তালিকা')
+        cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের ফলাফল')
+        
+        disposalResultPage.getDisposalTypeTab().contains('Disposed').click()
+        cy.wait(2000)
+        disposalResultPage.getDisposedAddButton().click()
+        cy.wait(2000)
+      
+        disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
+        cy.wait(2000)
+        
+        disposalResultPage.getSendButton().should('include.text', 'প্রেরণ').click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000) 
+    })
+
+    //Verify the approved Disposal Result on report (ডিসপোজড অ্যাসেট)
+    it('TC_69. Store Admin: Verify the Disposed Asset on the Report (From Stores Existing Item).',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        //Select office code here if the user have multiple office 
+        
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('রিপোর্টস').click()
+        cy.wait(1000)
+        leftNavMenu.getDisposedAssetSubMenu().should('include.text', 'নিস্পত্তিকৃত সম্পদ').click()
+        cy.wait(3000)
+
+        reportsPage.getPageHeaderText().should('include.text', 'নিস্পত্তিকৃত সম্পদ')
+
+        reportsPage.getItemCategoryField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
+        cy.wait(2000)
+
+        reportsPage.getItemGroupField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemGroup).click()
+        cy.wait(2000)
+
+        reportsPage.getStoreField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.storeName).click()
+        cy.wait(2000)
+
+        reportsPage.getSearchButton().should('include.text', 'অনুসন্ধান করুন').click()
+        cy.wait(4000)
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
+        {
+            const textAssetTagNo=$el.find('td.e-rowcell[aria-label]').text()
+            if(textAssetTagNo.includes(this.ast.assetTagNo11))                  
+            {
+                const tagText = $el.find('td.e-rowcell[aria-label]').text()
+                expect(tagText.includes(this.ast.assetTagNo11)).to.be.true
             }
         })
         cy.wait(3000) 

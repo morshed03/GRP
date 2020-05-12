@@ -3,11 +3,11 @@ class InspectionAssigned_InspectionPage
     //পণ্য সমূহ section locators
     getRemarksField()  // মন্তব্য field
     {
-        return cy.get('td input:eq(2)')
+        return cy.get('td input[type="text"]:eq(0)')
     }
     getRemarksFieldFirstStore()  // মন্তব্য field for First Store
     {
-        return cy.get('td input:eq(1)')
+        return cy.get('td input[type="text"]:eq(0)')
     }
     getQCReportButton()  //কিউসি রিপোর্ট আপলোড করুন
     {
@@ -24,6 +24,11 @@ class InspectionAssigned_InspectionPage
     getAssetThirdCheckBox()  // Uncheck the Third checkbox
     {
         return cy.get('td ejs-checkbox span:eq(2)')
+    }
+
+    getRejectButton()  //    প্রত্যাখ্যান করুন 
+    {
+        return cy.get('.card .card-footer button.btn-danger:eq(0)')
     }
     
 }

@@ -25,7 +25,7 @@ class ReportsPage
     {
         return cy.get('.card-body .mat-form-field-wrapper mat-select:eq(4)')
     }
-    getSearchButton()  // সব দেখুন 
+    getSearchButton()  //   অনুসন্ধান করুন  
     {
         return cy.get('.row button.btn-success')
     }

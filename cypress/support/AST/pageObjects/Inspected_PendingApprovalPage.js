@@ -6,11 +6,11 @@ class Inspected_PendingApprovalPage
     } 
     getCardFooterFourthButton()  //Card Footer Button 04
     {
-        return cy.get('.card-footer button:eq(3)')
+        return cy.get('.card-footer button.btn-success:eq(0)')
     } 
     getMaintenanceCost()  //রক্ষণাবেক্ষণ খরচ Field
     {
-        return cy.get('.modal-content tbody input:eq(0)')
+        return cy.get('.modal-content tbody input[type="number"]:eq(0)')
     }
     getDisposalButton()  //  ডিসপোজ button
     {
