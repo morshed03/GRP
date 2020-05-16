@@ -27,9 +27,9 @@ class RequisitionPage
         return cy.get('.card-body mat-form-field mat-select[aria-label="ক্যাটাগরি"]:eq(0)')
     }
 
-    getItemsCategoryField()  // ক্যাটাগরি field 
+    getItemsSearchField()  // অনুসন্ধান করুন field 
     {
-        return cy.get('.card-body mat-form-field mat-select:eq(4)')
+        return cy.get('.card-body mat-form-field input[placeholder="অনুসন্ধান করুন"]')
     }
 
     getQuantityInputBox()  // পরিমাণ *

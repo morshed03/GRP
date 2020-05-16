@@ -18,39 +18,42 @@ import Items_MaintenancePage from '../../support/AST/pageObjects/Items_Maintenan
 import DisposalRequestPage from '../../support/AST/pageObjects/DisposalRequestPage'
 import DisposalResultPage from '../../support/AST/pageObjects/DisposalResultPage'
 import ReportsPage from '../../support/AST/pageObjects/ReportsPage'
+import VehicleAddPage from '../../support/AST/pageObjects/VehicleAddPage'
+import VehicleRequisitionPage from '../../support/AST/pageObjects/VehicleRequisitionPage'
+import VehicleCasePage from '../../support/AST/pageObjects/VehicleCasePage'
 
 //Import PRC data
 beforeEach(function() 
 {
-    cy.fixture('PRCTestDataSQA').then(function(prc)
+    cy.fixture('PRCTestDataSTG').then(function(prc)
     {
         this.prc = prc
     })
 }) 
 
-describe('AST Module Regression Test Suite', function()
+describe.skip('AST Module Regression Test Suite', function()
 {
     beforeEach(function() 
     {
-      cy.fixture('ASTTestDataSQA').then(function(ast)
-      {
-        this.ast = ast
-      })
-      /*
-      cy.fixture('PRCTestDataSTG').then(function(prc)
-      {
-        this.prc = prc
-      })
-      */
+        cy.fixture('ASTTestDataSTG').then(function(ast)
+        {
+            this.ast = ast
+        })
+    /*
+        cy.fixture('PRCTestDataSTG').then(function(prc)
+        {
+            this.prc = prc
+        })
+    */
       cy.visit(Cypress.env('url'))
     })
-
+/*
     // Before all It Logout
     afterEach(function()
     {
-      cy.logout()
+        cy.logout()
     })
-
+*/
     //Create page object
     const dashboardPage = new DashboardPage()
     const leftNavMenu = new LeftNavMenu()
@@ -167,12 +170,12 @@ describe('AST Module Regression Test Suite', function()
     it('TC_3. Inspector: Inspect for Material Receive.',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        */
+        
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -429,12 +432,12 @@ describe('AST Module Regression Test Suite', function()
     it('TC_8. Inspector: Inspect for Direct In.',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        */
+        
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -692,12 +695,15 @@ describe('AST Module Regression Test Suite', function()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemCategory).click()
         cy.wait(2000)
 
+        requisitionPage.getItemsSearchField().should('have.attr', 'placeholder', 'অনুসন্ধান করুন').type(this.ast.ItemGroup).type('{enter}')
+        cy.wait(2000)
+    
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
         {
             const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
             if(textItemGroup.includes(this.ast.ItemGroup))                    
             {
-                $el.find('td button mat-icon:eq(1)').first().click()
+                $el.find('td button mat-icon:eq(1)').click()
             }
         })
         cy.wait(3000)
@@ -708,12 +714,12 @@ describe('AST Module Regression Test Suite', function()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.ItemName).first().click()
         cy.wait(2000)
         directInPage.getAddFeaturesButton().should('include.text', 'বৈশিষ্ট্য যোগ করুন').click()
-        cy.wait(2000)
-
+        cy.wait(3000)
+    
         requisitionPage.getQuantityInputBox().clear().type(this.ast.requisitionQuantity).should('have.value', this.ast.requisitionQuantity)
         cy.wait(1500)
-        directInPage.getAddItemButton().first().click()     //Plus icon for add items
-        cy.wait(2000)
+        directInPage.getAddItemButton().click()     //Plus icon for add items
+        cy.wait(2500)
 
         inspectedPage.getCardFooterFourthButton().should('include.text', 'প্রেরণ').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
@@ -1049,12 +1055,12 @@ describe('AST Module Regression Test Suite', function()
     it('TC_22. Inspector: Inspect for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        */
+        
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1233,12 +1239,12 @@ describe('AST Module Regression Test Suite', function()
     it('TC_27. Inspector: Inspect for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        */
+        
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1411,12 +1417,12 @@ describe('AST Module Regression Test Suite', function()
     it('TC_32. Inspector: Inspect Rejection for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        */
+        
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1877,12 +1883,12 @@ describe('AST Module Regression Test Suite', function()
     it('TC_44. Inspector: Inspect Rejection for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        */
+        
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -2241,12 +2247,12 @@ describe('AST Module Regression Test Suite', function()
     it('TC_52. Inspector: Inspect Rejection for Disposal (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        /*
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        */
+        
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -2936,5 +2942,473 @@ describe('AST Module Regression Test Suite', function()
             }
         })
         cy.wait(3000) 
+    })
+})
+
+//Lease, Contract Renewal and Vehicle Management*******************************************************
+//
+describe('AST Module (Sprint 8) Regression Test Suite', function()
+{
+    beforeEach(function() 
+    {
+        cy.fixture('ASTTestDataSQA').then(function(ast)
+        {
+            this.ast = ast
+            })
+        cy.visit(Cypress.env('url'))
+    })
+/*
+    // Before all It Logout
+    afterEach(function()
+    {
+        cy.logout()
+    })
+*/
+    //Create page object
+    const dashboardPage = new DashboardPage()
+    const leftNavMenu = new LeftNavMenu()
+    const receiveGoodsPage = new ReceiveGoods_StoreKeepingPage()
+    const inspectionUnassignedPage = new InspectionUnassigned_InspectionPage()
+    const inspectionAssignedPage = new InspectionAssigned_InspectionPage()
+    const inspectedPage = new Inspected_PendingApprovalPage()
+    const assetTaggingPage = new AssetTagging_StoreKeepingPage()
+    const directInPage = new DirectIn_StoreKeepingPage()
+    const directOutPage = new DirectOut_StoreKeepingPage()
+    const requisitionPage = new RequisitionPage()
+    const issueListPage = new IssueList_StoreKeepingPage()
+    const requestReturnPage = new RequestReturnPage()
+    const receiveTaggedItemsPage = new ReceiveTaggedItemsPage()
+    const itemsMaintenancePage = new Items_MaintenancePage()
+    const disposalRequestPage = new DisposalRequestPage()
+    const disposalResultPage = new DisposalResultPage()
+    const reportsPage = new ReportsPage()
+    const vehicleAddPage = new VehicleAddPage()
+    const vehicleRequisitionPage = new VehicleRequisitionPage()
+    const vehicleCasePage = new VehicleCasePage()
+
+    //Material Receive Start Here ****************************************************************************
+    //Material Receive as Store Keeper
+    it('TC_1. Store Admin: Vehicle Add.',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getAddVehicleSubMenu().contains('যানবাহন যোগ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহন তালিকা')
+
+        vehicleAddPage.getAddVehicleButton().click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহন যোগ')
+
+        vehicleAddPage.getVehicleReferenceNoField().should('have.attr', 'placeholder', 'রেফারেন্স নং').clear().type(this.ast.VehicleReferenceNo).should('have.value', this.ast.VehicleReferenceNo)
+        cy.wait(2000)
+
+        vehicleAddPage.getVehicleItemButton().click()
+        cy.wait(2000)
+
+        vehicleAddPage.getVehicleCategoryField().should('have.attr', 'aria-label', 'ক্যাটাগরি').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.VehicleCategory).click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        {
+            const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
+            if(textItemGroup.includes(this.ast.VehicleGroup))                    
+            {
+                $el.find('td button mat-icon:eq(1)').first().click()
+            }
+        })
+        cy.wait(3000)
+
+        directInPage.getItemFeaturesHeader().should('include.text', 'বৈশিষ্ট্য')
+
+        directInPage.getItemsDropDownField().click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.VehicleItemName).click()
+        cy.wait(2000)
+        directInPage.getAddFeaturesButton().should('include.text', 'বৈশিষ্ট্য যোগ করুন').click()
+        cy.wait(2000)
+
+        //requisitionPage.getQuantityInputBox().clear().type(this.ast.VehicleRequisitionQuantity).should('have.value', this.ast.VehicleRequisitionQuantity)
+        //cy.wait(1500)
+        directInPage.getAddItemButton().first().click()     //Plus icon for add items
+        cy.wait(2000)
+
+        vehicleAddPage.getVehicleLicenseNumberField().click().type(this.ast.VehicleLicenseNumber).should('have.value', this.ast.VehicleLicenseNumber)
+        cy.wait(2000)
+
+        vehicleAddPage.getVehicleRentField().should('have.value', 'No')
+
+        vehicleAddPage.getVehicleRegistrationNoField().click().type(this.ast.VehicleRegistrationNo).should('have.value', this.ast.VehicleRegistrationNo)
+        cy.wait(2000)
+
+        vehicleAddPage.getVehicleSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
+
+        vehicleAddPage.getReceiveButton().should('include.text', 'গ্রহণ').click()
+        
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+    //User make Vehicle Requisition
+    it('TC_2. Asset User: Vehicle Requisition.',function() 
+    {
+        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getDropDownMenu().contains('যানবাহনের চাহিদাপত্র').click()
+        cy.wait(500)
+        leftNavMenu.getCreateVehicleRequisitionSubMenu().contains('তৈরি করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান অনুরোধসমূহ')
+
+        vehicleAddPage.getAddVehicleButton().click()    //Re-use from vehicle add page
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহনের চাহিদাপত্র')
+
+        vehicleAddPage.getVehicleReferenceNoField().should('have.attr', 'placeholder', 'রেফারেন্স নং').clear().type(this.ast.VehicleRequisitionReferenceNo).should('have.value', this.ast.VehicleRequisitionReferenceNo) //Re-use from vehicle add page
+        cy.wait(2000)
+
+        vehicleRequisitionPage.getPurposeField().should('have.attr', 'aria-label', 'উদ্দেশ্য').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.requisitionPurpose).click()
+        cy.wait(1500)
+
+        vehicleRequisitionPage.getDistanceField().should('have.attr', 'placeholder', 'আনুমানিক কত কিলোমিটার চলবে ').click().type(this.ast.ApproximateKM).should('have.value', this.ast.ApproximateKM)
+        cy.wait(2000)
+
+        vehicleRequisitionPage.getVehicleJustificationField().should('have.attr', 'placeholder', 'ভ্রমণের বিবরণ ও কারণ ').should('have.value', 'দাপ্তরিক কাজে ব্যবহারের জন্য')
+
+        vehicleRequisitionPage.getReportingPlaceField().should('have.attr', 'placeholder', 'রিপোর্টিং স্থান').click().type(this.ast.ReportingPlace).should('have.value', this.ast.ReportingPlace)
+        cy.wait(2000)
+
+        vehicleRequisitionPage.getStartTimeCalendarIcon().click()       //শুরুর সময়
+        cy.vehicleRequisitionCalendar(this.ast.VehicleRequisitionStartYear, this.ast.VehicleRequisitionStartMonth, this.ast.VehicleRequisitionStartDay)
+
+        vehicleRequisitionPage.getEndTimeCalendarIcon().click()       //শেষের সময়
+        cy.vehicleRequisitionCalendar(this.ast.VehicleRequisitionStartYear, this.ast.VehicleRequisitionStartMonth, this.ast.VehicleRequisitionEndDay)
+
+        vehicleRequisitionPage.getArrivalTimeCalendarIcon().click()       //গাড়ি ছাড়িবার আনুমানিক সময়
+        cy.vehicleRequisitionCalendar(this.ast.VehicleRequisitionStartYear, this.ast.VehicleRequisitionStartMonth, this.ast.VehicleRequisitionStartDay)
+
+        vehicleAddPage.getAddVehicleButton().click()    //Re-use from vehicle add page for যানবাহনসমূহ
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        {
+            const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
+            if(textItemGroup.includes(this.ast.VehicleGroup))                    
+            {
+                $el.find('td button mat-icon').first().click()
+            }
+        })
+        cy.wait(2000)
+
+        vehicleAddPage.getReceiveButton().should('include.text', 'প্রেরণ').click()
+        
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+    //Vehicle requisition approval which Created by User
+    it('TC_3. Store Admin: Vehicle requisition approval.',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        cy.wait(1000)
+        leftNavMenu.getVehicleRequisitionSubMenu().contains('যানবাহনের চাহিদাপত্র').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহনের চাহিদাপত্র')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        {
+            const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
+            if(textItemGroup.includes(this.ast.VehicleRequisitionReferenceNo))                    
+            {
+                $el.find('td button mat-icon').click()
+            }
+        })
+        cy.wait(3000)
+        receiveGoodsPage.getCardHeader().should('include.text', 'চাহিদা পত্র অনুমোদন')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের Group
+        {
+            const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
+            if(textItemGroup.includes(this.ast.VehicleGroup))                    
+            {
+                $el.find('td button mat-icon:eq(0)').first().click()
+            }
+        })
+        cy.wait(3000)
+
+        vehicleRequisitionPage.getUncheckDefaultItem().click({ force: true })
+        cy.wait(1000)
+
+        //vehicleRequisitionPage.getVehicleSearchField().should('have.attr', 'placeholder', 'অনুসন্ধান করুন').type(this.ast.VehicleLicenseNumber).type('{enter}')
+        //cy.wait(2000)
+
+        cy.selectItems(this.ast.VehicleLicenseNumber)
+        cy.wait(1000)
+        
+        requisitionPage.getAddAssetButton().should('include.text', 'যানবাহন যোগ').click()
+        cy.wait(2000)
+        
+        requisitionPage.getRemarkField().click().type(this.ast.ApprovalRemarks).should('have.value', this.ast.ApprovalRemarks)
+        cy.wait(2000)
+        
+        requisitionPage.getAddAssetButton().should('include.text', 'অনুমোদন করুন').click() 
+        cy.wait(2000)
+        
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+    //Issue the Requisition's Vehicle
+    it('TC_4. Store Keeper: Issue the Vehicle.',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getVehicleIssueSubMenu().contains('ইস্যু').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'ইস্যু তালিকা')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        {
+            const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
+            if(textItemGroup.includes(this.ast.VehicleRequisitionReferenceNo))                    
+            {
+                $el.find('td button mat-icon').click()
+            }
+        })
+        cy.wait(3000)
+        receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহন ইস্যু')
+        
+        requisitionPage.getAddAssetButton().should('include.text', 'দাখিল করুন').click()
+        cy.wait(2000)
+        
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+    //Asser user see the approve or rejected requisition's status
+    it('TC_5. Asset User: See the Vehicle Requisition, which Issued or rejected.',function() 
+    {
+        cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getDropDownMenu().contains('যানবাহনের চাহিদাপত্র').click()
+        cy.wait(500)
+        leftNavMenu.getCompletedRequestsSubMenu().contains('সমাপ্ত অনুরোধসমূহ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'অনুমোদিত/বাতিলকৃত অনুরোধসমূহ')
+
+        cy.get('tr td:nth-child(2)').each(($e1, index, $list) => {
+
+            const ReferenceNoText=$e1.text()
+            if(ReferenceNoText.includes(this.ast.VehicleRequisitionReferenceNo))
+            {
+                cy.get('tr td:nth-child(2)').eq(index).next().then(function(status)
+                {
+                 const statusText=   status.text()
+                 expect(statusText).to.equal('ISSUED')
+                })
+            }
+        })
+        cy.wait(2000)
+    })
+    //Return the Issued Vehicle
+    it('TC_6. Store Keeper: Return the Issued Vehicle to Pool Store.',function() 
+    {
+        cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getReturnVehicleSubMenu().contains('ফেরৎ গ্রহণ').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'লাইসেন্স নম্বর দিন')
+
+        vehicleRequisitionPage.getLicenseNumberField().should('have.attr', 'placeholder', 'লাইসেন্স নম্বর').type(this.ast.VehicleLicenseNumber).should('have.value', this.ast.VehicleLicenseNumber)
+        cy.wait(2000)
+        
+        requisitionPage.getAddAssetButton().should('include.text', 'যানবাহন যোগ').click()
+        cy.wait(2000)
+        
+        vehicleRequisitionPage.getReciveButton().should('include.text', 'গ্রহণ').click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+    //Verify the Vehicle Status Upon Return
+    it('TC_7. Store Admin: Verify the Vehicle Issuable Upon Return',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getVehicleListSubMenu().should('include.text', 'যানবাহন তালিকা').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহন তালিকা')
+
+        cy.get('tr td:nth-child(2)').each(($e1, index, $list) => {
+
+            const LicenseNoText=$e1.text()
+            if(LicenseNoText.includes(this.ast.VehicleLicenseNumber))
+            {
+                cy.get('tr td:nth-child(2)').eq(index).next().next().next().then(function(issuable)
+                {
+                    const issuableText = issuable.text()
+                    expect(issuableText).to.equal('হ্যাঁ')
+                })
+            }
+        })
+        cy.wait(2000)
+    })
+    //Vehicle Case Entry
+    it('TC_8. Store Admin: Vehicle Case Entry',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getDropDownMenu().contains('যানবাহন মামলা').click()
+        cy.wait(1000)
+        leftNavMenu.getVehicleCaseSubMenu().should('include.text', 'তৈরি করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান মামলাগুলো')
+
+        vehicleAddPage.getAddVehicleButton().click()
+        cy.wait(2000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহন মামলা')
+
+        vehicleAddPage.getVehicleReferenceNoField().should('have.attr', 'placeholder', 'রেফারেন্স নং').clear().type(this.ast.VehicleCaseReferenceNo).should('have.value', this.ast.VehicleCaseReferenceNo)
+        cy.wait(2000)
+        vehicleCasePage.getVehicleField().should('have.attr', 'aria-label', 'যানবাহন').click()
+        inspectionUnassignedPage.getDropDownItem().contains(this.ast.VehicleLicenseNumber).click()
+        cy.wait(2000)
+        vehicleCasePage.getDriverField().should('have.attr', 'placeholder', 'ড্রাইভার').type(this.ast.VehicleDeiverName).should('have.value', this.ast.VehicleDeiverName)
+        cy.wait(2000)
+        vehicleCasePage.getThanaField().should('have.attr', 'placeholder', 'থানা').type(this.ast.Thana).should('have.value', this.ast.Thana)
+        cy.wait(2000)
+        vehicleCasePage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').type(this.ast.CaseJustification).should('have.value', this.ast.CaseJustification)
+        cy.wait(2000)
+        vehicleCasePage.getFineField().should('have.attr', 'placeholder', 'জরিমানা').type(this.ast.CaseFineAmount).should('have.value', this.ast.CaseFineAmount)
+        cy.wait(2000)
+
+        vehicleAddPage.getReceiveButton().should('include.text', 'তৈরি করুন').click()
+        
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+    //Completed the case
+    it('TC_9. Store Admin: Completed the Vehicle Case.',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getDropDownMenu().contains('যানবাহন মামলা').click()
+        cy.wait(1000)
+        leftNavMenu.getVehicleCaseSubMenu().should('include.text', 'তৈরি করুন').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান মামলাগুলো')
+
+        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
+        {
+            const licenseText=$el.find('td.e-rowcell[aria-label]').text()
+            if(licenseText.includes(this.ast.VehicleCaseReferenceNo))                    
+            {
+                $el.find('td button mat-icon:eq(1)').first().click()
+            }
+        })
+        cy.wait(6000)
+        
+        receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহন মামলা সমাপ্তকরণ')
+
+        vehicleCasePage.getActionField().should('have.attr', 'placeholder', 'কার্যক্রম').type(this.ast.Actions).should('have.value', this.ast.Actions)
+        cy.wait(2000)
+
+        vehicleAddPage.getReceiveButton().should('include.text', 'সমাপ্ত').click()
+        
+        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
+        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+    //Verify the Cpmpleted Case
+    it('TC_10. Store Admin: Verify the Completed Case',function() 
+    {
+        cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
+
+        dashboardPage.getASTAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('যানবাহন').click()
+        cy.wait(1000)
+        leftNavMenu.getDropDownMenu().contains('যানবাহন মামলা').click()
+        cy.wait(1000)
+        leftNavMenu.getCompletedCasesSubMenu().should('include.text', 'সমাপ্ত মামলাগুলো').click()
+        cy.wait(3000)
+
+        receiveGoodsPage.getCardHeader().should('include.text', 'সমাপ্ত মামলাগুলো')
+
+        cy.get('tr td:nth-child(2)').each(($e1, index, $list) => {
+
+            const caseTeferenceNoText=$e1.text()
+            if(caseTeferenceNoText.includes(this.ast.VehicleCaseReferenceNo))
+            {
+                cy.get('tr td:nth-child(2)').eq(index).next().next().then(function(caseReference)
+                {
+                    const caseReferenceText = caseReference.text()
+                    expect(caseReferenceText).to.equal('COMPLETED')
+                })
+            }
+        })
+        cy.wait(2000)
     })
 })

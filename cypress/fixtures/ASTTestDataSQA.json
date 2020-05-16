@@ -57,7 +57,7 @@
   
     "DOOfficePostType": "পদবি",
     "DOPost": "দল প্রধান (সুজিত কুমার পাল)",
-    "ApprovalRemarks": "পণ্যটির অনুমোদন দেওয়া হলো।",
+    "ApprovalRemarks": "অনুমোদন দেওয়া হলো।",
     "DOPostPerson": "সুজিত কুমার পাল",
   
     "requisitionReferenceNo": "REQ/2020/05/12/11/00003",
@@ -79,5 +79,30 @@
     "disposalRequestType3": "Other",
     "disposalCost": "5000",
     "disposalRemarks": "অ্যাসেটটি নিষ্পত্তি করা হোক।",
-    "disposalDecisionRemarks": "অ্যাসেটটি নিষ্পত্তি করা হলো।"
+    "disposalDecisionRemarks": "অ্যাসেটটি নিষ্পত্তি করা হলো।",
+
+
+    "VehicleReferenceNo": "VA/2020/05/15/21/60900",
+    "VehicleCategory": "যানবাহন",
+    "VehicleGroup": "প্রাইভেট কার",
+    "VehicleItemName": "টয়োটা",
+    "VehicleRequisitionQuantity": "2",
+    "VehicleLicenseNumber": "Auto-Kha-Dhaka-Metro-0002",
+    "VehicleRegistrationNo": "Auto-00001",
+
+    "VehicleRequisitionReferenceNo": "V-REQ/2020/05/15/19/28194",
+    "ApproximateKM": "500",
+    "ReportingPlace": "BRMC",
+
+    "VehicleRequisitionStartYear": "2020",
+    "VehicleRequisitionStartMonth": "May",
+    "VehicleRequisitionStartDay": "16",
+    "VehicleRequisitionEndDay": "18",
+
+    "VehicleCaseReferenceNo": "VC/2020/05/16/11/73633",
+    "VehicleDeiverName": "জনাব করিম",
+    "Thana": "ধানমন্ডি",
+    "CaseJustification": "রোড রঙ সাইড ওভারটেকিং এবং দুর্ঘটনা",
+    "CaseFineAmount": "5000",
+    "Actions": "কেসটি সম্পন্ন করা হলো।"
   }

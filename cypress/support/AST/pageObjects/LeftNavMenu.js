@@ -60,6 +60,10 @@ class LeftNavMenu
     {
         return cy.get('ast-sidebar-nav-items a[href*="asset/disposal/requested-disposal"]')
     }
+    getVehicleRequisitionSubMenu()  //যানবাহনের চাহিদাপত্র -> অনুমোদন অপেক্ষমান sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/vehicle/approve"]')
+    }
 
     //স্টোর কিপিং and Sub-Menus ----------------------------------------------
     getOpeningStockForStoreSubMenu()  //  স্টোরের পণ্যসমূহ -> ওপেনিং স্টক -> স্টোর কিপিং sub-menu
@@ -121,10 +125,44 @@ class LeftNavMenu
         return cy.get('ast-sidebar-nav-items a[href*="asset/return/request-receive-list"]')
     }
 
+    //যানবাহন & Sub Menus
+    getAddVehicleSubMenu()  // যানবাহন যোগ->  যানবাহন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/vehicle/vehicle-add"]')
+    }
+    getCreateVehicleRequisitionSubMenu()  //তৈরি করুন -> যানবাহনের চাহিদাপত্র  -> যানবাহন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/vehicle/requisition"]')
+    }
+    getCompletedRequestsSubMenu()  //সমাপ্ত অনুরোধসমূহ -> যানবাহনের চাহিদাপত্র  -> যানবাহন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/vehicle/previous-requisition"]')
+    }
+    getVehicleListSubMenu()  //যানবাহন তালিকা -> যানবাহন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="/asset/vehicle/status"]')
+    }
+    getReturnVehicleSubMenu()  //ফেরৎ গ্রহণ -> যানবাহন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/vehicle/return"]')
+    }
+    getVehicleIssueSubMenu()  //ইস্যু -> যানবাহন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="asset/vehicle/issue"]')
+    }
+    getVehicleCaseSubMenu()  //তৈরি করুন -> যানবাহন মামলা -> যানবাহন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="/asset/vehicle/case"]')
+    }
+    getCompletedCasesSubMenu()  //সমাপ্ত মামলাগুলো -> যানবাহন মামলা -> যানবাহন sub-menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="/asset/vehicle/previous-case"]')
+    }
+
     //রিপোর্টস & Sub-Menus 
     getDisposedAssetSubMenu()  // নিস্পত্তিকৃত সম্পদ -> রিপোর্টস sub-menu
     {
-        return cy.get('ast-sidebar-nav-items a[href*="asset/reports/disposed-asset')
+        return cy.get('ast-sidebar-nav-items a[href*="asset/reports/disposed-asset"]')
     }
 }
 export default LeftNavMenu;

@@ -14,6 +14,7 @@ import DashboardPage from '../support/commonPage/DashboardPage'
 import RequisitionDeclarationPage from '../support/PRC/pageObjects/RequisitionDeclarationPage'
 //AST page import
 import ReceiveGoods_StoreKeepingPage from '../support/AST/pageObjects/ReceiveGoods_StoreKeepingPage'
+import VehicleRequisitionPage from '../support/AST/pageObjects/VehicleRequisitionPage'
 
 
 //-- This is the create page object --
@@ -25,6 +26,7 @@ const dashboardPage = new DashboardPage()
 const requisitionDeclarationPage = new RequisitionDeclarationPage()
 //AST create page object
 const receiveGoodsPage = new ReceiveGoods_StoreKeepingPage()
+const vehicleRequisitionPage = new VehicleRequisitionPage()
 
 
 
@@ -114,6 +116,19 @@ Cypress.Commands.add("selectItems", (element) =>
 })
 
 //
+Cypress.Commands.add("vehicleRequisitionCalendar", (year, month, day) => 
+{
+    vehicleRequisitionPage.getCalendarYearView().click()
+    cy.wait(500)
+    vehicleRequisitionPage.getCalendarYearView().click()
+    cy.wait(500)
+    vehicleRequisitionPage.getCalendarDayView().contains(year).click()
+    cy.wait(500)
+    vehicleRequisitionPage.getCalendarDayView().contains(month).click()
+    cy.wait(500)
+    vehicleRequisitionPage.getCalendarDayView().contains(day).click()
+    cy.wait(1000)
+})
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
