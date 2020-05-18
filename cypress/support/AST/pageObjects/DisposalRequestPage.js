@@ -2,7 +2,7 @@ class DisposalRequestPage
 {
     getUncheckAllItems()  // Uncheck all items
     {
-        return cy.get('td ejs-checkbox span')
+        return cy.get('.card:visible .card-body td ejs-checkbox span')
     }
     getJustificationField()  // ন্যায্যতা field
     {

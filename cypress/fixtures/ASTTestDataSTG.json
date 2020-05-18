@@ -1,31 +1,31 @@
 {
   "officeAdminID": "suji0001",
-  "officeAdminPassword": "1234567",
+  "officeAdminPassword": "12345",
 
   "storeAdminID": "mors0002",
-  "storeAdminPassword": "1234567",
+  "storeAdminPassword": "12345",
 
   "storeKeeperID": "taif0001",
-  "storeKeeperPassword": "1234567",
+  "storeKeeperPassword": "12345",
 
   "inspectorID": "rais0002",
-  "inspectorPassword": "1234567",
+  "inspectorPassword": "12345",
   "inspectorOffice": "সফটওয়্যার কোয়ালিটি আসিউর‍্যান্স স্পেশালিষ্ট, এসকিউএ টিম",
 
   "reportTrackerID": "irft0002",
-  "reportTrackerPassword": "1234567",
+  "reportTrackerPassword": "12345",
 
   "committeeHeadID": "suji0001",
-  "committeeHeadPassword": "1234567",
+  "committeeHeadPassword": "12345",
 
   "DisCommitteeMemberID": "mors0002",
-  "DisCommitteeMemberPassword": "1234567",
+  "DisCommitteeMemberPassword": "12345",
   
   "storeName": "SQA Test Store",
-  "chalanNo": "Chalan.SQA.Auto.0013",
+  "chalanNo": "Chalan.SQA.Auto.0017",
   "chalanYear": "২০২০",
   "chalanMonth": "মে",
-  "chalanDay": "১৪",
+  "chalanDay": "১৮",
 
   "InspectorType": "কর্মকর্তা",
   "OfficeUnit": "এসকিউএ টিম",
@@ -33,21 +33,21 @@
   "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
   "InspectorFailRemarks": "পণ্যটির ইন্সপেকশন ব্যর্থ হলো। তাই ডিসপোজাল হবে।",
 
-  "assetTagNo": "2020/05/14/ICT/GRP/CK/00051",
-  "assetTagNo2": "2020/05/14/ICT/GRP/CK/00052",
-  "assetTagNo3": "2020/05/14/ICT/GRP/CK/00053",
-  "assetTagNo4": "2020/05/14/ICT/GRP/CK/00054",
-  "assetTagNo5": "2020/05/14/ICT/GRP/CK/00055",
-  "assetTagNo6": "2020/05/14/ICT/GRP/CK/00056",
-  "assetTagNo7": "2020/05/14/ICT/GRP/CK/00057",
-  "assetTagNo8": "2020/05/14/ICT/GRP/CK/00058",
-  "assetTagNo9": "2020/05/14/ICT/GRP/CK/00059",
-  "assetTagNo10": "2020/05/14/ICT/GRP/CK/00060",
-  "assetTagNo11": "2020/05/14/ICT/GRP/CK/00061",
-  "DIassetTagNo": "2020/05/14/ICT/GRP/CK/00062",
+  "assetTagNo": "2020/05/18/ICT/GRP/CK/00087",
+  "assetTagNo2": "2020/05/18/ICT/GRP/CK/00088",
+  "assetTagNo3": "2020/05/18/ICT/GRP/CK/00089",
+  "assetTagNo4": "2020/05/18/ICT/GRP/CK/00090",
+  "assetTagNo5": "2020/05/18/ICT/GRP/CK/00091",
+  "assetTagNo6": "2020/05/18/ICT/GRP/CK/00092",
+  "assetTagNo7": "2020/05/18/ICT/GRP/CK/00093",
+  "assetTagNo8": "2020/05/18/ICT/GRP/CK/00094",
+  "assetTagNo9": "2020/05/18/ICT/GRP/CK/00095",
+  "assetTagNo10": "2020/05/18/ICT/GRP/CK/00096",
+  "assetTagNo11": "2020/05/18/ICT/GRP/CK/00097",
+  "DIassetTagNo": "2020/05/18/ICT/GRP/CK/00098",
   "assetLifeTime": "48",
 
-  "DIReferenceNo": "DI/2020/05/14/17/43530",
+  "DIReferenceNo": "DI/2020/05/18/17/00017",
   "DIReceptionType": "সরাসরি গ্রহণ (অটোমেশন)",
   "DIJustification": "এটি এসকিউএ অটোমেশন টেস্ট",
   "ItemCategory": "এয়ার কন্ডিশনার",
@@ -60,7 +60,7 @@
   "ApprovalRemarks": "পণ্যটির অনুমোদন দেওয়া হলো।",
   "DOPostPerson": "সুজিত কুমার পাল",
 
-  "requisitionReferenceNo": "REQ/2020/05/14/20/29225",
+  "requisitionReferenceNo": "REQ/2020/05/18/20/00017",
   "requisitionPurpose": "প্রশাসনিক",
   "requisitionQuantity": "9",
 
@@ -71,7 +71,7 @@
   "MaintenanceCost": "2000",
   "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।",
 
-  "disposalJustificat": "Automation Dispose 14th (Schedule-2) May",
+  "disposalJustificat": "Automation Dispose 18th May (Schedule-3)",
   "disposalCommitteeName": "অ্যাসেট ডিস্পোজাল কমিটি",
 
   "disposalRequestType1": "Auction",
@@ -79,5 +79,30 @@
   "disposalRequestType3": "Other",
   "disposalCost": "5000",
   "disposalRemarks": "অ্যাসেটটি নিষ্পত্তি করা হোক।",
-  "disposalDecisionRemarks": "অ্যাসেটটি নিষ্পত্তি করা হলো।"
+  "disposalDecisionRemarks": "অ্যাসেটটি নিষ্পত্তি করা হলো।",
+
+
+  "VehicleReferenceNo": "VA/2020/05/18/21/60900",
+  "VehicleCategory": "যানবাহন",
+  "VehicleGroup": "প্রাইভেট কার",
+  "VehicleItemName": "টয়োটা",
+  "VehicleRequisitionQuantity": "1",
+  "VehicleLicenseNumber": "Auto-Kha-Dhaka-Metro-0001",
+  "VehicleRegistrationNo": "Auto-00001",
+
+  "VehicleRequisitionReferenceNo": "V-REQ/2020/05/18/19/28194",
+  "ApproximateKM": "500",
+  "ReportingPlace": "BRMC",
+
+  "VehicleRequisitionStartYear": "2020",
+  "VehicleRequisitionStartMonth": "May",
+  "VehicleRequisitionStartDay": "18",
+  "VehicleRequisitionEndDay": "20",
+
+  "VehicleCaseReferenceNo": "VC/2020/05/18/11/73644",
+  "VehicleDeiverName": "জনাব করিম",
+  "Thana": "ধানমন্ডি",
+  "CaseJustification": "রোড রঙ সাইড ওভারটেকিং এবং দুর্ঘটনা",
+  "CaseFineAmount": "5000",
+  "Actions": "কেসটি সম্পন্ন করা হলো।"
 }

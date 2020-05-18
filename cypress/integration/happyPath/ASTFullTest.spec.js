@@ -31,7 +31,7 @@ beforeEach(function()
     })
 }) 
 
-describe.skip('AST Module Regression Test Suite', function()
+describe('AST Module Regression Test Suite', function()
 {
     beforeEach(function() 
     {
@@ -47,13 +47,13 @@ describe.skip('AST Module Regression Test Suite', function()
     */
       cy.visit(Cypress.env('url'))
     })
-/*
+
     // Before all It Logout
     afterEach(function()
     {
         cy.logout()
     })
-*/
+
     //Create page object
     const dashboardPage = new DashboardPage()
     const leftNavMenu = new LeftNavMenu()
@@ -274,7 +274,7 @@ describe.skip('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getSecondCardHeader().should('include.text', 'পণ্য সমূহ')
 
-        assetTaggingPage.getSetTagsButton().click()
+        assetTaggingPage.getSetTagsButton().click()     //Set tag button
         cy.wait(3000)
 
         assetTaggingPage.getTagInputField().clear().type(this.ast.assetTagNo).should('have.value', this.ast.assetTagNo)
@@ -1496,8 +1496,8 @@ describe.skip('AST Module Regression Test Suite', function()
         cy.wait(6000)
     })
 
-    //Maintence Committee Head Enter Remarks and Put next maintenance date for the Maintenance (Inspection)
-    it('TC_34. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
+    //Maintenance Committee Head Enter Remarks and Put next maintenance date for the Maintenance (Inspection)
+    it('TC_34. Maintenance Committee Head: Enter Remarks and Put Next Maintenance Date for Asset Maintenance (Inspection). TC',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -1596,7 +1596,7 @@ describe.skip('AST Module Regression Test Suite', function()
         cy.wait(6000)
     })
     //Committee Head Enter Remarks and Put next maintenance date for the (Maintenance Request from existing store item)
-    it('TC_37. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for Store Existing Item.',function() 
+    it('TC_37. Maintenance Committee Head: Enter Remarks and Put Next Maintenance Date for Store Existing Item.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -1665,7 +1665,7 @@ describe.skip('AST Module Regression Test Suite', function()
     })
 
     //Committee Head Enter Remarks and Put next maintenance date for the Maintenance Request from User Side
-    it('TC_39. Maintence Committee Head: Enter Remarks and Put Next Maintenance Date for the Maintenance Request from User Side.',function() 
+    it('TC_39. Maintenance Committee Head: Enter Remarks and Put Next Maintenance Date for the Maintenance Request from User Side.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -2510,7 +2510,7 @@ describe.skip('AST Module Regression Test Suite', function()
     })
 
     //Disposal Committee Head Enter Remarks and Put it for Disposal
-    it('TC_59. Maintence Committee Head: Enter Remarks and Put it for Disposal from User Side.',function() 
+    it('TC_59. Maintenance Committee Head: Enter Remarks and Put it for Disposal from User Side.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -2742,7 +2742,7 @@ describe.skip('AST Module Regression Test Suite', function()
     })
     
     //Committee Head Enter Remarks and Put it for Disposal
-    it('TC_65. Maintence Committee Head: Enter Remarks and Put it for Disposal from Stores Existing Item.',function() 
+    it('TC_65. Maintenance Committee Head: Enter Remarks and Put it for Disposal from Stores Existing Item.',function() 
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
@@ -2947,23 +2947,23 @@ describe.skip('AST Module Regression Test Suite', function()
 
 //Lease, Contract Renewal and Vehicle Management*******************************************************
 //
-describe('AST Module (Sprint 8) Regression Test Suite', function()
+describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
 {
     beforeEach(function() 
     {
-        cy.fixture('ASTTestDataSQA').then(function(ast)
+        cy.fixture('ASTTestDataSTG').then(function(ast)
         {
             this.ast = ast
             })
         cy.visit(Cypress.env('url'))
     })
-/*
+
     // Before all It Logout
     afterEach(function()
     {
         cy.logout()
     })
-*/
+
     //Create page object
     const dashboardPage = new DashboardPage()
     const leftNavMenu = new LeftNavMenu()
@@ -2986,8 +2986,8 @@ describe('AST Module (Sprint 8) Regression Test Suite', function()
     const vehicleRequisitionPage = new VehicleRequisitionPage()
     const vehicleCasePage = new VehicleCasePage()
 
-    //Material Receive Start Here ****************************************************************************
-    //Material Receive as Store Keeper
+    //Vehicle Management flow Start Here ****************************************************************************
+    //Add vehicle
     it('TC_1. Store Admin: Vehicle Add.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)

@@ -49,7 +49,7 @@ class DirectIn_StoreKeepingPage
     }
     getAddItemButton()  // কার্যক্রম plus icon
     {
-        return cy.get('td button mat-icon:eq(0)')
+        return cy.get('.card:visible .card-body tbody td button mat-icon:eq(0)')
     }
     
     

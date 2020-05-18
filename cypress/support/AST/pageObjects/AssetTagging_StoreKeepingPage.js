@@ -2,7 +2,7 @@ class AssetTagging_StoreKeepingPage
 {
     getSetTagsButton()  //Set tag button
     {
-        return cy.get('td button mat-icon')
+        return cy.get('.card:visible .card-body tbody td button mat-icon')
     }
 
     getTagInputField()     // প্রথম Tag input field
