@@ -1,31 +1,31 @@
 {
   "officeAdminID": "suji0001",
-  "officeAdminPassword": "12345",
+  "officeAdminPassword": "1234567",
 
   "storeAdminID": "mors0002",
-  "storeAdminPassword": "12345",
+  "storeAdminPassword": "1234567",
 
   "storeKeeperID": "taif0001",
-  "storeKeeperPassword": "12345",
+  "storeKeeperPassword": "1234567",
 
   "inspectorID": "rais0002",
-  "inspectorPassword": "12345",
+  "inspectorPassword": "1234567",
   "inspectorOffice": "সফটওয়্যার কোয়ালিটি আসিউর‍্যান্স স্পেশালিষ্ট, এসকিউএ টিম",
 
   "reportTrackerID": "irft0002",
   "reportTrackerPassword": "12345",
 
   "committeeHeadID": "suji0001",
-  "committeeHeadPassword": "12345",
+  "committeeHeadPassword": "1234567",
 
   "DisCommitteeMemberID": "mors0002",
-  "DisCommitteeMemberPassword": "12345",
+  "DisCommitteeMemberPassword": "1234567",
   
   "storeName": "SQA Test Store",
-  "chalanNo": "Chalan.SQA.Auto.0017",
+  "chalanNo": "Chalan.SQA.Auto.0020",
   "chalanYear": "২০২০",
-  "chalanMonth": "মে",
-  "chalanDay": "১৮",
+  "chalanMonth": "জুন",
+  "chalanDay": "১",
 
   "InspectorType": "কর্মকর্তা",
   "OfficeUnit": "এসকিউএ টিম",
@@ -33,21 +33,21 @@
   "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
   "InspectorFailRemarks": "পণ্যটির ইন্সপেকশন ব্যর্থ হলো। তাই ডিসপোজাল হবে।",
 
-  "assetTagNo": "2020/05/18/ICT/GRP/CK/00087",
-  "assetTagNo2": "2020/05/18/ICT/GRP/CK/00088",
-  "assetTagNo3": "2020/05/18/ICT/GRP/CK/00089",
-  "assetTagNo4": "2020/05/18/ICT/GRP/CK/00090",
-  "assetTagNo5": "2020/05/18/ICT/GRP/CK/00091",
-  "assetTagNo6": "2020/05/18/ICT/GRP/CK/00092",
-  "assetTagNo7": "2020/05/18/ICT/GRP/CK/00093",
-  "assetTagNo8": "2020/05/18/ICT/GRP/CK/00094",
-  "assetTagNo9": "2020/05/18/ICT/GRP/CK/00095",
-  "assetTagNo10": "2020/05/18/ICT/GRP/CK/00096",
-  "assetTagNo11": "2020/05/18/ICT/GRP/CK/00097",
-  "DIassetTagNo": "2020/05/18/ICT/GRP/CK/00098",
+  "assetTagNo": "2020/06/01/ICT/GRP/CK/00124",
+  "assetTagNo2": "2020/06/01/ICT/GRP/CK/00125",
+  "assetTagNo3": "2020/06/01/ICT/GRP/CK/00126",
+  "assetTagNo4": "2020/06/01/ICT/GRP/CK/00127",
+  "assetTagNo5": "2020/06/01/ICT/GRP/CK/00128",
+  "assetTagNo6": "2020/06/01/ICT/GRP/CK/00129",
+  "assetTagNo7": "2020/06/01/ICT/GRP/CK/00130",
+  "assetTagNo8": "2020/06/01/ICT/GRP/CK/00131",
+  "assetTagNo9": "2020/06/01/ICT/GRP/CK/00132",
+  "assetTagNo10": "2020/06/01/ICT/GRP/CK/00133",
+  "assetTagNo11": "2020/06/01/ICT/GRP/CK/00134",
+  "DIassetTagNo": "2020/06/01/ICT/GRP/CK/00135",
   "assetLifeTime": "48",
 
-  "DIReferenceNo": "DI/2020/05/18/17/00017",
+  "DIReferenceNo": "DI/2020/06/01/17/00020",
   "DIReceptionType": "সরাসরি গ্রহণ (অটোমেশন)",
   "DIJustification": "এটি এসকিউএ অটোমেশন টেস্ট",
   "ItemCategory": "এয়ার কন্ডিশনার",
@@ -60,7 +60,7 @@
   "ApprovalRemarks": "পণ্যটির অনুমোদন দেওয়া হলো।",
   "DOPostPerson": "সুজিত কুমার পাল",
 
-  "requisitionReferenceNo": "REQ/2020/05/18/20/00017",
+  "requisitionReferenceNo": "REQ/2020/06/01/20/00020",
   "requisitionPurpose": "প্রশাসনিক",
   "requisitionQuantity": "9",
 
@@ -71,8 +71,9 @@
   "MaintenanceCost": "2000",
   "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।",
 
-  "disposalJustificat": "Automation Dispose 18th May (Schedule-3)",
+  "disposalJustificat": "Automation Dispose 1st Jun (Schedule-2)",
   "disposalCommitteeName": "অ্যাসেট ডিস্পোজাল কমিটি",
+  "inspectionAction": "Dispose",
 
   "disposalRequestType1": "Auction",
   "disposalRequestType2": "Disposed",

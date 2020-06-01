@@ -19,15 +19,15 @@ class DisposalResultPage
 
     getAcquiredValueField1()  //অর্জিত মূল্য
     {
-        return cy.get('.card-body td ejs-textbox input[type="number"]:eq(0)')
+        return cy.get('.card-body td ejs-numerictextbox input.e-input:eq(0)')
     }
     getAcquiredValueField2()  //অর্জিত মূল্য
     {
-        return cy.get('.card-body td ejs-textbox input[type="number"]:eq(1)')
+        return cy.get('.card-body td ejs-numerictextbox input.e-input:eq(1)')
     }
     getAcquiredValueField3()  //অর্জিত মূল্য
     {
-        return cy.get('.card-body td ejs-textbox input[type="number"]:eq(2)')
+        return cy.get('.card-body td ejs-numerictextbox input.e-input:eq(2)')
     }
 
     getDecidedRemark1()  //বিবরণ *

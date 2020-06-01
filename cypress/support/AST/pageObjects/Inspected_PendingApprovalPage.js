@@ -10,7 +10,19 @@ class Inspected_PendingApprovalPage
     } 
     getMaintenanceCost()  //রক্ষণাবেক্ষণ খরচ Field
     {
-        return cy.get('.modal-content tbody input[type="number"]:eq(0)')
+        return cy.get('.modal-content tbody td ejs-numerictextbox input[aria-live="assertive"]:eq(0)')
+    }
+    getActionsFields1()  //কার্যক্রম Field
+    {
+        return cy.get('.modal-content tbody td ejs-dropdownlist .e-input-group:eq(0)')
+    }
+    getActionsFields2()  //কার্যক্রম Field
+    {
+        return cy.get('.modal-content tbody td ejs-dropdownlist .e-input-group:eq(1)')
+    }
+    getActionsFields3()  //কার্যক্রম Field
+    {
+        return cy.get('.modal-content tbody td ejs-dropdownlist .e-input-group:eq(2)')
     }
     getDisposalButton()  //  ডিসপোজ button
     {

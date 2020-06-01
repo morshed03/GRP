@@ -34,7 +34,7 @@ class RequisitionPage
 
     getQuantityInputBox()  // পরিমাণ *
     {
-        return cy.get('td ejs-textbox input[type="number"]:eq(0)')
+        return cy.get('td ejs-numerictextbox input.e-numerictextbox:eq(0)')
     }
 
     //চাহিদা পত্র -> অনুমোদন অপেক্ষমান page locators

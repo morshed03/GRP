@@ -41,15 +41,15 @@ class DisposalRequestPage
 
     getDisposalCost1()  // ডিসপোজালের খরচ
     {
-        return cy.get('td ejs-textbox input[type="number"]:eq(0)')
+        return cy.get('td ejs-numerictextbox input.e-input:eq(0)')
     }
     getDisposalCost2()  // ডিসপোজালের খরচ
     {
-        return cy.get('td ejs-textbox input[type="number"]:eq(1)')
+        return cy.get('td ejs-numerictextbox input.e-input:eq(1)')
     }
     getDisposalCost3()  // ডিসপোজালের খরচ
     {
-        return cy.get('td ejs-textbox input[type="number"]:eq(2)')
+        return cy.get('td ejs-numerictextbox input.e-input:eq(2)')
     }
 
     getDisposalRemark1()  // বিবরণ 

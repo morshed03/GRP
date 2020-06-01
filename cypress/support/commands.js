@@ -130,6 +130,15 @@ Cypress.Commands.add("vehicleRequisitionCalendar", (year, month, day) =>
     cy.wait(1000)
 })
 
+//Pagination
+Cypress.Commands.add("ASTPagination", (pageItemNo) => 
+{
+    receiveGoodsPage.getPaginationDropDownField().click()
+    cy.wait(1000)        
+    receiveGoodsPage.getPaginationDropDownFieldValue().contains(pageItemNo).click()
+    cy.wait(5000)
+})
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

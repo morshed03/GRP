@@ -1071,7 +1071,7 @@ describe('PRC Module Regression Test Suite', function()
     })
 
     //রিভিশন তৈরি করুন 
-    it('Revision of the approve APP as a PE TC',function()
+    it.skip('Revision of the approve APP as a PE TC',function()
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 

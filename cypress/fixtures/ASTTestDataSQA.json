@@ -22,10 +22,10 @@
     "DisCommitteeMemberPassword": "123456789",
     
     "storeName": "SQA_CoKreates_store",
-    "chalanNo": "Chalan.SQA.Auto.0008",
+    "chalanNo": "Chalan.SQA.Auto.0009",
     "chalanYear": "২০২০",
     "chalanMonth": "মে",
-    "chalanDay": "১২",
+    "chalanDay": "২৮",
   
     "InspectorType": "কর্মকর্তা",
     "OfficeUnit": "SQA CoKreates",
@@ -33,21 +33,21 @@
     "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
     "InspectorFailRemarks": "পণ্যটির ইন্সপেকশন ব্যর্থ হলো। তাই ডিসপোজাল হবে।",
   
-    "assetTagNo": "2020/05/12/ICT/GRP/CK/00027",
-    "assetTagNo2": "2020/05/12/ICT/GRP/CK/00028",
-    "assetTagNo3": "2020/05/12/ICT/GRP/CK/00029",
-    "assetTagNo4": "2020/05/12/ICT/GRP/CK/00030",
-    "assetTagNo5": "2020/05/12/ICT/GRP/CK/00031",
-    "assetTagNo6": "2020/05/12/ICT/GRP/CK/00032",
-    "assetTagNo7": "2020/05/12/ICT/GRP/CK/00033",
-    "assetTagNo8": "2020/05/12/ICT/GRP/CK/00034",
-    "assetTagNo9": "2020/05/12/ICT/GRP/CK/00035",
-    "assetTagNo10": "2020/05/12/ICT/GRP/CK/00036",
-    "assetTagNo11": "2020/05/12/ICT/GRP/CK/00037",
-    "DIassetTagNo": "2020/05/12/ICT/GRP/CK/00038",
+    "assetTagNo": "2020/05/28/ICT/GRP/CK/00027",
+    "assetTagNo2": "2020/05/28/ICT/GRP/CK/00028",
+    "assetTagNo3": "2020/05/28/ICT/GRP/CK/00029",
+    "assetTagNo4": "2020/05/28/ICT/GRP/CK/00030",
+    "assetTagNo5": "2020/05/28/ICT/GRP/CK/00031",
+    "assetTagNo6": "2020/05/28/ICT/GRP/CK/00032",
+    "assetTagNo7": "2020/05/28/ICT/GRP/CK/00033",
+    "assetTagNo8": "2020/05/28/ICT/GRP/CK/00034",
+    "assetTagNo9": "2020/05/28/ICT/GRP/CK/00035",
+    "assetTagNo10": "2020/05/28/ICT/GRP/CK/00036",
+    "assetTagNo11": "2020/05/28/ICT/GRP/CK/00037",
+    "DIassetTagNo": "2020/05/28/ICT/GRP/CK/00038",
     "assetLifeTime": "48",
   
-    "DIReferenceNo": "DI/2020/05/12/17/00003",
+    "DIReferenceNo": "DI/2020/05/28/17/00009",
     "DIReceptionType": "সরাসরি গ্রহণ (অটোমেশন)",
     "DIJustification": "এটি এসকিউএ অটোমেশন টেস্ট",
     "ItemCategory": "এয়ার কন্ডিশনার",
@@ -60,7 +60,7 @@
     "ApprovalRemarks": "অনুমোদন দেওয়া হলো।",
     "DOPostPerson": "সুজিত কুমার পাল",
   
-    "requisitionReferenceNo": "REQ/2020/05/12/11/00003",
+    "requisitionReferenceNo": "REQ/2020/05/28/11/00009",
     "requisitionPurpose": "প্রশাসনিক",
     "requisitionQuantity": "9",
   
@@ -71,8 +71,9 @@
     "MaintenanceCost": "2000",
     "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।",
   
-    "disposalJustificat": "Automation Dispose 12th (Fourth Slot) May",
+    "disposalJustificat": "Automation Dispose 28th (1st Slot) May",
     "disposalCommitteeName": "অ্যাসেট ডিস্পোজাল কমিটি",
+    "inspectionAction": "Dispose",
   
     "disposalRequestType1": "Auction",
     "disposalRequestType2": "Disposed",
@@ -82,7 +83,7 @@
     "disposalDecisionRemarks": "অ্যাসেটটি নিষ্পত্তি করা হলো।",
 
 
-    "VehicleReferenceNo": "VA/2020/05/17/21/60900",
+    "VehicleReferenceNo": "VA/2020/05/28/21/00009",
     "VehicleCategory": "যানবাহন",
     "VehicleGroup": "প্রাইভেট কার",
     "VehicleItemName": "টয়োটা",

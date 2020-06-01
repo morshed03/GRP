@@ -93,6 +93,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পারচেজ অর্ডারের তালিকা')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired প্রকিউরমেন্ট রেফারেন্স নং
         {
             const textReferenceNo=$el.find('td.e-rowcell[aria-label]').text()
@@ -137,6 +140,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.chalanNo)  //চালান নং
         cy.wait(3000)
 
@@ -174,8 +180,7 @@ describe('AST Module Regression Test Suite', function()
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
-        cy.wait(3000)
-        
+        cy.wait(3000)    
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -186,6 +191,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
         cy.inspection(this.ast.chalanNo)  //চালান নং
         cy.wait(3000)
 
@@ -227,6 +233,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
         cy.inspection(this.ast.chalanNo)  //চালান নং
         cy.wait(3000)
 
@@ -260,6 +267,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগিংয়ের জন্য সম্পদের তালিকা')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired চালান নং
         {
             const textChalanNo=$el.find('td.e-rowcell[aria-label]').text()
@@ -335,6 +345,8 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান সরাসরি গ্রহণ')
 
+        //cy.ASTPagination(this.prc.Pagination) //Pagination
+
         directInPage.getAddButtonFirstStore().click()
 
         receiveGoodsPage.getCardHeader().should('include.text', 'সরাসরি গ্রহণ তৈরি করুন')
@@ -358,7 +370,7 @@ describe('AST Module Regression Test Suite', function()
             const textItemName=$el.find('td.e-rowcell[aria-label]').text()
             if(textItemName.includes(this.ast.ItemGroup))                    
             {
-                $el.find('td button mat-icon:eq(1)').first().click()
+                $el.find('td button mat-icon:eq(0)').first().click()
             }
         })
         cy.wait(3000)
@@ -400,6 +412,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.DIReferenceNo)  //রেফারেন্স নং
         cy.wait(3000)
 
@@ -436,8 +451,7 @@ describe('AST Module Regression Test Suite', function()
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
-        cy.wait(3000)
-        
+        cy.wait(3000)  
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -448,6 +462,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.DIReferenceNo)  //রেফারেন্স নং
         cy.wait(3000)
 
@@ -489,6 +506,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.DIReferenceNo)  //রেফারেন্স নং
         cy.wait(3000)
 
@@ -519,6 +539,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ট্যাগিংয়ের জন্য সম্পদের তালিকা')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired রেফারেন্স নং
         {
             const textChalanNo=$el.find('td.e-rowcell[aria-label]').text()
@@ -572,8 +595,10 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান অনুরোধসমূহ')
+
+        //cy.ASTPagination(this.prc.Pagination) //Pagination
+
         directInPage.getAddButtonFirstStore().click()
-        //directInPage.getAddButtonSecondStore().click()      //Re-use from Direct In Page
         cy.wait(3000)
 
         directOutPage.getPostOfficeTypeField().should('have.attr', 'aria-label', 'ধরণ').click()
@@ -619,6 +644,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.DOPostPerson)  //Direct Out user Post
         cy.wait(3000)
 
@@ -648,6 +676,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {
@@ -744,6 +774,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3500)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'চাহিদা পত্র')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.requisitionReferenceNo)    //Select রেফারেন্স নং
         cy.wait(3000)
         
@@ -797,7 +830,7 @@ describe('AST Module Regression Test Suite', function()
         cy.selectItems(this.ast.assetTagNo8)
         cy.wait(1000)
         cy.selectItems(this.ast.assetTagNo9)
-        cy.wait(1000)
+        cy.wait(2000)
         //cy.selectItems(this.ast.assetTagNo10)
         //cy.wait(2000)
     
@@ -842,7 +875,10 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ইস্যু তালিকা')
-        cy.inspection(this.ast.requisitionReferenceNo)    //Select গ্রাহক
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
+        cy.inspection(this.ast.requisitionReferenceNo)    //Select রেফারেন্স নং
         cy.wait(3000)
         
         receiveGoodsPage.getCardHeader().should('include.text', 'ইস্যু')
@@ -869,6 +905,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {
@@ -959,6 +997,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধসমূহের তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা
         cy.wait(3000)
@@ -992,6 +1031,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ফেরতকৃত পণ্যের গ্রহণের তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা 
         cy.wait(3000)
@@ -1055,12 +1095,11 @@ describe('AST Module Regression Test Suite', function()
     it('TC_22. Inspector: Inspect for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        
+       
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
-        cy.wait(3000)
-        
+        cy.wait(3000)  
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1071,12 +1110,14 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  //Post / পদবি
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ইন্সপেকশনের ফলাফল সেট করুন')
        
-        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
+        inspectionAssignedPage.getRemarksField().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
         cy.wait(2000)
         
         receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click() //Reuse from ReceiveGoods Page 
@@ -1106,17 +1147,14 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'প্রাপ্তিযোগ্য পরিমাণগুলি সেট করুন')
       
         inspectedPage.getCardFooterFourthButton().should('include.text', 'অনুমোদন করুন').click() //Reuse from ReceiveGoods Page 
-    /*    cy.wait(1500)
-        
-        receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
-        receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click() 
-        */
 
         cy.wait(6000)  
     })
@@ -1140,6 +1178,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(5000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {
@@ -1207,6 +1246,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
@@ -1239,12 +1280,11 @@ describe('AST Module Regression Test Suite', function()
     it('TC_27. Inspector: Inspect for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        
+       
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
-        cy.wait(3000)
-        
+        cy.wait(3000) 
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1255,12 +1295,14 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  //Post / পদবি
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ইন্সপেকশনের ফলাফল সেট করুন')
        
-        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
+        inspectionAssignedPage.getRemarksField().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
         cy.wait(2000)
         
         receiveGoodsPage.getCardFooterFourthButton().should('include.text', 'দাখিল করুন').click() //Reuse from ReceiveGoods Page 
@@ -1290,6 +1332,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
@@ -1318,6 +1362,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(5000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {
@@ -1385,6 +1430,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
@@ -1421,8 +1468,7 @@ describe('AST Module Regression Test Suite', function()
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
-        cy.wait(3000)
-        
+        cy.wait(3000)   
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1433,25 +1479,17 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  //Post / পদবি
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ইন্সপেকশনের ফলাফল সেট করুন')
 
-        /*
-        receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag for Uncheck
-        {
-            const textTagNo=$el.find('td.e-rowcell[aria-label]').text()
-            if(textTagNo.includes(this.prc.assetTagNo3))                    
-            {
-                $el.find('td ejs-checkbox span').click()
-            }
-        })  */
-
         inspectionAssignedPage.getAssetCheckBox().click({ force: true })
         cy.wait(2000)
 
-        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
+        inspectionAssignedPage.getRemarksField().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
         cy.wait(2000)
         
         inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
@@ -1481,6 +1519,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
@@ -1492,7 +1532,7 @@ describe('AST Module Regression Test Suite', function()
         inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
         cy.wait(2000)
 
-        inspectedPage.getMaintenanceButton().should('include.text', 'রক্ষণাবেক্ষণ').click()
+        inspectedPage.getMaintenanceButton().should('include.text', 'সংরক্ষণ করুন').click()
         cy.wait(6000)
     })
 
@@ -1512,6 +1552,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.assetTagNo3)  // Item Tag
         cy.wait(3000)
 
@@ -1553,6 +1595,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(5000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {
@@ -1586,6 +1629,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(5000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.visibleItems(this.ast.assetTagNo10)     //Select the Tag no
         cy.wait(2000)
@@ -1611,6 +1655,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.assetTagNo10)  // Item Tag
         cy.wait(3000)
 
@@ -1648,6 +1694,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Asset Tag
         {
@@ -1680,6 +1727,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.assetTagNo4)  // Item Tag
         cy.wait(3000)
 
@@ -1785,6 +1834,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধসমূহের তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা
         cy.wait(3000)
@@ -1819,6 +1869,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ফেরতকৃত পণ্যের গ্রহণের তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা dynamicaly 
         cy.wait(3000)
@@ -1851,6 +1902,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
@@ -1898,6 +1951,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  //Post / পদবি
         cy.wait(3000)
 
@@ -1912,7 +1967,7 @@ describe('AST Module Regression Test Suite', function()
         inspectionAssignedPage.getAssetThirdCheckBox().click({ force: true })    //Third Item uncheck
         cy.wait(2000)
 
-        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorFailRemarks).should('have.value', this.ast.InspectorFailRemarks)
+        inspectionAssignedPage.getRemarksField().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
         cy.wait(2000)
         
         inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
@@ -1942,6 +1997,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
@@ -1950,11 +2007,23 @@ describe('AST Module Regression Test Suite', function()
         inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
         cy.wait(3000)
 
+        inspectedPage.getActionsFields1().click()
+        receiveGoodsPage.getPaginationDropDownFieldValue().contains(this.ast.inspectionAction).click()
+        cy.wait(1000)
+
+        inspectedPage.getActionsFields2().click()
+        receiveGoodsPage.getPaginationDropDownFieldValue().contains(this.ast.inspectionAction).click()
+        cy.wait(1000)
+
+        inspectedPage.getActionsFields3().click()
+        receiveGoodsPage.getPaginationDropDownFieldValue().contains(this.ast.inspectionAction).click()
+        cy.wait(1000)
+
         inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
         cy.wait(2000)
 
-        inspectedPage.getDisposalButton().should('include.text', 'নিষ্পত্তি').click()
-        cy.wait(6000)  
+        inspectedPage.getMaintenanceButton().should('include.text', 'সংরক্ষণ করুন').click()
+        cy.wait(6000)
     })
 
     //Disposal Request (From Asset Request Returned items)
@@ -2019,6 +2088,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত নিষ্পত্তিকরণের তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
@@ -2048,6 +2119,9 @@ describe('AST Module Regression Test Suite', function()
         disposalRequestPage.getDisposalRemark3().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
         cy.wait(2000)
 
+        disposalRequestPage.getDisposalRemark2().click()        //Click here for enable Submit button
+        cy.wait(1000)
+
         disposalRequestPage.getSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
         cy.wait(2000)
 
@@ -2075,6 +2149,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য সম্পদ তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
@@ -2095,7 +2171,7 @@ describe('AST Module Regression Test Suite', function()
         disposalResultPage.getOtherAddButton().click()
         cy.wait(2000)
 
-        disposalResultPage.getAcquiredValueField1().should('have.attr', 'type', 'number').click().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
+        disposalResultPage.getAcquiredValueField1().should('have.attr', 'aria-live', 'assertive').click().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
         cy.wait(2000)
         disposalResultPage.getDecidedRemark1().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
         cy.wait(2000)
@@ -2103,7 +2179,7 @@ describe('AST Module Regression Test Suite', function()
         disposalResultPage.getDecidedRemark2().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
         cy.wait(2000)
 
-        disposalResultPage.getAcquiredValueField3().should('have.attr', 'type', 'number').click().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
+        disposalResultPage.getAcquiredValueField3().should('have.attr', 'aria-live', 'assertive').click().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
         cy.wait(2000)
         disposalResultPage.getDecidedRemark3().click().type(this.ast.disposalDecisionRemarks).should('have.value', this.ast.disposalDecisionRemarks)
         cy.wait(2000)
@@ -2147,7 +2223,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         reportsPage.getSearchButton().should('include.text', 'অনুসন্ধান করুন').click()
-        cy.wait(4000)
+        cy.wait(2500)
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {
@@ -2215,6 +2293,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
@@ -2251,8 +2331,7 @@ describe('AST Module Regression Test Suite', function()
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
-        cy.wait(3000)
-        
+        cy.wait(3000)  
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -2263,6 +2342,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নির্ধারিত পরিদর্শন')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  //Post / পদবি
         cy.wait(3000)
 
@@ -2271,7 +2352,7 @@ describe('AST Module Regression Test Suite', function()
         inspectionAssignedPage.getAssetCheckBox().click({ force: true })
         cy.wait(2000)
 
-        inspectionAssignedPage.getRemarksFieldFirstStore().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
+        inspectionAssignedPage.getRemarksField().click().type(this.ast.InspectorRemarks).should('have.value', this.ast.InspectorRemarks)
         cy.wait(2000)
         
         inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() //Reuse from ReceiveGoods Page 
@@ -2301,6 +2382,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শনকৃত')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post / পদবি
         cy.wait(3000)
 
@@ -2309,10 +2392,14 @@ describe('AST Module Regression Test Suite', function()
         inspectionAssignedPage.getRejectButton().should('include.text', 'প্রত্যাখ্যান করুন').click() 
         cy.wait(3000)
 
+        inspectedPage.getActionsFields1().click()
+        receiveGoodsPage.getPaginationDropDownFieldValue().contains(this.ast.inspectionAction).click()
+        cy.wait(1000)
+
         inspectedPage.getMaintenanceCost().type(this.ast.MaintenanceCost).should('have.value', this.ast.MaintenanceCost)
         cy.wait(2000)
 
-        inspectedPage.getDisposalButton().should('include.text', 'নিষ্পত্তি').click()
+        inspectedPage.getMaintenanceButton().should('include.text', 'সংরক্ষণ করুন').click()
         cy.wait(6000)
     })
 
@@ -2374,6 +2461,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত নিষ্পত্তিকরণের তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
@@ -2385,6 +2474,9 @@ describe('AST Module Regression Test Suite', function()
         disposalRequestPage.getDisposalCost1().clear().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
         cy.wait(1000)
         disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(1000)
+
+        disposalRequestPage.getDisposalCost1().click()      //User for enable Save button
         cy.wait(1000)
 
         disposalRequestPage.getSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
@@ -2414,6 +2506,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য সম্পদ তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
@@ -2464,7 +2558,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         reportsPage.getSearchButton().should('include.text', 'অনুসন্ধান করুন').click()
-        cy.wait(4000)
+        cy.wait(2500)
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {
@@ -2493,6 +2589,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'আমার অধিকৃত সম্পদসমূহ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Asset Tag
         {
@@ -2525,6 +2622,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.assetTagNo9)  // Item Tag
         cy.wait(3000)
 
@@ -2606,6 +2705,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত নিষ্পত্তিকরণের তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
@@ -2617,6 +2718,9 @@ describe('AST Module Regression Test Suite', function()
         disposalRequestPage.getDisposalCost1().clear().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
         cy.wait(1000)
         disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(1000)
+
+        disposalRequestPage.getDisposalCost1().click()      //Use for enable the Save button
         cy.wait(1000)
 
         disposalRequestPage.getSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
@@ -2647,6 +2751,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য সম্পদ তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
@@ -2697,7 +2803,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         reportsPage.getSearchButton().should('include.text', 'অনুসন্ধান করুন').click()
-        cy.wait(4000)
+        cy.wait(2500)
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
     
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {
@@ -2731,6 +2839,7 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(5000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পণ্য সমূহ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.visibleItems(this.ast.assetTagNo11)     //Select the Tag no
         cy.wait(2000)
@@ -2757,6 +2866,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.assetTagNo11)  // Item Tag
         cy.wait(3000)
 
@@ -2838,6 +2949,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধকৃত নিষ্পত্তিকরণের তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
@@ -2849,6 +2962,9 @@ describe('AST Module Regression Test Suite', function()
         disposalRequestPage.getDisposalCost1().clear().type(this.ast.disposalCost).should('have.value', this.ast.disposalCost)
         cy.wait(1000)
         disposalRequestPage.getDisposalRemark1().click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
+        cy.wait(1000)
+
+        disposalRequestPage.getDisposalCost1().click()      //Use for enable the Save button
         cy.wait(1000)
 
         disposalRequestPage.getSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
@@ -2879,6 +2995,8 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'নিষ্পত্তিকরণের জন্য সম্পদ তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.disposalJustificat)  // ন্যায্যতা
         cy.wait(3000)
 
@@ -2930,7 +3048,9 @@ describe('AST Module Regression Test Suite', function()
         cy.wait(2000)
 
         reportsPage.getSearchButton().should('include.text', 'অনুসন্ধান করুন').click()
-        cy.wait(4000)
+        cy.wait(2500)
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired Tag No
         {

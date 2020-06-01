@@ -55,6 +55,16 @@ class ReceiveGoods_StoreKeepingPage
     {
         return cy.get('.card-footer button:eq(4)')
     }
+
+    //Pagination locators
+    getPaginationDropDownField()   //Pagination drop-down field
+    {
+        return cy.get('.card:visible .card-body .e-pagesizes .e-pagerdropdown > span')
+    }
+    getPaginationDropDownFieldValue()   //Pagination drop-down value
+    {
+        return cy.get('div > ul > li')
+    }
     
 }
 export default ReceiveGoods_StoreKeepingPage;
