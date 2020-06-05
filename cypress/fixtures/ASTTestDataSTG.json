@@ -1,25 +1,25 @@
 {
   "officeAdminID": "suji0001",
-  "officeAdminPassword": "1234567",
+  "officeAdminPassword": "",
 
   "storeAdminID": "mors0002",
-  "storeAdminPassword": "1234567",
+  "storeAdminPassword": "",
 
   "storeKeeperID": "taif0001",
-  "storeKeeperPassword": "1234567",
+  "storeKeeperPassword": "",
 
   "inspectorID": "rais0002",
-  "inspectorPassword": "1234567",
+  "inspectorPassword": "",
   "inspectorOffice": "সফটওয়্যার কোয়ালিটি আসিউর‍্যান্স স্পেশালিষ্ট, এসকিউএ টিম",
 
   "reportTrackerID": "irft0002",
-  "reportTrackerPassword": "12345",
+  "reportTrackerPassword": "",
 
   "committeeHeadID": "suji0001",
-  "committeeHeadPassword": "1234567",
+  "committeeHeadPassword": "",
 
   "DisCommitteeMemberID": "mors0002",
-  "DisCommitteeMemberPassword": "1234567",
+  "DisCommitteeMemberPassword": "",
   
   "storeName": "SQA Test Store",
   "chalanNo": "Chalan.SQA.Auto.0020",

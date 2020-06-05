@@ -5,6 +5,10 @@ class AmendmentAPPPage
     {
         return cy.get('mat-dialog-container .card-header mat-label')
     }
+    getAllocatedAmountField()  // বরাদ্দকৃত পরিমাণ
+    {
+        return cy.get('mat-dialog-container .card-body input[placeholder="বরাদ্দকৃত পরিমাণ"]')
+    }
     getAddEconomicCodeButton()  // economic code button
     {
         return cy.get('mat-dialog-container .card-body button')

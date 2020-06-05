@@ -11,7 +11,7 @@ class APPApprovalPage
     }
     getApproveButton()  //    অনুমোদন দিন button
     {
-        return cy.get('mat-dialog-container .card-footer button:eq(1)')
+        return cy.get('mat-dialog-container .card-footer button.pull-right:eq(0)')
     }
     getClosePopUpButton()  // বন্ধ করুন button
     {

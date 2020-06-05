@@ -76,7 +76,7 @@ class RequisitionDeclarationPage
     //Footer section's locators 
     getBackButton()   //Back button
     {
-        return cy.get('.card-footer button.btn:eq(2)')
+        return cy.get('.card:visible .card-footer button.btn-secondary:eq(0)')
     }
     getDraftButton()   //Draft button
     {
@@ -84,7 +84,7 @@ class RequisitionDeclarationPage
     }
     getSaveAndPublishButton()   //Save button
     {
-        return cy.get('.card-footer button.btn:eq(4)')
+        return cy.get('.card-footer button.btn-cus-success:eq(0)')
     }
 
     //নিশ্চিতকরণ pop-up page locator
@@ -98,7 +98,8 @@ class RequisitionDeclarationPage
     }
     getConfirmationPageYesButton()   // হ্যাঁ button
     {
-        return cy.get('mat-dialog-container mat-dialog-actions button:eq(1)')
+        //return cy.get('mat-dialog-container mat-dialog-actions button:eq(1)')
+        return cy.get('mat-dialog-container mat-dialog-actions button.btn-cus-success')
     }
 
     //চাহিদাপত্র ঘোষণা details table locators
@@ -120,7 +121,7 @@ class RequisitionDeclarationPage
     }
     getPreviewOfReportButton()   // রিপোর্ট এর বিস্তারিত দেখুন button
     {
-        return cy.get('.card-body button')
+        return cy.get('.card-body button[type="button"]')
     }
     getEstimatedCostInputField()   // আনুমানিক খরচ field
     {
@@ -132,7 +133,7 @@ class RequisitionDeclarationPage
     }
     getEnterRemarksInInputField()   // Enter Remarks
     {
-        return cy.get('td input[name="remarks"]')
+        return cy.get('td input[type="text"]:eq(0)')
     }
     getDemandSaveIcon()   // Save Icon
     {
