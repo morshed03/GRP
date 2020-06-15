@@ -39,12 +39,6 @@ describe('AST Module Regression Test Suite', function()
         {
             this.ast = ast
         })
-    /*
-        cy.fixture('PRCTestDataSTG').then(function(prc)
-        {
-            this.prc = prc
-        })
-    */
       cy.visit(Cypress.env('url'))
     })
 
@@ -181,7 +175,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)    
-
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -452,7 +446,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -993,7 +987,7 @@ describe('AST Module Regression Test Suite', function()
 
         leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
         cy.wait(1000)
-        leftNavMenu.getRequestApprovalSubMenu().should('include.text', 'ফেরত অনুরোধ').click()
+        leftNavMenu.getRequestApprovalSubMenu().should('include.text', 'ফেরৎ অনুরোধ').click()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধসমূহের তালিকা')
@@ -1030,7 +1024,7 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
         cy.wait(3000)
 
-        receiveGoodsPage.getCardHeader().should('include.text', 'ফেরতকৃত পণ্যের গ্রহণের তালিকা')
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফেরৎকৃত পণ্যের গ্রহণের তালিকা')
         cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা 
@@ -1100,7 +1094,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1285,7 +1279,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000) 
-
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1469,7 +1463,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)   
-
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1830,7 +1824,7 @@ describe('AST Module Regression Test Suite', function()
 
         leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
         cy.wait(1000)
-        leftNavMenu.getRequestApprovalSubMenu().should('include.text', 'ফেরত অনুরোধ').click()
+        leftNavMenu.getRequestApprovalSubMenu().should('include.text', 'ফেরৎ অনুরোধ').click()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুরোধসমূহের তালিকা')
@@ -1868,7 +1862,7 @@ describe('AST Module Regression Test Suite', function()
         receiveGoodsPage.getStoreNameTab().contains(this.ast.storeName).click()
         cy.wait(3000)
 
-        receiveGoodsPage.getCardHeader().should('include.text', 'ফেরতকৃত পণ্যের গ্রহণের তালিকা')
+        receiveGoodsPage.getCardHeader().should('include.text', 'ফেরৎকৃত পণ্যের গ্রহণের তালিকা')
         cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.inspection(this.ast.DOPostPerson)   //ফেরতদাতা dynamicaly 
@@ -2332,7 +2326,7 @@ describe('AST Module Regression Test Suite', function()
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -2603,7 +2597,7 @@ describe('AST Module Regression Test Suite', function()
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
-        cy.wait(6000)  
+        cy.wait(6000)
     })
 
     //Disposal Committee Head Enter Remarks and Put it for Disposal
@@ -2632,7 +2626,7 @@ describe('AST Module Regression Test Suite', function()
         itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
         cy.wait(2000)
 
-        itemsMaintenancePage.getDecommissionButton().should('include.text', 'Decommission').click()
+        itemsMaintenancePage.getDecommissionButton().should('include.text', 'নিষ্পত্তি').click()
         cy.wait(2000)
 
         itemsMaintenancePage.getDisposalModalHeader().should('include.text', 'নিষ্পত্তি করার জন্য খরচের ধারণা দিন')
@@ -2876,7 +2870,7 @@ describe('AST Module Regression Test Suite', function()
         itemsMaintenancePage.getMaintenanceRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').click().type(this.ast.disposalRemarks).should('have.value', this.ast.disposalRemarks)
         cy.wait(2000)
 
-        itemsMaintenancePage.getDecommissionButton().should('include.text', 'Decommission').click()
+        itemsMaintenancePage.getDecommissionButton().should('include.text', 'নিষ্পত্তি').click()
         cy.wait(2000)
 
         itemsMaintenancePage.getDisposalModalHeader().should('include.text', 'নিষ্পত্তি করার জন্য খরচের ধারণা দিন')
@@ -3067,7 +3061,7 @@ describe('AST Module Regression Test Suite', function()
 
 //Lease, Contract Renewal and Vehicle Management*******************************************************
 //
-describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
+describe('AST Module (Sprint 8) Regression Test Suite', function()
 {
     beforeEach(function() 
     {
@@ -3132,17 +3126,19 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
 
         vehicleAddPage.getVehicleItemButton().click()
         cy.wait(2000)
-
+    /*
         vehicleAddPage.getVehicleCategoryField().should('have.attr', 'aria-label', 'ক্যাটাগরি').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.VehicleCategory).click()
         cy.wait(2000)
-
+    */
+        //vehicleAddPage.getSearchField().should('have.attr', 'placeholder', 'অনুসন্ধান করুন').type(this.ast.VehicleGroup).type({enter})
+        //cy.wait(2000)
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
         {
             const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
             if(textItemGroup.includes(this.ast.VehicleGroup))                    
             {
-                $el.find('td button mat-icon:eq(1)').first().click()
+                $el.find('td button mat-icon:eq(1)').click()
             }
         })
         cy.wait(3000)
@@ -3165,8 +3161,8 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
 
         vehicleAddPage.getVehicleRentField().should('have.value', 'No')
 
-        vehicleAddPage.getVehicleRegistrationNoField().click().type(this.ast.VehicleRegistrationNo).should('have.value', this.ast.VehicleRegistrationNo)
-        cy.wait(2000)
+        //vehicleAddPage.getVehicleRegistrationNoField().click().type(this.ast.VehicleRegistrationNo).should('have.value', this.ast.VehicleRegistrationNo)
+        //cy.wait(2000)
 
         vehicleAddPage.getVehicleSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
 
@@ -3228,7 +3224,7 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
         {
             const textItemGroup=$el.find('td.e-rowcell[aria-label]').text()
-            if(textItemGroup.includes(this.ast.VehicleGroup))                    
+            if(textItemGroup.includes(this.ast.VehicleGroup))                  
             {
                 $el.find('td button mat-icon').first().click()
             }
@@ -3255,6 +3251,7 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহনের চাহিদাপত্র')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
         {
@@ -3277,14 +3274,14 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         })
         cy.wait(3000)
 
-        vehicleRequisitionPage.getUncheckDefaultItem().click({ force: true })
-        cy.wait(1000)
+        //vehicleRequisitionPage.getUncheckDefaultItem().click({ force: true })
+        //cy.wait(1000)
 
-        //vehicleRequisitionPage.getVehicleSearchField().should('have.attr', 'placeholder', 'অনুসন্ধান করুন').type(this.ast.VehicleLicenseNumber).type('{enter}')
-        //cy.wait(2000)
+        vehicleRequisitionPage.getVehicleSearchField().should('have.attr', 'placeholder', 'অনুসন্ধান করুন').type(this.ast.VehicleLicenseNumber).type('{enter}')
+        cy.wait(2000)
 
-        cy.selectItems(this.ast.VehicleLicenseNumber)
-        cy.wait(1000)
+        //cy.selectItems(this.ast.VehicleLicenseNumber)
+        //cy.wait(1000)
         
         requisitionPage.getAddAssetButton().should('include.text', 'যানবাহন যোগ').click()
         cy.wait(2000)
@@ -3313,6 +3310,7 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'ইস্যু তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
         {
@@ -3348,6 +3346,7 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'অনুমোদিত/বাতিলকৃত অনুরোধসমূহ')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.get('tr td:nth-child(2)').each(($e1, index, $list) => {
 
@@ -3376,9 +3375,9 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         leftNavMenu.getReturnVehicleSubMenu().contains('ফেরৎ গ্রহণ').click()
         cy.wait(3000)
 
-        receiveGoodsPage.getCardHeader().should('include.text', 'লাইসেন্স নম্বর দিন')
+        receiveGoodsPage.getCardHeader().should('include.text', 'রেজিষ্ট্রেশন নম্বর দিন')
 
-        vehicleRequisitionPage.getLicenseNumberField().should('have.attr', 'placeholder', 'লাইসেন্স নম্বর').type(this.ast.VehicleLicenseNumber).should('have.value', this.ast.VehicleLicenseNumber)
+        vehicleRequisitionPage.getLicenseNumberField().should('have.attr', 'placeholder', 'রেজিষ্ট্রেশন নম্বর').type(this.ast.VehicleLicenseNumber).should('have.value', this.ast.VehicleLicenseNumber)
         cy.wait(2000)
         
         requisitionPage.getAddAssetButton().should('include.text', 'যানবাহন যোগ').click()
@@ -3405,6 +3404,7 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'যানবাহন তালিকা')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.get('tr td:nth-child(2)').each(($e1, index, $list) => {
 
@@ -3432,7 +3432,7 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         cy.wait(1000)
         leftNavMenu.getDropDownMenu().contains('যানবাহন মামলা').click()
         cy.wait(1000)
-        leftNavMenu.getVehicleCaseSubMenu().should('include.text', 'তৈরি করুন').click()
+        leftNavMenu.getVehicleCaseSubMenu().contains('তৈরি করুন').click()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান মামলাগুলো')
@@ -3449,11 +3449,11 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         cy.wait(2000)
         vehicleCasePage.getDriverField().should('have.attr', 'placeholder', 'ড্রাইভার').type(this.ast.VehicleDeiverName).should('have.value', this.ast.VehicleDeiverName)
         cy.wait(2000)
-        vehicleCasePage.getThanaField().should('have.attr', 'placeholder', 'থানা').type(this.ast.Thana).should('have.value', this.ast.Thana)
+        vehicleCasePage.getLocationField().should('have.attr', 'placeholder', 'স্থান').type(this.ast.Thana).should('have.value', this.ast.Thana)
         cy.wait(2000)
-        vehicleCasePage.getJustificationField().should('have.attr', 'placeholder', 'ন্যায্যতা').type(this.ast.CaseJustification).should('have.value', this.ast.CaseJustification)
+        vehicleCasePage.getJustificationField().should('have.attr', 'placeholder', 'কারন').type(this.ast.CaseJustification).should('have.value', this.ast.CaseJustification)
         cy.wait(2000)
-        vehicleCasePage.getFineField().should('have.attr', 'placeholder', 'জরিমানা').type(this.ast.CaseFineAmount).should('have.value', this.ast.CaseFineAmount)
+        vehicleCasePage.getFineField().should('have.attr', 'placeholder', 'জরিমানার পরিমান').type(this.ast.CaseFineAmount).should('have.value', this.ast.CaseFineAmount)
         cy.wait(2000)
 
         vehicleAddPage.getReceiveButton().should('include.text', 'তৈরি করুন').click()
@@ -3474,17 +3474,18 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         cy.wait(1000)
         leftNavMenu.getDropDownMenu().contains('যানবাহন মামলা').click()
         cy.wait(1000)
-        leftNavMenu.getVehicleCaseSubMenu().should('include.text', 'তৈরি করুন').click()
+        leftNavMenu.getVehicleCaseSubMenu().contains('তৈরি করুন').click()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'বিদ্যমান মামলাগুলো')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         receiveGoodsPage.getCardRows().each(($el, index, $list) =>     //Select the desired পণ্যের নাম
         {
             const licenseText=$el.find('td.e-rowcell[aria-label]').text()
             if(licenseText.includes(this.ast.VehicleCaseReferenceNo))                    
             {
-                $el.find('td button mat-icon:eq(1)').first().click()
+                $el.find('td button mat-icon:eq(1)').click()
             }
         })
         cy.wait(6000)
@@ -3516,6 +3517,7 @@ describe.skip('AST Module (Sprint 8) Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'সমাপ্ত মামলাগুলো')
+        cy.ASTPagination(this.prc.Pagination) //Pagination
 
         cy.get('tr td:nth-child(2)').each(($e1, index, $list) => {
 

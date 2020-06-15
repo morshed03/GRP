@@ -1,18 +1,18 @@
 {
     "userNameHope": "suji0001",
-    "passwordHope": "",
+    "passwordHope": "1234567",
 
     "userNamePE": "mors0002",
-    "passwordPE": "",
+    "passwordPE": "1234567",
 
     "userNameDE1": "taif0001",
-    "passwordDE1": "",
+    "passwordDE1": "1234567",
 
     "userNameDE2": "chac0001",
-    "passwordDE2": "",
+    "passwordDE2": "1234567",
 
     "userNameDE3": "zahd0003",
-    "passwordDE3": "",
+    "passwordDE3": "1234567",
 
     "requisitionFiscalYear": "২০১৯-২০",
     "requisitionStartYear": "২০২০",
@@ -100,10 +100,10 @@
     "DCPVendorName": "সুন্দরবন কুরিয়ার, হেডঅফিস",
     "DCPYear": "২০২০",
     "DCPMonth": "জুন",
-    "DCPDate": "৪",
+    "DCPDate": "৯",
     "OPMAPPReferenceNoWorks": "GRP.Auto.OPM.APP.Work.0015",
     "OPMAPPReferenceNoGoods": "GRP.Auto.OPM.APP.Goods.0014",
-    "DCPReferenceNo": "GRP.Auto.QA.Team.DCP.0021",
+    "DCPReferenceNo": "GRP.Auto.QA.Team.DCP.0024",
     "DCPDescription": "এটি জিআরপি এসকিউএ টিম দ্বারা অটোমেশন পরীক্ষা।",
     "DCPRemarks": "টেস্ট",
 

@@ -25,13 +25,13 @@ describe('PRC Module Regression Test Suite', function()
       
       cy.visit(Cypress.env('url'))
     })
-/*
+
     // Before all It Logout
     afterEach(function()
     {
       cy.logout()
     })
-*/
+
     //Create page object
     const dashboardPage = new DashboardPage()
     const leftNavMenu = new LeftNavMenu()
@@ -1634,6 +1634,7 @@ describe('PRC Module Regression Test Suite', function()
         const fileName = 'TestFile.pdf';
         billPage.getAttachmentUploadButton().attachFile(fileName);      //File Upload
         cy.wait(5000)
+        
         billPage.getCloseAttachmentCard().should('include.text', 'বন্ধ করুন').click()
         cy.wait(2000)
 
@@ -1785,7 +1786,7 @@ describe('PRC Module Regression Test Suite', function()
 
     //Material Receive as Store Keeper on AST module
     //Create OPM using APP
-    it('TC_28. PE: Create OPM Through DCP. TC',function()
+    it.only('TC_28. PE: Create OPM Through DCP. TC',function()
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 

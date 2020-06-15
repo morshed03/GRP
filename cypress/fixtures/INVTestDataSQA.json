@@ -1,0 +1,13 @@
+{  
+  "SuperAdminID": "sujt0001",
+  "SuperAdminPassword": "123456789",
+
+  "StoreAdminID": "mors0001",
+  "StoreAdminPassword": "123456789",
+
+  "StoreKeeperID": "taif0001",
+  "StoreKeeperPassword": "123456789",
+
+  "UserID": "risa0001",
+  "UserPassword": "123456789"
+}

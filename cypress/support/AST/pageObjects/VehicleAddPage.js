@@ -16,6 +16,10 @@ class VehicleAddPage
     {
         return cy.get('.card-body mat-form-field mat-select[aria-label="ক্যাটাগরি"]')
     }
+    getSearchField()  // অনুসন্ধান করুন
+    {
+        return cy.get('.card-body mat-form-field input[placeholder="অনুসন্ধান করুন"]')
+    }
 
     //Item modal locators (প্রাইভেট কার ব্র্যান্ড)
     getVehicleLicenseNumberField()  // লাইসেন্স নম্বর *
