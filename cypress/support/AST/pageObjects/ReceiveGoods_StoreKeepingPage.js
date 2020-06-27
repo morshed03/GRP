@@ -40,7 +40,7 @@ class ReceiveGoods_StoreKeepingPage
 
     getConfirmPopUpHeader()  //নিশ্চিত করুন
     {
-        return cy.get('.modal-content .card-header mat-label')
+        return cy.get('.modal-content .card .card-header mat-label')
     }
     getConfirmPopUpYesButton()  //হ্যাঁ Button
     {

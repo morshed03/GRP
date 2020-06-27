@@ -20,6 +20,10 @@ class VehicleAddPage
     {
         return cy.get('.card-body mat-form-field input[placeholder="অনুসন্ধান করুন"]')
     }
+    getVehicleDropDownField()  // যানবাহনসমূহ drop-down field
+    {
+        return cy.get('.modal-content mat-form-field mat-select[aria-label="যানবাহনসমূহ"]')
+    }
 
     //Item modal locators (প্রাইভেট কার ব্র্যান্ড)
     getVehicleLicenseNumberField()  // লাইসেন্স নম্বর *

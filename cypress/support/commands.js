@@ -37,7 +37,7 @@ Cypress.Commands.add("login", (userName, password) =>
     cy.wait(1000)
     loginPage.getPasswordInputBox().type(password).should('have.value', password)
     cy.wait(1000)
-    loginPage.getEnterButton().click().should('have.text', 'প্রবেশ করুন')
+    loginPage.getEnterButton().should('have.text', 'প্রবেশ করুন').click()
     cy.wait(3000)
 })
 

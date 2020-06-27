@@ -75,7 +75,7 @@ class OPMAPPDCPPage
     }
     getPackageRow()   // প্যাকেজ row
     {
-        return cy.get('mat-dialog-container .card-body tbody tr')
+        return cy.get('mat-dialog-container:visible .card-body tbody tr')
     }
     getPackageSaveButton()   // প্যাকেজ Save Button
     {
@@ -113,7 +113,7 @@ class OPMAPPDCPPage
     }
     getAddToListPlusIcon()   // Add to list plus icon 
     {
-        return cy.get('td button mat-icon[role="img"]')
+        return cy.get('mat-dialog-container:visible .card-body tbody td button mat-icon[role="img"]')
     }
     getCloseButton()   // বন্ধ করুন button
     {

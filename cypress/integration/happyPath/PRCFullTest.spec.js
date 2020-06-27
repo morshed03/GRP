@@ -299,7 +299,7 @@ describe('PRC Module Regression Test Suite', function()
     })
 
     //ঘোষণা বন্ধ করুন
-    it('TC_06. pe: Close the Requisition Declaration',function() 
+    it('TC_06. PE: Close the Requisition Declaration',function() 
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 
@@ -522,7 +522,7 @@ describe('PRC Module Regression Test Suite', function()
         aPPPackagePage.getPackageUnitField().should('have.class', 'mat-select').click()
         requisitionDeclarationPage.getDropDownItem().contains(this.prc.PackageUnit).click()
         cy.wait(2000)
-        aPPPackagePage.getPackageEstimatedCostField().should('have.attr', 'placeholder', 'প্যাকেজের আনুমানিক খরচ').click().type(this.prc.PackageEstimatedCost).should('have.value', this.prc.PackageEstimatedCost)
+        aPPPackagePage.getPackageEstimatedCostField().should('have.attr', 'placeholder', 'আনুমানিক মূল্য').click().type(this.prc.PackageEstimatedCost).should('have.value', this.prc.PackageEstimatedCost)
         cy.wait(2000)
         aPPPackagePage.getApprovingAuthorityField().should('have.class', 'mat-select').click()
         requisitionDeclarationPage.getDropDownItem().contains(this.prc.ApprovingAuthority).click()
@@ -707,7 +707,7 @@ describe('PRC Module Regression Test Suite', function()
         aPPPackagePage.getPackageUnitField().should('have.class', 'mat-select').click()
         requisitionDeclarationPage.getDropDownItem().contains(this.prc.PackageUnit).click()
         cy.wait(2000)
-        aPPPackagePage.getPackageEstimatedCostField().should('have.attr', 'placeholder', 'প্যাকেজের আনুমানিক খরচ').click().type(this.prc.LotEstimatedCost).should('have.value', this.prc.LotEstimatedCost)
+        aPPPackagePage.getPackageEstimatedCostField().should('have.attr', 'placeholder', 'আনুমানিক মূল্য').click().type(this.prc.LotEstimatedCost).should('have.value', this.prc.LotEstimatedCost)
         cy.wait(2000)
         aPPPackagePage.getApprovingAuthorityField().should('have.class', 'mat-select').click()
         requisitionDeclarationPage.getDropDownItem().contains(this.prc.ApprovingAuthority).click()
@@ -900,7 +900,7 @@ describe('PRC Module Regression Test Suite', function()
         amendmentAPPPage.getAddEconomicCodeButton().click()
         cy.wait(2000)
         amendmentAPPPage.getAdSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
-        cy.wait(2000)
+        cy.wait(5000)
     })
     //Send APP (Works) to Hope for Approver
     it('TC_15. PE: Send APP (Works) to HOPE for Approval',function()
@@ -1138,7 +1138,7 @@ describe('PRC Module Regression Test Suite', function()
     })
 
     //রিভিশন তৈরি করুন 
-    it.skip('TC_20. PE: Revision of the approve APP',function()
+    it('TC_20. PE: Revision of the approve APP',function()
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 
@@ -1165,106 +1165,18 @@ describe('PRC Module Regression Test Suite', function()
             }
         })
         cy.wait(3000)
+
+        requisitionDeclarationPage.getConfirmationPageHeader().should('include.text', 'নিশ্চিতকরণ')
+        requisitionDeclarationPage.getConfirmationPageYesButton().should('include.text', 'হ্যাঁ').click()
+    /*
         aPPPreparationPage.getRevisionCardHeader().should('include.text', 'এপিপি কোড দিন')
         aPPPreparationPage.getRevisionCardAppCodeField().should('have.attr', 'placeholder', 'এপিপি কোড').click().type(this.prc.aPPCodeWorksRevision).should('have.value', this.prc.aPPCodeWorksRevision)
         cy.wait(2000)
         aPPPreparationPage.getRevisionCardAppSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
+    */
         cy.wait(6000)
     })
-/*
-    //সমন্বয় (Amendment) APP (Works) করুন 
-    it('Amendment of the approve APP(Works) as a PE TC',function()
-    {
-        cy.login(this.prc.userNamePE, this.prc.passwordPE)
 
-        dashboardPage.getPRCAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('এপিপি').click({force: true})
-        cy.wait(1000)
-        leftNavMenu.getAmendmentAPPSubMenu().should('include.text', 'সমন্বয়').click()
-        cy.wait(3000)
-        requisitionDeclarationPage.getFiscalYearField().click()     //অর্থবছর
-        requisitionDeclarationPage.getDropDownItem().contains(this.prc.aPPFiscalYear).click()
-        cy.wait(3000)
-
-        cy.pagination(this.prc.Pagination) //Pagination
-
-        requisitionDeclarationPage.getRequisitionPageHeader().should('include.text', 'অনুমোদিত বার্ষিক ক্রয় পরিকল্পনা (এপিপি)')     
-        declarationSubmissionPage.getTableRow().each(($el, index, $list) =>     //Select the desired APP for Amendment
-        {
-            const textAppCode=$el.find('td.e-rowcell[aria-label]').text()
-            if(textAppCode.includes(this.prc.aPPCodeWorks))
-            {
-                $el.find('td button mat-icon:eq(0)').click()
-            }
-        })
-        cy.wait(3000)
-        requisitionDeclarationPage.getRequisitionPageHeader().should('include.text', 'বার্ষিক প্রকিউরমেন্ট প্ল্যান')
-        
-        declarationSubmissionPage.getTableRow().each(($el, index, $list) =>     //Select the desired package for Amendment
-        {
-            const textLotNo=$el.find('td.e-rowcell[aria-label]').text()
-            if(textLotNo.includes(this.prc.LotNoWorks))                      //it will package not not added Lot no
-            {
-                //$el.find('td button mat-icon:eq(0)').click()
-                $el.find('td button mat-icon').first().click()
-            }
-        })
-        cy.wait(4000)
-        amendmentAPPPage.getAmendmentPageHeader().should('include.text', 'প্যাকেজের বর্ণনা')
-        amendmentAPPPage.getAddEconomicCodeButton().click()
-        cy.wait(2000)
-        amendmentAPPPage.getAdSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
-        cy.wait(6000)
-    })
-    //সমন্বয় (Amendment) APP (Goods) করুন 
-    it.skip('Amendment of the approve APP(Goods) as a PE TC',function()
-    {
-        cy.login(this.prc.userNamePE, this.prc.passwordPE)
-
-        dashboardPage.getPRCAvatar().click()
-        cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('এপিপি').click({force: true})
-        cy.wait(1000)
-        leftNavMenu.getAmendmentAPPSubMenu().should('include.text', 'সমন্বয়').click()
-        cy.wait(3000)
-        requisitionDeclarationPage.getFiscalYearField().click()     //অর্থবছর
-        requisitionDeclarationPage.getDropDownItem().contains(this.prc.aPPFiscalYear).click()
-        cy.wait(3000)
-
-        cy.pagination(this.prc.Pagination) //Pagination
-
-        requisitionDeclarationPage.getRequisitionPageHeader().should('include.text', 'অনুমোদিত বার্ষিক ক্রয় পরিকল্পনা (এপিপি)')     
-        declarationSubmissionPage.getTableRow().each(($el, index, $list) =>     //Select the desired APP for Amendment
-        {
-            const textAppCode=$el.find('td.e-rowcell[aria-label]').text()
-            if(textAppCode.includes(this.prc.aPPCodeGoods))
-            {
-                $el.find('td button mat-icon:eq(0)').click()
-            }
-        })
-        cy.wait(3000)
-        requisitionDeclarationPage.getRequisitionPageHeader().should('include.text', 'বার্ষিক প্রকিউরমেন্ট প্ল্যান')
-        
-        declarationSubmissionPage.getTableRow().each(($el, index, $list) =>     //Select the desired package for Amendment
-        {
-            const textLotNo=$el.find('td.e-rowcell[aria-label]').text()
-            if(textLotNo.includes(this.prc.LotNoGoods))                      //it will package not not added Lot no
-            {
-                //$el.find('td button mat-icon:eq(0)').click()
-                $el.find('td button mat-icon').first().click()
-            }
-        })
-        cy.wait(4000)
-        amendmentAPPPage.getAmendmentPageHeader().should('include.text', 'প্যাকেজের বর্ণনা')
-        amendmentAPPPage.getAddEconomicCodeButton().click()
-        cy.wait(2000)
-        amendmentAPPPage.getAdSaveButton().should('include.text', 'সংরক্ষণ করুন').click()
-        cy.wait(6000)
-    })
-*/
     //Create OPM using APP(Works) for Works
     it('TC_21. PE: Create OPM Through APP (Works)',function() 
     {
@@ -1348,7 +1260,7 @@ describe('PRC Module Regression Test Suite', function()
         cy.wait(1000)
         oPMAPPDCPPage.getSearchItemRemarksField().first().click().type(this.prc.DCPItemRemarks).should('have.value', this.prc.DCPItemRemarks)   //মন্তব্য
         cy.wait(1000)
-        oPMAPPDCPPage.getAddToListPlusIcon().first().should('have.class', 'material-icons').click()  // Add plus icon
+        oPMAPPDCPPage.getAddToListPlusIcon().first().should('have.class', 'material-icons').click({force: true})  // Add plus icon
         cy.wait(5000)
         oPMAPPDCPPage.getCloseButton().should('have.text', 'বন্ধ করুন').click()
         cy.wait(2000)

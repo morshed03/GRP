@@ -39,9 +39,9 @@ class DirectIn_StoreKeepingPage
     {
         return cy.get('.modal-content .card-header mat-label')
     }
-    getItemsDropDownField()  // পণ্য সমূহ drop-down field
+    getItemsDropDownField()  // পণ্যসমূহ drop-down field
     {
-        return cy.get('.modal-content mat-form-field mat-select[aria-label="পণ্য সমূহ"]')
+        return cy.get('.modal-content mat-form-field mat-select[aria-label="পণ্যসমূহ"]')
     }
     getAddFeaturesButton()  //   বৈশিষ্ট্য যোগ করুন button
     {

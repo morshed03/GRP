@@ -13,8 +13,8 @@ class LeftNavMenu
     //অনুমোদন অপেক্ষমান and Sub-Menus ----------------------------------------------
     getAPPSubMenu()  // এপিপি -> অনুমোদন অপেক্ষমান sub-menu
     {
-        //return cy.get('app-sidebar-nav-items a[href*="procurement/app/approval"]:eq(1)')  //For SQA
-        return cy.get('app-sidebar-nav-items a[href*="procurement/app/approval"]:eq(0)')
+        return cy.get('app-sidebar-nav-items a[href*="procurement/app/approval"]:eq(1)')  //For SQA
+        //return cy.get('app-sidebar-nav-items a[href*="procurement/app/approval"]')
     }
 
     //এপিপি and sub-menu -------------------------------------------------------------

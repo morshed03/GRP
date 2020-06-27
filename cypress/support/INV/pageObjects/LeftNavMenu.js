@@ -1,9 +1,12 @@
 class LeftNavMenu
 {
-    getVehicleField()  //যানবাহন field
+    getDropDownMenu()  //All drop-down menu
     {
-        return cy.get('.card-body mat-form-field mat-select[aria-label="যানবাহন"]')
+        return cy.get('app-sidebar-nav .nav-dropdown-toggle')
     }
-    
+    getItemRequisition()  //মালামালের চাহিদাপত্র 
+    {
+        return cy.get('ul li a[href*="inventory/requisition/item-requisition-info"]')
+    }
 }
 export default LeftNavMenu;

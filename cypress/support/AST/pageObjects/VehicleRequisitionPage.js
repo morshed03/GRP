@@ -71,9 +71,9 @@ class VehicleRequisitionPage
     }
 
     //ফেরৎ গ্রহণ page locators
-    getLicenseNumberField()  //লাইসেন্স নম্বর Field
+    getLicenseNumberField()  //রেজিষ্ট্রেশন নম্বর Field
     {
-        return cy.get('.card-body mat-form-field input[placeholder="রেজিষ্ট্রেশন নম্বর"]')
+        return cy.get('.card-body mat-form-field mat-select[aria-label="রেজিষ্ট্রেশন নম্বর"]')
     }
     getReciveButton()  // গ্রহণ button
     {
