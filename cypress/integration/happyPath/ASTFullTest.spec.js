@@ -69,7 +69,7 @@ describe.only('AST Module Regression Test Suite', function()
 
     //Material Receive Start Here ****************************************************************************
     //Material Receive as Store Keeper
-    it('TC_1. Store Keeper: Material Receive.',function() 
+    it.skip('TC_1. Store Keeper: Material Receive.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -118,7 +118,7 @@ describe.only('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Material Receive
-    it('TC_2. Store Admin: Inspector Assign for Material Receive.',function() 
+    it.skip('TC_2. Store Admin: Inspector Assign for Material Receive.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -1104,7 +1104,7 @@ describe.only('AST Module Regression Test Suite', function()
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-    
+
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 

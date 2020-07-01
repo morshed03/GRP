@@ -10,6 +10,14 @@
 
   "UserID": "risa0001",
   "UserPassword": "123456789",
+  "UserName": "রাইসা আমিন",
 
-  "CategoryType": "ফার্নিচার"
+  "RequisitionReferenceNo": "REQ/2020/06/29/3334",
+  "CategoryType": "কফি মেকার",
+  "ItemName": "coffee maker",
+  "ItemRequisitionQuantity": "1",
+  "FeaturesName": "Brand",
+  "FeaturesValue": "LG",
+
+  "RequisitionComment": "অনুমোদন দেওয়া হলো।"
 }
