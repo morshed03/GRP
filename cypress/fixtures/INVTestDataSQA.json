@@ -12,6 +12,8 @@
   "UserPassword": "123456789",
   "UserName": "রাইসা আমিন",
 
+  "StoreName": "SQA_CoKreates_store",
+
   "RequisitionReferenceNo": "REQ/2020/06/29/3334",
   "CategoryType": "কফি মেকার",
   "ItemName": "coffee maker",
@@ -19,5 +21,12 @@
   "FeaturesName": "Brand",
   "FeaturesValue": "LG",
 
-  "RequisitionComment": "অনুমোদন দেওয়া হলো।"
+  "RequisitionComment": "অনুমোদন দেওয়া হলো।",
+
+  "DIReferenceNo": "REQ/2020/07/02/1963",
+  "DIMemoNo": "GRP/CoK/0001",
+  "DIRemarks": "এটি জিআরপি এসকিউএ টিম দ্বারা অটোমেশন পরীক্ষা।",
+  "ItemDescription": "Brand: samsung, Milliliter: 500ml",
+  "DIQuantity": "500",
+  "DIPrice": "1000"
 }

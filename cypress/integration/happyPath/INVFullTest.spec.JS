@@ -6,6 +6,8 @@ import LeftNavMenu from '../../support/INV/pageObjects/LeftNavMenu'
 import ItemRequisitionPage from '../../support/INV/pageObjects/ItemRequisitionPage'
 import ItemRequisition_PendingApprovalPage from '../../support/INV/pageObjects/ItemRequisition_PendingApprovalPage'
 import IssueItem_StoreKeepingPage from '../../support/INV/pageObjects/IssueItem_StoreKeepingPage'
+import ReturnPage from '../../support/INV/pageObjects/ReturnPage'
+import DirectStocksInPage from '../../support/INV/pageObjects/DirectStocksInPage'
 
 
 describe('INV Module Regression Test Suite', function()
@@ -32,9 +34,11 @@ describe('INV Module Regression Test Suite', function()
     const itemRequisitionPage = new ItemRequisitionPage()
     const itemRequisitionListPage = new ItemRequisition_PendingApprovalPage()
     const issueItemPage = new IssueItem_StoreKeepingPage()
+    const returnPage = new ReturnPage()
+    const directStocksInPage = new DirectStocksInPage()
 
     //INV user: Create Requisition
-    it('TC_01. User: Create Entitlement Item Requisition.',function() 
+    it('TC_01. User: Create General Item Requisition.',function() 
     {
         cy.login(this.inv.UserID, this.inv.UserPassword)
 
@@ -171,7 +175,7 @@ describe('INV Module Regression Test Suite', function()
         cy.wait(6000)
     })
     //Verify the requisition item is issued
-    it('TC_0. User: Verify the Entitlement Item Requisition is Issued.',function() 
+    it('TC_. User: Verify the Item Requisition is Issued.',function() 
     {
         cy.login(this.inv.UserID, this.inv.UserPassword)
 
@@ -200,5 +204,158 @@ describe('INV Module Regression Test Suite', function()
           }
       })
       cy.wait(1500)
+    })
+    //Issued Item Return
+    it('TC_. Store Keeper: Issued Item Return.',function() 
+    {
+        cy.login(this.inv.StoreKeeperID, this.inv.StoreKeeperPassword)
+
+        dashboardPage.getINVAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getReturnMenu().should('include.text', 'ফেরৎ').click()
+        cy.wait(3000)
+
+        returnPage.getPageTitle().should('include.text', 'ফেরতকৃত দ্রব্যাদি')
+        returnPage.getReceiveIssuedItemsButton().should('include.text', 'ইস্যু করা আইটেম গ্রহণ করুন').click()
+        cy.wait(2500)
+
+        returnPage.getStoreField().should('include.text', 'নির্বাচন করুন').click()        //স্টোর
+        itemRequisitionPage.getDropDownItems().contains(this.inv.StoreName).click()
+        cy.wait(1000)
+        returnPage.getEmployeeNameField().should('include.text', 'নির্বাচন করুন').click()        //স্টোর
+        itemRequisitionPage.getDropDownItems().contains(this.inv.UserName).click()
+        cy.wait(1000)
+        returnPage.getSearchButton().should('include.text', 'অনুসন্ধান').click()
+
+        itemRequisitionListPage.getCardRows().each(($el, index, $list) =>     //Select the desired রিকুইজিশন রেফারেন্স নং
+        {
+          const textReference = $el.find('td').text()
+          if(textReference.includes(this.inv.RequisitionReferenceNo))                    
+          {
+            $el.find('td input[type="number"]').type('1')
+          }
+        })
+      cy.wait(1500)
+    })
+    //Direct Purchase (DP) flow **********************************************************
+    //Direct Purchase Requisition
+    it('TC_. Store Keeper: Create Direct Purchase Requisition.',function() 
+    {
+        cy.login(this.inv.StoreKeeperID, this.inv.StoreKeeperPassword)
+
+        dashboardPage.getINVAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('স্টক ব্যবস্থাপনা').click()
+        cy.wait(1000)
+        leftNavMenu.getDirectStocksInMenu().should('include.text', 'সরাসরি স্টক ইন').click()
+        cy.wait(3000)
+
+        itemRequisitionListPage.getPageTitle().should('include.text', 'সরাসরি স্টক ইন')
+        directStocksInPage.getAddNewDI().should('include.text', 'নতুন যোগ করুন').click()   //নতুন যোগ করুন
+        cy.wait(2000)
+
+        returnPage.getPageTitle().should('include.text', 'সরাসরি স্টক ইন')
+        directStocksInPage.getStoreField().click()
+        itemRequisitionPage.getDropDownItems().contains(this.inv.StoreName).click()
+        cy.wait(1000)
+        directStocksInPage.getReferenceNoField().should('have.attr', 'id', 'refNo').clear().type(this.inv.DIReferenceNo).should('have.value', this.inv.DIReferenceNo)
+        cy.wait(1000)
+        directStocksInPage.getMemoNoField().should('have.attr', 'name', 'memoNo').type(this.inv.DIMemoNo).should('have.value', this.inv.DIMemoNo)
+        cy.wait(1000)
+        directStocksInPage.getRemarkField().should('have.attr', 'name', 'remarks').type(this.inv.DIRemarks).should('have.value', this.inv.DIRemarks)
+        cy.wait(1000)
+        directStocksInPage.getAddNewButton().should('include.text', 'নতুন যোগ করুন').click()
+        cy.wait(2000)
+
+        itemRequisitionPage.getPopUpCardHeader().should('include.text', 'আইটেম নির্বাচন করুন')
+        directStocksInPage.getCategoryField().click()                               //ক্যাটাগরি টাইপ drop-down
+        itemRequisitionPage.getDropDownItems().contains(this.inv.CategoryType).click()
+        cy.wait(1000)
+        directStocksInPage.getItemGroupField().click()                               //ক্যাটাগরি টাইপ drop-down
+        itemRequisitionPage.getDropDownItems().contains(this.inv.ItemName).click()
+        cy.wait(2000)
+
+        directStocksInPage.getSelectItem().contains(this.inv.ItemDescription).click()
+        cy.wait(2000)
+
+        directStocksInPage.getQuantityField().should('have.attr', 'name', 'detailQuantity').type(this.inv.DIQuantity).should('have.value', this.inv.DIQuantity)
+        cy.wait(1000)
+        directStocksInPage.getPriceField().should('have.attr', 'name', 'price').type(this.inv.DIPrice).should('have.value', this.inv.DIPrice)
+        cy.wait(1000)
+        directStocksInPage.getAddButton().should('include.text', 'যুক্ত করুন').click()
+        cy.wait(1000)
+        directStocksInPage.getCloseButton().should('include.text', 'বন্ধ করুন').click()
+        cy.wait(2000)
+        
+        directStocksInPage.getAttachmentsButton().click()       //সংযুক্তিসমূহ
+        const fileName = 'TestFile.pdf';
+        directStocksInPage.getSelectFileButton().attachFile(fileName);      //File Upload
+        cy.wait(1000)
+        directStocksInPage.getFileAddButton().should('include.text', 'Add').click()
+        cy.wait(4000)
+        directStocksInPage.getSaveSendButton().should('include.text', 'সংরক্ষণ ও প্রেরণ করুন').click()
+        cy.wait(6000)
+    })
+    it.only('TC_. Store Admin: Direct Purchase Approval.',function() 
+    {
+        cy.login(this.inv.StoreAdminID, this.inv.StoreAdminPassword)
+
+        dashboardPage.getINVAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('স্টক ব্যবস্থাপনা').click()
+        cy.wait(1000)
+        leftNavMenu.getDirectStocksIn_PendingApproval().should('include.text', 'সরাসরি স্টক ইন').click()
+        cy.wait(3000)
+
+        itemRequisitionListPage.getPageTitle().should('include.text', 'অপেক্ষমান সরাসরি স্টক ইন')
+
+        
+        directStocksInPage.getAddNewDI().should('include.text', 'নতুন যোগ করুন').click()   //নতুন যোগ করুন
+        cy.wait(2000)
+
+        returnPage.getPageTitle().should('include.text', 'সরাসরি স্টক ইন')
+        directStocksInPage.getStoreField().click()
+        itemRequisitionPage.getDropDownItems().contains(this.inv.StoreName).click()
+        cy.wait(1000)
+        directStocksInPage.getReferenceNoField().should('have.attr', 'id', 'refNo').clear().type(this.inv.DIReferenceNo).should('have.value', this.inv.DIReferenceNo)
+        cy.wait(1000)
+        directStocksInPage.getMemoNoField().should('have.attr', 'name', 'memoNo').type(this.inv.DIMemoNo).should('have.value', this.inv.DIMemoNo)
+        cy.wait(1000)
+        directStocksInPage.getRemarkField().should('have.attr', 'name', 'remarks').type(this.inv.DIRemarks).should('have.value', this.inv.DIRemarks)
+        cy.wait(1000)
+        directStocksInPage.getAddNewButton().should('include.text', 'নতুন যোগ করুন').click()
+        cy.wait(2000)
+
+        itemRequisitionPage.getPopUpCardHeader().should('include.text', 'আইটেম নির্বাচন করুন')
+        directStocksInPage.getCategoryField().click()                               //ক্যাটাগরি টাইপ drop-down
+        itemRequisitionPage.getDropDownItems().contains(this.inv.CategoryType).click()
+        cy.wait(1000)
+        directStocksInPage.getItemGroupField().click()                               //ক্যাটাগরি টাইপ drop-down
+        itemRequisitionPage.getDropDownItems().contains(this.inv.ItemName).click()
+        cy.wait(2000)
+
+        directStocksInPage.getSelectItem().contains(this.inv.ItemDescription).click()
+        cy.wait(2000)
+
+        directStocksInPage.getQuantityField().should('have.attr', 'name', 'detailQuantity').type(this.inv.DIQuantity).should('have.value', this.inv.DIQuantity)
+        cy.wait(1000)
+        directStocksInPage.getPriceField().should('have.attr', 'name', 'price').type(this.inv.DIPrice).should('have.value', this.inv.DIPrice)
+        cy.wait(1000)
+        directStocksInPage.getAddButton().should('include.text', 'যুক্ত করুন').click()
+        cy.wait(1000)
+        directStocksInPage.getCloseButton().should('include.text', 'বন্ধ করুন').click()
+        cy.wait(2000)
+        
+        directStocksInPage.getAttachmentsButton().click()       //সংযুক্তিসমূহ
+        const fileName = 'TestFile.pdf';
+        directStocksInPage.getSelectFileButton().attachFile(fileName);      //File Upload
+        cy.wait(1000)
+        directStocksInPage.getFileAddButton().should('include.text', 'Add').click()
+        cy.wait(4000)
+        directStocksInPage.getSaveSendButton().should('include.text', 'সংরক্ষণ ও প্রেরণ করুন').click()
+        cy.wait(6000)
     })
 })
