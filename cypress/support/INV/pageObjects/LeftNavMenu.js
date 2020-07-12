@@ -16,9 +16,13 @@ class LeftNavMenu
     {
         return cy.get('ul li a[href*="inventory/requisition/item-requisition-list"]')
     }
-    getDirectStocksIn_PendingApproval()  //মালামালের চাহিদাপত্র <-  অনুমোদন অপেক্ষমান 
+    getDirectStocksIn_PendingApproval()  //সরাসরি স্টক ইন <-  অনুমোদন অপেক্ষমান 
     {
         return cy.get('ul li a[href*="inventory/setup/direct-stock-in-list/pending"]')
+    }
+    getDirectStocksOut_PendingApproval()  //সরাসরি স্টক আউট <-  অনুমোদন অপেক্ষমান 
+    {
+        return cy.get('ul li a[href*="inventory/setup/direct-stock-out-list/pending"]')
     }
 
     //স্টোর কিপিং and sub-menus
@@ -35,6 +39,16 @@ class LeftNavMenu
     getDirectStocksOutMenu()  //সরাসরি স্টক আউট <- স্টক ব্যবস্থাপনা
     {
         return cy.get('ul li a[href*="inventory/setup/direct-stock-out-info"]')
+    }
+
+    //ফিজিক্যাল ইনভেন্টরি Menu and Sub-menus
+    getInventoryAuditMenu()  //ইনভেন্টরি অডিট <- ফিজিক্যাল ইনভেন্টরি
+    {
+        return cy.get('ul li a[href*="inventory/physical-inventory/physical-inventory-list"]:eq(0)')
+    }
+    getInventoryAuditApprovalsMenu()  //সরাসরি স্টক আউট <- ফিজিক্যাল ইনভেন্টরি
+    {
+        return cy.get('ul li a[href*="inventory/physical-inventory/physical-inventory-list-approved"]')
     }
     //ফেরৎ menus
     getReturnMenu()  //ফেরৎ

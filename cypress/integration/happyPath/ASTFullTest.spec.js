@@ -25,7 +25,7 @@ import VehicleCasePage from '../../support/AST/pageObjects/VehicleCasePage'
 //Import PRC data
 beforeEach(function() 
 {
-    cy.fixture('PRCTestDataSTG').then(function(prc)
+    cy.fixture('PRCTestDataSQA').then(function(prc)
     {
         this.prc = prc
     })
@@ -35,7 +35,7 @@ describe.only('AST Module Regression Test Suite', function()
 {
     beforeEach(function() 
     {
-        cy.fixture('ASTTestDataSTG').then(function(ast)
+        cy.fixture('ASTTestDataSQA').then(function(ast)
         {
             this.ast = ast
         })
@@ -69,7 +69,7 @@ describe.only('AST Module Regression Test Suite', function()
 
     //Material Receive Start Here ****************************************************************************
     //Material Receive as Store Keeper
-    it.skip('TC_1. Store Keeper: Material Receive.',function() 
+    it('TC_1. Store Keeper: Material Receive.',function() 
     {
         cy.login(this.ast.storeKeeperID, this.ast.storeKeeperPassword)
 
@@ -118,7 +118,7 @@ describe.only('AST Module Regression Test Suite', function()
     })
 
     //Inspector Assign for Material Receive
-    it.skip('TC_2. Store Admin: Inspector Assign for Material Receive.',function() 
+    it('TC_2. Store Admin: Inspector Assign for Material Receive.',function() 
     {
         cy.login(this.ast.storeAdminID, this.ast.storeAdminPassword)
 
@@ -170,12 +170,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_3. Inspector: Inspect for Material Receive.',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        
+    /*    
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)    
-    
+    */
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -447,12 +447,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_8. Inspector: Inspect for Direct In.',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        
+    /*    
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-    
+    */
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1099,12 +1099,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_22. Inspector: Inspect for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-      
+    /*  
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-
+    */
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1284,12 +1284,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_27. Inspector: Inspect for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-       
+    /*   
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000) 
-    
+    */
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1468,12 +1468,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_32. Inspector: Inspect Rejection for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        
+    /*    
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)   
-    
+    */
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1940,12 +1940,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_44. Inspector: Inspect Rejection for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        
+    /*    
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-        
+    */    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -2057,7 +2057,7 @@ describe.only('AST Module Regression Test Suite', function()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
         cy.wait(2000)
 
-        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
+        disposalRequestPage.getUncheckAllItems().click({ multiple: true, timeout: 10000 })    //Uncheck all items
         cy.wait(2000)
 
         //Selects Items
@@ -2331,12 +2331,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_52. Inspector: Inspect Rejection for Disposal (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-        
+    /*    
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-    
+    */
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -2434,7 +2434,7 @@ describe.only('AST Module Regression Test Suite', function()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.disposalCommitteeName).click()
         cy.wait(2000)
 
-        disposalRequestPage.getUncheckAllItems().click({ multiple: true })    //Uncheck all items
+        disposalRequestPage.getUncheckAllItems().click({ multiple: true, timeout: 10000 })    //Uncheck all items
         cy.wait(2000)
 
         //Selects Items

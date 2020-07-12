@@ -23,10 +23,17 @@
 
   "RequisitionComment": "অনুমোদন দেওয়া হলো।",
 
-  "DIReferenceNo": "REQ/2020/07/02/1963",
-  "DIMemoNo": "GRP/CoK/0001",
+  "DIReferenceNo": "REQ/2020/07/02/1004",
+  "DIMemoNo": "GRP/CoK/0002",
   "DIRemarks": "এটি জিআরপি এসকিউএ টিম দ্বারা অটোমেশন পরীক্ষা।",
   "ItemDescription": "Brand: samsung, Milliliter: 500ml",
-  "DIQuantity": "500",
-  "DIPrice": "1000"
+  "DIQuantity": "100",
+  "DIPrice": "1000",
+
+  "DOReferenceNo": "REQ/2020/07/05/0001",
+  "IssueTo": "সুজিত কুমার পাল",
+  "DOQuantity": "10",
+
+  "FIReferenceNo": "PHI/2020/07/06/0000",
+  "FIRemark": "ফিজিক্যাল ইনভেন্টরি অডিট অনুরোধ"
 }

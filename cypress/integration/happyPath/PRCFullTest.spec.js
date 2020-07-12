@@ -18,7 +18,7 @@ describe('PRC Module Regression Test Suite', function()
 {
     beforeEach(function() 
     {
-      cy.fixture('PRCTestDataSTG').then(function(prc)
+      cy.fixture('PRCTestDataSQA').then(function(prc)
       {
         this.prc = prc
       })
