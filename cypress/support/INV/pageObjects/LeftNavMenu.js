@@ -30,6 +30,10 @@ class LeftNavMenu
     {
         return cy.get('ul li a[href*="inventory/requisition/item-issue-tabset"]')
     }
+    getDamageTracking_StoreKeeping()  //  ক্ষয়ক্ষতি ট্র্যাকিং  <- স্টোর কিপিং
+    {
+        return cy.get('ul li a[href*="inventory/damage/damage-requisition"] .fa-adjust')
+    }
 
     //স্টক ব্যবস্থাপনা Menu and Sub-menus
     getDirectStocksInMenu()  // সরাসরি স্টক ইন <- স্টক ব্যবস্থাপনা
@@ -46,7 +50,7 @@ class LeftNavMenu
     {
         return cy.get('ul li a[href*="inventory/physical-inventory/physical-inventory-list"]:eq(0)')
     }
-    getInventoryAuditApprovalsMenu()  //সরাসরি স্টক আউট <- ফিজিক্যাল ইনভেন্টরি
+    getInventoryAuditApprovalsMenu()  //ইনভেন্টরি অডিট অনুমোদন <- ফিজিক্যাল ইনভেন্টরি
     {
         return cy.get('ul li a[href*="inventory/physical-inventory/physical-inventory-list-approved"]')
     }

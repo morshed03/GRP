@@ -1,6 +1,7 @@
 {
   "officeAdminID": "suji0001",
   "officeAdminPassword": "1234567",
+  "AdminOffice": "দল প্রধান, এসকিউএ টিম",
 
   "storeAdminID": "mors0002",
   "storeAdminPassword": "1234567",
@@ -22,10 +23,10 @@
   "DisCommitteeMemberPassword": "1234567",
   
   "storeName": "SQA Test Store",
-  "chalanNo": "Chalan.SQA.Auto.0035",
+  "chalanNo": "Chalan.SQA.Auto.0038",
   "chalanYear": "২০২০",
-  "chalanMonth": "জুন",
-  "chalanDay": "২৯",
+  "chalanMonth": "জুলাই",
+  "chalanDay": "১৪",
 
   "InspectorType": "কর্মকর্তা",
   "OfficeUnit": "এসকিউএ টিম",
@@ -33,22 +34,22 @@
   "InspectorRemarks": "পণ্যটির ইন্সপেকশন সম্পন্ন হলো।",
   "InspectorFailRemarks": "পণ্যটির ইন্সপেকশন ব্যর্থ হলো। তাই ডিসপোজাল হবে।",
 
-  "assetTagNo": "2020/06/27/ICT/GRP/CK/00257",
-  "assetTagNo2": "2020/06/27/ICT/GRP/CK/00258",
-  "assetTagNo3": "2020/06/27/ICT/GRP/CK/00259",
-  "assetTagNo4": "2020/06/27/ICT/GRP/CK/00260",
-  "assetTagNo5": "2020/06/27/ICT/GRP/CK/00261",
-  "assetTagNo6": "2020/06/27/ICT/GRP/CK/00262",
-  "assetTagNo7": "2020/06/27/ICT/GRP/CK/00263",
-  "assetTagNo8": "2020/06/27/ICT/GRP/CK/00264",
-  "assetTagNo9": "2020/06/27/ICT/GRP/CK/00265",
-  "assetTagNo10": "2020/06/27/ICT/GRP/CK/00266",
-  "assetTagNo11": "2020/06/27/ICT/GRP/CK/00267",
-  "DIassetTagNo": "2020/06/27/ICT/GRP/CK/00268",
+  "assetTagNo": "2020/07/14/ICT/GRP/CK/00300",
+  "assetTagNo2": "2020/07/14/ICT/GRP/CK/00301",
+  "assetTagNo3": "2020/07/14/ICT/GRP/CK/00302",
+  "assetTagNo4": "2020/07/14/ICT/GRP/CK/00304",
+  "assetTagNo5": "2020/07/14/ICT/GRP/CK/00305",
+  "assetTagNo6": "2020/07/14/ICT/GRP/CK/00306",
+  "assetTagNo7": "2020/07/14/ICT/GRP/CK/00307",
+  "assetTagNo8": "2020/07/14/ICT/GRP/CK/00308",
+  "assetTagNo9": "2020/07/14/ICT/GRP/CK/00309",
+  "assetTagNo10": "2020/07/14/ICT/GRP/CK/00310",
+  "assetTagNo11": "2020/07/14/ICT/GRP/CK/00311",
+  "DIassetTagNo": "2020/07/14/ICT/GRP/CK/00312",
   "assetLifeTime": "48",
   "assetRoomNumber": "508",
 
-  "DIReferenceNo": "DI/2020/06/27/17/00031",
+  "DIReferenceNo": "DI/2020/07/14/17/00032",
   "DIReceptionType": "সরাসরি গ্রহণ (অটোমেশন)",
   "DIJustification": "এটি এসকিউএ অটোমেশন টেস্ট",
   "ItemCategory": "এয়ার কন্ডিশনার",
@@ -61,7 +62,7 @@
   "ApprovalRemarks": "পণ্যটির অনুমোদন দেওয়া হলো।",
   "DOPostPerson": "সুজিত কুমার পাল",
 
-  "requisitionReferenceNo": "REQ/2020/06/27/20/00031",
+  "requisitionReferenceNo": "REQ/2020/07/14/20/00032",
   "requisitionPurpose": "প্রশাসনিক",
   "requisitionQuantity": "9",
 
@@ -72,7 +73,7 @@
   "MaintenanceCost": "2000",
   "MaintenanceRemarks": "পণ্যটির রক্ষণাবেক্ষণ সম্পন্ন হলো।",
 
-  "disposalJustificat": "Automation Dispose 29th Jun (Schedule-1)",
+  "disposalJustificat": "Automation Dispose 14th July (Schedule-2)",
   "disposalCommitteeName": "অ্যাসেট ডিস্পোজাল কমিটি",
   "inspectionAction": "Dispose",
 
@@ -84,24 +85,24 @@
   "disposalDecisionRemarks": "অ্যাসেটটি নিষ্পত্তি করা হলো।",
 
 
-  "VehicleReferenceNo": "VA/2020/06/27/21/61009",
+  "VehicleReferenceNo": "VA/2020/06/27/21/00011",
   "VehicleCategory": "যানবাহন",
   "VehicleGroup": "প্রাইভেট কার",
   "VehicleItemName": "টয়োটা",
   "VehicleRequisitionQuantity": "1",
-  "VehicleLicenseNumber": "Auto-Kha-Dhaka-Metro-0011",
-  "VehicleRegistrationNo": "Auto-00011",
+  "VehicleLicenseNumber": "Auto-Kha-Dhaka-Metro-0013",
+  "VehicleRegistrationNo": "Auto-00013",
 
-  "VehicleRequisitionReferenceNo": "V-REQ/2020/06/27/19/28202",
+  "VehicleRequisitionReferenceNo": "V-REQ/2020/06/27/19/00005",
   "ApproximateKM": "500",
   "ReportingPlace": "BRMC",
 
   "VehicleRequisitionStartYear": "2020",
-  "VehicleRequisitionStartMonth": "Jun",
-  "VehicleRequisitionStartDay": "27",
-  "VehicleRequisitionEndDay": "30",
+  "VehicleRequisitionStartMonth": "Jul",
+  "VehicleRequisitionStartDay": "14",
+  "VehicleRequisitionEndDay": "15",
 
-  "VehicleCaseReferenceNo": "VC/2020/06/27/11/73662",
+  "VehicleCaseReferenceNo": "VC/2020/06/27/11/00005",
   "VehicleDeiverName": "জনাব করিম",
   "Thana": "ধানমন্ডি",
   "CaseJustification": "রোড রঙ সাইড ওভারটেকিং এবং দুর্ঘটনা",

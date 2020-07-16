@@ -25,17 +25,17 @@ import VehicleCasePage from '../../support/AST/pageObjects/VehicleCasePage'
 //Import PRC data
 beforeEach(function() 
 {
-    cy.fixture('PRCTestDataSQA').then(function(prc)
+    cy.fixture('PRCTestDataSTG').then(function(prc)
     {
         this.prc = prc
     })
 }) 
 
-describe.only('AST Module Regression Test Suite', function()
+describe('AST Module Regression Test Suite', function()
 {
     beforeEach(function() 
     {
-        cy.fixture('ASTTestDataSQA').then(function(ast)
+        cy.fixture('ASTTestDataSTG').then(function(ast)
         {
             this.ast = ast
         })
@@ -170,12 +170,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_3. Inspector: Inspect for Material Receive.',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-    /*    
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)    
-    */
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -447,12 +447,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_8. Inspector: Inspect for Direct In.',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-    /*    
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-    */
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -671,7 +671,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
-        //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000) 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -701,7 +704,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
-        //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000) 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -900,7 +906,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
-        //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000) 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -965,7 +974,7 @@ describe.only('AST Module Regression Test Suite', function()
         
         cy.selectItems(this.ast.assetTagNo)
         cy.wait(2000)
-        
+    /*    
         requestReturnPage.getCarrierField().should('have.attr', 'aria-label', 'বাহক').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.CarrierName).click()
         cy.wait(2000)
@@ -976,9 +985,9 @@ describe.only('AST Module Regression Test Suite', function()
         requestReturnPage.getApproverField().should('have.attr', 'aria-label', 'অনুমোদনকারী').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.ApproverName).click()
         cy.wait(2000)
-        
+    */    
         requestReturnPage.getCardFooterThirdButton().should('include.text', 'অনুমোদনের জন্য প্রেরণ').click() //Reuse from ReceiveGoods Page 
-        cy.wait(2000)
+        cy.wait(2500)
 
         receiveGoodsPage.getConfirmPopUpHeader().should('include.text', 'নিশ্চিত করুন')
         receiveGoodsPage.getConfirmPopUpYesButton().should('include.text', 'হ্যাঁ').click()
@@ -1067,6 +1076,9 @@ describe.only('AST Module Regression Test Suite', function()
         cy.wait(3000)
 
         receiveGoodsPage.getCardHeader().should('include.text', 'পরিদর্শক নির্ধারণ')
+
+        cy.ASTPagination(this.prc.Pagination) //Pagination
+
         cy.inspection(this.ast.ARPost)  // Post পদবি
         cy.wait(3000)
 
@@ -1099,12 +1111,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_22. Inspector: Inspect for Asset Return (Request Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-    /*  
+      
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-    */
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1284,12 +1296,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_27. Inspector: Inspect for Asset Return (Self Return).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-    /*   
+       
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000) 
-    */
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1468,12 +1480,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_32. Inspector: Inspect Rejection for Asset Maintenance (Inspection).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-    /*    
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)   
-    */
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -1545,7 +1557,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
-        //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000)  
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1648,7 +1663,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
-      //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000) 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1689,7 +1707,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
-        //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000) 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1720,7 +1741,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
-      //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000) 
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -1801,7 +1825,7 @@ describe.only('AST Module Regression Test Suite', function()
         cy.wait(1500)
         cy.selectItems(this.ast.assetTagNo7)
         cy.wait(2000)
-        
+    /*    
         requestReturnPage.getCarrierField().should('have.attr', 'aria-label', 'বাহক').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.CarrierName).click()
         cy.wait(2000)
@@ -1812,7 +1836,7 @@ describe.only('AST Module Regression Test Suite', function()
         requestReturnPage.getApproverField().should('have.attr', 'aria-label', 'অনুমোদনকারী').click()
         inspectionUnassignedPage.getDropDownItem().contains(this.ast.ApproverName).click()
         cy.wait(2000)
-        
+    */    
         requestReturnPage.getCardFooterThirdButton().should('include.text', 'অনুমোদনের জন্য প্রেরণ').click() //Reuse from ReceiveGoods Page 
         cy.wait(2000)
 
@@ -1940,12 +1964,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_44. Inspector: Inspect Rejection for Disposal (From Asset Request Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-    /*    
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)
-    */    
+        
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -2331,12 +2355,12 @@ describe.only('AST Module Regression Test Suite', function()
     it('TC_52. Inspector: Inspect Rejection for Disposal (From Asset Self Returned items).',function() 
     {
         cy.login(this.ast.inspectorID, this.ast.inspectorPassword)
-    /*    
+        
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.ast.inspectorOffice).click()
         cy.wait(3000)  
-    */
+    
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
 
@@ -2584,7 +2608,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
 
-        //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000)
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -2615,7 +2642,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
-        //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000)  
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -2859,7 +2889,10 @@ describe.only('AST Module Regression Test Suite', function()
     {
         cy.login(this.ast.committeeHeadID, this.ast.committeeHeadPassword)
 
-        //Select office code here if the user have multiple office 
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000)  
         
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -3071,7 +3104,7 @@ describe.only('AST Module Regression Test Suite', function()
 
 //Lease, Contract Renewal and Vehicle Management*******************************************************
 //
-describe('AST Module (Sprint 8) Regression Test Suite', function()
+describe.only('AST Module (Sprint 8) Regression Test Suite', function()
 {
     beforeEach(function() 
     {
@@ -3186,6 +3219,11 @@ describe('AST Module (Sprint 8) Regression Test Suite', function()
     it('TC_2. Asset User: Vehicle Requisition.',function() 
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000)
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)
@@ -3344,6 +3382,11 @@ describe('AST Module (Sprint 8) Regression Test Suite', function()
     it('TC_5. Asset User: See the Vehicle Requisition, which Issued or rejected.',function() 
     {
         cy.login(this.ast.officeAdminID, this.ast.officeAdminPassword)
+
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.ast.AdminOffice).click()
+        cy.wait(3000)
 
         dashboardPage.getASTAvatar().click()
         cy.wait(3000)

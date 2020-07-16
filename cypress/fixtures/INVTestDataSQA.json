@@ -34,6 +34,9 @@
   "IssueTo": "সুজিত কুমার পাল",
   "DOQuantity": "10",
 
-  "FIReferenceNo": "PHI/2020/07/06/0000",
-  "FIRemark": "ফিজিক্যাল ইনভেন্টরি অডিট অনুরোধ"
+  "PIReferenceNo": "PHI/2020/07/06/0001",
+  "PIRemark": "ফিজিক্যাল ইনভেন্টরি অডিট অনুরোধ",
+
+  "DamageRFNO": "DMG/2020/07/16/0001",
+  "DamageRemark": "ক্ষয়ক্ষতির অডিট অনুরোধ"
 }

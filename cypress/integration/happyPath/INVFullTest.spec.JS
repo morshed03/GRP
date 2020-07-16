@@ -10,6 +10,7 @@ import ReturnPage from '../../support/INV/pageObjects/ReturnPage'
 import DirectStocksInPage from '../../support/INV/pageObjects/DirectStocksInPage'
 import DirectStocksOutPage from '../../support/INV/pageObjects/DirectStocksOutPage'
 import PhysicalInventoryAuditPage from '../../support/INV/pageObjects/PhysicalInventoryAuditPage'
+import DamageRequisitionPage from '../../support/INV/pageObjects/DamageRequisitionPage'
 
 
 describe('INV Module Regression Test Suite', function()
@@ -40,6 +41,7 @@ describe('INV Module Regression Test Suite', function()
     const directStocksInPage = new DirectStocksInPage()
     const directStocksOutPage = new DirectStocksOutPage()
     const physicalInventoryAuditPage = new PhysicalInventoryAuditPage()
+    const damageRequisitionPage = new DamageRequisitionPage()
 
     //INV user: Create Requisition
     it('TC_01. User: Create General Item Requisition.',function() 
@@ -299,7 +301,7 @@ describe('INV Module Regression Test Suite', function()
         cy.wait(1000)
         directStocksInPage.getFileAddButton().should('include.text', 'Add').click()
         cy.wait(4000)
-        directStocksInPage.getSaveSendButton().should('include.text', 'সংরক্ষণ ও প্রেরণ করুন').click()
+        //directStocksInPage.getSaveSendButton().should('include.text', 'সংরক্ষণ ও প্রেরণ করুন').click()
         cy.wait(6000)
     })
     //Approval DI
@@ -449,7 +451,7 @@ describe('INV Module Regression Test Suite', function()
 
     //Physical Inventory/Audit flow ************************************************************
     //Physical Inventory / Audit Requisition
-    it.only('TC_. Store Keeper: Create Physical Inventory Audit Requisition.',function() 
+    it('TC_. Store Keeper: Create Physical Inventory Audit Requisition.',function() 
     {
         cy.login(this.inv.StoreKeeperID, this.inv.StoreKeeperPassword)
 
@@ -469,9 +471,9 @@ describe('INV Module Regression Test Suite', function()
         physicalInventoryAuditPage.getStoreField().should('have.attr', 'name', 'storeName').click()        //স্টোর
         itemRequisitionPage.getDropDownItems().contains(this.inv.StoreName).click()
         cy.wait(1000)
-        physicalInventoryAuditPage.getReferenceNoField().should('have.attr', 'placeholder', 'Reference No.').clear().type(this.inv.FIReferenceNo).should('have.value', this.inv.FIReferenceNo)
+        physicalInventoryAuditPage.getReferenceNoField().should('have.attr', 'placeholder', 'Reference No.').clear().type(this.inv.PIReferenceNo).should('have.value', this.inv.PIReferenceNo)
         cy.wait(1000)
-        physicalInventoryAuditPage.getRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').type(this.inv.FIRemark).should('have.value', this.inv.FIRemark)
+        physicalInventoryAuditPage.getRemarksField().should('have.attr', 'placeholder', 'মন্তব্য').type(this.inv.PIRemark).should('have.value', this.inv.PIRemark)
         cy.wait(1000)
         physicalInventoryAuditPage.getLoadCurrentStockButton().should('include.text', 'বর্তমান স্টক লোড করুন').click()
         cy.wait(1500)
@@ -479,47 +481,169 @@ describe('INV Module Regression Test Suite', function()
         physicalInventoryAuditPage.getSaveButton().should('include.text', 'সংরক্ষন করুন').click()
         cy.wait(6000)
     })
-    //Approval DO
-    it('TC_. Store Admin: Direct Stock Out Approval.',function() 
+    //Approval PI
+    it('TC_. Store Admin: Physical Inventory Audit Requisition Approval.',function() 
     {
         cy.login(this.inv.StoreAdminID, this.inv.StoreAdminPassword)
 
         dashboardPage.getINVAvatar().click()
         cy.wait(3000)
 
-        leftNavMenu.getDropDownMenu().contains('অনুমোদন অপেক্ষমান').click()
+        leftNavMenu.getDropDownMenu().contains('ফিজিক্যাল ইনভেন্টরি').click()
         cy.wait(1000)
-        leftNavMenu.getDirectStocksOut_PendingApproval().should('include.text', 'সরাসরি স্টক আউট').click()
+        leftNavMenu.getInventoryAuditApprovalsMenu().should('include.text', 'ইনভেন্টরি অডিট অনুমোদন').click()
         cy.wait(3000)
 
         //itemRequisitionListPage.getPageTitle().should('include.text', 'অপেক্ষমান সরাসরি স্টক আউট')
         itemRequisitionListPage.getCardRows().each(($el, index, $list) =>     //Select the desired রিকুইজিশন রেফারেন্স নং
         {
           const textReference = $el.find('td').text()
-          if(textReference.includes(this.inv.DOReferenceNo))                    
+          if(textReference.includes(this.inv.PIReferenceNo))                    
           {
-            $el.find('td button.btn-outline-info').click()
+            $el.find('td button.btn-outline-success .fa-edit').click()
           }
         })
-        cy.wait(2500)
-
-        returnPage.getPageTitle().should('include.text', 'ডাইরেক্ট স্টক আউট')
-        itemRequisitionListPage.getProcessButton().click()
         cy.wait(3000)
 
-        itemRequisitionPage.getPopUpCardHeader().should('include.text', 'অনুমোদন প্রক্রিয়া')
-        itemRequisitionListPage.getRequisitionCommentField().should('have.attr', 'placeholder', 'মন্তব্য').type(this.inv.RequisitionComment).should('have.value', this.inv.RequisitionComment)
-        cy.wait(1000)
+        //returnPage.getPageTitle().should('include.text', 'ফিজিক্যাল ইনভেন্টরি')
+        
+        physicalInventoryAuditPage.getApproveButton().should('include.text', 'অনুমোদন করুন').click()
 
-        itemRequisitionListPage.getApprovalButton().should('include.text', 'অনুমোদন করুন').click()
+        //itemRequisitionPage.getPopUpCardHeader().should('include.text', 'নিশ্চিত করুন')
+        //itemRequisitionListPage.getYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+    //Adjusted PI
+    it('TC_. Store Admin: Adjusted Approved Physical Inventory Audit Requisition.',function() 
+    {
+        cy.login(this.inv.StoreAdminID, this.inv.StoreAdminPassword)
+
+        dashboardPage.getINVAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ফিজিক্যাল ইনভেন্টরি').click()
+        cy.wait(1000)
+        leftNavMenu.getInventoryAuditApprovalsMenu().should('include.text', 'ইনভেন্টরি অডিট অনুমোদন').click()
+        cy.wait(3000)
+
+        physicalInventoryAuditPage.getTabs().contains('অনুমোদিত তালিকা').click()
+
+        //itemRequisitionListPage.getPageTitle().should('include.text', 'অপেক্ষমান সরাসরি স্টক আউট')
+        itemRequisitionListPage.getCardRows().each(($el, index, $list) =>     //Select the desired রিকুইজিশন রেফারেন্স নং
+        {
+          const textReference = $el.find('td').text()
+          if(textReference.includes(this.inv.PIReferenceNo))                    
+          {
+            $el.find('td button.btn-outline-success .fa-adjust').click()
+          }
+        })
+        cy.wait(3000)
+
+        //returnPage.getPageTitle().should('include.text', 'ফিজিক্যাল ইনভেন্টরি')
+        
+        physicalInventoryAuditPage.getApproveButton().should('include.text', 'সমন্বয় করুন').click()
+
+        //itemRequisitionPage.getPopUpCardHeader().should('include.text', 'নিশ্চিত করুন')
+        //itemRequisitionListPage.getYesButton().should('include.text', 'হ্যাঁ').click()
+        cy.wait(6000)
+    })
+
+    //Store to Store Item Transfer flow ******************************************************
+    
+
+
+
+    //Damage Item flow ***********************************************************************
+    it.only('TC_. Store Keeper: Create Damage Requisition.',function() 
+    {
+        cy.login(this.inv.StoreKeeperID, this.inv.StoreKeeperPassword)
+
+        dashboardPage.getINVAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('স্টোর কিপিং').click()
+        cy.wait(1000)
+        leftNavMenu.getDamageTracking_StoreKeeping().click() //  ক্ষয়ক্ষতি ট্র্যাকিং 
+        cy.wait(3000)
+
+        damageRequisitionPage.getPageTitle().should('include.text', 'ক্ষয়ক্ষতির ঘোষণা')
+        damageRequisitionPage.getDamageDeclarationButton().should('include.text', 'ক্ষয়ক্ষতির ঘোষণা').click()   //ক্ষয়ক্ষতির ঘোষণা button
         cy.wait(2000)
 
-        itemRequisitionPage.getPopUpCardHeader().should('include.text', 'নিশ্চিত করুন')
-        itemRequisitionListPage.getYesButton().should('include.text', 'হ্যাঁ').click()
-        //cy.wait(2000)
+        damageRequisitionPage.getReferenceNoField().should('have.attr', 'name', 'requisitionRefNo').clear().type(this.inv.DamageRFNO).should('have.value', this.inv.DamageRFNO)
+        cy.wait(15000)
+        directStocksInPage.getStoreField().click()
+        itemRequisitionPage.getDropDownItems().contains(this.inv.StoreName).click()
+        cy.wait(1000)
+        directStocksInPage.getRemarkField().should('have.attr', 'name', 'remarks').type(this.inv.DamageRemark).should('have.value', this.inv.DamageRemark)
+        cy.wait(1000)
+        directStocksInPage.getAddNewButton().should('include.text', 'দ্রব্যাদি').click()  //দ্রব্যাদি reuse code
+        cy.wait(2000)
 
-        //itemRequisitionPage.getPopUpCardHeader().should('include.text', 'অনুরোধ নিশ্চিতকরণ')
-        //itemRequisitionListPage.getSaveButton().should('include.text', 'সংরক্ষন করুন').click()
+        damageRequisitionPage.getPopUpCardHeader().should('include.text', 'আইটেম নির্বাচন করুন')
+
+
+
+        
+        directStocksInPage.getCategoryField().click()                               //ক্যাটাগরি টাইপ drop-down
+        itemRequisitionPage.getDropDownItems().contains(this.inv.CategoryType).click()
+        cy.wait(1000)
+        directStocksInPage.getItemGroupField().click()                               //ক্যাটাগরি টাইপ drop-down
+        itemRequisitionPage.getDropDownItems().contains(this.inv.ItemName).click()
+        cy.wait(2000)
+
+        directStocksInPage.getSelectItem().contains(this.inv.ItemDescription).click()
+        cy.wait(2000)
+
+        directStocksInPage.getQuantityField().should('have.attr', 'name', 'detailQuantity').type(this.inv.DIQuantity).should('have.value', this.inv.DIQuantity)
+        cy.wait(1000)
+        directStocksInPage.getPriceField().should('have.attr', 'name', 'price').type(this.inv.DIPrice).should('have.value', this.inv.DIPrice)
+        cy.wait(1000)
+        directStocksInPage.getAddButton().should('include.text', 'যুক্ত করুন').click()
+        cy.wait(1000)
+        directStocksInPage.getCloseButton().should('include.text', 'বন্ধ করুন').click()
+        cy.wait(2000)
+        
+        directStocksInPage.getAttachmentsButton().click()       //সংযুক্তিসমূহ
+        const fileName = 'TestFile.pdf';
+        directStocksInPage.getSelectFileButton().attachFile(fileName);      //File Upload
+        cy.wait(1000)
+        directStocksInPage.getFileAddButton().should('include.text', 'Add').click()
+        cy.wait(4000)
+        //directStocksInPage.getSaveSendButton().should('include.text', 'সংরক্ষণ ও প্রেরণ করুন').click()
+        cy.wait(6000)
+      
+    })
+    //Approval PI
+    it('TC_. Store Admin: Physical Inventory Audit Requisition Approval.',function() 
+    {
+        cy.login(this.inv.StoreAdminID, this.inv.StoreAdminPassword)
+
+        dashboardPage.getINVAvatar().click()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('ফিজিক্যাল ইনভেন্টরি').click()
+        cy.wait(1000)
+        leftNavMenu.getInventoryAuditApprovalsMenu().should('include.text', 'ইনভেন্টরি অডিট অনুমোদন').click()
+        cy.wait(3000)
+
+        //itemRequisitionListPage.getPageTitle().should('include.text', 'অপেক্ষমান সরাসরি স্টক আউট')
+        itemRequisitionListPage.getCardRows().each(($el, index, $list) =>     //Select the desired রিকুইজিশন রেফারেন্স নং
+        {
+          const textReference = $el.find('td').text()
+          if(textReference.includes(this.inv.PIReferenceNo))                    
+          {
+            $el.find('td button.btn-outline-success .fa-edit').click()
+          }
+        })
+        cy.wait(3000)
+
+        //returnPage.getPageTitle().should('include.text', 'ফিজিক্যাল ইনভেন্টরি')
+        
+        physicalInventoryAuditPage.getApproveButton().should('include.text', 'অনুমোদন করুন').click()
+
+        //itemRequisitionPage.getPopUpCardHeader().should('include.text', 'নিশ্চিত করুন')
+        //itemRequisitionListPage.getYesButton().should('include.text', 'হ্যাঁ').click()
         cy.wait(6000)
     })
 })

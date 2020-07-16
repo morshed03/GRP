@@ -15,7 +15,7 @@ class LeftNavMenu
     //চাহিদা পত্র Menu ----------------------------------------------
     getRequisitionMenu()  //  চাহিদা পত্র
     {
-        return cy.get('ast-sidebar-nav-items a[href*="asset/requisition"]')
+        return cy.get('ast-sidebar-nav-items a[href*="asset/requisition"]:eq(0)')
     }
 
     //রক্ষণাবেক্ষণ Menu ----------------------------------------------

@@ -28,5 +28,15 @@ class PhysicalInventoryAuditPage
     {
         return cy.get('.card-footer button.fa-save.btn-success')
     }
+
+    //ইনভেন্টরি অডিট অনুমোদন page
+    getApproveButton()  //সংরক্ষন করুন
+    {
+        return cy.get('.card:visible .card-footer button.btn-primary')
+    }
+    getTabs()  //tab
+    {
+        return cy.get('tabset ul li')
+    }
 }
 export default PhysicalInventoryAuditPage;
