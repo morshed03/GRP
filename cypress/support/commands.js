@@ -142,6 +142,13 @@ Cypress.Commands.add("ASTPagination", (pageItemNo) =>
 //Inventory Module Common Methods
 // ***********************************************
 
+
+
+//Inventory Module Common Methods
+// ***********************************************
+
+
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

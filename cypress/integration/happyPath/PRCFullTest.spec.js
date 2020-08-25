@@ -18,20 +18,20 @@ describe('PRC Module Regression Test Suite', function()
 {
     beforeEach(function() 
     {
-      cy.fixture('PRCTestDataSTG').then(function(prc)
+      cy.fixture('PRCTestDataSQA').then(function(prc)
       {
         this.prc = prc
       })
       
       cy.visit(Cypress.env('url'))
     })
-
+/*
     // Before all It Logout
     afterEach(function()
     {
       cy.logout()
     })
-
+*/
     //Create page object
     const dashboardPage = new DashboardPage()
     const leftNavMenu = new LeftNavMenu()
@@ -478,7 +478,7 @@ describe('PRC Module Regression Test Suite', function()
     })
 
     //প্যাকেজ যোগ করুন (কাজ)
-    it('TC_10. PE: Add packages to an APP (Works)',function()
+    it.only('TC_10. PE: Add packages to an APP (Works)',function()
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 
@@ -530,9 +530,9 @@ describe('PRC Module Regression Test Suite', function()
         aPPPackagePage.getProcurementTypeField().should('have.class', 'mat-select').click()
         requisitionDeclarationPage.getDropDownItem().contains(this.prc.ProcurementType).click()
         cy.wait(2000)
-        aPPPackagePage.getProcurementMethodField().should('have.class', 'mat-select').click()
-        requisitionDeclarationPage.getDropDownItem().contains(this.prc.ProcurementMethod).click({force: true})
-        cy.wait(2000)
+        //aPPPackagePage.getProcurementMethodField().should('have.class', 'mat-select').click()
+        //requisitionDeclarationPage.getDropDownItem().contains(this.prc.ProcurementMethod).click({force: true})
+        //cy.wait(2000)
         aPPPackagePage.getExpectedDateOfTenderAdvertisementField().click()
         cy.wait(1000)
         cy.calendar(this.prc.ProcurementYear, this.prc.ProcurementMonth, this.prc.ProcurementDay)
@@ -1698,7 +1698,7 @@ describe('PRC Module Regression Test Suite', function()
 
     //Material Receive as Store Keeper on AST module
     //Create OPM using APP
-    it.only('TC_28. PE: Create OPM Through DCP. TC',function()
+    it('TC_28. PE: Create OPM Through DCP. TC',function()
     {
         cy.login(this.prc.userNamePE, this.prc.passwordPE)
 

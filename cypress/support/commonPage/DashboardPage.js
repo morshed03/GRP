@@ -11,6 +11,10 @@ class DashboardPage
     }
 
     //Dashboard page locators --------------------------------------
+    getACCAvatar()  //ACC avatar
+    {
+        return cy.get('img[src="assets/img/brand/accounts.svg"]')
+    }
     getHRMAvatar()  //AST avatar
     {
         return cy.get('img[src="assets/img/brand/HRM.svg"]')
