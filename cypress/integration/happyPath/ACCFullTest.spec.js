@@ -780,7 +780,7 @@ describe('Accounts Module Regression Test Suite', function()
         billPage.getYesButton().should('include.text', 'হ্যাঁ').click()       
         cy.wait(6000)
     })
-    it.only('TC_17. DDO: Approved the pending fund return',function() 
+    it('TC_17. DDO: Approved the pending fund return',function() 
     {
         cy.login(this.acc.DDOID, this.acc.DDOPassword)
       /*
