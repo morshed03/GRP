@@ -11,13 +11,15 @@
 
     "AuthorizedOfficerID": "taif0001",
     "AuthorizedOfficerPassword": "123456789",
+
+    "Budget": "Test 19 August",
     
     "BillTo": "প্রতিষ্ঠান",
     "InstitutionName": "এস এ পরিবহন, হেডঅফিস",
-    "BillTitle": "06 Sept 2020 Bill A",
+    "BillTitle": "16 Sept 2020 Bill B",
     "FiscalYear": "২০২০-২১",
     "BillType": "পার্টি",
-    "BillReferenceNo": "BCC/GRP/CoK/Bill/00001",
+    "BillReferenceNo": "BCC/GRP/CoK/Bill/00003",
 
     "OperationCode": "১১০০০০০০০ - সাধারণ কার্যক্রম",
     "FundCode": "১১০০১০০০ - নিজস্ব উৎসের রাজস্ব",
@@ -25,10 +27,33 @@
     "NatureOfFund": "১ - পূর্ণভরণযোগ্য প্রকল্প সাহায্য",
     "SubCoA": "১১০০০০০০০ - ১১০০১০০০ - ৩২৫৫১০২ - ১ (মুদ্রণ এবং বাঁধাই)",
     "BillDescription": "This is test Bill",
-    "BillAmount": "100000",
+    "BillAmount": "200000",
 
     "VatEconomicCode": "১১১১১০২ (ব্যক্তি দ্বারা প্রদেয় অগ্রিম আয়কর)",
     "ApprovedComment": "অনুমোদিত",
 
-    "InvoiceReferenceNo": "I/2020/09/09/15/31837"
+    "InvoiceReferenceNo": "I/2020/09/16/15/75373",
+
+    "PaymentMethod": "চেক",
+    "BankAccount": "Bank Asia - BCC",
+    "VoucherNo": "BCC/GRP/CoK/VOU/00003",
+    "Cheque": "BCC/CoK/Cheque/000003",
+    "PaymentDescription": "The Invoice is paid at 14th Sep 2020",
+
+    "Pagination": "সকল",
+
+    "ChallanNo": "ICT/CoK/00003",
+    "PaymentYear": "২০২০",
+    "PaymentMonth": "সেপ্টেম্বর",
+    "PaymentDay": "১৬",
+    "BankDistrictName": "Dhaka",
+    "BankBranchName": "Mirput",
+    "DepositedBy": "CoKreates",
+    "DepositedFor": "ICT",
+    "DepositPurpose": "10000",
+    "TreasuryVoucher": "BCC/GRP/CoK/TR/VOU/00005",
+
+    "FundReturnReferenceNo": "FR/2020/09/16/16/00005",
+    "FundReturnDescripton": "Fund Return Request",
+    "RefundAmount": "100000"
 }
