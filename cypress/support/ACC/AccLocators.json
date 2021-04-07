@@ -1,0 +1,33 @@
+{
+    "GlobalLocator":{
+        "DropDownItems": "mat-option .mat-option-text",
+        "PageHeader": ".card .card-header mat-label"
+    },
+
+    "BankAccountPage":{
+        
+        "CreatePlusButton": ".card .card-header button",
+
+        "CreateBankAccount":{
+            "AccountType": ".card .card-body mat-form-field mat-select[aria-label=\"অ্যাকাউন্টের ধরণ\"]",
+            "EconomicCode": ".card .card-body mat-form-field mat-select[aria-label=\"ইকোনোমিক কোড\"]",
+            "BankName": ".card .card-body mat-form-field input[placeholder=\"ব্যাংকের নাম\"]",
+            "Branch": ".card .card-body mat-form-field input[placeholder=\"শাখা\"]",
+            "Currency": ".card .card-body mat-form-field mat-select[aria-label=\"কারেন্সি\"]",
+            "AccountTitle": ".card .card-body mat-form-field input[placeholder=\"হিসাবের নাম\"]",
+            "AccountNumber": ".card .card-body mat-form-field input[placeholder=\"হিসাব নং\"]",
+            "RoutingNumber": ".card .card-body mat-form-field input[placeholder=\"রাউটিং নং\"]",
+            "IBANNumber": ".card .card-body mat-form-field input[placeholder=\"আই.বি.এ.এন. নং\"]",
+            "SwiftCode": ".card .card-body mat-form-field input[placeholder=\"সুইফট কোড\"]",
+            "FoundCode": ".card .card-body mat-form-field mat-select[aria-label=\"তহবিল কোডসমূহ\"]",
+            "SignatoryNumber": ".card .card-body mat-form-field input[placeholder=\"সাক্ষরকারীর সংখ্যা\"]",
+            "SubmitButton": ".card .card-footer button.btn-success"
+        }
+    },
+
+    "ConfirmModal":{
+        "ModalTitle": ".modal-content .card .card-header",
+        "YesButton": ".modal-content .card .card-footer button.btn-cus-success",
+        "NoButton": ".modal-content .card .card-footer button.btn-cus-danger"
+    }
+}

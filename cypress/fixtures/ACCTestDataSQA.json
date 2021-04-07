@@ -13,6 +13,29 @@
     "AuthorizedOfficerPassword": "123456789",
 
     "Budget": "Test 19 August",
+
+    "GlobalData":{
+
+        "ConfirmModalHeader": "নিশ্চিতকরণ",
+        "Yes": "হ্যাঁ",
+        "No": ""
+    },
+
+    "BankAccountData": {
+        "BankListingPageTitle": "ব্যাংক হিসাবের তালিকা",
+
+        "CreateBankAccountFormTitle": "ব্যাংক হিসাব তৈরি করুন",
+        "accountType": "একক",
+        "economicCode": "৭২১২৪০১ - সোনালী ব্যাংকে আমানত", 
+        "bankName": "City Bank Limited", 
+        "branchName": "Corporate Office Dhaka", 
+        "accountTitle": "CoKreates Ltd.", 
+        "accountNumber": "0123456789", 
+        "routingNumber": "0123456", 
+        "IBANNumber": "0123456", 
+        "SwiftCode": "CIBLBDDH", 
+        "SignatoryNumber": "1"
+    },
     
     "BillTo": "প্রতিষ্ঠান",
     "InstitutionName": "এস এ পরিবহন, হেডঅফিস",

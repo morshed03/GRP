@@ -15,6 +15,9 @@ npm install --save-dev mocha
 Run mocha
 node_modules\.bin\cypress run --reporter mochawesome
 ----------------------------------------------------
+Allure Report
+npm install --save-dev mocha-allure-reporter allure-commandline
+----------------------------------------------------
 Run Specific Browser
 node_modules\.bin\cypress run --browser chrome --reporter mochawesome --spec cypress\integration\loginGRPdashboard\loginTest.js --headless
 ----------------------------------------------

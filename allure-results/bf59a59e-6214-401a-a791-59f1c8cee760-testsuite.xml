@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1612075555086' stop='1612075620251'>
+    <name>Accounts Module Regression Test Suite</name>
+    <title>Accounts Module Regression Test Suite</title>
+    <test-cases>
+        <test-case start='1612075555086' status='failed' stop='1612075620130'>
+            <name>TC_01. Account Officer: Create Bill</name>
+            <title>TC_01. Account Officer: Create Bill</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Timed out retrying after 8000ms: Expected to find element: `undefined`, but never found it.</message>
+                <stack-trace>AssertionError: Timed out retrying after 8000ms: Expected to find element: `undefined`, but never found it.
+                    at BankAccountPageActions.AddBankAccountDetails (http://sqa.grp.gov.bd/__cypress/tests?p=cypress\integration\happyPath\ACCFullTest.spec.js:976:38)
+                    at Context.eval (http://sqa.grp.gov.bd/__cypress/tests?p=cypress\integration\happyPath\ACCFullTest.spec.js:162:28)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

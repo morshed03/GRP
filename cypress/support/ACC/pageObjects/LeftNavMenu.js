@@ -12,6 +12,12 @@ class LeftNavMenu
         return cy.get('ast-sidebar-nav-items a[href*="acc/account/budget/fund-return/list"]:eq(0)')
     }
 
+    //হিসাব রক্ষন ব্যবস্থাপনা
+    getBankAccountSubMenu()  //হিসাব রক্ষন ব্যবস্থাপনা -> ব্যাংক হিসাব Sub-Menu
+    {
+        return cy.get('ast-sidebar-nav-items a[href*="acc/account/chart-of-accounts/bank-account/list"]')
+    }
+
     //ব্যয় Sub-Menus ----------------------------------------------
     getBillSubMenu()  //বিল -> ব্যয় Sub-Menu
     {

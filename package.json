@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^5.2.0",
-    "cypress-file-upload": "^4.0.6",
-    "cypress-xpath": "^1.4.0",
-    "mocha": "^7.1.1",
+    "allure-commandline": "^2.13.8",
+    "cypress": "^6.3.0",
+    "cypress-file-upload": "^4.1.1",
+    "cypress-xpath": "^1.6.1",
+    "mocha": "^7.2.0",
+    "mocha-allure-reporter": "^1.4.0",
     "mochawesome": "^5.0.0"
   }
 }

@@ -212,7 +212,7 @@ describe('INV Module Regression Test Suite', function()
       cy.wait(1500)
     })
     //Issued Item Return
-    it('TC_. Store Keeper: Issued Item Return.',function() 
+    it('TC_. Store Keeper: Issued Item Return.',function()
     {
         cy.login(this.inv.StoreKeeperID, this.inv.StoreKeeperPassword)
 
@@ -554,7 +554,7 @@ describe('INV Module Regression Test Suite', function()
 
 
     //Damage Item flow ***********************************************************************
-    it.only('TC_. Store Keeper: Create Damage Requisition.',function() 
+    it('TC_. Store Keeper: Create Damage Requisition.',function() 
     {
         cy.login(this.inv.StoreKeeperID, this.inv.StoreKeeperPassword)
 
