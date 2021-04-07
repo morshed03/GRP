@@ -44,7 +44,7 @@ describe('INV Module Regression Test Suite', function()
     const damageRequisitionPage = new DamageRequisitionPage()
 
     //INV user: Create Requisition
-    it('TC_01. User: Create General Item Requisition.',function() 
+    it.only('TC_01. User: Create General Item Requisition.',function() 
     {
         cy.login(this.inv.UserID, this.inv.UserPassword)
 
@@ -60,8 +60,8 @@ describe('INV Module Regression Test Suite', function()
         itemRequisitionPage.getItemRequisitionButton().should('include.text', 'মালামালের চাহিদাপত্র').click()   //মালামালের চাহিদাপত্র button
         cy.wait(2000)
 
-        itemRequisitionPage.getRequisitionReferenceNoField().should('have.attr', 'placeholder', 'Please type requisition ref no here').clear().type(this.inv.RequisitionReferenceNo).should('have.value', this.inv.RequisitionReferenceNo)
-        cy.wait(1000)
+        //itemRequisitionPage.getRequisitionReferenceNoField().should('have.attr', 'placeholder', 'Please type requisition ref no here').clear().type(this.inv.RequisitionReferenceNo).should('have.value', this.inv.RequisitionReferenceNo)
+        //cy.wait(1000)
 
         itemRequisitionPage.getItemsButton().should('include.text', 'দ্রব্যাদি').click()    //দ্রব্যাদি button
         cy.wait(2000)
@@ -73,8 +73,8 @@ describe('INV Module Regression Test Suite', function()
         itemRequisitionPage.getItemNameSearchField().should('not.have.attr', 'placeholder', 'আইটেম নাম লিখুন ').type(this.inv.ItemName).should('have.value', this.inv.ItemName)
         cy.wait(1000)
         itemRequisitionPage.getItemNameSearchButton().should('include.text', 'অনুসন্ধান').click()
-        cy.wait(1000)
-
+        cy.wait(1500)
+/*
         itemRequisitionPage.getFeaturesPlusIcon().click()
         cy.wait(1000)
         itemRequisitionPage.getPopUpCardHeader().should('include.text', 'বৈশিষ্ট্য বাছাই করুন')
@@ -88,7 +88,7 @@ describe('INV Module Regression Test Suite', function()
         cy.wait(1000)
         itemRequisitionPage.getSubmitButton().should('include.text', 'দাখিল করুন').click()
         cy.wait(1000)
-
+*/
         itemRequisitionPage.getQuantityField().first().type(this.inv.ItemRequisitionQuantity).should('have.value', this.inv.ItemRequisitionQuantity)
         cy.wait(2000)
         itemRequisitionPage.getItemAddPlusButton().first().click()

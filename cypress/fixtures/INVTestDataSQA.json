@@ -8,15 +8,15 @@
   "StoreKeeperID": "taif0001",
   "StoreKeeperPassword": "123456789",
 
-  "UserID": "risa0001",
+  "UserID": "nila0001",
   "UserPassword": "123456789",
-  "UserName": "রাইসা আমিন",
+  "UserName": "শামীমা নাসরিন",
 
   "StoreName": "SQA_CoKreates_store",
 
   "RequisitionReferenceNo": "REQ/2020/06/29/3334",
-  "CategoryType": "কফি মেকার",
-  "ItemName": "coffee maker",
+  "CategoryType": "ক্রোকারিজ",
+  "ItemName": "দুধ",
   "ItemRequisitionQuantity": "1",
   "FeaturesName": "Brand",
   "FeaturesValue": "LG",
