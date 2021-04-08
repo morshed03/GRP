@@ -246,7 +246,7 @@ describe('INV Module Regression Test Suite', function()
     })
     //Direct Purchase (DP) flow **********************************************************
     //Direct Purchase Requisition
-    it('TC_. Store Keeper: Create Direct Purchase Requisition.',function() 
+    it.only('TC_. Store Keeper: Create Direct Purchase Requisition.',function() 
     {
         cy.login(this.inv.StoreKeeperID, this.inv.StoreKeeperPassword)
 
@@ -266,10 +266,10 @@ describe('INV Module Regression Test Suite', function()
         directStocksInPage.getStoreField().click()
         itemRequisitionPage.getDropDownItems().contains(this.inv.StoreName).click()
         cy.wait(1000)
-        directStocksInPage.getReferenceNoField().should('have.attr', 'id', 'refNo').clear().type(this.inv.DIReferenceNo).should('have.value', this.inv.DIReferenceNo)
+        /*directStocksInPage.getReferenceNoField().should('have.attr', 'id', 'refNo').clear().type(this.inv.DIReferenceNo).should('have.value', this.inv.DIReferenceNo)
         cy.wait(1000)
         directStocksInPage.getMemoNoField().should('have.attr', 'name', 'memoNo').type(this.inv.DIMemoNo).should('have.value', this.inv.DIMemoNo)
-        cy.wait(1000)
+        cy.wait(1000) */
         directStocksInPage.getRemarkField().should('have.attr', 'name', 'remarks').type(this.inv.DIRemarks).should('have.value', this.inv.DIRemarks)
         cy.wait(1000)
         directStocksInPage.getAddNewButton().should('include.text', 'নতুন যোগ করুন').click()
@@ -283,8 +283,8 @@ describe('INV Module Regression Test Suite', function()
         itemRequisitionPage.getDropDownItems().contains(this.inv.ItemName).click()
         cy.wait(2000)
 
-        directStocksInPage.getSelectItem().contains(this.inv.ItemDescription).click()
-        cy.wait(2000)
+        //directStocksInPage.getSelectItem().contains(this.inv.ItemDescription).click()
+        //cy.wait(2000)
 
         directStocksInPage.getQuantityField().should('have.attr', 'name', 'detailQuantity').type(this.inv.DIQuantity).should('have.value', this.inv.DIQuantity)
         cy.wait(1000)
@@ -301,7 +301,7 @@ describe('INV Module Regression Test Suite', function()
         cy.wait(1000)
         directStocksInPage.getFileAddButton().should('include.text', 'Add').click()
         cy.wait(4000)
-        //directStocksInPage.getSaveSendButton().should('include.text', 'সংরক্ষণ ও প্রেরণ করুন').click()
+        directStocksInPage.getSaveSendButton().should('include.text', 'সংরক্ষণ ও প্রেরণ করুন').click()
         cy.wait(6000)
     })
     //Approval DI
@@ -350,7 +350,7 @@ describe('INV Module Regression Test Suite', function()
 
     //Direct Stock Out flow ************************************************************
     //Direct Stock Out Requisition
-    it('TC_. Store Keeper: Create Direct Stock Out Requisition.',function() 
+    it.only('TC_. Store Keeper: Create Direct Stock Out Requisition.',function() 
     {
         cy.login(this.inv.StoreKeeperID, this.inv.StoreKeeperPassword)
 
@@ -367,8 +367,8 @@ describe('INV Module Regression Test Suite', function()
         cy.wait(2000)
 
         returnPage.getPageTitle().should('include.text', 'ডাইরেক্ট স্টক আউট')
-        directStocksInPage.getReferenceNoField().should('have.attr', 'id', 'refNo').clear().type(this.inv.DOReferenceNo).should('have.value', this.inv.DOReferenceNo)
-        cy.wait(1000)
+        //directStocksInPage.getReferenceNoField().should('have.attr', 'id', 'refNo').clear().type(this.inv.DOReferenceNo).should('have.value', this.inv.DOReferenceNo)
+        //cy.wait(1000)
         directStocksOutPage.getIssueToField().should('have.attr', 'name', 'issuedTo').click() //যাকে ইস্যু করা হয়েছে
         cy.wait(1000)
         itemRequisitionPage.getDropDownItems().contains(this.inv.IssueTo).click()
@@ -389,8 +389,8 @@ describe('INV Module Regression Test Suite', function()
         itemRequisitionPage.getDropDownItems().contains(this.inv.ItemName).click()
         cy.wait(2000)
 
-        directStocksInPage.getSelectItem().contains(this.inv.ItemDescription).click()
-        cy.wait(2000)
+        //directStocksInPage.getSelectItem().contains(this.inv.ItemDescription).click()
+        //cy.wait(2000)
 
         directStocksOutPage.getDOQuantityField().first().clear().type(this.inv.DOQuantity).should('have.value', this.inv.DOQuantity)
         cy.wait(1000)
