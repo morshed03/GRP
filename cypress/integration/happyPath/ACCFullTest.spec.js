@@ -10,7 +10,7 @@ import InvoicePage from '../../support/ACC/pageObjects/InvoicePage'
 import PaymentPage from '../../support/ACC/pageObjects/PaymentPage'
 import VatTaxAitPaymentPage from '../../support/ACC/pageObjects/VatTaxAitPaymentPage'
 import FundReturnPage from '../../support/ACC/pageObjects/FundReturnPage'
-
+///adddd
 
 describe('Accounts Module Regression Test Suite', function()
 {
@@ -42,7 +42,7 @@ describe('Accounts Module Regression Test Suite', function()
     const fundReturnPage = new FundReturnPage()
 
     //ব্যাংক হিসাব তৈরি
-    it.only('TC_01. Account Officer: Create a Bank account',function() 
+    it.only('TC_01. Account Officer: Create a Bank account',function()
     {
         cy.login(this.acc.AccountOfficerID, this.acc.AccountOfficerPassword)
       /*
@@ -63,9 +63,10 @@ describe('Accounts Module Regression Test Suite', function()
         bankAccountPageActions.ClickCreatePlusButton()  //Clicks add plus icon
         commonPageActions.PageFirstHeader(this.acc.BankAccountData.CreateBankAccountFormTitle)  //Verify create page header
         bankAccountPageActions.AddBankAccountDetails(this.acc.BankAccountData.accountType, this.acc.BankAccountData.economicCode, this.acc.BankAccountData.bankName, this.acc.BankAccountData.branchName, this.acc.BankAccountData.accountTitle, this.acc.BankAccountData.accountNumber, this.acc.BankAccountData.routingNumber, this.acc.BankAccountData.IBANNumber, this.acc.BankAccountData.SwiftCode, this.acc.BankAccountData.SignatoryNumber)
-        commonPageActions.Confirmed(this.acc.GlobalData.ConfirmModalHeader, this.acc.GlobalData.Yes)
+        //commonPageActions.Confirmed(this.acc.GlobalData.ConfirmModalHeader, this.acc.GlobalData.Yes)
         
     })
+    
     //নতুন বিল যোগ করুন
     it('TC_01. Account Officer: Create Bill',function() 
     {
