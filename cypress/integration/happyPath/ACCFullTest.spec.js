@@ -12,6 +12,8 @@ import VatTaxAitPaymentPage from '../../support/ACC/pageObjects/VatTaxAitPayment
 import FundReturnPage from '../../support/ACC/pageObjects/FundReturnPage'
 ///adddd
 
+////Sahadat add test merge
+////Sahadat add test merge
 describe('Accounts Module Regression Test Suite', function()
 {
     beforeEach(function() 
@@ -68,6 +70,7 @@ describe('Accounts Module Regression Test Suite', function()
     })
     
     //নতুন বিল যোগ করুন
+    //নতুন বিল যোগ করুন Test merge Req.
     it('TC_01. Account Officer: Create Bill',function() 
     {
         cy.login(this.acc.AccountOfficerID, this.acc.AccountOfficerPassword)
