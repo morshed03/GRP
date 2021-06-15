@@ -12,17 +12,6 @@ import VatTaxAitPaymentPage from '../../support/ACC/pageObjects/VatTaxAitPayment
 import FundReturnPage from '../../support/ACC/pageObjects/FundReturnPage'
 ///adddd
 
-////Sahadat add test merge
-////Sahadat add test merge
-
-////Sahadat add test again merge
-////Sahadat add test again merge 
-
-
-
-///morshed bhai addd
-///morshed bhai addd
-
 describe('Accounts Module Regression Test Suite', function()
 {
     beforeEach(function() 
