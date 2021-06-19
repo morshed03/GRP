@@ -1,0 +1,61 @@
+{
+
+    "leftNavmenuItems":{
+       "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
+        "leaveBalanceAdjustment": "a[href*='hrm/leave/balance-adjustment']:eq(0)",
+        "replacement":"a[href*='hrm/leave/substitute-list']:eq(0)",
+        "applicationAndLeaveHistory": "a[href*='hrm/leave/home']:eq(0)",
+        "pendingList": "a[href*='hrm/leave/pending-list']:eq(0)"
+    },
+
+    "leaveBalanceAdjustment":{
+            "individualAddBtn":{
+                "averageSalary": {
+                   "tabBtn": "mat-dialog-content mat-button-toggle-group mat-button-toggle button:eq(2)"
+                }
+            }
+    },
+
+    "replacement":{
+        "branch": "input[placeholder*='শাখা অনুসন্ধান']",
+        "substituteEmployeeSearchByName":".mat-form-field-infix input.mat-input-element:eq(1)",
+        "alternativeSearchByName":".mat-form-field-infix input.mat-input-element:eq(2)",
+        "individualAddBtn": ".paddingLeft.ng-star-inserted button.btn-list:eq(0)",
+        "replacement1": {
+            "branchName1":".mat-form-field-infix input.mat-input-element:eq(0)",
+            "employeename1":".mat-form-field-infix input.mat-input-element:eq(1)"
+        },
+        "replacement2": {
+            "branchName2":".mat-form-field-infix input.mat-input-element:eq(2)",
+            "employeeName2":".mat-form-field-infix input.mat-input-element:eq(3)"
+        }
+    },
+
+    "applicationAndLeaveHistory":{
+        "application": {
+           "leaveSearchByName":".mat-form-field-infix input.mat-input-element:eq(1)",
+           "applicationSendBtn": "button[mattooltip='আবেদন করুন']:eq(0)",
+           "form":{
+               "reasonForApplication": "input.mat-autocomplete-trigger:eq(1)",
+               "leaveStartDate": "input[id='leaveStartDate']",
+               "leaveEndDate": "input[id='leaveEndDate']",
+               "stationLeaveStartDate": "input[id='stationLeaveStartDate']",
+               "stationLeaveEndDate": "input[id='stationLeaveEndDate']",
+               "logicBehindLeave": "textarea[id='logicBehindLeave2']",
+               "locationWhileInLeave": "textarea[id='locationWhileInLeave2']",
+               "leavingWorkplace":"input[name*='mat-radio-group']:eq(1)"
+
+           }
+        },
+        "leavehistory":{
+         "leaveSearchByName": ".mat-form-field-infix input.mat-input-element:eq(3)",
+         "viewBtn": ".paddingLeft.ng-star-inserted button.btn-list:eq(3)"
+
+        }
+    },
+
+    "dateValidation": {
+        "leaveDuration": "input[id='leaveDuration']"
+    }
+
+}

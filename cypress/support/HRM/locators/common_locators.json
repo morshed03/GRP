@@ -1,0 +1,83 @@
+{
+    "GlobalLocator":{
+        "DropDownItems": "mat-option .mat-option-text",
+        "PageHeader": ".card .card-header mat-label",
+        "addBtn":"button.mat-mini-fab:eq(0)",
+        "nextStepBtn": ".mat-dialog-actions button.btn-success",
+        "saveBtn":"button.btn.bg-success",
+        "saveBtn2":"mat-dialog-actions button.bg-success",
+        "viewBtn": ".paddingLeft.ng-star-inserted button.btn-list:eq(0)",
+        "individualAddBtn": ".paddingLeft.ng-star-inserted button.btn-list:eq(0)",
+        "completeBtn":"mat-card-actions.mat-card-actions button.btn.bg-success",
+        "completeBtn2":"mat-card-actions.mat-card-actions button.btn.bg-success:eq(1)",
+        "completeBtn3": ".mat-dialog-actions button.bg-success",
+        "approvalBtn": ".mat-dialog-actions button.btn-success",
+        "approvalBtn2": ".mat-dialog-actions button.btn.approved-color",
+        "cancelBtn":"mat-dialog-actions button.btn.bg-danger",
+        "cancelBtn2": "mat-dialog-actions button.bg-danger",
+        "cancelBtn3": "mat-card-actions button.btn.bg-danger",
+        "send": "button.btn-primary",
+        "send2": "button.btn.forward-color",
+        "searchByName":"mat-card-content .mat-form-field-infix input.mat-input-element:eq(0)",
+        "editBtn":"button[mattooltip='সম্পাদনা করুন']:eq(0)",
+        "currentDate": ".mat-calendar-body-cell-content.mat-calendar-body-today",
+        "searchBtn":"button.btn.bg-primary",
+        "searchBtn2":"mat-card-actions button.btn.bg-success:eq(0)",
+        "tabBtn": ".mat-tab-label .mat-tab-label-content",
+        "matBtnToggleTabBtn": "mat-dialog-content mat-button-toggle-group mat-button-toggle button",
+        "matExpandPanel": ".mat-expansion-panel-header-title",
+        "PaginatorArrow": "mat-dialog-content mat-paginator mat-form-field .mat-select-arrow",
+        "PaginatorValue": "div[id*='cdk-overlay'] mat-option",
+        "matTableNameColumn": "mat-dialog-container:visible tr td:nth-child(2)",
+        "matTableCheckbox": ".mat-checkbox-layout .mat-checkbox-inner-container",
+        "deleteBtn": "button[mattooltip='মুছে ফেলুন']"
+        
+    },
+
+    "ConfirmModal":{
+        "ModalTitle": ".modal-content .card .card-header",
+        "YesButton": ".modal-content .card .card-footer button.btn-cus-success",
+        "NoButton": ".modal-content .card .card-footer button.btn-cus-danger"
+    },
+
+    "loginPage":{
+        "username": "input[name='username']",
+        "password": "input[name='password']",
+        "enterBtn": "button.btn.btn-primary[type='button']",
+        "errorMsg": ".mat-simple-snackbar > :nth-child(1)"
+    },
+
+    "logoutPage":{
+         "logoutDropdownBtn": ".nav-item.dropdown a",
+         "logoutDropdownBtn2": "ul li button",
+         "logoutBtn":".card-footer.clearfix button.btn.btn-danger",
+         "logoutBtn2":".mat-menu-content button.mat-menu-item:eq(1)"
+    },
+
+    "dashboardPage":{
+        "hrmAvatar" : "img[src='assets/img/brand/HRM-V2.svg']"
+    },
+    
+    "attachment":{
+        "addBtn":"button.mat-mini-fab:eq(2)",
+        "attchmentType":"input[placeholder*='সংযুক্তির ধরন']",
+        "desc": "textarea[type='text']",
+        "fileUpload": "input[type='file']"
+    },
+
+    "pendingList":{
+        "searchByName":".mat-form-field-infix input.mat-input-element:eq(1)", 
+        "searchByName1":"mat-card-content .mat-form-field-infix input.mat-input-element:eq(1)", 
+        "editBtn":"td button[mattooltip='সম্পাদনা করুন']:eq(0)",
+        "approvalBtn": "button.mat-button-toggle-button:eq(2)",
+        "completeBtn":"mat-dialog-container button.btn.bg-success",
+        "comment": ".mat-form-field-infix textarea[name='comment']",
+        "viewFile":"button[mattooltip*='ফাইলটি দেখুন']",
+        "closeBtn": ".mat-dialog-actions button.mat-raised-button"
+    },
+
+    "DateField":{
+        "calendarArrow":".mat-calendar-header .mat-calendar-arrow",
+        "YYMMDD": ".mat-calendar-content .mat-calendar-body-cell-content:visible"
+    }
+} 

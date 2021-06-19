@@ -1,5 +1,5 @@
 {
-  "name": "AST",
+  "name": "cypress-learning",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,12 +10,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "allure-commandline": "^2.13.8",
-    "cypress": "^7.0.1",
+    "@4tw/cypress-drag-drop": "^1.4.0",
+    "cypress": "^7.2.0",
     "cypress-file-upload": "^4.1.1",
-    "cypress-xpath": "^1.6.1",
-    "mocha": "^7.2.0",
-    "mocha-allure-reporter": "^1.4.0",
-    "mochawesome": "^5.0.0"
+    "cypress-xpath": "^1.6.0",
+    "mochawesome": "^6.1.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.1.0"
+  },
+  "dependencies": {
+    "cypress-downloadfile": "^1.2.0"
   }
 }

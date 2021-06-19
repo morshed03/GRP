@@ -1,0 +1,16 @@
+{
+
+    "leftNavmenuItems":{
+       "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
+        "acrInclusion": "a[href*='hrm/acr/configuration/acr-include']:eq(0)",
+        "acrEntry": "a[href*='hrm/acr/application']:eq(0)"
+    },
+
+    "configuration": {
+        "branch":"input[placeholder*='শাখা অনুসন্ধান করুন']"
+    },
+
+    "acrApplication": {
+        "acrYear": "input[formcontrolname='year']"
+    }
+}

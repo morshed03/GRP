@@ -3,8 +3,9 @@
 // create various custom commands and overwrite
 // existing commands.
 
+require('@4tw/cypress-drag-drop')
 import 'cypress-file-upload';
-
+require('cypress-downloadfile/lib/downloadFileCommand')
 // Import pages 
 // ***********************************************
 //Common page import
@@ -15,7 +16,7 @@ import RequisitionDeclarationPage from '../support/PRC/pageObjects/RequisitionDe
 //AST page import
 import ReceiveGoods_StoreKeepingPage from '../support/AST/pageObjects/ReceiveGoods_StoreKeepingPage'
 import VehicleRequisitionPage from '../support/AST/pageObjects/VehicleRequisitionPage'
-
+import CommonPageElements from '../support/HRM/pageobjects/pageelements/common/CommonPageElements'
 
 //-- This is the create page object --
 // ***********************************************
@@ -27,7 +28,7 @@ const requisitionDeclarationPage = new RequisitionDeclarationPage()
 //AST create page object
 const receiveGoodsPage = new ReceiveGoods_StoreKeepingPage()
 const vehicleRequisitionPage = new VehicleRequisitionPage()
-
+const commonPage = new CommonPageElements() 
 
 
 // -- This is Login Method --
@@ -41,13 +42,25 @@ Cypress.Commands.add("login", (userName, password) =>
     cy.wait(3000)
 })
 
-//-- This is Log Out method --  
+//-- This is Log Out method Morshed--
+/*
 Cypress.Commands.add("logout", () => 
 {
     dashboardPage.getUserAvatar().click({force: true}).should('have.class', 'img-avatar')
     dashboardPage.getExitLink().click({force: true})
     cy.wait(3000)
     loginPage.getEnterButton().should('have.text', 'প্রবেশ করুন')
+    cy.wait(1000)
+})
+*/
+
+//-- This is Log Out method Sahadat--  
+
+Cypress.Commands.add("logout", (userAvatarSelector,exitBtnSelector) => 
+{
+    commonPage.getUserAvatar(userAvatarSelector).click({force: true})
+    cy.wait(1000)
+    commonPage.getExitLink(exitBtnSelector).click({force: true})
     cy.wait(1000)
 })
 
