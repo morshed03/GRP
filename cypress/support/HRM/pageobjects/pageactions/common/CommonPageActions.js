@@ -44,7 +44,7 @@ export default class CommonPageActions{
 
     getEditBtn(selector){
         commonpageelement.getEditBtn(selector).click({force: true})
-        cy.wait(1000)
+        cy.wait(2000)
     }
 
     getCheckboxCheckUncheck(selector){
