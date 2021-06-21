@@ -4,6 +4,7 @@
         "PageHeader": ".card .card-header mat-label",
         "addBtn":"button.mat-mini-fab:eq(0)",
         "nextStepBtn": ".mat-dialog-actions button.btn-success",
+        "nextStepBtn2":"mat-card-actions button.btn.bg-info",
         "saveBtn":"button.btn.bg-success",
         "saveBtn2":"mat-dialog-actions button.bg-success",
         "viewBtn": ".paddingLeft.ng-star-inserted button.btn-list:eq(0)",
@@ -30,7 +31,10 @@
         "PaginatorValue": "div[id*='cdk-overlay'] mat-option",
         "matTableNameColumn": "mat-dialog-container:visible tr td:nth-child(2)",
         "matTableCheckbox": ".mat-checkbox-layout .mat-checkbox-inner-container",
-        "deleteBtn": "button[mattooltip='মুছে ফেলুন']"
+        "deleteBtn": "button[mattooltip='মুছে ফেলুন']",
+        "sendForApprovalEmployeeField": "input[placeholder*='কর্মচারীর তথ্য দ্বারা']",
+        "branchField": "input[placeholder*='শাখা অনুসন্ধান করুন']",
+        "notificationIcon": "ul li a.nav-link:eq(0)"
         
     },
 
@@ -61,6 +65,7 @@
     "attachment":{
         "addBtn":"button.mat-mini-fab:eq(2)",
         "attchmentType":"input[placeholder*='সংযুক্তির ধরন']",
+        "attchmentType2":"input[name='selectedFileType']",
         "desc": "textarea[type='text']",
         "fileUpload": "input[type='file']"
     },

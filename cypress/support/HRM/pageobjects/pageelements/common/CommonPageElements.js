@@ -20,6 +20,7 @@ export default class CommonPageElements{
         return cy.get(selector)
     }
 
+    
 
     //////////////////
      //নিশ্চিতকরণ Modal
@@ -130,6 +131,10 @@ export default class CommonPageElements{
         return cy.get(or.attachment.attchmentType)
     }
 
+    attachementType2Field(){
+      return cy.get(or.attachment.attchmentType2)
+    }
+
     attachementDescField(){
         return cy.get(or.attachment.desc)
     }
@@ -187,6 +192,14 @@ export default class CommonPageElements{
    return cy.get(or.DateField.YYMMDD)
   }
 
+  //////অনুমোদনের জন্য প্রেরণ ->Employee field
+  sendForApprovalEmployeeField(){
+    return cy.get(or.GlobalLocator.sendForApprovalEmployeeField)
+}
 
+///NotificationIcon
+  checkNotificationIcon(){
+   return cy.get(or.GlobalLocator.notificationIcon)
+  }
 
 }

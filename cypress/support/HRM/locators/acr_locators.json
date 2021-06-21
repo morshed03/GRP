@@ -3,14 +3,35 @@
     "leftNavmenuItems":{
        "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
         "acrInclusion": "a[href*='hrm/acr/configuration/acr-include']:eq(0)",
-        "acrEntry": "a[href*='hrm/acr/application']:eq(0)"
+        "acrEntry": "a[href*='hrm/acr/application']:eq(0)",
+        "acrPendingList": "a[href*='hrm/acr/pending-list']:eq(0)",
+        "acrOwn": "a[href*='hrm/acr/application-self']:eq(0)",
+        "acrPendingListSendNotification": "a[href*='hrm/acr/send-notification']:eq(0)",
+        "reportsDetail":"a[href*='hrm/acr/report/detail']:eq(0)",
+        "reportsAvg": "a[href*='hrm/acr/report/average']:eq(0)",
+        "reportsDelay": "a[href*='hrm/acr/report/late']:eq(0)"
     },
 
     "configuration": {
         "branch":"input[placeholder*='শাখা অনুসন্ধান করুন']"
     },
 
-    "acrApplication": {
-        "acrYear": "input[formcontrolname='year']"
+    "acrEntry":{
+
+        "acrApplication": {
+            "acrYear": "input[formcontrolname='year']",
+            "dateOfSubmissionToRIO": "input[formcontrolname='dateOfSubmissionToRIO']",
+            "receivingDateOfCompletedFormByDOCR": "input[formcontrolname='receivingDateOfCompletedFormByDOCR']",
+            "numberGivenByRIO": "input[formcontrolname='numberGivenByRIO']",
+            "numberGivenByCSO": "input[formcontrolname='numberGivenByCSO']"
+        },
+
+        "attachment": {
+            "attchmentType":"input[name='selectedFileType']"
+        }
+    },
+    "acrPendingList":{
+         "acrYear":"input.view-input:eq(0)"
     }
+
 }

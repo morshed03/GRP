@@ -83,10 +83,15 @@ export default class CommonPageActions{
      commonpageelement.getCompleteBtn(completeBtnSelector).click({force: true})
      cy.wait(2000)
      }
+    //completeBtn -> হ্যাঁ or প্রেরণ করুন or সম্পন্ন করুন
+     getCompleteBtn2(completeBtnSelector, text){
+        commonpageelement.getCompleteBtn(completeBtnSelector).contains(text).click({force: true}) 
+        cy.wait(2000)
+     }
 
      getsaveBtn(selector){
         commonpageelement.getsaveBtn(selector).click({force: true})
-        cy.wait(2000)
+        cy.wait(1000)
      }
 
      getSearchListByName(name){
@@ -106,6 +111,7 @@ export default class CommonPageActions{
 
      getScroll(selector){
         commonpageelement.getScroll(selector)
+        cy.wait(1000)
      }
 
 
@@ -118,17 +124,24 @@ export default class CommonPageActions{
         cy.wait(500)
      }
 
-    
-    // attachementTypeField(){
-    //     commonpageelement.attachementTypeField().type()
-    // }
+   //// অনুমোদনের জন্য প্রেরণ
+   SentForApproval(SentForApprovalObject,commonSelectOrobject){
 
-    // attachementDescField(){
-    //     return cy.get(or.complaintPage.order.attachment.desc)
-    // }
-    // attachementUploadField(){
-    //     return cy.get(or.complaintPage.order.attachment.fileUpload)
-    // }
-     
+        commonpageelement.sendForApprovalEmployeeField().click({force: true})
+        cy.wait(1000)
+        commonpageelement.DropdownItem().contains(SentForApprovalObject['employeeName']).click({force: true})
+        cy.wait(1000)
+        this.getSendBtn(commonSelectOrobject['send'])
+        this.getCompleteBtn2(commonSelectOrobject['completeBtn'], SentForApprovalObject['completebtnName'])
+        cy.wait(1000)
+
+   }
+
+   ///NotificationIcon
+   checkNotificationIcon(){
+    commonpageelement.checkNotificationIcon().click({force: true})
+    cy.wait(1000)
+   }
+
 
 }

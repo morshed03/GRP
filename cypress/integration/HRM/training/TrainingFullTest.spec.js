@@ -316,7 +316,6 @@ describe("Working training module",()=>{
         common.GlobalLocator.completeBtn,
         data.sentforApproval.completebtnName
         )
- 
     })
 
      //কর্মচারী নিজ প্রশিক্ষণ হালনাগাদ অনুমোদন 
