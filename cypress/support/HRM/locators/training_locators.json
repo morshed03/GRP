@@ -1,0 +1,146 @@
+{
+   
+    "leftNavmenuItems":{
+       "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
+        "configuration": "a[href*='hrm/training/settings']:eq(0)",
+        "otherTraineesInformation": "a[href*='hrm/training/guest-list']:eq(0)",
+        "officeTraining": "a[href*='hrm/training/office-training']:eq(0)",
+        "invitationAndNomination": "a[href*='hrm/training/invitations']:eq(0)",
+        "myTraining": "a[href*='hrm/training/my-trainings']:eq(0)",
+        "pendingList": "a[href*='hrm/training/pending-list']:eq(0)",
+        "pmisHome": "a[href*='hrm/pmis/home']:eq(0)"
+    },
+
+    "configuration":{
+        "organization":{
+            "organizationNameBn":"input[id='nameBn']",
+            "organizationNameEn": "input[id='nameEn']",
+            "country": "input[id='auto-countryOid']",
+            "phone": "input[id='phoneNo']",
+            "email": "input[id='email']",
+            "address": "textarea[id='address2']",
+            "sessionType": "input[id='auto-sessionType']",
+            "description": "textarea[id='description2']"
+        },
+        "trainingType":{
+            "orderTab" : ".mat-tab-label[id*='mat-tab-label']:eq(1)",
+            "trainingTypeBn": "input[id='nameBn']:visible",
+            "trainingTypeEn": "input[id='nameEn']:visible",
+            "skillsInherentTrainingType": {
+                    "trainingType": "input[placeholder*='প্রশিক্ষণের ধরন অনুসন্ধান করুন']",
+                    "skillSearch" : "input[placeholder*='দক্ষতা অনুসন্ধান']",
+                    "editBtn": ".edit button[mattooltip='সম্পাদনা করুন']",
+                    "saveBtn": "button[mattooltip='সংরক্ষণ করুন']"
+            }
+       },
+       "Skills":{
+           "orderTab" : ".mat-tab-label[id*='mat-tab-label']:eq(2)",
+           "skillBn": "input[id='nameBn']",
+           "skillEn": "input[id='nameEn']"
+       }
+    },
+
+   "otherTraineesInformation":{
+        "nameBn": "input[placeholder*='বাংলা নাম']",
+        "nameEn": "input[placeholder*='ইংরেজি নাম']",
+        "office": "input[placeholder*='অফিস অনুসন্ধান']",
+        "branch": "input[placeholder*='শাখা অনুসন্ধান']",
+        "title": "input[placeholder*='পদবি অনুসন্ধান']",
+        "phone": "input[placeholder*='ফোন নাম্বার ইংরেজিতে']",
+        "email": "input[placeholder*='ই-মেইল']"
+   },
+
+   "officeTrainings":{
+       "trainingInformation":{
+           "training": "input[id*='auto-category']",
+           "trainingTitle": "input[id*='trainingTitle']",
+           "trainingType": "input[id*='auto-trainingType']",
+           "courseType": "mat-select[id*='mat-select']:eq(0)",
+           "trainingInstitute": "input[id*='auto-trainingInstitute']",
+           "sessionType" : "input[id*='auto-sessionType']",
+           "batchNo": "input[id*='batchNo']",
+           "place": "input[name*='mat-radio-group']:eq(0)",
+           "countryTraining": "input[id*='auto-countryOid']",
+           "address": "textarea[id*='trainingAddress']",
+           "desc": "textarea[id*='trainingDetails']",
+           "tag": "input[id*='mat-chip-list-input']",
+           "expectedSkillsAcquiredThroughTraining": "mat-select[id*='mat-select']:eq(1)",
+           "trainingStartDate": "input[id*='startDate']",
+           "trainingEndDate": "input[id*='endDate']",
+           "selectTrainingEndDate":"td[aria-label*='৩০']",
+           "mustTraineesParticipate": "input[name*='mat-radio-group']:eq(2)",
+           "mediumTrainingCall": "input[name*='mat-radio-group']:eq(4)",
+           "tabBtn": ".mat-tab-label[id*='mat-tab-label']:eq(0)"
+       },
+
+       "schedule":{
+            "date": "mat-dialog-content input[id*='mat-input']",
+            "startHH": "input[placeholder*='HH']:eq(0)",
+            "startMM": "input[placeholder*='MM']:eq(0)",
+            "startperiod" : ".period-control button[type='button']:eq(0)",
+
+            "endHH": "input[placeholder*='HH']:eq(1)",
+            "endMM": "input[placeholder*='MM']:eq(1)",
+            "endPeriod" : ".period-control button[type='button']:eq(1)"
+       },
+
+       "attachmentUpload":{
+           "file": ".mat-form-field-infix  input[id*='mat-input']:eq(1)",
+           "tabBtn": ".mat-tab-label[id*='mat-tab-label']:eq(1)"
+       },
+
+       "callforNominations":{
+        "office": "input[id*='auto-sharedWith']",
+        "participantCount" : "input[id*='participantCount']",
+        "date": "input[id='lastDateOfResponse']",
+        "comment": "textarea[id*='comment2']",
+        "tabBtn": ".mat-tab-label[id*='mat-tab-label']:eq(2)"
+     },
+     "finalSelection":{
+        "tabBtn": ".mat-tab-label[id*='mat-tab-label']:eq(3)",
+        "nominatedParticipants": "mat-panel-title.mat-expansion-panel-header-title:eq(1)",
+        "searchBtn":"button.bg-primary:eq(1)"
+     },
+
+     "finalParticipantAdd": {
+         "checkbox": "mat-checkbox"    
+     }
+   },
+
+   "invitationAndNomination": {
+       "participantSelection": {
+             "branch": "input[placeholder*='শাখা অনুসন্ধান']",
+             "position": "input[placeholder*='অফিস পদ অনুসন্ধান']",
+             "grade": "mat-dialog-content .mat-form-field-infix input.mat-autocomplete-trigger:eq(2)"
+       }
+   },
+
+   "sentforApproval":{
+    "employee":"input[placeholder*='কর্মচারীর তথ্য দ্বারা']"
+    },
+
+    "pendingList":{
+        "nominationFinalizationSearchBox": ".mat-form-field-infix input.mat-input-element:eq(1)",
+        "ProvideInformationEndOfTrainingSearchBox": ".mat-form-field-infix input.mat-input-element:eq(0)",
+        "ProvideInformationEndOfTraining" : "mat-panel-title.mat-expansion-panel-header-title:eq(0)"
+    },
+
+    "myTraining":{
+        "updateInfoTabBtn":".mat-tab-label[id*='mat-tab-label']:eq(2)",
+        "updateInfo":{
+            "expirationDate": "input[id='expirationDate']",
+            "duration":"input[id='duration']",
+            "durationUnit": "input[id='auto-durationUnit']",
+            "divisionGrade": "input[id='auto-divisionGrade']",
+            "acheivedNumber": "input[id='acheivedNumber']",
+            "acheivedPosition": "input[id='acheivedPosition']",
+            "radioBtn": "input[name*='mat-radio-group']:eq(0)"
+        }
+    },
+    
+    "Pmis": {
+        "home":{
+             "trainingSearchBox": ".mat-form-field-infix input.mat-input-element:eq(31)"
+        }
+    }
+}   

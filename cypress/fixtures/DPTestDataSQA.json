@@ -1,0 +1,76 @@
+{
+
+    "invalidLoginCredentials":{
+        "username": " ",
+        "password": " "
+    },
+
+    "validLoginCredentials":{
+        "morshed":{
+            "username": "mors0001",
+            "password": "123456789"
+        },
+        "sujit":{
+            "username": "sujt0001",
+            "password": "123456789"
+        }
+    },
+    
+    "loginErrorMessage":{
+        "errorMessage": "ব্যবহারকারীর আইডি অথবা পাসওয়ার্ড ভুল"
+    },
+
+    "pageWait":{
+        "tooShort":1000,
+        "short": 3000,
+        "medium": 5000,
+        "long": 8000    
+    },
+
+    "leftNavMenu":{
+        "dp": "শৃঙ্খলা ও তদন্ত",
+        "dpSubMenu":{
+            "complaint":"অভিযোগ",
+            "pendingList": "অপেক্ষমাণ তালিকা"
+        }
+    },
+    "complaintPage":{
+        "branch":{
+            "name": "SQA CoKreates" 
+        },
+        "employee":{
+            "name": "ইরফাত আরা, সদস্য"
+        },
+        "generalInfo":{
+            "complaintType":"সাধারণ",
+            "complaintBasis": "অসদাচরণ",
+            "complaintTitle": "মোরশেদ আলম বিরুদ্ধে অভিযোগ",
+            "allegationNo": "২০,০০,০০০০,৩০২,৩২,০২০,২৮",
+            "dpAuthorityDesignate": "সুজিত কুমার পাল",
+            "allegationDescription2": "অসদাচরণ অসদাচরণ অসদাচরণ অসদাচরণ অসদাচরণ অসদাচরণ অসদাচরণ অসদাচরণ অসদাচরণ অসদাচরণ অসদাচরণ"
+        },
+        "orderInfo":{
+            "orderType": "চূড়ান্ত রায়- শাস্তি/ দণ্ড",
+            "orderDetails": "দণ্ড প্রাপ্ত আসামি",
+            "actionDetails": "শাস্তি প্রদান করুন",
+            "punishmentNature": "লঘুদণ্ড",
+            "punishmentType": "নির্দিষ্ট মেয়াদের জন্য পদোন্নতি বা বেতন বৃদ্ধি স্থগিত"
+        },
+
+        "orderEdit":{
+            "selectEmployeeForApproved": "সুজিত কুমার পাল, সিনিয়র সচিব"
+        },
+        "attachment":{
+            "attachmentType":"অভি",
+            "selectAttchment": "অভিযোগনামা",
+            "desc": "a1"
+        }
+},
+
+"pendingList":{
+    "searchEmp":"ইরফাত আরা",
+    "comment": "approved"
+}
+    
+
+}

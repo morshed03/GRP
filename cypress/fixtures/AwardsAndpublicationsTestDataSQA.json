@@ -1,0 +1,90 @@
+{
+
+    "invalidLoginCredentials":{
+        "username": " ",
+        "password": " "
+    },
+
+    "validLoginCredentials":{
+        "morshed":{
+            "username": "mors0001",
+            "password": "123456789"
+        },
+        "sujit":{
+            "username": "sujt0001",
+            "password": "123456789"
+        }
+    },
+    
+    "loginErrorMessage":{
+        "errorMessage": "ব্যবহারকারীর আইডি অথবা পাসওয়ার্ড ভুল"
+    },
+
+    "pageWait":{
+        "tooShort":1000,
+        "short": 3000,
+        "medium": 5000,
+        "long": 8000    
+    },
+
+    "leftNavMenu":{
+        "awardsAndPublications": "পুরস্কার এবং প্রকাশনা",
+        "awards": "পুরস্কার",
+        "pmis": "পিএমআইএস",
+        "publications": "প্রকাশনা",
+        "awardAndPublicationSubMenu":{
+           "applicationAndApproval": "আবেদন ও অনুমোদন",
+           "home": "হোম"
+        }
+    },
+
+    "rewardsApplication":{
+        "rewardsApplicationPanel": "পুরস্কার ( আবেদন)",
+        "awardsTitleData": "awards4",
+        "awardsTypeData": "টেস্টিং",
+        "awardsProposedTypeData": "tt",
+        "awardsGivenByData": "bat",
+        "awardsTagData": "CK",
+        "awardsDescData": "test",
+        "fileTypeData": "ব্যক্তিগত ফাইল"
+    },
+    "approvalAward": {
+        "approvalAwardPanel": "পুরস্কার অনুমোদন ( অপেক্ষমাণ, প্রেরিত, অনুমোদিত, অননুমোদিত, তথ্য যাচাই )",
+        "verificationInfoTab": "তথ্য যাচাই"
+    },
+
+    "approvalPublication":{
+            "approvalPublicationPanel": "প্রকাশনার অনুমোদন ( অপেক্ষমাণ, প্রেরিত, অনুমোদিত, অননুমোদিত )" 
+    },
+
+    "sentforApproval":{
+        "employee":"সুজিত কুমার পাল, SQA CoKreates, সিনিয়র সচিব",
+        "completebtnName": "প্রেরণ"
+    },
+    
+    "publicationsentforApproval": {
+        "employee":"মোরশেদ আলম, SQA CoKreates, সচিব"
+    },
+    "pendingList":{
+        "comment" : "approved"
+    },
+    "pmis":{
+        "home":{
+             "awardsTabBtn": "পুরস্কার",
+             "publicationTabBtn": "প্রকাশনা",
+             "qualification": "যোগ্যতা"
+        }
+    },
+
+    "publicationApplication": {
+        "publicationApplicationPanel": "প্রকাশনা ( আবেদন)",
+        "awardsTitleData": "awards4",
+        "awardsTypeData": "প্রকাশনা",
+        "awardsProposedTypeData": "tt",
+        "awardsGivenByData": "bat",
+        "awardsTagData": "CK",
+        "awardsDescData": "test",
+        "fileTypeData": "ব্যক্তিগত ফাইল"
+    }
+
+}

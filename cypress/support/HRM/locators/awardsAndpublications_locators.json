@@ -1,0 +1,49 @@
+{
+
+    "leftNavmenuItems":{
+       "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
+        "applicationAndApproval": "a[href*='award-publication/award/home']:eq(0)",
+        "publicationApplicationAndApproval": "a[href*='award-publication/publication/home']:eq(0)",
+        "pmisHome": "a[href*='hrm/pmis/home']:eq(0)"
+    },
+
+    "rewardsApplication":{
+
+        "awardstitle": "textarea[formcontrolname='title']",
+        "awardstype": "mat-select[formcontrolname='typeOid']",
+        "awardsProposedType": "input[formcontrolname='typeText']",
+        "awardsreceiveDate": "input[formcontrolname='dateOfReceiving']",
+        "awardsGivenBy": "textarea[formcontrolname='givenBy']",
+        "awardsnational": "input[name*='mat-radio-group']:eq(0)",
+        "awardsTag": "input[id*='mat-chip-list-input']:eq(0)",
+        "awardsDesc": "textarea[formcontrolname='description']",
+        "awardsfileAdd": "button[mattooltip='নতুন তথ্য যুক্ত করুন']",
+        "awardsfileType": "mat-dialog-content mat-select[id*='mat-select']:eq(1)",
+        "awardsdraft": "mat-dialog-actions button.btn.bg-primary",
+        "searchByName": "mat-card-content .mat-form-field-infix input.mat-input-element:eq(0)",
+        "geoBtn": "mat-dialog-container button.btn.bg-success",
+        "editBtn": "button[mattooltip='সম্পাদনা করুন']:eq(2)"
+    },
+
+    "approvalAward": {
+        "searchByName": "mat-card-content .mat-form-field-infix input.mat-input-element:eq(1)",
+        "sendBtn": "table > tbody > tr > td.mat-cell > div:nth-child(2) > div > div > button:eq(4)"
+    },
+
+    "sentforApproval":{
+        "employee":"mat-dialog-container input[placeholder*='কর্মচারীর তথ্য দ্বারা']:eq(0)"
+    },
+    
+    "Pmis": {
+        "home":{
+             "trainingSearchBox": ".mat-form-field-infix input.mat-input-element:eq(31)"
+        }
+    },
+
+    "publicationApplication":{
+        "publicationfileAdd": "button[mattooltip='নতুন সংযুক্তি যুক্ত করুন']"
+    },
+    "approvalPublication":{
+        "sendBtn": "table > tbody > tr > td.mat-cell > div:nth-child(2) > div > div > button:eq(1)"  
+    }
+}

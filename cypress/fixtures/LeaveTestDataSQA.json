@@ -1,0 +1,134 @@
+{
+
+    "invalidLoginCredentials":{
+        "username": " ",
+        "password": " "
+    },
+
+    "validLoginCredentials":{
+        "morshed":{
+            "username": "mors0001",
+            "password": "123456789"
+        },
+        "sujit":{
+            "username": "sujt0002",
+            "password": "123456789"
+        },
+        "anik":{
+            "username": "anik0001",
+            "password": "123456789"
+        }
+    },
+    
+    "loginErrorMessage":{
+        "errorMessage": "ব্যবহারকারীর আইডি অথবা পাসওয়ার্ড ভুল"
+    },
+
+    "pageWait":{
+        "tooShort":1000,
+        "short": 3000,
+        "medium": 5000,
+        "long": 8000    
+    },
+
+    "leftNavMenu":{
+        "leave": "ছুটি",
+        "leaveSubMenu":{
+           "configuration": "কনফিগারেশন",
+           "leaveBalanceAdjustment": "ছুটির হিসাব সমন্বয়",
+           "replacement": "প্রতিকল্প",
+           "applicationAndLeaveHistory":"আবেদন ও ছুটির ইতিহাস",
+           "pendingList":"অপেক্ষমাণ তালিকা"
+        }
+    },
+
+    "leaveBalanceAdjustment":{
+        "employeeName": "সুজিত কুমার পাল ICTD",
+            "individualAddBtn":{
+                "averageSalary": {
+                   "tabBtn": "গড় বেতন",
+                   "leaveTypeName": "অর্জিত ছুটি (পূর্ণ গড় বেতন)",
+                   "numberOfHolidays": 5
+                },
+                "ownSalary":{
+                   "tabBtn": "নিজ বেতন",
+                   "leaveTypeName": "নৈমিত্তিক ছুটি",
+                   "numberOfHolidays": 5
+                }
+            }
+    },
+
+    "replacement": {
+        "branchName": "প্রশাসন",
+        "substituteEmployeeSearchByName":"অনিক রায়",
+        "replacement1": {
+            "branchName1":"প্রশাসন",
+            "employeename1":"শামিমা নাসরিন, ব্যবহারকারী"
+        },
+        "replacement2": {
+            "branchName2":"প্রশাসন",
+            "employeeName2":"ইমাম তাইএফ , এডমিনিস্ট্রেটর"
+        }
+    },
+
+    "applicationAndLeaveHistory":{
+        "application": {
+           "applicationPanel" :"আবেদন",
+           "leaveSearchByName":"অর্জিত ছুটি (পূর্ণ গড় বেতন)",
+           "casualLeaveSearchByName":"নৈমিত্তিক ছুটি",
+           "leaveApplicationTab":"আবেদন পত্র",
+           "leaveHistoryPanel":"ছুটির ইতিহাস",
+           "attachmentTab":"সংযুক্তি",
+           "approved": "অনুমোদিত",
+           "applicationLog": "আবেদনপত্রের লগ",
+           "form":{
+            "reasonForApplication": "স্বাস্থ্যগত কারণ",
+            "startyy": "২০২১",
+            "startmm": "আগস্ট",
+            "startdd": "১২",
+            "endyy": "২০২১",
+            "endmm": "আগস্ট",
+            "enddd": "১৬",
+            "stationLeaveStartDateyy":"২০২১",
+            "stationLeaveStartDatemm":"জুন",
+            "stationLeaveStartDatedd":"২১",
+            "stationLeaveEndDateyy":"২০২১",
+            "stationLeaveEndDatemm":"জুন",
+            "stationLeaveEndDatedd":"২৫",
+            "logicBehindLeave": "tt",
+            "locationWhileInLeave": "pop"
+          },
+          "sentforApproval": {
+            "employee":"অনিক রায়, ব্যবহারকারী",
+            "morsEmp": "মোরশেদ আলম ICTD, সিনিয়র এস কিউ এ ইঞ্জিনিয়ার",
+            "completeBtn": "সম্পন্ন করুন"
+          }
+        },
+        "attachment":{
+            "tabName": "সংযুক্তি",
+            "file": "ttt",
+            "desc": "t"
+        },
+
+        "dateChange":{
+            "endyy": "২০২১",
+            "endmm": "আগস্ট",
+            "enddd": "১৫"
+        }
+    },
+
+    "pendingList":{
+        "comment": "approved"
+    },
+
+    "DateValidation":{
+        "leaveDuration": "৫",
+        "startyy": "২০২১",
+        "startmm": "আগস্ট",
+        "startdd": "১২",
+        "endyy": "২০২১",
+        "endmm": "আগস্ট",
+        "enddd": "১৬"
+    }
+    
+}

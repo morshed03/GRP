@@ -1,0 +1,183 @@
+
+{
+    "invalidLoginCredentials":{
+        "username": " ",
+        "password": " "
+    },
+
+    "validLoginCredentials":{
+        "sujit":{
+            "username": "sujt0001",
+            "password": "123456789"
+        },
+        "mostafiz":{
+            "username": "musta0001",
+            "password": "123456789"
+        },
+        "arafat":{
+            "username": "ara0001",
+            "password": "123456789"
+        }
+    },
+    
+    "loginErrorMessage":{
+        "errorMessage": "ব্যবহারকারীর আইডি অথবা পাসওয়ার্ড ভুল"
+    },
+
+    "pageWait":{
+        "tooShort":1000,
+        "short": 3000,
+        "medium": 5000,
+        "long": 8000    
+    },
+
+    "leftNavMenu":{
+        "training": "প্রশিক্ষণ",
+        "pmis": "পিএমআইএস",
+        "trainingSubMenu":{
+            "configuration":"কনফিগারেশন",
+            "otherTraineeManagement": "অন্যান্য প্রশিক্ষণার্থী ব্যবস্থাপনা",
+            "officeTraining": "অফিসের প্রশিক্ষণসমূহ",
+            "invitationAndNomination": "আমন্ত্রণ ও মনোনয়ন",
+            "pendingList": "অপেক্ষমাণ তালিকা",
+            "myTraining": "প্রশিক্ষণ শেষে তথ্য প্রদান",
+            "home": "হোম"
+        }
+    },
+
+    "configuration":{
+        "organizationTab":"প্রতিষ্ঠান",
+        "trainingTab": "প্রশিক্ষণের ধরন",
+        "skillTab":"দক্ষতা",
+        "organization":{
+            "organizationNameBn":"টেস্টিং",
+            "organizationNameEn": "testing",
+            "country": "বাংলাদেশ",
+            "phone": "01766666666",
+            "email": "test@gmail.com",
+            "address": "Dhaka",
+            "sessionType": "অনলাইন",
+            "description": "test"
+        },
+        "trainingType":{
+                "trainingTypeBn": "জেএনএন",  
+                "trainingTypeEn": "JNN",
+                
+                "skillsInherentTrainingType": {
+                    "trainingType": "জেএনএন",
+                    "skillSearch" : "নেটওয়ার্কিং"
+                    
+            }
+        },
+        "Skills":{
+            "skillBn": "নেটওয়ার্কিং",
+            "skillEn": "Networking"
+        }
+    },
+    
+    "otherTraineesInformation":{
+        "nameBn": "এবি",
+        "nameEn": "ab",
+        "office": "CoKreates Limited",
+        "branch": "SQA",
+        "title": "SQA Engineer ",
+        "phone": "01766666666",
+        "email": "test@gmail.com"
+   },
+
+   "officeTrainings":{
+       "trainingInformationTab": "প্রশিক্ষণ তথ্য",
+       "trainingAttachmentTab":"প্রশিক্ষণ সংযুক্তি",
+       "callforNominationsTab": "মনোনয়নের জন্য আহ্বান",
+       "finalSelectionTab": "চূড়ান্ত নির্বাচন",
+       "nominatedParticipantsPanel": "মনোনীত অংশগ্রহণকারী",
+    "trainingInformation":{
+        "training": "প্রশিক্ষণ",
+        "trainingTitle": "JNN",
+        "trainingType": "জেএনএন",
+        "courseType": "সাধারণ",
+        "trainingInstitute": "টেস্টিং",
+        "sessionType" : "অনলাইন",
+        "batchNo": "10",
+        "countryTraining": "বাংলাদেশ",
+        "address": "dhaka",
+        "desc": "t",
+        "tag": "jnn",
+        "skill": "নেটওয়ার্কিং", 
+        "trainingEndDate": "৩০"
+    },
+
+    "schedule":{
+         "startHH": 2,
+         "startMM": 30,
+         "startPeriod": "PM",
+
+         "endHH": 6,
+         "endMM": 30,
+         "endPeriod": "PM"
+    },
+
+    "attachmentUpload":{
+        "file": "test",
+        "desc": "test-1"
+    },
+
+    "callforNominations":{
+        "office": "বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি)",
+        "participantCount" : 5,
+        "comment": "test-2"
+    },
+
+   "finalParticipantAdd":{
+    
+    "firstPerson": "মোস্তাফিজুর",
+    "secondPerson": "আরাফাত",
+    "thirdPerson": "ইরফাত আরা",
+    "fourthPerson": "এবি",
+    "fivthPerson": "Test"
+      }
+    },
+
+    "invitationAndNomination":{
+        "searchByName": "JNN",
+        "participantSelection": {
+            "branch": "মডিউল মেইনটেনেন্স শাখা",
+            "position": "টিম এসোসিয়েট ",
+            "grade": "গ্রেড-১",
+            "nominationFirstPerson":"আরাফাত রহমান"
+        }
+    },
+
+    "sentforApproval":{
+    "employee":"সুজিত কুমার পাল, সিনিয়র সচিব",
+    "completebtnName": "সম্পন্ন করুন"
+    },
+    "pendingList":{
+        "nominationFinalizationPanel":"মনোনয়ন চুড়ান্তকরণ",
+        "ProvideInformationEndOfTraining": "প্রশিক্ষণ শেষে তথ্য প্রদান",
+        "searchByName": "আরাফাত রহমান",
+        "comment" : "approved"
+    },
+    "pmis":{
+        "home":{
+             "trainingTabBtn": "প্রশিক্ষণ",
+             "qualification": "যোগ্যতা"
+        }
+    },
+
+    "myTraining":{
+        "searchByName": "JNN",
+        "updateInfo":{
+            "expirationDate": "৩০",
+            "duration":"test",
+            "durationUnit": "দিন",
+            "divisionGrade": "গ্রেড",
+            "acheivedNumber": "t",
+            "acheivedPosition": "teamLead"
+            },
+            "attachmentUpload":{
+                "file": "attchment1",
+                "desc": "Desc-test"
+            }
+    }
+}

@@ -1,0 +1,66 @@
+{
+
+    "leftNavmenuItems":{
+       "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
+        "Complaint": "a[href*='discipline-investigation/complaint/list']:eq(0)",
+        "pendingList": "a[href*='discipline-investigation/discipline-pending-list/pending-list']:eq(0)"
+    },
+
+    
+    "complaintPage": {
+        "employeeSearch":{
+            "Branch": ".mat-form-field-infix input[placeholder*=\"শাখা\"]:eq(1)",
+            "employee": ".mat-form-field-infix input[placeholder*=\"কর্মচারীর \"]:eq(1)"
+        },
+        "complaintGeneralInfo":{
+            "complaintType": "input[id='auto-complaintTypeOid']",
+            "complaintBasis": "input[id='auto-complaintBasisOid']",
+            "complaintTitle":"input[id='allegationTitle']",
+            "allegationDate":"input[id='allegationDate']",
+            "complaintDate": ".mat-calendar-body-cell-content.mat-calendar-body-today",
+            "allegationNo": "input[id='allegationNo']",
+            "dpAuthorityDesignate": "input[id='auto-dpInvestigatorOid']",
+            "allegationDescription2": "textarea[id='allegationDescription2']",
+            "generalSaveBtn":"button.btn.bg-success"
+        },
+        "order":{
+           "orderTab" : ".mat-tab-label[id*='mat-tab-label']:eq(1)",
+           "orderAddBtn":"button.mat-mini-fab:eq(0)",
+           "orderInfo":{
+               "orderDate": "input[formcontrolname='orderDate']",
+               "selectorderDate": ".mat-calendar-body-cell-content.mat-calendar-body-today",
+               "orderType": "input[placeholder*='আদেশের ধরন']",
+               "orderDetails": "textarea[formcontrolname='orderDetails']",
+               "actionDetails": "textarea[formcontrolname='actionDetails']",
+               "punishmentNature": "input[placeholder*='দণ্ডের প্রকৃতি']",
+               "punishmentType": "input[placeholder*='দণ্ডের ধরণ']",
+               "orderSavaBtn": ".mat-tab-body-content button.btn.bg-success"
+           },
+           "orderEdit":{
+               "editBtn": "button[mattooltip='সম্পাদনা করুন']:eq(0)",
+               "orderNextStepBtn": ".mat-dialog-container button.btn.bg-info",
+               "selectEmployeeForApproved": "input[placeholder*='কর্মচারীর তথ্য']",
+               "sendBtn": ".mat-dialog-actions button.btn-primary"
+            },
+            "attachment":{
+                "addBtn":"button.mat-mini-fab:eq(2)",
+                "attchmentType":"input[placeholder*='সংযুক্তির ধরন']",
+                "desc": "textarea[type='text']",
+                "fileUpload": "input[type='file']"
+            }
+        }
+    },
+
+    "pendingList":{
+        
+        "searchByName":".mat-form-field-infix input.mat-input-element:eq(1)", 
+        "editBtn":"td button[mattooltip='সম্পাদনা করুন']:eq(0)",
+        "approvalBtn": "button.mat-button-toggle-button:eq(2)",
+        "comment": ".mat-form-field-infix textarea[name='comment']",
+        "viewFile":"button[mattooltip*='ফাইলটি দেখুন']",
+        "closeBtn": ".mat-dialog-actions button.mat-raised-button"
+    }
+    
+    
+
+}

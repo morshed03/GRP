@@ -1,0 +1,93 @@
+{
+
+    "invalidLoginCredentials":{
+        "username": " ",
+        "password": " "
+    },
+
+    "validLoginCredentials":{
+        "morshed":{
+            "username": "mors0001",
+            "password": "123456789"
+        },
+        "sujit":{
+            "username": "sujt0001",
+            "password": "123456789"
+        },
+        "arafat": {
+            "username": "ara0001",
+            "password": "123456789"
+        },
+        "fahmida":{
+            "username": "ahmd0002",
+            "password": "123456789"
+        }
+    },
+    
+    "loginErrorMessage":{
+        "errorMessage": "ব্যবহারকারীর আইডি অথবা পাসওয়ার্ড ভুল"
+    },
+
+    "pageWait":{
+        "tooShort":1000,
+        "short": 3000,
+        "medium": 5000,
+        "long": 8000    
+    },
+
+    "leftNavMenu":{
+        "acr": "এসিআর",
+        "configuration": "কনফিগারেশন",
+        "acrEntry": "এসিআর এন্ট্রি",
+        "acrPendingList":"অপেক্ষমাণ তালিকা",
+        "acrOwn": "এসিআর (নিজ)",
+        "reports":"প্রতিবেদন",
+        "acrPendingListSendNotification":"এসিআর পেন্ডিং তালিকা",
+        "acrSubMenu":{
+            "acrInclusion": "এসিআর অন্তর্ভুক্তি",
+            "pendingList": "অপেক্ষমাণ তালিকা",
+            "reportsDetail": "বিস্তারিত প্রতিবেদন",
+            "reportsAvg":"গড় প্রতিবেদন",
+            "reportsDelay": "বিলম্বিত অনুবেদনাধীন"
+        }
+    },
+    "configuration": {
+        "searchEmployee": "আরাফাত রহমান",
+        "branchName": "মডিউল মেইনটেনেন্স শাখা",
+        "addACR":{
+            "person1":"আরাফাত রহমান"
+        }
+    },
+    "acrEntry":{
+        "acrApplication": {
+            "acrYear": "২০১৯",
+            "dateOfSubmissionToRIO_DD": "৩",
+            "dateOfSubmissionToRIO_MM": "জানুয়ারী",
+            "dateOfSubmissionToRIO_YY": "২০২২",
+            "receivingDateOfCompletedFormByDOCR_DD": "৪",
+            "receivingDateOfCompletedFormByDOCR_MM": "জানুয়ারী",
+            "receivingDateOfCompletedFormByDOCR_YY": "২০২২",
+            "numberGivenByRIO": "70",
+            "numberGivenByCSO": "80",
+
+            "completeBtn2":"হ্যাঁ"
+        },
+        "attachment": {
+            "attchmentType":"ব্যক্তিগত ফাইল",
+            "desc": "attachment-test"
+        },
+        "SentForApproval": {
+            "employeeName": "সুজিত কুমার পাল, সিনিয়র সচিব",
+            "completebtnName":"সম্পন্ন করুন"
+        }
+    },
+    "acrOwn":{
+       "acrYear":"2019"
+    },
+    "pendingList":{
+        "comment":"approved",
+        "acrYear":"২০২১",
+        "employeeName": "ফাহমিদা আহমেদ"
+    }
+
+}
