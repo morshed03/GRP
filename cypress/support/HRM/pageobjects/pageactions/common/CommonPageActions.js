@@ -144,4 +144,57 @@ export default class CommonPageActions{
    }
 
 
+   /////Date --YY-MM-DD
+   
+   DateYYMMDetails(yy,mm,dd){
+        //Date Arrow click
+        commonpageelement.getCalendarArrowField().click({force: true})
+        cy.wait(1000)
+        
+        //startyy
+        commonpageelement.getYYMMDDField().contains(yy).click({force: true})
+        cy.wait(1000)
+
+        //startmm
+        commonpageelement.getYYMMDDField().contains(mm).click({force: true})
+        cy.wait(1000)
+
+        //startdd
+        commonpageelement.getYYMMDDField().contains(dd).click({force: true})
+        cy.wait(1000)
+
+   }
+
+
+    // add Participant(Attendance module)(cHECKbOX-FIRST)
+    addParticipantDetails(name){
+        
+        cy.get("mat-card-content:visible tr td:nth-child(2)").each(($el,index, $list)=> {
+
+            let employeeNameText = $el.text()
+            if(employeeNameText.includes(name)){
+                cy.get("mat-card-content:visible tr td:nth-child(2)").eq(index).prev().find(".mat-checkbox-layout .mat-checkbox-inner-container").click()
+            }
+        })
+        cy.wait(2000)
+
+     }
+
+    // check box click by name (cHECKbOX-last)
+    addParticipantDetailsCheckboxLast(name){
+        
+        cy.get("mat-card-content:visible tr td:nth-child(1)").each(($el,index, $list)=> {
+
+            let employeeNameText = $el.text()
+            if(employeeNameText.includes(name)){
+                cy.get("mat-card-content:visible tr td:nth-child(1)").eq(index).last().find(".mat-checkbox-layout .mat-checkbox-inner-container").click()
+            }
+        })
+        cy.wait(2000)
+
+     }
+
+
+
+
 }

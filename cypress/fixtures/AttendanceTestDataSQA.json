@@ -1,0 +1,143 @@
+{
+
+    "invalidLoginCredentials":{
+        "username": " ",
+        "password": " "
+    },
+
+    "validLoginCredentials":{
+        "morshed":{
+            "username": "mors0002",
+            "password": "123456789"
+        },
+        "sujit":{
+            "username": "sujt0002",
+            "password": "123456789"
+        }
+    },
+    
+    "loginErrorMessage":{
+        "errorMessage": "ব্যবহারকারীর আইডি অথবা পাসওয়ার্ড ভুল"
+    },
+
+    "pageWait":{
+        "tooShort":1000,
+        "short": 3000,
+        "medium": 5000,
+        "long": 8000    
+    },
+
+    "leftNavMenu":{
+        "attendance": "উপস্থিতি",
+        "attendanceSubMenu":{
+            "home":"হোম"
+        }
+    },
+
+    "home":{
+        "shiftPanel":"শিফট ( শিফট, শিফট অর্পণ, ওভারটাইম, স্বহাজিরা )",
+        "todoPanel": "করণীয় ( উপস্থিতি অনুমোদন, প্রেরিত, অনুমোদিত, অননুমোদিত )",
+        "attendancePanel": "উপস্থিতি ( দৈনিক উপস্থিতি )",
+        "shiftDelivaryTab":"শিফট অর্পণ",
+        "overTimeTab": "ওভারটাইম",
+        "companionsTab": "স্বহাজিরা",
+        "completeBtnName": "সম্পন্ন করুন",
+        "shift": {
+            "name": "night",
+            "entryTimeHH": "15",
+            "entryTimeMM": "00",
+            "departureTimeHH": "20",
+            "departureTimeMM": "00",
+            "graceInPeriod": "20",
+            "graceOutPeriod": "20",
+            "startDateDD": "২৭",
+            "startDateMM": "জুন",
+            "startDateYY": "২০২১",
+            "endDateDD": "৩০",
+            "endDateMM": "জুন",
+            "endDateYY": "২০২১",
+
+            "newShift":{
+                "entryTimeHH": "15",
+                "entryTimeMM": "00",
+                "departureTimeHH": "22",
+                "departureTimeMM": "00",
+                "graceInPeriod": "20",
+                "graceOutPeriod": "20",
+                "startDateDD": "১",
+                "startDateMM": "জুলাই",
+                "startDateYY": "২০২১",
+                "endDateDD": "৩১",
+                "endDateMM": "জুলাই",
+                "endDateYY": "২০২১"
+            },
+
+            "dateTimeChnage":{
+                "entryTimeHH": "15",
+                "entryTimeMM": "00",
+                "departureTimeHH": "22",
+                "departureTimeMM": "00",
+                "startDateDD": "১",
+                "startDateMM": "জুলাই",
+                "startDateYY": "২০২১",
+                "endDateDD": "৩০",
+                "endDateMM": "জুলাই",
+                "endDateYY": "২০২১"
+            }
+        },
+        "shiftDelivary":{ 
+             "person1": "সুজিত কুমার পাল ICTD",
+             "person2": "মাহবুব আলম",
+             "shiftName": "night",
+             "fromDD": "২৭",
+             "fromMM": "জুন",
+             "fromYY": "২০২১",
+             "toDD": "৩০",
+             "toMM": "জুন",
+             "toYY": "২০২১"
+        },
+        "overTime": {
+
+        },
+        "attendance":{
+             "person1":"সুজিত কুমার পাল ICTD",
+             "person1TimeOrStation":{
+                "entryTimeHH": "15",
+                "entryTimeMM": "00",
+                "departureTimeHH": "20",
+                "departureTimeMM": "00",
+                "externalStation":"Meeting"
+             },
+           
+             "person2":"মোরশেদ আলম ICTD",
+             "person2TimeOrStation":{
+                "entryTimeHH": "09",
+                "entryTimeMM": "25",
+                "departureTimeHH": "16",
+                "departureTimeMM": "00",
+                "externalStation":"Meeting"
+             },
+             "person3": "রাইসা আমিন ICTD",
+             "person3TimeOrStation":{
+                "entryTimeHH": "15",
+                "entryTimeMM": "00",
+                "departureTimeHH": "20",
+                "departureTimeMM": "00",
+                "externalStation":"Meeting"
+             },
+             "person4": "তায়েফ ইমাম ICTD",
+             "person4TimeOrStation":{
+                "entryTimeHH": "15",
+                "entryTimeMM": "00",
+                "departureTimeHH": "20",
+                "departureTimeMM": "00",
+                "externalStation":"Meeting"
+             }
+        },
+        "SentForApproval":{
+            "employeeName": ""
+        }
+  }
+
+
+}

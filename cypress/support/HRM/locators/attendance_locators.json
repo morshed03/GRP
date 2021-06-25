@@ -1,0 +1,34 @@
+{
+
+    "leftNavmenuItems":{
+       "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
+        "home": "a[href*='hrm/attendance/home']:eq(0)"
+    },
+
+    "shift": {
+        "name": "mat-dialog-content input[id='nameBn']",
+        "entryTimeHH": "mat-dialog-content input[placeholder='HH']:eq(0)",
+        "entryTimeMM": "mat-dialog-content input[placeholder='MM']:eq(0)",
+        "departureTimeHH": "mat-dialog-content input[placeholder='HH']:eq(1)",
+        "departureTimeMM": "mat-dialog-content input[placeholder='MM']:eq(1)",
+        "graceInPeriod": "mat-dialog-content input[id='graceInPeriod']",
+        "graceOutPeriod": "mat-dialog-content input[id='graceOutPeriod']",
+        "startDate": "mat-dialog-content input[id='startDate']",
+        "endDate": "mat-dialog-content input[id='endDate']"
+    },
+    "shiftDelivary":{
+        "shiftDelivaryBtn": "button.btn.bg-success:eq(1)",
+        "shiftName": "mat-dialog-content input[id='auto-shiftOid']",
+        "from": "mat-dialog-content input[id='from']",
+        "to": "mat-dialog-content input[id='to']"
+    },
+
+    "attendance": {
+        "entryTimeHH": "input[placeholder='HH']:eq(0)",
+        "entryTimeMM": "input[placeholder='MM']:eq(0)",
+        "departureTimeHH": "input[placeholder='HH']:eq(1)",
+        "departureTimeMM": "input[placeholder='MM']:eq(1)",
+        "externalStation": "input[id='stationComment2']:eq(0)"
+    }
+
+}
