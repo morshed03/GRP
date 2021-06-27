@@ -28,7 +28,12 @@
         "entryTimeMM": "input[placeholder='MM']:eq(0)",
         "departureTimeHH": "input[placeholder='HH']:eq(1)",
         "departureTimeMM": "input[placeholder='MM']:eq(1)",
-        "externalStation": "input[id='stationComment2']:eq(0)"
+        "externalStation": "input[id='stationComment2']:eq(0)",
+        "overTime": "input[id='overTime']"
+    },
+
+    "todos": {
+        "AttendanceApprovalBtn": "button.btn.bg-success:eq(2)"
     }
 
 }

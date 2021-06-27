@@ -90,6 +90,12 @@ export default class HomePageElements{
     attendanceExternalStationField(){
         return cy.get(or.attendance.externalStation)
     }
+
+    ////
+
+    setOvertime(){
+        return cy.get(or.attendance.overTime)
+    }
     
 
 }

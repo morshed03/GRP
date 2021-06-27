@@ -79,6 +79,11 @@ export default class CommonPageActions{
         cy.wait(2000)
     }
 
+    getUnauthorizedBtn(selector){
+        commonpageelement.getUnauthorizedBtn(selector).click({force: true})
+        cy.wait(2000)
+    }
+
     getCompleteBtn(completeBtnSelector){
      commonpageelement.getCompleteBtn(completeBtnSelector).click({force: true})
      cy.wait(2000)

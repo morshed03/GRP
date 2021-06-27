@@ -176,7 +176,7 @@ export default class HomePageActions{
 
      ////Attendance EntryTime -Departure Time set 
 
-     SetAttendanceEntryDepartureTime(attendanceObject){
+    SetAttendanceEntryDepartureTime(attendanceObject){
 
          ////প্রবেশের সময়
          homepageelement.attendanceEntryTimeHHField().type(attendanceObject['entryTimeHH'])
@@ -195,9 +195,14 @@ export default class HomePageActions{
      }
 
      ////বহিঃ স্টেশন কার্য
-     attendanceExternalStationField(attendanceObject){
+    attendanceExternalStationField(attendanceObject){
         homepageelement.attendanceExternalStationField().type(attendanceObject['externalStation'])
         cy.wait(1000)
+    }
+
+    ////OverTime
+    setOvertime(attendanceObject){
+        homepageelement.setOvertime().type(attendanceObject['overTime'])
     }
 
 

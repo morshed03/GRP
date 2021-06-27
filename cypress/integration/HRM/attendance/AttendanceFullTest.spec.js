@@ -59,7 +59,7 @@ describe("Working Attendance module Add Shift",()=>{
         commonPage.getCompleteBtn2(common.GlobalLocator.completeBtn,  data.home.completeBtnName)
     })
 
-    it("TC_2. PE: Working Attendance module add new month Shift Date and Time",()=>{
+    it("TC_2. PE: Working Attendance module add new month Shift Add Shift",()=>{
         cy.login(data.validLoginCredentials.sujit.username,data.validLoginCredentials.sujit.password)
  
         commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
@@ -329,12 +329,14 @@ describe.skip("Working Attendance module sent for approval", ()=> {
         ///সন্ধান করুন
        homePage.searchBtnField()
 
-        //Person-1
+       //Person-1
        //Search Shift name 
        commonPage.getSearchListWithSelectorByName(
                 common.GlobalLocator['searchByName'],
                 data.home.attendance['person1']
         )
+
+        homePage.setOvertime(data.home.attendance.person1TimeOrStation)
 
         //Person-1
         //check checkboxfirst (Attendance Panel)
@@ -396,14 +398,38 @@ describe.skip("Working Attendance module sent for approval", ()=> {
         commonPage.getsaveBtn(common.GlobalLocator.searchBtn)
 
 
-    /////ADD Btn তথ্য সংযুক্ত করুন (অফিস ত্যাগের সময়,অবগত সহকর্মীর নাম)
-    //// add kortee hobe 
 
-    //সংরক্ষণ করুন 
+    /// checkBox checked
+
+    ////paginator ----100
+    commonPage.getPaginator()
+    //Person-1
+    //check checkboxfirst (Attendance Panel)
+    commonPage.addParticipantDetails(
+        data.home.attendance['person1']
+    )
+
+
+    //Person-2
+    //check checkboxfirst (Attendance Panel)
+    commonPage.addParticipantDetails(
+            data.home.attendance['person2']
+    )
+
+    //Person-3
+    //check checkboxfirst (Attendance Panel)
+            commonPage.addParticipantDetails(
+            data.home.attendance['person3']
+    )
+
+    //Person-4
+    //check checkboxfirst (Attendance Panel)
+    commonPage.addParticipantDetails(
+        data.home.attendance['person4']
+    )
 
      
     ////অনুমোদনের জন্য প্রেরণ
-
     // পরবর্তী পদক্ষেপ
        commonPage.getsaveBtn(common.GlobalLocator.nextStepBtn2)
       
@@ -416,6 +442,188 @@ describe.skip("Working Attendance module sent for approval", ()=> {
     })
 })
 
+/////করণীয় ( উপস্থিতি অনুমোদন, প্রেরিত, অনুমোদিত, অননুমোদিত )
+
+describe.skip("Working Attendance module Attendance approval", ()=> {
+    it("TC_1. PE: Working Attendance module Attendance approval",()=>{
+        cy.login(data.validLoginCredentials.anik.username,data.validLoginCredentials.anik.password)
+ 
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+
+        //Notification 
+        commonPage.checkNotificationIcon()
+
+        //উপস্থিতি
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendance)
+        //হোম
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.home,data.leftNavMenu.attendanceSubMenu.home)
+        
+        //করণীয় ( উপস্থিতি অনুমোদন, প্রেরিত, অনুমোদিত, অননুমোদিত ) - Panel
+        commonPage.getTabBtn(common.GlobalLocator.matExpandPanel, data.home.todosPanel)
+
+        ///সন্ধান করুন
+       homePage.searchBtnField()
+ 
+       /// checkBox checked
+
+        ////paginator ----100
+        commonPage.getPaginator()
+    
+
+        //Person-2
+        //check checkboxfirst (Attendance Panel)
+        commonPage.addParticipantDetails(
+                data.home.attendance['person2']
+        )
+
+        //Person-3
+        //check checkboxfirst (Attendance Panel)
+                commonPage.addParticipantDetails(
+                data.home.attendance['person3']
+        )
+
+        // পরবর্তী পদক্ষেপ
+        commonPage.getsaveBtn(or.todos.AttendanceApprovalBtn)
+
+        ///অনুমোদন 
+        commonPage.getApprovalBtn(common.pendingList.approvalBtn2)
+        commonPage.getCommentField(data.pendingList.comment)
+        commonPage.getApprovalBtn(common.GlobalLocator.approvalBtn)
+        commonPage.getCompleteBtn(common.pendingList.completeBtn)
+
+    })
+})
+
+
+describe.skip("Working Attendance module search remittance,approval,unauthorized", ()=> {
+    it("TC_1. PE: Working Attendance module search remittance,approval,unauthorized ",()=>{
+        cy.login(data.validLoginCredentials.anik.username,data.validLoginCredentials.anik.password)
+ 
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+
+        //Notification 
+        commonPage.checkNotificationIcon()
+
+        //উপস্থিতি
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendance)
+        //হোম
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.home,data.leftNavMenu.attendanceSubMenu.home)
+        
+        //করণীয় ( উপস্থিতি অনুমোদন, প্রেরিত, অনুমোদিত, অননুমোদিত ) - Panel
+        commonPage.getTabBtn(common.GlobalLocator.matExpandPanel, data.home.todosPanel)
+
+        ///প্রেরিত
+       commonPage.getTabBtn(common.GlobalLocator.tabBtn, data.todos.remittance)
+   
+        ///সন্ধান করুন
+       homePage.searchBtnField()
+
+       ///অনুমোদিত
+        commonPage.getTabBtn(common.GlobalLocator.tabBtn, data.todos.approval)
+   
+       ///সন্ধান করুন
+       homePage.searchBtnField()
+
+        ///অননুমোদিত
+        commonPage.getTabBtn(common.GlobalLocator.tabBtn, data.todos.unauthorized)
+   
+        ///সন্ধান করুন
+        homePage.searchBtnField()
+    })
+})
+
+
+
+
+//// করণীয় ( প্রেরিত )
+describe.skip("Working Attendance module Attendance remittance", ()=> {
+    it("TC_1. PE: Working Attendance module Attendance remittance",()=>{
+        cy.login(data.validLoginCredentials.anik.username,data.validLoginCredentials.anik.password)
+ 
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+
+        //Notification 
+        commonPage.checkNotificationIcon()
+
+        //উপস্থিতি
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendance)
+        //হোম
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.home,data.leftNavMenu.attendanceSubMenu.home)
+        
+        //করণীয় ( উপস্থিতি অনুমোদন, প্রেরিত, অনুমোদিত, অননুমোদিত ) - Panel
+        commonPage.getTabBtn(common.GlobalLocator.matExpandPanel, data.home.todosPanel)
+
+        ///সন্ধান করুন
+       homePage.searchBtnField()
+ 
+       /// checkBox checked
+
+        ////paginator ----100
+        commonPage.getPaginator()
+    
+        //Person-1
+        //check checkboxfirst (Attendance Panel)
+        commonPage.addParticipantDetails(
+            data.home.attendance['person1']
+        )
+
+        // পরবর্তী পদক্ষেপ
+        commonPage.getsaveBtn(or.todos.AttendanceApprovalBtn)
+
+        //অনুমোদনের জন্য প্রেরণ
+        commonPage.SentForApproval(
+            data.home.remittance, //json e name add korte hobe
+            common.GlobalLocator
+        )
+
+    })
+})
+
+//// করণীয় ( অননুমোদিত )
+describe.skip("Working Attendance module Attendance approval", ()=> {
+    it("TC_1. PE: Working Attendance module Attendance approval",()=>{
+        cy.login(data.validLoginCredentials.anik.username,data.validLoginCredentials.anik.password)
+ 
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+
+        //Notification 
+        commonPage.checkNotificationIcon()
+
+        //উপস্থিতি
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendance)
+        //হোম
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.home,data.leftNavMenu.attendanceSubMenu.home)
+        
+        //করণীয় ( উপস্থিতি অনুমোদন, প্রেরিত, অনুমোদিত, অননুমোদিত ) - Panel
+        commonPage.getTabBtn(common.GlobalLocator.matExpandPanel, data.home.todosPanel)
+
+        ///সন্ধান করুন
+       homePage.searchBtnField()
+ 
+       /// checkBox checked
+
+        ////paginator ----100
+        commonPage.getPaginator()
+    
+
+        //Person-4
+        //check checkboxfirst (Attendance Panel)
+        commonPage.addParticipantDetails(
+                data.home.attendance['person4']
+        )
+
+        // পরবর্তী পদক্ষেপ
+        commonPage.getsaveBtn(or.todos.AttendanceApprovalBtn)
+
+        /// অননুমোদন  
+        //tab অননুমোদন
+        commonPage.getUnauthorizedBtn(common.pendingList.unauthorizedBtn)
+        commonPage.getCommentField(data.pendingList.comment)
+        commonPage.getUnauthorizedBtn(common.GlobalLocator.unauthorizedBtn)
+        commonPage.getCompleteBtn(common.pendingList.completeBtn)
+
+    })
+})
 
 
 afterEach(() => {

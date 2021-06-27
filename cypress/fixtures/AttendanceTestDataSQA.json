@@ -13,6 +13,10 @@
         "sujit":{
             "username": "sujt0002",
             "password": "123456789"
+        },
+        "anik":{
+            "username": "anik0001",
+            "password": "123456789"
         }
     },
     
@@ -38,6 +42,7 @@
         "shiftPanel":"শিফট ( শিফট, শিফট অর্পণ, ওভারটাইম, স্বহাজিরা )",
         "todoPanel": "করণীয় ( উপস্থিতি অনুমোদন, প্রেরিত, অনুমোদিত, অননুমোদিত )",
         "attendancePanel": "উপস্থিতি ( দৈনিক উপস্থিতি )",
+        "todosPanel": "করণীয় ( উপস্থিতি অনুমোদন, প্রেরিত, অনুমোদিত, অননুমোদিত )",
         "shiftDelivaryTab":"শিফট অর্পণ",
         "overTimeTab": "ওভারটাইম",
         "companionsTab": "স্বহাজিরা",
@@ -106,7 +111,8 @@
                 "entryTimeMM": "00",
                 "departureTimeHH": "20",
                 "departureTimeMM": "00",
-                "externalStation":"Meeting"
+                "externalStation":"Meeting",
+                "overTime": "2"
              },
            
              "person2":"মোরশেদ আলম ICTD",
@@ -115,7 +121,8 @@
                 "entryTimeMM": "25",
                 "departureTimeHH": "16",
                 "departureTimeMM": "00",
-                "externalStation":"Meeting"
+                "externalStation":"Meeting",
+                "overTime": "2"
              },
              "person3": "রাইসা আমিন ICTD",
              "person3TimeOrStation":{
@@ -123,7 +130,8 @@
                 "entryTimeMM": "00",
                 "departureTimeHH": "20",
                 "departureTimeMM": "00",
-                "externalStation":"Meeting"
+                "externalStation":"Meeting",
+                "overTime": "2"
              },
              "person4": "তায়েফ ইমাম ICTD",
              "person4TimeOrStation":{
@@ -131,11 +139,21 @@
                 "entryTimeMM": "00",
                 "departureTimeHH": "20",
                 "departureTimeMM": "00",
-                "externalStation":"Meeting"
+                "externalStation":"Meeting",
+                "overTime": "2"
              }
         },
         "SentForApproval":{
-            "employeeName": ""
+            "employeeName": "অনিক রায়, ব্যবহারকারী",
+            "completebtnName": "সম্পন্ন করুন"
+        },
+        "remittance":{
+            "employeeName": "সুজিত কুমার পাল ICTD, দল প্রধান-এসকিউএ টিম"
+        },
+        "todos":{
+            "remittance": "প্রেরিত",
+            "approval": "অনুমোদিত",
+            "unauthorized": "অননুমোদিত"
         }
   }
 

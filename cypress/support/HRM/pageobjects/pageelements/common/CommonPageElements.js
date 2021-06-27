@@ -87,6 +87,10 @@ export default class CommonPageElements{
         return cy.get(selector)
      }
 
+     getUnauthorizedBtn(selector){
+      return cy.get(selector)
+     }
+
      getTabBtn(selector){
          return cy.get(selector)
      }
