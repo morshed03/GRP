@@ -34,7 +34,11 @@
     "leftNavMenu":{
         "attendance": "উপস্থিতি",
         "attendanceSubMenu":{
-            "home":"হোম"
+            "home":"হোম",
+            "reports": "প্রতিবেদন",
+            "dailyAttendanceReport": "দৈনিক উপস্থিতি প্রতিবেদন",
+            "employeeAttendanceReport": "কর্মচারী উপস্থিতি প্রতিবেদন",
+            "officeUnitAttendanceReport": "শাখাভিত্তিক উপস্থিতি প্রতিবেদন"
         }
     },
 

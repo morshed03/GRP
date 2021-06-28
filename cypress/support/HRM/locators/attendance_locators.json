@@ -2,7 +2,10 @@
 
     "leftNavmenuItems":{
        "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
-        "home": "a[href*='hrm/attendance/home']:eq(0)"
+        "home": "a[href*='hrm/attendance/home']:eq(0)",
+        "dailyAttendanceReport": "a[href*='hrm/attendance/reports/daily-attendance-report']:eq(0)",
+        "employeeAttendanceReport": "a[href*='hrm/attendance/reports/employee-attendance-report']:eq(0)",
+        "officeUnitAttendanceReport": "a[href*='hrm/attendance/reports/office-unit-attendance-report']:eq(0)"
     },
 
     "shift": {

@@ -626,6 +626,73 @@ describe.skip("Working Attendance module Attendance approval", ()=> {
 })
 
 
+////////// প্রতিবেদন
+
+///দৈনিক উপস্থিতি প্রতিবেদন
+
+describe.skip("Working Attendance module dailyAttendanceReport", ()=> {
+    it("TC_1. PE: Working Attendance module dailyAttendanceReport",()=>{
+        cy.login(data.validLoginCredentials.sujit.username,data.validLoginCredentials.sujit.password)
+ 
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+
+        //উপস্থিতি
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendance)
+
+        //প্রতিবেদন
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendanceSubMenu.reports)
+        
+        //দৈনিক উপস্থিতি প্রতিবেদন
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.dailyAttendanceReport,data.leftNavMenu.attendanceSubMenu.dailyAttendanceReport)
+
+        ///সন্ধান করুন
+       homePage.searchBtnField()
+    })
+})
+ 
+///কর্মচারী উপস্থিতি প্রতিবেদন
+describe.skip("Working Attendance module employeeAttendanceReport", ()=> {
+    it("TC_1. PE: Working Attendance module employeeAttendanceReport",()=>{
+        cy.login(data.validLoginCredentials.sujit.username,data.validLoginCredentials.sujit.password)
+ 
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+
+        //উপস্থিতি
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendance)
+
+        //প্রতিবেদন
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendanceSubMenu.reports)
+        
+        //দৈনিক উপস্থিতি প্রতিবেদন
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.employeeAttendanceReport,data.leftNavMenu.attendanceSubMenu.employeeAttendanceReport)
+
+        ///সন্ধান করুন
+       homePage.searchBtnField()
+    })
+})
+
+///শাখাভিত্তিক উপস্থিতি প্রতিবেদন
+describe.skip("Working Attendance module officeUnitAttendanceReport", ()=> {
+    it("TC_1. PE: Working Attendance module officeUnitAttendanceReport",()=>{
+        cy.login(data.validLoginCredentials.sujit.username,data.validLoginCredentials.sujit.password)
+ 
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+
+        //উপস্থিতি
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendance)
+
+        //প্রতিবেদন
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.attendanceSubMenu.reports)
+        
+        //দৈনিক উপস্থিতি প্রতিবেদন
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.officeUnitAttendanceReport,data.leftNavMenu.attendanceSubMenu.officeUnitAttendanceReport)
+
+        ///সন্ধান করুন
+       homePage.searchBtnField()
+    })
+})
+
+
 afterEach(() => {
     cy.logout(common.logoutPage.logoutDropdownBtn2,common.logoutPage.logoutBtn2)
 })
