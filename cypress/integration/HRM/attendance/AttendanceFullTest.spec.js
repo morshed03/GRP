@@ -687,8 +687,11 @@ describe.skip("Working Attendance module officeUnitAttendanceReport", ()=> {
         //দৈনিক উপস্থিতি প্রতিবেদন
         commonPage.getLeftNavSubMenu(or.leftNavmenuItems.officeUnitAttendanceReport,data.leftNavMenu.attendanceSubMenu.officeUnitAttendanceReport)
 
-        ///সন্ধান করুন
-       homePage.searchBtnField()
+
+        branchNameAndSearch(
+            data.home.reports,
+            common.GlobalLocator
+            )
     })
 })
 

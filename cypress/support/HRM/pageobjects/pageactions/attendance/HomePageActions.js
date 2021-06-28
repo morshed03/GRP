@@ -206,4 +206,18 @@ export default class HomePageActions{
     }
 
 
+    /////branch Name
+    branchNameAndSearch(
+        configurationObject,
+        searchBtn2Selector
+        ){
+            commonpageelement.branchField().click({force: true})
+            cy.wait(1000)
+            commonpageelement.DropdownItem().contains(configurationObject['branchName']).click({force: true})
+            cy.wait(1000)
+            commonpageelement.getSearchBtn(searchBtn2Selector['searchBtn2']).click({force: true})
+            cy.wait(2000)
+        }
+
+
 }

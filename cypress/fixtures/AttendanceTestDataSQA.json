@@ -158,7 +158,10 @@
             "remittance": "প্রেরিত",
             "approval": "অনুমোদিত",
             "unauthorized": "অননুমোদিত"
-        }
+        },
+       "reports": {
+            "branchName": "মডিউল মেইনটেনেন্স শাখা"
+       }
   }
 
 

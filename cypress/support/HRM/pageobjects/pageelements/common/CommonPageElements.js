@@ -206,4 +206,8 @@ export default class CommonPageElements{
    return cy.get(or.GlobalLocator.notificationIcon)
   }
 
+  ///Branch Field
+  branchField(){
+   return cy.get(common.GlobalLocator.branchField)
+   }
 }
