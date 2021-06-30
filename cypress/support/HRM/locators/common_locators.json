@@ -91,6 +91,8 @@
 
     "DateField":{
         "calendarArrow":".mat-calendar-header .mat-calendar-arrow",
+        "PreviousBtn": "button[aria-label='Previous month']",
+        "NextBtn": "button[aria-label='Next month']",
         "YYMMDD": ".mat-calendar-content .mat-calendar-body-cell-content:visible"
     }
 } 

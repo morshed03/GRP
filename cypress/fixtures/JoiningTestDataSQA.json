@@ -1,0 +1,80 @@
+{
+
+    "invalidLoginCredentials":{
+        "username": " ",
+        "password": " "
+    },
+
+    "validLoginCredentials":{
+        "morshed":{
+            "username": "mors0001",
+            "password": "123456789"
+        },
+        "sujit":{
+            "username": "sujt0001",
+            "password": "123456789"
+        }
+    },
+    
+    "loginErrorMessage":{
+        "errorMessage": "ব্যবহারকারীর আইডি অথবা পাসওয়ার্ড ভুল"
+    },
+
+    "pageWait":{
+        "tooShort":1000,
+        "short": 3000,
+        "medium": 5000,
+        "long": 8000    
+    },
+
+    "leftNavMenu":{
+        "recruitmentJoining": "নিয়োগ ও যোগদান",
+        "joinAndApprove":"যোগদান ও অনুমোদন",
+        "reports": "প্রতিবেদন",
+        "joiningSubMenu":{
+            "joining":"যোগদান",
+            "pendingList": "অপেক্ষমাণ তালিকা",
+            "joinedEmployees": "যোগদানকৃত কর্মচারীর তালিকা"
+        }
+    },
+
+    "joiningDetails": {
+
+        "joining1":{
+            "nameBn": "শাহাদাত",
+            "employeeNameEn": "Sahadat",
+            "dateOfBirthDD": "২২",
+            "dateOfBirthMM": "জানুয়ারী",
+            "dateOfBirthYY": "১৯৯২",
+            "mobileNo" : "01721111111",
+            "email": "sahadat@batworld.com",
+            "recruitmentTypeOid": "ক্যাডার",
+            "recruitmentAuthorityOid": "Cokreates Office",
+            "rankType": "গেজেটেড",
+            "employmentTypeOid": "ক্যাডার",
+            "joiningDateDD": "১৬",
+            "joiningDateMM": "জুলাই",
+            "joiningDateYY": "২০২১",
+            "branch": "বিজনেস সলিউশন ইউনিট",
+            "position": "এডমিনিস্ট্রেটর (ওয়েব)",
+            "joiningDateForPostDD": "১৬",
+            "joiningDateForPostMM": "জুলাই",
+            "joiningDateForPostYY": "২০২১",
+
+            "recruitmentNoticeRefNo": "ref-01",
+            "recruitmentNoticeRefDateDD": "১৬",
+            "recruitmentNoticeRefDateMM": "জুলাই",
+            "recruitmentNoticeRefDateYY": "২০২১",
+            "meritPosition": "5",
+            "description2": "joined"
+              
+        } 
+    },
+
+    "pendingList":{
+        "searchEmp":"ইরফাত আরা",
+        "comment": "approved"
+    }
+    
+
+}

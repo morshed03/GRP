@@ -192,6 +192,15 @@ export default class CommonPageElements{
       return cy.get(or.DateField.calendarArrow)
    }
 
+
+   getPreviousBtnField(){
+      return cy.get(or.DateField.PreviousBtn)
+   }
+
+   getNextBtnField(){
+      return cy.get(or.DateField.NextBtn)
+   }
+
   getYYMMDDField(){
    return cy.get(or.DateField.YYMMDD)
   }

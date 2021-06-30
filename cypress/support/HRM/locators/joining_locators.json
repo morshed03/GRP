@@ -1,0 +1,35 @@
+{
+
+    "leftNavmenuItems":{
+       "disciplineInvestigation": "mat-expansion-panel-header[id^='mat-expansion-panel-header'] span span",
+        "joining": "a[href*='hrm/recruitment-joining/join-approval/create']:eq(0)",
+        "pendingList": "a[href*='hrm/recruitment-joining/join-approval/pending-list']:eq(0)",
+        "joinedEmployees": "a[href*='hrm/recruitment-joining/report/employee-list']:eq(0)"
+    },
+
+    "joinAndApprove": {
+
+        "joiningDetails":{
+            "nameBn": "mat-card-content input[id='nameBn']",
+            "employeeNameEn": "mat-card-content input[id='employeeNameEn']",
+            "dateOfBirth": "mat-card-content input[id='dateOfBirth']",
+            "mobileNo" : "mat-card-content input[id='mobileNo']",
+            "email": "mat-card-content input[id='email']",
+            "recruitmentTypeOid": "mat-card-content input[id='auto-recruitmentTypeOid']",
+            "recruitmentAuthorityOid": "mat-card-content input[id='auto-recruitmentAuthorityOid']",
+            "rankType": "mat-card-content input[id='auto-rankType']",
+            "employmentTypeOid": "mat-card-content input[id='auto-employmentTypeOid']",
+            "joiningDate": "mat-card-content input[id='joiningDate']",
+            "branch": "mat-card-content input[id*='mat-input-']:eq(0)",
+            "position": "mat-card-content input[id*='mat-input-']:eq(1)",
+            "joiningDateForPost": "mat-card-content input[id='joiningDateForPost']",
+
+            "recruitmentNoticeRefNo": "mat-card-content input[id='recruitmentNoticeRefNo']",
+            "recruitmentNoticeRefDate": "mat-card-content input[id='recruitmentNoticeRefDate']",
+            "meritPosition": "mat-card-content input[id='meritPosition']",
+            "description2": "mat-card-content textarea[id='description2']"
+              
+        } 
+    }
+    
+}
