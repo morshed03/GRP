@@ -14,15 +14,15 @@ export default class JoiningPageActions{
     joiningInformationDetails(joiningObject){
 
         //কর্মচারীর নাম (বাংলা
-        joiningPageElement. nameBnField()().type().should('have.value', )
+        joiningPageElement.nameBnField().type(joiningObject['nameBn']).should('have.value', joiningObject['nameBn'])
         cy.wait(1000)
 
          //কর্মচারীর নাম (ইংরেজি) *
-         joiningPageElement. employeeNameEnField()().type().should('have.value', )
+         joiningPageElement.employeeNameEnField().type(joiningObject['employeeNameEn']).should('have.value', joiningObject['employeeNameEn'])
          cy.wait(1000)
 
          // জন্ম তারিখ *
-         joiningPageElement. dateOfBirthField().click({force: true})
+         joiningPageElement.dateOfBirthField().click({force: true})
          cy.wait(1000)
  
           //Date Arrow click
@@ -34,23 +34,101 @@ export default class JoiningPageActions{
           cy.wait(1000)
 
           //dateOfBirthyy
-          commonpageelement.getYYMMDDField().contains().click({force: true})
+          commonpageelement.getYYMMDDField().contains(joiningObject['dateOfBirthYY']).click({force: true})
           cy.wait(1000)
   
           //dateOfBirthmm
-          commonpageelement.getYYMMDDField().contains().click({force: true})
+          commonpageelement.getYYMMDDField().contains(joiningObject['dateOfBirthMM']).click({force: true})
           cy.wait(1000)
   
           //dateOfBirthdd
-          commonpageelement.getYYMMDDField().contains().click({force: true})
+          commonpageelement.getYYMMDDField().contains(joiningObject['dateOfBirthDD']).click({force: true})
           cy.wait(1000)
 
+          //মোবাইল *
+          joiningPageElement.mobileNoField().type(joiningObject['mobileNo']).should('have.value', joiningObject['mobileNo'])
 
-        // configurationpageelement.sessionTypeField().click({force: true})
-        // cy.wait(1000)
-        // commonpageelement.DropdownItem().contains(sessionType).click({force: true})
-        // cy.wait(1000)
-         
+          //ইমেইল *
+          joiningPageElement.emailField().type(joiningObject['email']).should('have.value', joiningObject['email'])
+
+          //নিয়োগের ধরন *
+
+          joiningPageElement.recruitmentTypeOidField().click({force: true})
+          cy.wait(1000)
+          commonpageelement.DropdownItem().contains(joiningObject['recruitmentTypeOid']).click({force: true})
+          cy.wait(1000)
+
+          //নিয়োগকারী কর্তৃপক্ষ *
+          joiningPageElement.recruitmentAuthorityOidField().click({force: true})
+          cy.wait(1000)
+          commonpageelement.DropdownItem().contains(joiningObject['recruitmentAuthorityOid']).click({force: true})
+          cy.wait(1000)
+
+          //গেজেটেড/ ননগেজেটেড/ অন্যান্য *
+          joiningPageElement.rankTypeField().click({force: true})
+          cy.wait(1000)
+          commonpageelement.DropdownItem().contains(joiningObject['rankType']).click({force: true})
+          cy.wait(1000)
+
+          ///ক্যাডার/নন-ক্যাডার/চুক্তিভিত্তিক *
+          joiningPageElement.employmentTypeOidField().click({force: true})
+          cy.wait(1000)
+          commonpageelement.DropdownItem().contains(joiningObject['employmentTypeOid']).click({force: true})
+          cy.wait(1000)
+
+          //চাকরিতে যোগদানের তারিখ *
+          joiningPageElement.joiningDateField().click({force: true})
+          cy.wait(1000)
+ 
+          //Date Arrow click
+          commonpageelement.getCalendarArrowField().click({force: true})
+          cy.wait(1000)
+
+          //joiningDateyy
+          commonpageelement.getYYMMDDField().contains(joiningObject['joiningDateYY']).click({force: true})
+          cy.wait(1000)
+  
+          //joiningDatemm
+          commonpageelement.getYYMMDDField().contains(joiningObject['joiningDateMM']).click({force: true})
+          cy.wait(1000)
+  
+          //joiningDatedd
+          commonpageelement.getYYMMDDField().contains(joiningObject['joiningDateDD']).click({force: true})
+          cy.wait(1000)
+
+          ///শাখা *
+
+          joiningPageElement.branchField().click({force: true})
+          cy.wait(1000)
+          commonpageelement.DropdownItem().contains(joiningObject['branch']).click({force: true})
+          cy.wait(1000)
+
+          ///পদ (শুন্য) *
+          joiningPageElement.positionField().click({force: true})
+          cy.wait(1000)
+          commonpageelement.DropdownItem().contains(joiningObject['position']).click({force: true})
+          cy.wait(1000)
+
+           //বর্তমান পদে যোগদানের তারিখ *
+           joiningPageElement.joiningDateForPostField().click({force: true})
+           cy.wait(1000)
+  
+           //Date Arrow click
+           commonpageelement.getCalendarArrowField().click({force: true})
+           cy.wait(1000)
+ 
+           //joining date current position yy
+           commonpageelement.getYYMMDDField().contains(joiningObject['joiningDateForPostYY']).click({force: true})
+           cy.wait(1000)
+   
+           //joining date current position mm
+           commonpageelement.getYYMMDDField().contains(joiningObject['joiningDateForPostMM']).click({force: true})
+           cy.wait(1000)
+   
+           //joining date current position dd
+           commonpageelement.getYYMMDDField().contains(joiningObject['joiningDateForPostDD']).click({force: true})
+           cy.wait(1000)
+
     }
 
 }

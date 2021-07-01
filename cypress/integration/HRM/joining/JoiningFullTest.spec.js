@@ -46,55 +46,154 @@ describe("Working Recruitment and joining module",()=>{
         ///নিয়োগ ও যোগদান সংক্রান্ত তথ্যাবলি
         joiningPage.joiningInformationDetails(data.joiningDetails.joining1)
 
-    //     ///ADD সংযুক্তির তালিকা
-    //     commonPage.addBtn(common.GlobalLocator.addBtn)
-
-        
+        /// সংরক্ষণ ও পরবর্তী পদক্ষেপ 
+        commonPage.getsaveBtn(common.GlobalLocator.completeBtn)
 
 
-    // //Sent for approval(অনুমোদনের জন্য পাঠানো)
-    //    complaintPage.employeeForApproved(
-    //        data.complaintPage.orderEdit.selectEmployeeForApproved,
-    //        or.complaintPage.order.orderEdit.sendBtn,
-    //        common.GlobalLocator.completeBtn)             
+        //অনুমোদনের জন্য প্রেরণ
+       commonPage.SentForApproval(
+        data.joiningDetails.SentForApproval,
+        common.GlobalLocator
+    )           
 
     })
- 
-    // অথরিটি কে দিয়ে কর্মচারী কে অনুমোদিত করা
-    /*
-    it("TC_2. PE: Authority to approve the employee",() =>{
-        cy.login(data.validLoginCredentials.sujit.username,data.validLoginCredentials.sujit.password)
-
-        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
-        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.dp);
-        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.pendingList,data.leftNavMenu.dpSubMenu.pendingList)
-        
-        
-        
-        pendinglistPage.searchField(data.pendingList.searchEmp)
-        pendinglistPage.editPendingListBtn(or.pendingList.editBtn)
-
-
-        //সংযুক্তির ধরন 
-        commonPage.getSearchListWithSelectorByName(
-            common.pendingList.searchByName1,
-            data.complaintPage.attachment.selectAttchment)
-        
-        //pendinglistPage.viewFileField()
-        //pendinglistPage.closeBtnField()
-
-        complaintPage.ordernextStepBtn(or.complaintPage.order.orderEdit.orderNextStepBtn)
-        //অনুমোদিত করা
-        commonPage.getApprovalBtn(or.pendingList.approvalBtn)
-        pendinglistPage.approvalCommentField(data.pendingList.comment)
-        commonPage.getApprovalBtn(common.GlobalLocator.approvalBtn)
-        commonPage.getCompleteBtn(common.GlobalLocator.completeBtn)
-    })
-    */
-
-  
 
 })
+
+/////অনুমোদন করা
+describe("Working Recruitment and joining module For Approved",()=>{
+
+    //নিয়োগ ও যোগদান  কর্মকর্তা কর্মচারী কে অনুমোদন করা
+    it("TC_1. PE: Approve the recruitment and joining officer staff ",()=>{
+        cy.login(data.validLoginCredentials.sujit.username,data.validLoginCredentials.sujit.password)
+        
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+        
+        //নিয়োগ ও যোগদান
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.recruitmentJoining)
+
+        //যোগদান ও অনুমোদন
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.joinAndApprove)
+        
+        //অপেক্ষমাণ তালিকা
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.pendingList,data.leftNavMenu.joiningSubMenu.pendingList)  
+        
+        //Search Employee 
+        commonPage.getSearchListWithSelectorByName(
+            common.GlobalLocator['searchByName'],
+            data.joiningDetails.joining1['nameBn']
+        )
+
+        /// Edit Btn
+        commonPage.getEditBtn(common.GlobalLocator.editBtn)
+
+        commonPage.getScroll('bottom')
+
+        /// সংরক্ষণ ও পরবর্তী পদক্ষেপ
+        commonPage.getsaveBtn(common.GlobalLocator.completeBtn)
+ 
+        ///অনুমোদন
+        commonPage.getApprovalBtn(common.pendingList.approvalBtn)
+        commonPage.getCommentField(data.pendingList.comment)
+        commonPage.getApprovalBtn(common.GlobalLocator.approvalBtn)
+        commonPage.getCompleteBtn(common.pendingList.completeBtn)
+
+
+        //ইতিহাস
+        commonPage.getTabBtn(common.GlobalLocator.tabBtn,data.pendingList.historyTab)
+        //Search Employee 
+        commonPage.getSearchListWithSelectorByName(
+            common.GlobalLocator['searchByName'],
+            data.joiningDetails.joining1['nameBn']
+        )
+
+    })
+
+})
+
+////অননুমোদন  করা
+describe("Working Recruitment and joining module For Unauthorized",()=>{
+
+    //নিয়োগ ও যোগদান  কর্মকর্তা কর্মচারী কে অননুমোদন  করা
+    it("TC_1. PE: Unauthorized the recruitment and joining officer staff ",()=>{
+        cy.login(data.validLoginCredentials.sujit.username,data.validLoginCredentials.sujit.password)
+        
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+        
+        //নিয়োগ ও যোগদান
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.recruitmentJoining)
+
+        //যোগদান ও অনুমোদন
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.joinAndApprove)
+        
+        //অপেক্ষমাণ তালিকা
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.pendingList,data.leftNavMenu.joiningSubMenu.pendingList)  
+        
+        //Search Employee 
+        commonPage.getSearchListWithSelectorByName(
+            common.GlobalLocator['searchByName'],
+            data.joiningDetails.joining1['nameBn']
+        )
+
+        /// Edit Btn
+        commonPage.getEditBtn(common.GlobalLocator.editBtn)
+
+        commonPage.getScroll('bottom')
+
+        /// সংরক্ষণ ও পরবর্তী পদক্ষেপ
+        commonPage.getsaveBtn(common.GlobalLocator.completeBtn)
+ 
+        ///অননুমোদন 
+        commonPage.getUnauthorizedBtn(common.pendingList.unauthorizedBtn3)
+        commonPage.getCommentField(data.pendingList.comment)
+        commonPage.getUnauthorizedBtn(common.GlobalLocator.unauthorizedBtn1)
+        commonPage.getCompleteBtn(common.pendingList.completeBtn)
+
+
+        //ইতিহাস
+        commonPage.getTabBtn(common.GlobalLocator.tabBtn,data.pendingList.historyTab)
+        //Search Employee 
+        commonPage.getSearchListWithSelectorByName(
+            common.GlobalLocator['searchByName'],
+            data.joiningDetails.joining1['nameBn']
+        )
+
+    })
+
+})
+
+
+////প্রতিবেদন
+describe.only("Working Recruitment and joining module For Reports",()=>{
+
+    //নিয়োগ ও যোগদান  যোগদানকৃত কর্মচারীর তালিকা
+    it("TC_1. PE: Recruitment and Joining List of joined employees Reports ",()=>{
+        cy.login(data.validLoginCredentials.sujit.username,data.validLoginCredentials.sujit.password)
+        
+        commonPage.getDashboardAvatar(common.dashboardPage.hrmAvatar)
+        
+        //নিয়োগ ও যোগদান
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.recruitmentJoining)
+
+        //প্রতিবেদন
+        commonPage.getLeftNavMenu(or.leftNavmenuItems.disciplineInvestigation, data.leftNavMenu.reports)
+        
+        //যোগদানকৃত কর্মচারীর তালিকা
+        commonPage.getLeftNavSubMenu(or.leftNavmenuItems.joinedEmployees,data.leftNavMenu.joiningSubMenu.joinedEmployees)  
+        
+        commonPage.getSearchBtn(common.GlobalLocator.searchBtn3)
+
+         //Search Employee 
+         commonPage.getSearchListWithSelectorByName(
+            common.GlobalLocator['searchByName'],
+            data.joiningDetails.joining1['nameBn']
+        )
+
+        
+    })
+
+})
+
 
 afterEach(() => {
     cy.logout(common.logoutPage.logoutDropdownBtn2,common.logoutPage.logoutBtn2)

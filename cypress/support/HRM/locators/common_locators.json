@@ -17,6 +17,7 @@
         "approvalBtn": ".mat-dialog-actions button.btn-success",
         "approvalBtn2": ".mat-dialog-actions button.btn.approved-color",
         "unauthorizedBtn": "mat-dialog-container button.btn.btn-danger:eq(0)",
+        "unauthorizedBtn1": "mat-dialog-container button.btn-danger:eq(0)",
         "cancelBtn":"mat-dialog-actions button.btn.bg-danger",
         "cancelBtn2": "mat-dialog-actions button.bg-danger",
         "cancelBtn3": "mat-card-actions button.btn.bg-danger",
@@ -83,6 +84,7 @@
         "approvalBtn": "button.mat-button-toggle-button:eq(2)",
         "approvalBtn2": "button.mat-button-toggle-button:eq(1)",
         "unauthorizedBtn": "button.mat-button-toggle-button:eq(2)",
+        "unauthorizedBtn3": "button.mat-button-toggle-button:eq(3)",
         "completeBtn":"mat-dialog-container button.btn.bg-success",
         "comment": ".mat-form-field-infix textarea[name='comment']",
         "viewFile":"button[mattooltip*='ফাইলটি দেখুন']",
@@ -91,8 +93,8 @@
 
     "DateField":{
         "calendarArrow":".mat-calendar-header .mat-calendar-arrow",
-        "PreviousBtn": "button[aria-label='Previous month']",
-        "NextBtn": "button[aria-label='Next month']",
+        "PreviousBtn": "button[aria-label*='Previous']",
+        "NextBtn": "button[aria-label*='Next']",
         "YYMMDD": ".mat-calendar-content .mat-calendar-body-cell-content:visible"
     }
 } 

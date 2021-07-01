@@ -68,11 +68,15 @@
             "meritPosition": "5",
             "description2": "joined"
               
-        } 
+        },
+        "SentForApproval": {
+            "employeeName": "সুজিত কুমার পাল, সিনিয়র সচিব",
+            "completebtnName":"সম্পন্ন করুন"
+        }
     },
 
     "pendingList":{
-        "searchEmp":"ইরফাত আরা",
+        "historyTab":"ইতিহাস",
         "comment": "approved"
     }
     

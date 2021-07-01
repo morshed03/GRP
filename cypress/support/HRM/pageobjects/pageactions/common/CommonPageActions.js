@@ -37,6 +37,11 @@ export default class CommonPageActions{
         cy.wait(1000)
     }
 
+    getSearchBtn(selector){
+        commonpageelement.getSearchBtn(selector).click({force: true})
+        cy.wait(1000)
+     }
+
     getSendBtn(selector){
         commonpageelement.getSendBtn(selector).click({force: true})
         cy.wait(1000)
@@ -78,6 +83,7 @@ export default class CommonPageActions{
         commonpageelement.getApprovalBtn(selector).click({force: true})
         cy.wait(2000)
     }
+
 
     getUnauthorizedBtn(selector){
         commonpageelement.getUnauthorizedBtn(selector).click({force: true})
