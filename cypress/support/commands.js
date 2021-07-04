@@ -9,8 +9,8 @@ require('cypress-downloadfile/lib/downloadFileCommand')
 // Import pages 
 // ***********************************************
 //Common page import
-import LoginPage from '../support/commonPage/LoginPage'
-import DashboardPage from '../support/commonPage/DashboardPage'
+import LoginPage from '../support/commonGRPPages/LoginPage'
+import DashboardPage from './commonGRPPages/DashboardPageElements'
 //PRC page import
 import RequisitionDeclarationPage from '../support/PRC/pageObjects/RequisitionDeclarationPage'
 //AST page import

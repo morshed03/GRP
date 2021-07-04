@@ -1,0 +1,27 @@
+{
+    "Login":{
+        "UserNameInputBox": "input[name=\"username\"]",
+        "PasswordInputBox": "input[name=\"password\"]",
+        "EnterButton": "button.btn.btn-primary[type=\"button\"]",
+        "ValidationMessage": ".mat-simple-snackbar > :nth-child(1)"
+    },
+
+    "SelectOffice":{
+        "OfficePopUpHeader": "mat-dialog-container div>p",
+        "OfficeName": "mat-dialog-container div>button"
+    },
+
+    "GRPDashboardPage":{
+        "ACCAvatar": "img[src=\"assets/img/brand/accounts.svg\"]",
+        "HRMAvatar": "img[src=\"assets/img/brand/HRM-V2.svg\"]",
+        "ASTAvatar": "img[src=\"assets/img/brand/asset.svg\"]",
+        "PRCAvatar": "img[src=\"assets/img/brand/procurement.svg\"]",
+        "INVAvatar": "img[src=\"assets/img/brand/inventory.svg\"]"
+    },
+
+    "Logout":{
+        "UserAvatar": "img.img-avatar",
+        "ExitLink": "//button[contains(text(),\"বাহির\") and @type=\"button\"]",
+        "GRPDashbardIcon": "img[src=\"assets/img/brand/grp_home.svg\"]"
+    }
+}

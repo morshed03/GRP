@@ -1,20 +1,22 @@
+const or = require("../commonGRPPages/commonGRPLocators.json")
+
 class LoginPage
 {
     getUserNameInputBox()   //ব্যবহারকারীর নাম field
     {
-        return cy.get('input[name="username"]')
+        return cy.get(or.Login.UserNameInputBox)
     }
     getPasswordInputBox()   //পাসওয়ার্ড field
     {
-        return cy.get('input[name="password"]')
+        return cy.get(or.Login.PasswordInputBox)
     }
     getEnterButton() //প্রবেশ করুন button
     {
-        return cy.get('button.btn.btn-primary[type="button"]')
+        return cy.get(or.Login.EnterButton)
     }
     getValidationMessage() //Validation message
     {
-        return cy.get('.mat-simple-snackbar > :nth-child(1)')
+        return cy.get(or.Login.ValidationMessage)
     }
 }
 export default LoginPage;

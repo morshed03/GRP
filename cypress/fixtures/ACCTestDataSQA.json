@@ -1,17 +1,17 @@
 {
-    "AdminID": "sujt0001",
-    "AdminPassword": "123456789",
+    "AccCredentials":{
+        "AdminID": "sujt0001",
+        "AccountOfficerID": "mors0001",
+        "DDOID": "nila0001",
+        "DDOName": "শামীমা নাসরিন",
+        "AuthorizedOfficerID": "taif0001",
+        "Password": "123456789"
+    },
 
-    "AccountOfficerID": "mors0001",
-    "AccountOfficerPassword": "123456789",
-
-    "DDOID": "nila0001",
-    "DDOPassword": "123456789",
-    "DDOName": "শামীমা নাসরিন",
-
-    "AuthorizedOfficerID": "taif0001",
-    "AuthorizedOfficerPassword": "123456789",
-
+    "LeftMenuText": {
+        "ManageChartOfAccounts": "হিসাব রক্ষন ব্যবস্থাপনা",
+        "BankAccount": "ব্যাংক হিসাব"
+    },
     "Budget": "Test 19 August",
 
     "GlobalData":{

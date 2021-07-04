@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import CommonObjects from '../pageObjects/CommonObjects'
+import CommonObjects from '../pageElements/CommonPageElements'
 
 //Constructor
 const element = new CommonObjects()

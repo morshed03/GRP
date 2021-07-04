@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
-import BankAccountPage from '../pageObjects/BankAccountPage'
-import CommonObjects from '../pageObjects/CommonObjects'
+import BankAccountPage from '../pageElements/BankAccountPage'
+import CommonObjects from '../pageElements/CommonPageElements'
 
 //Constructor
 const element = new BankAccountPage()

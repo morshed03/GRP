@@ -1,4 +1,6 @@
-class DashboardPage
+const or = require("./commonGRPLocators.json")
+
+class DashboardPageElements
 {   
     //অফিস/পদ নির্বাচন করুন pop-up locators -----------------------
     getOfficePopUpHeader()  // Pop-up title
@@ -13,23 +15,23 @@ class DashboardPage
     //Dashboard page locators --------------------------------------
     getACCAvatar()  //ACC avatar
     {
-        return cy.get('img[src="assets/img/brand/accounts.svg"]')
+        return cy.get(or.GRPDashboardPage.ACCAvatar)
     }
-    getHRMAvatar()  //AST avatar
+    getHRMAvatar()  //HRM avatar
     {
-        return cy.get('img[src="assets/img/brand/HRM.svg"]')
+        return cy.get(or.GRPDashboardPage.HRMAvatar)
     }
     getASTAvatar()  //AST avatar
     {
-        return cy.get('img[src="assets/img/brand/asset.svg"]')
+        return cy.get(or.GRPDashboardPage.ASTAvatar)
     }
     getPRCAvatar()  //PRC avatar
     {
-        return cy.get('img[src="assets/img/brand/procurement.svg"]')
+        return cy.get(or.GRPDashboardPage.PRCAvatar)
     }
     getINVAvatar()  //INV avatar
     {
-        return cy.get('img[src="assets/img/brand/inventory.svg"]')
+        return cy.get(or.GRPDashboardPage.INVAvatar)
     }
 
     //Log Out Locators ---------------------------------------------
@@ -52,4 +54,4 @@ class DashboardPage
         return cy.get('img[src="assets/img/brand/grp_home.svg"]')
     }
 }
-export default DashboardPage;
+export default DashboardPageElements;

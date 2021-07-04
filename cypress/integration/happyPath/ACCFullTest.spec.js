@@ -1,30 +1,30 @@
 /// <reference types="Cypress" />
 
 //import pages
-import DashboardPage from '../../support/commonPage/DashboardPage'
-import LeftNavMenu from '../../support/ACC/pageObjects/LeftNavMenu'
-import BankAccountPageActions from '../../support/ACC/pageActions/BankAccountPageActions'
-import CommonPageActions from '../../support/ACC/pageActions/CommonPageActions'
-import BillPage from '../../support/ACC/pageObjects/BillPage'
-import InvoicePage from '../../support/ACC/pageObjects/InvoicePage'
-import PaymentPage from '../../support/ACC/pageObjects/PaymentPage'
-import VatTaxAitPaymentPage from '../../support/ACC/pageObjects/VatTaxAitPaymentPage'
-import FundReturnPage from '../../support/ACC/pageObjects/FundReturnPage'
-///adddd
+import DashboardPageActions from '../../support/commonGRPPages/DashboardPageActions'
+import LeftNavMenuActions from '../../support/ACCPageObjects/pageActions/LeftNavMenuActions'
+import BankAccountPageActions from '../../support/ACCPageObjects/pageActions/BankAccountPageActions'
+import CommonPageActions from '../../support/ACCPageObjects/pageActions/CommonPageActions'
+import BillPage from '../../support/ACCPageObjects/pageElements/BillPage'
+import InvoicePage from '../../support/ACCPageObjects/pageElements/InvoicePage'
+import PaymentPage from '../../support/ACCPageObjects/pageElements/PaymentPage'
+import VatTaxAitPaymentPage from '../../support/ACCPageObjects/pageElements/VatTaxAitPaymentPage'
+import FundReturnPage from '../../support/ACCPageObjects/pageElements/FundReturnPage'
 
-
-
-//Merge to team branch
-//Sahadat merge Team okk okk okk
-describe('Accounts Module Regression Test Suite', function()
-{
-    beforeEach(function() 
+//Import Test Data
+beforeEach(function() 
     {
       cy.fixture('ACCTestDataSQA').then(function(acc)
       {
         this.acc = acc
       })
-      
+    })
+
+//Manage Account,
+describe('Accounts Module Regression Test Suite', function()
+{
+    beforeEach(function() 
+    { 
       cy.visit(Cypress.env('url'))
     })
 /*
@@ -35,8 +35,8 @@ describe('Accounts Module Regression Test Suite', function()
     })
 */
     //Create page object
-    const dashboardPage = new DashboardPage()
-    const leftNavMenu = new LeftNavMenu()
+    const dashboardPageActions = new DashboardPageActions()
+    const leftNavMenuActions = new LeftNavMenuActions()
     const bankAccountPageActions = new BankAccountPageActions()
     const commonPageActions = new CommonPageActions()
     const billPage = new BillPage()
@@ -48,20 +48,19 @@ describe('Accounts Module Regression Test Suite', function()
     //ব্যাংক হিসাব তৈরি
     it.only('TC_01. Account Officer: Create a Bank account',function()
     {
-        cy.login(this.acc.AccountOfficerID, this.acc.AccountOfficerPassword)
+        cy.login(this.acc.AccCredentials.AccountOfficerID, this.acc.AccCredentials.Password)
       /*
         //Select office if needed
         dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
         dashboardPage.getOfficeName().contains(this.acc.OfficeUnit).click()
       */  cy.wait(4000)
       
-        dashboardPage.getACCAvatar().click()
+        dashboardPageActions.ClicksACC()
         cy.wait(3000)
-
-        leftNavMenu.getDropDownMenu().contains('হিসাব রক্ষন ব্যবস্থাপনা').click({force: true})
-        cy.wait(1000)
-        leftNavMenu.getBankAccountSubMenu().should('include.text', 'ব্যাংক হিসাব').click()
-        cy.wait(3000)
+        
+        //leftNavMenuActions.ManageChartOfAccounts(this.acc.LeftMenuText.ManageChartOfAccounts)
+        leftNavMenuActions.ManageChartOfAccounts('হিসাব রক্ষন ব্যবস্থাপনা')
+        leftNavMenuActions.BankAccountSubMenu(this.acc.LeftMenuText.BankAccount)
 
         commonPageActions.PageFirstHeader(this.acc.BankAccountData.BankListingPageTitle) //Verify ব্যাংক হিসাব page header
         bankAccountPageActions.ClickCreatePlusButton()  //Clicks add plus icon
@@ -861,4 +860,48 @@ describe('Accounts Module Regression Test Suite', function()
         billPage.getYesButton().should('include.text', 'হ্যাঁ').click() 
         cy.wait(6000)
     })
+})
+
+//Sub-module
+describe('Accounts Module Regression Test Suite', function()
+{
+    beforeEach(function() 
+    { 
+      cy.visit(Cypress.env('url'))
+    })
+/*
+    // Before all It Logout
+    afterEach(function()
+    {
+      cy.logout()
+    })
+*/
+    //Create page object
+    const dashboardPageActions = new DashboardPageActions()
+
+    //ব্যাংক হিসাব তৈরি
+    it('TC_01. Account Officer: Create a Bank account',function()
+    {
+        //.cy.login(this.acc.AccountOfficerID, this.acc.AccountOfficerPassword)
+      /*
+        //Select office if needed
+        dashboardPage.getOfficePopUpHeader().should('include.text', 'অফিস/পদ নির্বাচন করুন')
+        dashboardPage.getOfficeName().contains(this.acc.OfficeUnit).click()
+      */  //cy.wait(4000)
+      /*
+        dashboardPageActions.ClicksACC()
+        cy.wait(3000)
+
+        leftNavMenu.getDropDownMenu().contains('হিসাব রক্ষন ব্যবস্থাপনা').click({force: true})
+        cy.wait(1000)
+        leftNavMenu.getBankAccountSubMenu().should('include.text', 'ব্যাংক হিসাব').click()
+        cy.wait(3000)
+
+        commonPageActions.PageFirstHeader(this.acc.BankAccountData.BankListingPageTitle) //Verify ব্যাংক হিসাব page header
+        bankAccountPageActions.ClickCreatePlusButton()  //Clicks add plus icon
+        commonPageActions.PageFirstHeader(this.acc.BankAccountData.CreateBankAccountFormTitle)  //Verify create page header
+        bankAccountPageActions.AddBankAccountDetails(this.acc.BankAccountData.accountType, this.acc.BankAccountData.economicCode, this.acc.BankAccountData.bankName, this.acc.BankAccountData.branchName, this.acc.BankAccountData.accountTitle, this.acc.BankAccountData.accountNumber, this.acc.BankAccountData.routingNumber, this.acc.BankAccountData.IBANNumber, this.acc.BankAccountData.SwiftCode, this.acc.BankAccountData.SignatoryNumber)
+        //commonPageActions.Confirmed(this.acc.GlobalData.ConfirmModalHeader, this.acc.GlobalData.Yes)
+       */ 
+    }) 
 })

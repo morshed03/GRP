@@ -1,21 +1,25 @@
+/// <reference types="Cypress" />
+
+const or = require("../AccLocators.json")
+
 class LeftNavMenu
 {
     //All Menus
     getDropDownMenu()  // All drop-down menu
     {
-        return cy.get('.sidebar ast-sidebar-nav-dropdown a.nav-dropdown-toggle')
+        return cy.get(or.LeftNavMenu.DropDownMenu)
     }
 
     //কেন্দ্রীয় হিসাবরক্ষণ Menus ----------------------------------------------
     getFundReturnSubMenu()  //তহবিল ফেরত -> কেন্দ্রীয় হিসাবরক্ষণ Sub-Menu
     {
-        return cy.get('ast-sidebar-nav-items a[href*="acc/account/budget/fund-return/list"]:eq(0)')
+        return cy.get(or.LeftNavMenu.FundReturnSubMenu)
     }
 
     //হিসাব রক্ষন ব্যবস্থাপনা
     getBankAccountSubMenu()  //হিসাব রক্ষন ব্যবস্থাপনা -> ব্যাংক হিসাব Sub-Menu
     {
-        return cy.get('ast-sidebar-nav-items a[href*="acc/account/chart-of-accounts/bank-account/list"]')
+        return cy.get(or.LeftNavMenu.BankAccountSubMenu)
     }
 
     //ব্যয় Sub-Menus ----------------------------------------------

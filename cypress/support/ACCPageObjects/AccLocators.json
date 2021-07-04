@@ -4,6 +4,12 @@
         "PageHeader": ".card .card-header mat-label"
     },
 
+    "LeftNavMenu":{
+        "DropDownMenu": ".sidebar ast-sidebar-nav-dropdown a.nav-dropdown-toggle",
+        "BankAccountSubMenu": "ast-sidebar-nav-items a[href*=\"acc/account/chart-of-accounts/bank-account/list\"]",
+        "FundReturnSubMenu": "ast-sidebar-nav-items a[href*=\"acc/account/budget/fund-return/list\"]:eq(0)"
+    },
+
     "BankAccountPage":{
         
         "CreatePlusButton": ".card .card-header button",
